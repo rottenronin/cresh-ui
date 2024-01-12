@@ -1,21 +1,23 @@
 {
-  "name": "@creshpay/ui-elements",
-  "version": "5.16.1",
-  "description": "Cresh ui",
-  "author": "Cresh Team <tech@cresh.eu>",
-  "homepage": "https://cresh.eu",
+  "name": "@long2x/cresh-ui",
+  "version": "5.16.3",
+  "description": "A Vue 3 UI library that contains a set of high quality components",
+  "author": "long2x",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/creshpay/cresh-ui.git"
+    "url": "git+https://github.com/rottenronin/cresh-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/creshpay/cresh-ui/issues"
+    "url": "https://github.com/rottenronin/cresh-ui/issues"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@creshpay"
-  },
-  "keywords": [],
+  "keywords": [
+    "web",
+    "ui",
+    "forms",
+    "validations",
+    "vue3"
+  ],
   "files": [
     "dist"
   ],
@@ -118,5 +120,9 @@
     "vite-plugin-dts": "2.3.0",
     "vitest": "0.34.4",
     "vue-tsc": "1.6.5"
+  },
+  "homepage": "https://github.com/rottenronin/cresh-ui#readme",
+  "directories": {
+    "test": "tests"
   }
 }

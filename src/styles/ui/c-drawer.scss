@@ -46,7 +46,7 @@
   }
 
   &.left {
-    border-right: 1px solid var(--color-light-grey);
+    border-right: 1px solid rgb(var(--color-light-grey));
 
     &.hide {
       width: 0 !important;
