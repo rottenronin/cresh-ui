@@ -46,6 +46,7 @@
 !env.d.ts
 !vue-shim.d.ts
 !.npmrc
+!dist
 
 # Artifacts
 .DS_Store

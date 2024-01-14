@@ -1,6 +1,6 @@
 {
   "name": "@long2x/cresh-ui",
-  "version": "5.16.3",
+  "version": "5.16.4",
   "description": "A Vue 3 UI library that contains a set of high quality components",
   "author": "long2x",
   "license": "MIT",
@@ -78,7 +78,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --emitDeclarationOnly && vite build",
+    "build": "vite build",
     "preview": "vite preview --port 5050",
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",

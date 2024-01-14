@@ -1,0 +1,1 @@
+import{d as c,o as l,c as o,e,w as a,a as s,a1 as t}from"./index-e7347527.js";const u=c({__name:"AlertPage",setup(r){return(n,_)=>(l(),o("div",null,[e(t,{type:"success"},{default:a(()=>[s("Simple alert")]),_:1}),e(t,{class:"alt",type:"success"},{default:a(()=>[s("Alt success")]),_:1})]))}});export{u as default};

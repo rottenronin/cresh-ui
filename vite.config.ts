@@ -14,6 +14,7 @@ import * as path from 'path'
 // https://vitejs.dev/config/
 
 export default defineConfig({
+  // base: '/cresh-ui/',
   plugins: [
     vue({
       template: {
@@ -23,62 +24,62 @@ export default defineConfig({
       },
     }),
     vueJsx(),
-    dts(),
+    // dts(),
   ],
   resolve: {
     alias: {
       '@': path.join(__dirname, './src'),
     },
   },
-  build: {
-    lib: {
-      name: 'Cresh-UI',
-      entry: {
-        '.': path.resolve(__dirname, 'src/index.ts'),
-        ui: path.resolve(__dirname, 'src/components/ui/index.ts'),
-        icons: path.resolve(__dirname, 'src/components/icons/index.ts'),
-        'form-controls': path.resolve(__dirname, 'src/components/form-controls/index.ts'),
-        directives: path.resolve(__dirname, 'src/directives/index.ts'),
-        helpers: path.resolve(__dirname, 'src/helpers/index.ts'),
-        plugins: path.resolve(__dirname, 'src/plugins/index.ts'),
-      },
-      fileName: (format: string, entryName: string) => `${entryName === '.'
-        ? 'cresh-ui'
-        : entryName}.${format}.js`,
-      formats: ['es', 'cjs'],
-    },
-    rollupOptions: {
-      external: ['vue'],
-      output: {
-        // Provide global variables to use in the UMD build
-        // Add external deps here
-        globals: {
-          vue: 'Vue',
-        },
-      },
-      plugins: [
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        copy({
-          targets: [
-            { src: './src/styles/ui/c-notify.scss', dest: './dist/sass' },
-            { src: './src/styles/ui/c-date-picker.scss', dest: './dist/sass' },
-            { src: './src/styles/preprocessor/fonts.scss', dest: './dist/sass' },
-            { src: './src/styles/preprocessor/break-points.scss', dest: './dist/sass' },
-            { src: './src/styles/preprocessor/computeds.scss', dest: './dist/sass' },
-            { src: './src/styles/preprocessor/utils.scss', dest: './dist/sass' },
-            { src: './src/styles/themes/default-theme.css', dest: './dist' },
-            { src: './src/@types/cresh-ui.d.ts', dest: './dist' },
-            { src: './src/@types/c-datatable.d.ts', dest: './dist' },
-            { src: './src/@types/c-notify.d.ts', dest: './dist' },
-          ],
-          verbose: true,
-          copyOnce: true,
-          hook: 'writeBundle',
-        }),
-      ],
-    },
-  },
+  // build: {
+  //   lib: {
+  //     name: 'Cresh-UI',
+  //     entry: {
+  //       '.': path.resolve(__dirname, 'src/index.ts'),
+  //       ui: path.resolve(__dirname, 'src/components/ui/index.ts'),
+  //       icons: path.resolve(__dirname, 'src/components/icons/index.ts'),
+  //       'form-controls': path.resolve(__dirname, 'src/components/form-controls/index.ts'),
+  //       directives: path.resolve(__dirname, 'src/directives/index.ts'),
+  //       helpers: path.resolve(__dirname, 'src/helpers/index.ts'),
+  //       plugins: path.resolve(__dirname, 'src/plugins/index.ts'),
+  //     },
+  //     fileName: (format: string, entryName: string) => `${entryName === '.'
+  //       ? 'cresh-ui'
+  //       : entryName}.${format}.js`,
+  //     formats: ['es', 'cjs'],
+  //   },
+  //   rollupOptions: {
+  //     external: ['vue'],
+  //     output: {
+  //       // Provide global variables to use in the UMD build
+  //       // Add external deps here
+  //       globals: {
+  //         vue: 'Vue',
+  //       },
+  //     },
+  //     plugins: [
+  //       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //       // @ts-ignore
+  //       copy({
+  //         targets: [
+  //           { src: './src/styles/ui/c-notify.scss', dest: './dist/sass' },
+  //           { src: './src/styles/ui/c-date-picker.scss', dest: './dist/sass' },
+  //           { src: './src/styles/preprocessor/fonts.scss', dest: './dist/sass' },
+  //           { src: './src/styles/preprocessor/break-points.scss', dest: './dist/sass' },
+  //           { src: './src/styles/preprocessor/computeds.scss', dest: './dist/sass' },
+  //           { src: './src/styles/preprocessor/utils.scss', dest: './dist/sass' },
+  //           { src: './src/styles/themes/default-theme.css', dest: './dist' },
+  //           { src: './src/@types/cresh-ui.d.ts', dest: './dist' },
+  //           { src: './src/@types/c-datatable.d.ts', dest: './dist' },
+  //           { src: './src/@types/c-notify.d.ts', dest: './dist' },
+  //         ],
+  //         verbose: true,
+  //         copyOnce: true,
+  //         hook: 'writeBundle',
+  //       }),
+  //     ],
+  //   },
+  // },
   css: {
     preprocessorOptions: {
       scss: {
