@@ -69,6 +69,11 @@
       "import": "./dist/default-theme.css",
       "require": "./dist/default-theme.css",
       "default": "./dist/default-theme.css"
+    },
+    "./c-notify.scss": {
+      "import": "./dist/sass/c-notify.scss",
+      "require": "./dist/sass/c-notify.scss",
+      "default": "./dist/sass/c-notify.scss"
     }
   },
   "scripts": {

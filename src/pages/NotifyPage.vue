@@ -63,7 +63,13 @@ function onNotifySend (
 ): void {
   // eslint-disable-next-line max-len
   notify.send('hello world', {
+    duration: 5000,
     type,
+    position: 'top-right',
+    closable: true,
+    persistent: false,
+    callback: undefined,
+    classes: undefined,
   })
 }
 
@@ -71,3 +77,7 @@ function onNotifsRemove() {
   notify.clearAll()
 }
 </script>
+
+<style lang="scss">
+@import '@/styles/ui/c-notify.scss';
+</style>

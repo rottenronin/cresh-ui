@@ -4,7 +4,10 @@
     height="100vh"
     :mobile-breakpoint="600"
   >
-    <h2 class="text-align-center">
+    <h2
+      class="text-align-center c-cursor"
+      @click="goto('/')"
+    >
       Cresh UI
     </h2>
 

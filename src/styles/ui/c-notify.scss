@@ -70,10 +70,10 @@
 
     &.default {
       color: rgb(var(--color-primary));
-      border: 2px solid rgba(var(--rgb-primary), var(--border-opacity));
-      box-shadow: 0px 0px 9px 0px rgba(var(--rgb-primary), var(--background-opacity));
+      border: 2px solid rgba(var(--color-primary), var(--border-opacity));
+      box-shadow: 0px 0px 9px 0px rgba(var(--color-primary), var(--background-opacity));
       .c-notify-body {
-        background: rgba(var(--rgb-primary), var(--background-opacity));
+        background: rgba(var(--color-primary), var(--background-opacity));
       }
       .close-btn {
         color: rgb(var(--color-primary));
@@ -82,10 +82,10 @@
 
     &.error {
       color: rgb(var(--color-error));
-      border: 2px solid rgba(var(--rgb-error), var(--border-opacity));
-      box-shadow: 0px 0px 9px 0px rgba(var(--rgb-error), var(--background-opacity));
+      border: 2px solid rgba(var(--color-error), var(--border-opacity));
+      box-shadow: 0px 0px 9px 0px rgba(var(--color-error), var(--background-opacity));
       .c-notify-body {
-        background: rgba(var(--rgb-error), var(--background-opacity));
+        background: rgba(var(--color-error), var(--background-opacity));
       }
       i.error {
         width: 24px;
@@ -146,10 +146,10 @@
 
     &.warning {
       color: rgb(var(--color-warning));
-      border: 2px solid rgba(var(--rgb-warning), var(--border-opacity));
-      box-shadow: 0px 0px 9px 0px rgba(var(--rgb-warning), var(--background-opacity));
+      border: 2px solid rgba(var(--color-warning), var(--border-opacity));
+      box-shadow: 0px 0px 9px 0px rgba(var(--color-warning), var(--background-opacity));
       .c-notify-body {
-        background: rgba(var(--rgb-warning), var(--background-opacity));
+        background: rgba(var(--color-warning), var(--background-opacity));
       }
 
       i.warning {
