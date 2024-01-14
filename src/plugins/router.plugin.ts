@@ -13,7 +13,9 @@ const router = createRouter({
     {
       name: '/',
       path: '/',
-      redirect: '/icons',
+      component: () => import(
+        '../pages/HomePage.vue'
+      ),
     },
     {
       name: 'icons',

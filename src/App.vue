@@ -1,7 +1,14 @@
 <template>
   <AppDrawer />
   <main>
-    <header />
+    <CHeader>
+      <CAlert
+        class="alt"
+        type="warning"
+      >
+        The site is still under construction...
+      </CAlert>
+    </CHeader>
     <section class="router-view-content">
       <router-view />
     </section>
@@ -9,11 +16,19 @@
 </template>
 
 <script lang="ts" setup>
+import { CHeader, CAlert } from '@/components/ui'
 import AppDrawer from './doc/AppDrawer.vue'
 </script>
 
 <style lang="scss">
 :root {
+
+  header {
+    height: 60px;
+    border-bottom: 1px solid rgb(var(--color-light-grey));
+    background: white;
+  }
+
   body {
     margin: 0;
     font-family: var(--font-text-regular);
@@ -95,11 +110,12 @@ import AppDrawer from './doc/AppDrawer.vue'
     display: flex;
     main {
       flex: 1;
-      margin: 20px;
+      background: #f7fcfc;
     }
   }
 }
 .router-view-content {
+  margin: 20px;
   max-width: calc(100vw - 40px);
 }
 </style>

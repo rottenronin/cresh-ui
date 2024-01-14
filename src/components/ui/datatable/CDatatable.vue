@@ -61,21 +61,23 @@
         />
       </table>
     </div>
-    <template v-if="hasFooterSlot">
-      <slot name="footer" />
-    </template>
+    <template v-if="!noFooter">
+      <template v-if="hasFooterSlot">
+        <slot name="footer" />
+      </template>
 
-    <template v-else>
-      <CDatatableFooter
-        :pages="pages"
-        :items-per-page="itemsPerPage"
-        :pagination="state.pagination"
-        :allow-total="allowTotal"
+      <template v-else>
+        <CDatatableFooter
+          :pages="pages"
+          :items-per-page="itemsPerPage"
+          :pagination="state.pagination"
+          :allow-total="allowTotal"
 
-        @click:next-page="onNextPageTriggerClick"
-        @click:prev-page="onPrevPageTriggerClick"
-        @update:items-per-page="onSelectChange"
-      />
+          @click:next-page="onNextPageTriggerClick"
+          @click:prev-page="onPrevPageTriggerClick"
+          @update:items-per-page="onSelectChange"
+        />
+      </template>
     </template>
   </div>
 </template>
@@ -172,6 +174,11 @@ export default defineComponent({
       default: false,
     },
     allowTotal: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    noFooter: {
       type: Boolean,
       required: false,
       default: false,
