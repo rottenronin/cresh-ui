@@ -11,12 +11,11 @@
         class="toggle"
       >
         <template v-if="show">
-          <!-- <ChevronUpIcon /> -->
-          &#8963;
+          <ChevronUpIcon
+          />
         </template>
         <template v-else>
-          <!-- <ChevronDownIcon /> -->
-          &#8964;
+          <ChevronDownIcon />
         </template>
       </div>
     </div>
@@ -33,7 +32,16 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeMount, ref, watch } from 'vue'
+import {
+  onBeforeMount,
+  ref,
+  watch,
+} from 'vue'
+
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from '@/components/icons'
 
 const props = defineProps({
   collapsed: {

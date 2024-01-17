@@ -2,6 +2,12 @@
   <AppDrawer />
   <main>
     <CHeader>
+      <CIcon
+        name="burger-menu"
+        color="primary"
+        class="c-mr-15"
+        @click="onToggle"
+      />
       <CAlert
         class="alt"
         type="warning"
@@ -18,6 +24,12 @@
 <script lang="ts" setup>
 import { CHeader, CAlert } from '@/components/ui'
 import AppDrawer from './doc/AppDrawer.vue'
+import { CIcon } from './components'
+import { pubSubHelper } from './helpers'
+
+function onToggle() {
+  pubSubHelper.publish('toggle-drawer')
+}
 </script>
 
 <style lang="scss">

@@ -1,6 +1,6 @@
 <template>
   <CDrawer
-    :model-value="true"
+    v-model="visible"
     height="100vh"
     :mobile-breakpoint="600"
   >
@@ -290,12 +290,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import {
+  ref,
+  computed,
+  onBeforeMount,
+} from 'vue'
+
+import {
+  useRoute,
+  useRouter,
+} from 'vue-router'
 
 import CDrawer from '../components/ui/drawer/CDrawer.vue'
 import CDrawerItem from '../components/ui/drawer/CDrawerItem.vue'
 import CDrawerCollapsible from '../components/ui/drawer/CDrawerCollapsible.vue'
+import { pubSubHelper } from '@/helpers'
 
 const visible = ref<boolean>(true)
 
@@ -311,5 +320,14 @@ function goto (routeName: string) {
     name: routeName,
   })
 }
+
+onBeforeMount(() => {
+  pubSubHelper.subscribe('toggle-drawer', {
+    key: 'app-drawer',
+    callback: () => {
+      visible.value = !visible.value
+    }
+  })
+})
 
 </script>
