@@ -43,6 +43,9 @@ header.c-header {
   .headline {
     color: rgb(var(--color-primary));
     font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   @include phone {
