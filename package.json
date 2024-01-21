@@ -1,6 +1,6 @@
 {
   "name": "@long2x/cresh-ui",
-  "version": "5.16.3",
+  "version": "5.16.7",
   "description": "A Vue 3 UI library that contains a set of high quality components",
   "author": "long2x",
   "license": "MIT",
@@ -91,7 +91,7 @@
     "chart.js": "4.3.0",
     "events": "3.3.0",
     "libphonenumber-js": "1.10.38",
-    "vue": "3.3.4",
+    "vue": "^3.3.4",
     "vue-i18n": "9.2.2",
     "vue-router": "4.2.2",
     "yup": "1.2.0"
@@ -126,7 +126,7 @@
     "vitest": "0.34.4",
     "vue-tsc": "1.6.5"
   },
-  "homepage": "https://github.com/rottenronin/cresh-ui#readme",
+  "homepage": "https://cresh-ui.com",
   "directories": {
     "test": "tests"
   }

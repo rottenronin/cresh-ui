@@ -1,5 +1,8 @@
 // installation process
-import type { App } from 'vue'
+import type {
+  App,
+  Plugin,
+} from 'vue'
 
 import * as components from './components'
 import * as directives from './directives'
@@ -18,10 +21,10 @@ export type CreshUIConfig = {
   theme: 'cresh'
 }
 
-export default {
+const plugin: Plugin = {
   install (
     app: App,
-    options: CreshUIConfig = {
+    options: { [key: string]: any } = {
       lang: 'fr',
       breakPoints: {
         XS: 600, // small to large handset < 600px
@@ -49,6 +52,7 @@ export default {
   },
 }
 
+export default plugin as any
 export * as components from './components'
 export * as helpers from './helpers'
 export * as plugins from './plugins'
