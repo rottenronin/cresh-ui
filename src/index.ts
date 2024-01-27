@@ -46,6 +46,8 @@ export default {
     app.use(notifyPlugin)
 
     app.config.globalProperties.$breakPoints = options.breakPoints
+    app.provide('$breakPoints', options.breakPoints)
+    app.provide('$options', options)
   },
 }
 

@@ -1,8 +1,14 @@
 <template>
   <div
-    :class="`c-drawer ${placement} ${modelValue ? 'visible' : 'hide'}`"
+    :class="`
+      c-drawer
+      ${placement}
+      ${modelValue
+        ? 'visible'
+        : 'hide'
+      }`"
     :style="{
-      width: drawerWidth,
+      'min-width': drawerWidth,
       minHeight: drawerHeight,
     }"
   >

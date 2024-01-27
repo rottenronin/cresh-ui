@@ -10,6 +10,10 @@ import routerPlugin from './plugins/router.plugin'
 
 const app = createApp(App)
 
+app.provide('$breakPoints', {
+    XS: 600
+})
+
 app.directive('copy-to-clipboard', copyToClipboardDirective)
 app.directive('tooltip', tooltipDirective)
 

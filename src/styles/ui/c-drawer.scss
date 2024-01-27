@@ -50,6 +50,7 @@
 
     &.hide {
       width: 0 !important;
+      min-width: 0 !important;
       transition: width 0.3s ease-in-out,
         padding-left 0.3s ease-in-out,
         padding-right 0.3s ease-in-out;

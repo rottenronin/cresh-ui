@@ -56,14 +56,22 @@ function onContentToggle () {
     display: flex;
     flex-direction: column;
     display: inline-block;
-    min-width: 600px;
+    
     margin: 0 0 16px;
     border: 1px solid #f0f0f0;
     border-radius: 2px;
     transition: all .2s;
     background: white;
-    padding: 15px;
-    max-height: 500px;
+    padding: 0.9375rem;
+    max-height: 31.25rem;
+
+    min-width: 37.5rem;
+    box-sizing: border-box;
+
+    @include phone {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
 
     .description,
     .content {

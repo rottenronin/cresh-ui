@@ -294,6 +294,7 @@ import {
   ref,
   computed,
   onBeforeMount,
+  inject,
 } from 'vue'
 
 import {
@@ -301,12 +302,23 @@ import {
   useRouter,
 } from 'vue-router'
 
-import CDrawer from '../components/ui/drawer/CDrawer.vue'
-import CDrawerItem from '../components/ui/drawer/CDrawerItem.vue'
-import CDrawerCollapsible from '../components/ui/drawer/CDrawerCollapsible.vue'
-import { pubSubHelper } from '@/helpers'
+import CDrawer
+  from '../components/ui/drawer/CDrawer.vue'
+import CDrawerItem
+  from '../components/ui/drawer/CDrawerItem.vue'
+import CDrawerCollapsible
+  from '../components/ui/drawer/CDrawerCollapsible.vue'
+import { pubSubHelper }
+  from '@/helpers'
 
-const visible = ref<boolean>(true)
+const $breakPoints = inject<{
+  XS: number
+}>('$breakPoints')
+
+const visible = ref<boolean>((
+  $breakPoints
+    && document.body.clientWidth < $breakPoints?.XS
+  ) ? false : true)
 
 const route = useRoute()
 const router = useRouter()
@@ -315,10 +327,16 @@ const currentRoute = computed(
   () => route.name,
 )
 
+
+
 function goto (routeName: string) {
   router.push({
     name: routeName,
   })
+  if ($breakPoints
+    && document.body.clientWidth < $breakPoints?.XS) {
+    visible.value = false
+  }
 }
 
 onBeforeMount(() => {

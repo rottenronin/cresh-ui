@@ -28,7 +28,7 @@ const hasDefaultSlot = computed(
 )
 </script>
 
-<style lant="scs">
+<style lang="scss">
 header.c-header {
   margin-top: 0;
   height: 100px;
@@ -57,6 +57,8 @@ header.c-header {
           font-size: larger;
         }
       }
+      
+      padding: 0 1.5rem;
     }
   }
 }
