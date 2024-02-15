@@ -2,7 +2,7 @@
   <div
     :class="`c-drawer ${placement} ${modelValue ? 'visible' : 'hide'}`"
     :style="{
-      width: drawerWidth,
+      minWidth: modelValue ? drawerWidth : '0px',
       minHeight: drawerHeight,
     }"
   >
