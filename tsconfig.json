@@ -25,7 +25,8 @@
       "node_modules/@types",
       "node_modules/cypress/types",
       "node_modules/cypress/types/chai",
-      "src/@types"
+      "lib-app/src/@types",
+      "src/@types",
     ],
     "jsx": "preserve",
     "importHelpers": true,
@@ -40,7 +41,7 @@
     ],
     "paths": {
       "@/*": [
-        "src/*"
+        "lib-app/src/*"
       ]
     },
     "lib": [
@@ -52,10 +53,10 @@
     "skipLibCheck": true
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
+    "lib-app/src/**/*.ts",
+    "lib-app/src/**/*.d.ts",
+    "lib-app/src/**/*.tsx",
+    "lib-app/src/**/*.vue",
     "./*.d.ts",
     "index.ts"
 ],

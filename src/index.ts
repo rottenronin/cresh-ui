@@ -1,21 +1,19 @@
 // installation process
 import type { App } from 'vue'
 
+import { BreakPoints } from '@/@types'
+
 import * as components from './components'
 import * as directives from './directives'
-import notifyPlugin from './plugins/notify.plugin'
+import * as plugins from './plugins'
 
 // import * as plugins from './plugins'
 
 export type CreshUIConfig = {
   lang: 'fr' | 'en'
-  breakPoints?: {
-    XS: number // small to large handset < 600px
-    SM: number // small to medium tablet
-    MD: number // large tablet to laptop 960px > < 1264px*
-    LG: number // desktop 1264px* > < 1904px*
-  }
+  breakPoints?: BreakPoints
   theme: 'cresh'
+  includePlugins?: boolean
 }
 
 export default {
@@ -30,6 +28,7 @@ export default {
         LG: 1904, // desktop 1264px* > < 1904px*
       },
       theme: 'cresh',
+      includePlugins: true,
     },
   ) {
     // init components
@@ -43,9 +42,14 @@ export default {
       app.directive(key, directive)
     })
 
-    app.use(notifyPlugin)
+    // init plugins if needed
+    if (options.includePlugins) {
+      app.use(plugins.breakpointsDetect, options.breakPoints)
+      app.use(plugins.notify)
+    }
 
     app.config.globalProperties.$breakPoints = options.breakPoints
+    app.provide('breakPoints', options.breakPoints)
   },
 }
 

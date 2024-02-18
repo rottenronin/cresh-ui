@@ -80,3 +80,10 @@ export type Step = {
   state?: StepState
   id: string
 }
+
+export type BreakPoints = {
+  XS: number // small to large handset < 600px
+  SM: number // small to medium tablet
+  MD: number // large tablet to laptop 960px > < 1264px*
+  LG: number // desktop 1264px* > < 1904px*
+}
