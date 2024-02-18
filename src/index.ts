@@ -16,17 +16,19 @@ export type CreshUIConfig = {
   includePlugins?: boolean
 }
 
+const defaultBreakPoints = {
+  XS: 600, // small to large handset < 600px
+  SM: 960, // small to medium tablet
+  MD: 1264, // large tablet to laptop 960px > < 1264px*
+  LG: 1904, // desktop 1264px* > < 1904px*
+}
+
 export default {
   install (
     app: App,
     options: CreshUIConfig = {
       lang: 'fr',
-      breakPoints: {
-        XS: 600, // small to large handset < 600px
-        SM: 960, // small to medium tablet
-        MD: 1264, // large tablet to laptop 960px > < 1264px*
-        LG: 1904, // desktop 1264px* > < 1904px*
-      },
+      breakPoints: defaultBreakPoints,
       theme: 'cresh',
       includePlugins: true,
     },
@@ -44,7 +46,10 @@ export default {
 
     // init plugins if needed
     if (options.includePlugins) {
-      app.use(plugins.breakpointsDetect, options.breakPoints)
+      app.use(
+        plugins.breakpointsDetect,
+        options.breakPoints || defaultBreakPoints,
+      )
       app.use(plugins.notify)
     }
 
