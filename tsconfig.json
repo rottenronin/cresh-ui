@@ -25,7 +25,8 @@
       "node_modules/@types",
       "node_modules/cypress/types",
       "node_modules/cypress/types/chai",
-      "lib-app/src/@types"
+      "lib-app/src/@types",
+      "src/@types",
     ],
     "jsx": "preserve",
     "importHelpers": true,
