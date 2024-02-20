@@ -14,6 +14,4 @@ export { default as CDatatableSkeletonRow } from './CDatatableSkeletonRow.vue'
 
 export { default as cDatatableHelper } from './c-datatable-helper'
 
-export { default as cDatatablePermalink } from './c-datatable-permalink'
-
 export { default as cDatatableSortItems } from './c-datatable-sortby'
