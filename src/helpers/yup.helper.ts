@@ -1,4 +1,4 @@
-import { Ref } from 'vue'
+import { ToRef } from 'vue'
 import * as yup from 'yup'
 import { ValidationError } from 'yup'
 import uuidv4 from './uuid4'
@@ -15,31 +15,33 @@ export function getErrors(error: ValidationError) {
 }
 
 export function resetForm(
-  form: Record<string, unknown>,
+  form: ToRef<Record<string, unknown>>,
   initialValues: Record<string, unknown>,
 ) {
-  Object.entries(form).forEach(([key]) => {
-    const initialProp = initialValues[key]
-    if (Array.isArray(initialProp)) {
-      form[key] = [...initialProp]
-    } else if (typeof initialProp === 'object') {
-      resetForm(
-        form[key] as Record<string, unknown>,
-        initialProp as Record<string, unknown>,
-      )
+  Object.keys(form.value).forEach(key => {
+    if (typeof form.value[key] === null) {
+      form.value[key] = null
+    } else if (typeof form.value[key] === 'undefined') {
+      form.value[key] = undefined
+    } else if (typeof form.value[key] === 'string') {
+      form.value[key] = ''
     } else {
-      form[key] = initialProp
+      form.value[key] = initialValues[key]
     }
   })
 }
 
 export const validate = async (options: {
-  schema: yup.Schema
-  fields: Ref<Record<string, unknown>>
+  schema: yup.AnySchema
+  fields: ToRef<Record<string, unknown>>
   validationOptions?: yup.ValidateOptions
 }) => {
   try {
-    const { schema } = options
+    const {
+      schema,
+      fields,
+    } = options
+
     const defaultOptions = {
       abortEarly: false,
     }
@@ -48,7 +50,7 @@ export const validate = async (options: {
       ...defaultOptions,
     }
     const values = await schema.validate(
-      options.fields.value,
+      fields.value,
       validationOptions,
     )
 
@@ -71,8 +73,8 @@ export const validate = async (options: {
 }
 
 export const useYupHelper = (options: {
-  fields: Ref<Record<string, unknown>>
-  schema: yup.Schema
+  fields: ToRef<Record<string, unknown>>
+  schema: yup.AnySchema
   initialValues?: Record<string, unknown>
   validationOptions?: yup.ValidateOptions
 }): {
@@ -80,7 +82,7 @@ export const useYupHelper = (options: {
   reset: () => void
   validate: () => Promise<{
     isValid: boolean
-    values?: Ref<Record<string, unknown>>
+    values?: ToRef<Record<string, unknown>>
     errors?: Record<string, string>
     yupValidationErrors?: ValidationError
   }>
@@ -89,7 +91,7 @@ export const useYupHelper = (options: {
   return {
     id,
     reset: () => {
-      resetForm(options.fields.value, options.initialValues || {})
+      resetForm(options.fields, options.initialValues || {})
     },
     validate: async () => validate({
       schema: options.schema,
