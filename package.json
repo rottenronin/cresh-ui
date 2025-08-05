@@ -19,21 +19,25 @@
     "vue3"
   ],
   "files": [
-    "dist"
+    "dist",
+    "dist/sass",
+    "dist/default-theme.css",
+    "README.md",
+    "LICENSE"
   ],
   "main": "./dist/cresh-ui.cjs.js",
   "module": "./dist/cresh-ui.es.js",
-  "types": "dist/src/index.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/cresh-ui.es.js",
       "require": "./dist/cresh-ui.cjs.js",
-      "types": "./dist/src/index.d.ts"
+      "types": "./dist/index.d.ts"
     },
     "./ui": {
       "import": "./dist/ui.es.js",
       "require": "./dist/ui.cjs.js",
-      "types": "./dist/src/components/ui/index.d.ts"
+      "types": "./dist/ui.d.ts"
     },
     "./icons": {
       "import": "./dist/icons.es.js",
@@ -78,53 +82,58 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --emitDeclarationOnly && vite build",
+    "build": "vite build && node scripts/postbuild.js",
     "preview": "vite preview --port 5050",
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "test:unit": "vitest --run",
     "test:component": "cypress run --component",
-    "test": "run-s test:*"
+    "test": "run-s test:*",
+    "postbuild": "node scripts/postbuild.js",
+    "release": "changeset version && changeset publish"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.4",
+    "vue-i18n": "^9.14.5",
+    "vue-router": "^4.2.2"
   },
   "dependencies": {
-    "@vuepic/vue-datepicker": "7.0.0",
-    "chart.js": "4.3.0",
-    "events": "3.3.0",
-    "libphonenumber-js": "1.10.38",
-    "vue": "3.3.4",
-    "vue-i18n": "9.2.2",
-    "vue-router": "4.2.2",
-    "yup": "1.2.0"
+    "@vuepic/vue-datepicker": "^7.0.0",
+    "chart.js": "^4.3.0",
+    "events": "^3.3.0",
+    "libphonenumber-js": "^1.10.38",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
-    "@cypress/vite-dev-server": "5.0.6",
-    "@cypress/vue": "6.0.0",
-    "@faker-js/faker": "8.0.2",
-    "@types/chart.js": "2.9.37",
-    "@types/events": "3.0.0",
-    "@types/jsdom": "21.1.1",
-    "@types/node": "20.2.5",
-    "@typescript-eslint/eslint-plugin": "5.59.8",
-    "@typescript-eslint/parser": "5.59.8",
-    "@vitejs/plugin-vue": "4.2.3",
-    "@vitejs/plugin-vue-jsx": "3.0.1",
-    "@vue/eslint-config-typescript": "11.0.3",
-    "@vue/test-utils": "2.3.2",
-    "@vue/tsconfig": "0.4.0",
-    "cypress": "13.1.0",
-    "eslint": "8.41.0",
-    "eslint-config-materya": "10.0.0",
-    "eslint-plugin-vue": "9.14.1",
-    "jsdom": "22.1.0",
-    "npm-run-all": "4.1.5",
-    "rollup-plugin-copy": "3.4.0",
-    "sass": "1.62.1",
-    "sass-loader": "13.3.1",
-    "typescript": "5.0.4",
-    "vite": "4.3.9",
-    "vite-plugin-dts": "2.3.0",
-    "vitest": "0.34.4",
-    "vue-tsc": "1.6.5"
+    "@cypress/vite-dev-server": "^5.0.6",
+    "@cypress/vue": "^6.0.0",
+    "@faker-js/faker": "^8.0.2",
+    "@types/chart.js": "^2.9.37",
+    "@types/events": "^3.0.0",
+    "@types/jsdom": "^21.1.1",
+    "@types/node": "^20.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "@vue/eslint-config-typescript": "^11.0.3",
+    "@vue/server-renderer": "^3.3.4",
+    "@vue/test-utils": "^2.2.10",
+    "@vue/tsconfig": "^0.4.0",
+    "cypress": "^13.1.0",
+    "eslint": "^8.41.0",
+    "eslint-config-materya": "^10.0.0",
+    "eslint-plugin-vue": "^9.14.1",
+    "jsdom": "^22.1.0",
+    "npm-run-all": "^4.1.5",
+    "rollup-plugin-copy": "^3.4.0",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.3.1",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "^2.3.0",
+    "vitest": "^0.34.4",
+    "vue-tsc": "^1.6.5"
   },
   "homepage": "https://github.com/rottenronin/cresh-ui#readme",
   "directories": {
