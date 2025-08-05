@@ -23,7 +23,12 @@ export default defineConfig({
       },
     }),
     vueJsx(),
-    dts(),
+    dts({
+      insertTypesEntry: true,
+      outputDir: 'dist',
+      include: ['src'],
+      cleanVueFileName: true,
+    }),
   ],
   resolve: {
     alias: {
@@ -48,7 +53,7 @@ export default defineConfig({
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', 'vue-router', 'vue-i18n'],
       output: {
         // Provide global variables to use in the UMD build
         // Add external deps here

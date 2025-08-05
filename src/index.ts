@@ -1,5 +1,5 @@
 // installation process
-import type { App } from 'vue'
+import type { App, Plugin } from 'vue'
 
 import { BreakPoints } from '@/@types'
 
@@ -23,7 +23,7 @@ const defaultBreakPoints = {
   LG: 1904, // desktop 1264px* > < 1904px*
 }
 
-export default {
+export const CreshUI: Plugin = {
   install (
     app: App,
     options: CreshUIConfig = {
@@ -57,10 +57,13 @@ export default {
     app.provide('breakPoints', options.breakPoints)
   },
 }
+// Compatibilité avec les anciens imports
+// On pourras supprimer ce bloc une fois tous les projets migrés vers `import { CreshUI }`
+export default CreshUI
 
 export * as components from './components'
-export * as helpers from './helpers'
 export * as plugins from './plugins'
+export * as helpers from './helpers'
 
 // local define typings
 export * from './@types'

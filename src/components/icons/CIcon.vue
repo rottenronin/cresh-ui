@@ -16,6 +16,7 @@
 
 <script lang="ts" setup>
 import {
+  type Component,
   defineAsyncComponent,
   onBeforeMount,
   shallowRef,
@@ -25,7 +26,7 @@ import baseIconProps from './base-icon-props'
 const props = defineProps({
   ...baseIconProps,
 })
-const iconComponent = shallowRef<unknown>(undefined)
+const iconComponent = shallowRef<Component | undefined>(undefined)
 
 const iconsAndFilePaths = {
   add: () => import('./AddIcon.vue'),
@@ -130,6 +131,8 @@ onBeforeMount(() => {
   if (!item) {
     throw new Error(`icon ${props.name} not exists`)
   }
-  iconComponent.value = defineAsyncComponent(item[1])
+  iconComponent.value = defineAsyncComponent(
+    item[1] as () => Promise<Component>,
+  )
 })
 </script>
