@@ -11,8 +11,7 @@
         class="toggle"
       >
         <template v-if="show">
-          <ChevronUpIcon
-          />
+          <ChevronUpIcon />
         </template>
         <template v-else>
           <ChevronDownIcon />

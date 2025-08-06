@@ -30,9 +30,8 @@
 </template>
 
 <script lang="ts" setup>
-import { Step } from '@/@types/cresh-ui'
-
 import { PropType } from 'vue'
+import { Step } from '@/@types/cresh-ui'
 
 const props = defineProps({
   steps: {

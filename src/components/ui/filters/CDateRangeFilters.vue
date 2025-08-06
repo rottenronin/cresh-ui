@@ -37,7 +37,7 @@
           @open="onDatePickerOpen"
           @cleared="onDateFilterSelect({
             value: 'today',
-            key: $t('translate.filters.dates.today')
+            key: 'today',
           })"
           :max-date="new Date()"
           auto-apply

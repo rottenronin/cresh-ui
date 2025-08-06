@@ -83,18 +83,19 @@ const state = reactive({
 const emit = defineEmits(['update:modelValue', 'blur'])
 
 function handleValueChange(value: string, shouldParse = false) {
+  const errorMessage = i18nPlugin.global.t('translate.validation_messages.phone_number_rule') as string
   try {
     state.phoneValue = value
     state.error = null
+
     if (shouldParse) {
       const result = parsePhoneNumber(state.phoneValue, props.countryCode)
       if (!result.isValid()) {
-        state.error = i18nPlugin.global.t('translate.validation_messages.phone_number_rule')
+        state.error = errorMessage
       }
     }
   } catch (e) {
-    //
-    state.error = i18nPlugin.global.t('translate.validation_messages.phone_number_rule')
+    state.error = errorMessage
   }
 }
 
