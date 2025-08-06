@@ -1,9 +1,28 @@
 {
   "extends": "./tsconfig.app.json",
-  "exclude": [],
+  "exclude": [
+    "node_modules", 
+    "dist", 
+    "playground", 
+    "test", 
+    "tests", 
+    "vitest.config.ts", 
+    "src/@types/cy-component-testing.d.ts", 
+    "**/*.cy.ts",
+    "src/helpers/vue-test-helper.ts"
+  ],
   "compilerOptions": {
     "composite": true,
-    "lib": [],
-    "types": ["node", "jsdom"]
+    "lib": ["DOM", "ES2021", "ES2024", "ESNext"],
+    "target": "es2024",
+    "types": ["node", "jsdom"],
+    "skipLibCheck": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "paths": {
+      "@/*": ["src/*"],
+    }
   }
 }

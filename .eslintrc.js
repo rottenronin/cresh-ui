@@ -96,7 +96,14 @@ module.exports = {
       'error',
       {
          'devDependencies':[
-            '**/*.test.ts',
+            '**/*.test.{js,ts,tsx}',
+            '**/*.spec.{js,ts,tsx}',
+            '**/cypress.config.{js,ts}',
+            '**/cypress/**',
+            '**/tests/**',
+            '**/vite.config.{js,ts}',
+            '**/vitest.config.{js,ts}',
+            '**/*.cy.{js,ts,tsx}',
          ]
       }
     ]

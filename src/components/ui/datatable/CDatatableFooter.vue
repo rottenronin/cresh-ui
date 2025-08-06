@@ -12,9 +12,9 @@
         class="c-datatable-footer-page-select"
         hide-label
         :name="`datatablePageSelect`"
-        :model-value="String(pagination.itemsPerPage)"
+        :model-value="paginationItemsPerPage"
         :label="''"
-        :options="paginationItemsPerPage"
+        :options="options"
         @update:model-value="onSelectChange"
       />
 
@@ -62,7 +62,6 @@
 <script lang="ts" setup>
 import {
   computed,
-  PropType,
 } from 'vue'
 import type {
   Pagination,
@@ -77,28 +76,24 @@ import {
   ChevronRightIcon,
 } from '../../icons'
 
-const props = defineProps({
-  pagination: {
-    type: Object as PropType<Pagination>,
-    required: true,
+const props = withDefaults(
+  defineProps<{
+    pagination: Pagination
+    itemsPerPage?: number
+    allowTotal?: boolean
+    pages: number[]
+  }>(),
+  {
+    itemsPerPage: 10,
+    allowTotal: false,
   },
-  itemsPerPage: {
-    type: Number,
-    required: false,
-    default: 10,
-  },
-  allowTotal: {
-    type: Boolean,
-    required: false,
-    default: false,
-  },
-  pages: {
-    type: Array as PropType<number[]>,
-    required: true,
-  },
-})
+)
 
-const paginationItemsPerPage = computed(() => {
+const paginationItemsPerPage = computed(
+  () => props.pagination.itemsPerPage || props.itemsPerPage,
+)
+
+const options = computed(() => {
   const defaultOptions = props.pages.map(v => ({
     key: v.toString(),
     value: v.toString(),
