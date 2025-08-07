@@ -46,6 +46,8 @@ jobs:
       contents: read
       id-token: write # nécessaire pour OIDC avec npmjs
     
+    environment: npm-publish
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -55,6 +57,7 @@ jobs:
         with:
           node-version: 20
           registry-url: 'https://registry.npmjs.org/'
+          scope: '@long2x'
 
       - name: Install dependencies
         run: npm ci
