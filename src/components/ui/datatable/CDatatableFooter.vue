@@ -94,7 +94,7 @@ const paginationItemsPerPage = computed(
 )
 
 const options = computed(() => {
-  const defaultOptions = props.pages.map(v => ({
+  const defaultOptions = props.pages.map((v: number) => ({
     key: v.toString(),
     value: v.toString(),
     isDefault: v === props.itemsPerPage,
@@ -103,7 +103,12 @@ const options = computed(() => {
 
   if (props.itemsPerPage !== -1) {
     const existed = defaultOptions.findIndex(
-      item => item.value === String(props.itemsPerPage),
+      (item: {
+        key: string
+        value: string
+        isDefault: boolean
+        name: string
+      }) => item.value === String(props.itemsPerPage),
     ) > -1
     if (!existed) {
       defaultOptions.push({
