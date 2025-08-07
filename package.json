@@ -1,6 +1,6 @@
 {
   "name": "@long2x/cresh-ui",
-  "version": "5.17.0",
+  "version": "5.17.1",
   "description": "A Vue 3 UI library that contains a set of high quality components",
   "author": "long2x",
   "license": "MIT",
@@ -138,5 +138,8 @@
   "homepage": "https://github.com/rottenronin/cresh-ui#readme",
   "directories": {
     "test": "tests"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
