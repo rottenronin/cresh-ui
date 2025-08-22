@@ -19,7 +19,7 @@ import {
   onBeforeUnmount,
 } from 'vue'
 
-import { debounce } from '@/helpers'
+import { debounce } from '../../../helpers'
 
 const props = defineProps({
   modelValue: {
@@ -97,5 +97,5 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss">
-  @import '@/styles/ui/c-drawer.scss';
+  @import '../../../styles/ui/c-drawer.scss';
 </style>

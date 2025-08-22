@@ -1,7 +1,7 @@
 /// <reference types="Cypress" /><
 
-import { mountCyComponent } from '@/helpers/vue-test-helper'
-import { CSlider } from '@/components'
+import { mountCyComponent } from '../../helpers/vue-test-helper'
+import CSlider from './CSlider.vue'
 
 describe('<CSlider />', () => {
   it('should render', () => {

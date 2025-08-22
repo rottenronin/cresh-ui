@@ -37,10 +37,8 @@ import {
   watch,
 } from 'vue'
 
-import {
-  ChevronDownIcon,
-  ChevronUpIcon,
-} from '@/components/icons'
+import ChevronUpIcon from '../../icons/ChevronUpIcon.vue'
+import ChevronDownIcon from '../../icons/ChevronDownIcon.vue'
 
 const props = defineProps({
   collapsed: {

@@ -1,7 +1,7 @@
 /// <reference types="Cypress" /><
 
-import { mountCyComponent } from '@/helpers/vue-test-helper'
-import { CSpinner } from '@/components'
+import { mountCyComponent } from '../../helpers/vue-test-helper'
+import CSpinner from './CSpinner.vue'
 
 describe('<CSpinner />', () => {
   it('should render with default values', () => {

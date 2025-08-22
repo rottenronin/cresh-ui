@@ -3,7 +3,7 @@ import CAlert from './CAlert.vue'
 import {
   $t,
   mountCyComponent,
-} from '@/helpers/vue-test-helper'
+} from '../../helpers/vue-test-helper'
 
 describe('<CAlert />', () => {
   context('renders', () => {

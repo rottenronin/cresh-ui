@@ -1,7 +1,7 @@
 /// <reference types="Cypress" /><
 
-import { mountCyComponent } from '@/helpers/vue-test-helper'
-import { CProgressBar } from '@/components'
+import { mountCyComponent } from '../../helpers/vue-test-helper'
+import CProgressBar from './CProgressBar.vue'
 
 describe('<CProgressBar />', () => {
   it('should render', () => {

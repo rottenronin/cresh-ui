@@ -94,7 +94,7 @@ import ChevronDownIcon from '../../icons/ChevronDownIcon.vue'
 import {
   uuidv4,
   pubSubHelper,
-} from '@/helpers'
+} from '../../../helpers'
 
 const props = defineProps({
   selected: {

@@ -1,12 +1,10 @@
 import type { App } from 'vue'
-import type {
-  NotifyOptions,
-} from '@/@types/c-notify'
+import type { NotifyOptions } from '../@types'
 
 import {
   pubSubHelper,
   uuidv4,
-} from '@/helpers'
+} from '../helpers'
 
 // eslint-disable-next-line prefer-const
 let notifs: {

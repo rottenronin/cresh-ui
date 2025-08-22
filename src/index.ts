@@ -1,7 +1,7 @@
 // installation process
 import type { App, Plugin } from 'vue'
 
-import { BreakPoints } from '@/@types'
+import { BreakPoints } from './@types'
 
 import * as components from './components'
 import * as directives from './directives'

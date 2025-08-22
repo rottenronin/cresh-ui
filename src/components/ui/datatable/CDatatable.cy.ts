@@ -1,7 +1,7 @@
-import { mountCyComponent } from '@/helpers/vue-test-helper'
-import { CDatatable } from '@/components'
-import { uuidv4 } from '@/helpers'
-import i18nPlugin from '@/plugins/i18n.plugin'
+import { mountCyComponent } from '../../../helpers/vue-test-helper'
+import { uuidv4 } from '../../../helpers'
+import i18nPlugin from '../../../plugins/i18n.plugin'
+import CDatatable from './CDatatable.vue'
 
 const headers = [
   {

@@ -1,7 +1,5 @@
-import { mountCyComponent } from '@/helpers/vue-test-helper'
-import {
-  CMenuItem,
-} from '@/components'
+import { mountCyComponent } from '../../../helpers/vue-test-helper'
+import CMenuItem from './CMenuItem.vue'
 
 describe('<CMenuItem />', () => {
   it('should trigger expand/collapse event', () => {

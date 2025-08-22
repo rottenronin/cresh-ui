@@ -26,5 +26,5 @@ const onSwitchChange = (change: Event) => {
 </script>
 
 <style lang="scss">
-@import "@/styles/ui/c-switch.scss";
+@import "../../styles/ui/c-switch.scss";
 </style>

@@ -31,7 +31,7 @@
 
 <script lang="ts" setup>
 import { PropType } from 'vue'
-import { Step } from '@/@types/cresh-ui'
+import { Step } from '../../@types/cresh-ui'
 
 const props = defineProps({
   steps: {
@@ -65,5 +65,5 @@ function onClick (_step: Step, i: number): void {
 </script>
 
 <style lang="scss">
-  @import '@/styles/ui/c-vertical-stepper.scss';
+  @import '../../styles/ui/c-vertical-stepper.scss';
 </style>

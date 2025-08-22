@@ -24,5 +24,5 @@ defineProps({
 </script>
 
 <style lang="scss">
-  @import '@/styles/ui/c-spinner.scss';
+  @import '../../styles/ui/c-spinner.scss';
 </style>

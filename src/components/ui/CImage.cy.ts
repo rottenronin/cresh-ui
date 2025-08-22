@@ -1,10 +1,8 @@
 /// <reference types="Cypress" /><
 
-import { mountCyComponent } from '@/helpers/vue-test-helper'
-import {
-  CImage,
-  CIcon,
-} from '@/components'
+import { mountCyComponent } from '../../helpers/vue-test-helper'
+import CIcon from '../icons/CIcon.vue'
+import CImage from './CImage.vue'
 
 describe('<CImage />', () => {
   it('should render', () => {

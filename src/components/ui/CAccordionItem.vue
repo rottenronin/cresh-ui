@@ -43,9 +43,8 @@ import {
   reactive,
   ref,
 } from 'vue'
-
-import { ChevronDownIcon } from '@/components'
-import type { AccordionType } from '@/@types/cresh-ui'
+import ChevronDownIcon from '../icons/ChevronDownIcon.vue'
+import type { AccordionType } from '../../@types/cresh-ui'
 
 const accordion = reactive(inject('accordion') as AccordionType)
 const selectedName = ref(inject('selected-name') as string | undefined)
@@ -92,5 +91,5 @@ function end(el: Element) {
 </script>
 
 <style lang="scss">
-@import '@/styles/ui/c-accordion.scss';
+@import '../../styles/ui/c-accordion.scss';
 </style>

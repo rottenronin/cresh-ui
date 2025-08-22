@@ -1,5 +1,5 @@
-import { mountCyComponent } from '@/helpers/vue-test-helper'
-import { CVerticalStepper } from '@/components'
+import { mountCyComponent } from '../../helpers/vue-test-helper'
+import CVerticalStepper from './CVerticalStepper.vue'
 
 const steps = [
   {

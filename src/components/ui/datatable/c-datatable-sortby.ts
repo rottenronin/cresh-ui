@@ -1,7 +1,7 @@
 import type {
   DatatableHeaderItem,
   DatatableSortOrder,
-} from '@/@types/c-datatable'
+} from '../../../@types'
 
 type params = {
   items: Record<string, unknown>[]

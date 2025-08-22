@@ -25,10 +25,8 @@ import {
   toRaw,
   watch,
 } from 'vue'
-import {
-  debounce,
-  chartHelper,
-} from '@/helpers'
+
+import { chartHelper, debounce } from '../../helpers'
 
 type Gradients = {
   y1: number

@@ -10,7 +10,7 @@ import {
   reactive,
 } from 'vue'
 
-import type { AccordionType } from '@/@types/cresh-ui'
+import type { AccordionType } from '../../@types/cresh-ui'
 
 const props = defineProps({
   selectedName: String,
@@ -34,5 +34,5 @@ provide('current', current)
 </script>
 
 <style lang="scss">
-@import '@/styles/ui/c-accordion.scss';
+@import '../../styles/ui/c-accordion.scss';
 </style>

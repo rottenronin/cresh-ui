@@ -80,19 +80,13 @@ import type {
   CDropdownKeyValue,
   DateRangeFilterType,
   DateRangeFilterActivator,
-} from '@/@types/cresh-ui'
+} from '../../../@types'
+import CCard from '../CCard.vue'
+import CDropdown from '../CDropdown.vue'
+import CIcon from '../../icons/CIcon.vue'
 
-import {
-  CCard,
-  CDropdown,
-} from '@/components/ui'
-
-import {
-  CIcon,
-} from '@/components/icons'
-
-import { dateHelper } from '@/helpers'
-import i18n from '@/plugins/i18n.plugin'
+import { dateHelper } from '../../../helpers'
+import i18n from '../../../plugins/i18n.plugin'
 
 const state = reactive<{
   activator: DateRangeFilterActivator
@@ -309,5 +303,5 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-@import '@/styles/ui/c-date-range-filters.scss';
+@import '../../../styles/ui/c-date-range-filters.scss';
 </style>

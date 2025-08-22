@@ -6,7 +6,7 @@ import CButton from './CButton.vue'
 
 import {
   mountCyComponent,
-} from '@/helpers/vue-test-helper'
+} from '../../helpers/vue-test-helper'
 
 describe('<CAlert />', () => {
   it('renders', () => {

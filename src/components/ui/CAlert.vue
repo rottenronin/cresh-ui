@@ -71,5 +71,5 @@ defineProps({
 </script>
 
 <style lang="scss">
-  @import '@/styles/ui/c-alert.scss';
+  @import '../../styles/ui/c-alert.scss';
 </style>

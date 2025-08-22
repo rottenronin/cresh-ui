@@ -86,13 +86,10 @@ import {
 } from 'vue'
 import {
   CDocumentItemType,
-} from '@/@types/cresh-ui'
-
-import {
-  CIcon,
-} from '@/components'
-import { uuidv4 } from '@/helpers'
-import i18nPlugin from '@/plugins/i18n.plugin'
+} from '../../@types/cresh-ui'
+import CIcon from '../icons/CIcon.vue'
+import { uuidv4 } from '../../helpers'
+import i18nPlugin from '../../plugins/i18n.plugin'
 
 type CDocumentItemAction =
   'upload'
@@ -162,5 +159,5 @@ function actionTooltipTranslation(action: 'upload' | 'download') {
 </script>
 
 <style lang="scss">
-@import '@/styles/ui/c-document-item.scss';
+@import '../../styles/ui/c-document-item.scss';
 </style>

@@ -28,7 +28,7 @@
 import { useSlots, PropType } from 'vue'
 import type {
   DatatableHeaderItem,
-} from '@/@types/c-datatable'
+} from '../../../@types'
 
 const props = defineProps({
   item: {

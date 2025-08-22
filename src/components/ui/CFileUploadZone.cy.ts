@@ -1,6 +1,7 @@
-import { mountCyComponent } from '@/helpers/vue-test-helper'
-import { CFileUploadZone } from '@/components'
-import i18nPlugin from '@/plugins/i18n.plugin'
+import cypress from 'cypress'
+import { mountCyComponent } from '../../helpers/vue-test-helper'
+import i18nPlugin from '../../plugins/i18n.plugin'
+import CFileUploadZone from './CFileUploadZone.vue'
 
 describe('<CFileUploadZone />', () => {
   it('should render', () => {
@@ -33,7 +34,7 @@ describe('<CFileUploadZone />', () => {
 
     cy.get('input[name=fileUploadZoneInput]')
       .selectFile({
-        contents: Cypress.Buffer.from('file contents'),
+        contents: cypress.Buffer.from('file contents'),
         fileName: 'file.json',
       }, { force: true })
 

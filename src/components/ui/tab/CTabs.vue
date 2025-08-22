@@ -91,8 +91,8 @@ import {
 import CIcon from '../../icons/CIcon.vue'
 
 import CTab from './CTab.vue'
-import TabHeaderItem from '@/components/ui/tab/TabHeaderItem.vue'
-import type { CTabItem } from '@/@types/cresh-ui'
+import TabHeaderItem from './TabHeaderItem.vue'
+import type { CTabItem } from '../../../@types'
 
 const state = reactive<{
   tabs: typeof CTab[]
@@ -301,5 +301,5 @@ provide('selected-tab-item', selectedTabItem)
 </script>
 
 <style lang="scss">
-  @import '@/styles/ui/c-tabs.scss';
+  @import '../../../styles/ui/c-tabs.scss';
 </style>

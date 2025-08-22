@@ -156,5 +156,5 @@ watch(() => props.modelValue, (val: unknown) => {
 </script>
 
 <style lang="scss" scoped>
-@import '@/styles/form-controls/c-input.scss';
+@import '../../styles/form-controls/c-input.scss';
 </style>

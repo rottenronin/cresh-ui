@@ -65,7 +65,7 @@ import {
 } from 'vue'
 import type {
   Pagination,
-} from '@/@types/c-datatable'
+} from '../../../@types'
 
 import i18n from '../../../plugins/i18n.plugin'
 

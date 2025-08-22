@@ -2,7 +2,7 @@ import CDropdown from './CDropdown.vue'
 
 import {
   mountCyComponent,
-} from '@/helpers/vue-test-helper'
+} from '../../helpers/vue-test-helper'
 
 const dropdownItems = [{
   value: 'animal1',

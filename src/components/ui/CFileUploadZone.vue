@@ -60,15 +60,12 @@ import {
   computed,
 } from 'vue'
 
-import i18nPlugin from '@/plugins/i18n.plugin'
+import i18nPlugin from '../../plugins/i18n.plugin'
 
-import {
-  CIcon,
-  CSpinner,
-  CErrorMessage,
-} from '@/components'
-
-import { fileHelper } from '@/helpers'
+import CIcon from '../icons/CIcon.vue'
+import CSpinner from './CSpinner.vue'
+import CErrorMessage from './CErrorMessage.vue'
+import { fileHelper } from '../../helpers'
 
 const cFileUploadZoneRef = ref<HTMLDivElement | null>(null)
 
@@ -202,5 +199,5 @@ function onDragleave () {
 </script>
 
 <style lang="scss" scoped>
-@import '@/styles/ui/c-file-upload-zone.scss';
+@import '../../styles/ui/c-file-upload-zone.scss';
 </style>

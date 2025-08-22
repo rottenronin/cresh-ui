@@ -149,5 +149,5 @@ function onInput (payload: Event): void {
 </script>
 
 <style lang="scss" scoped>
-@import '@/styles/form-controls/c-input.scss';
+@import '../../styles/form-controls/c-input.scss';
 </style>

@@ -24,9 +24,11 @@ export default defineConfig({
     }),
     vueJsx(),
     dts({
+      entryRoot: 'src',
       insertTypesEntry: true,
       outputDir: 'dist',
       include: ['src'],
+      // rollupTypes: true,
       cleanVueFileName: true,
     }),
   ],

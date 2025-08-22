@@ -93,5 +93,5 @@ const onClick = (): void => {
 </script>
 
 <style lang="scss">
-@import '@/styles/form-controls/c-radio.scss';
+@import '../../styles/form-controls/c-radio.scss';
 </style>
