@@ -99,14 +99,11 @@ import {
   watch,
 } from 'vue'
 
-import type { CDocumentItemType } from '@/@types/cresh-ui'
+import type { CDocumentItemType } from '../../@types/cresh-ui'
 
 import i18n from '../../plugins/i18n.plugin'
-
-import {
-  CModal,
-  CIcon,
-} from '@/components'
+import CModal from './CModal.vue'
+import CIcon from '../icons/CIcon.vue'
 
 const props = defineProps({
   modelValue: {
@@ -179,5 +176,5 @@ watch(() => previewRef.value, val => {
 </script>
 
 <style lang="scss">
-@import '@/styles/ui/c-document-viewer.scss';
+@import '../../styles/ui/c-document-viewer.scss';
 </style>

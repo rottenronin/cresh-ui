@@ -22,7 +22,7 @@ import {
   useSlots,
   watch,
 } from 'vue'
-import type { CTabItem } from '@/@types/cresh-ui'
+import type { CTabItem } from '../../../@types'
 
 const props = defineProps({
   name: {

@@ -1,8 +1,6 @@
-import { mountCyComponent } from '@/helpers/vue-test-helper'
-import {
-  CSteps,
-  CStep,
-} from '@/components'
+import { mountCyComponent } from '../../../helpers/vue-test-helper'
+import CSteps from './CSteps.vue'
+import CStep from './CStep.vue'
 
 describe('<CSteps />', () => {
   it('should render', () => {

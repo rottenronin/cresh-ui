@@ -1,4 +1,4 @@
-import { ChartDateGroup } from '@/@types/cresh-ui'
+import { ChartDateGroup } from '../@types/cresh-ui'
 import currencyConverter from './currency-converter'
 import { customTooltips } from './chart-tooltip.helper'
 

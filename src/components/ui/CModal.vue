@@ -83,8 +83,8 @@ import {
   watch,
   useSlots,
 } from 'vue'
-import i18n from '@/plugins/i18n.plugin'
-import { uuidv4 } from '@/helpers'
+import i18n from '../../plugins/i18n.plugin'
+import { uuidv4 } from '../../helpers'
 import CrossIcon from '../icons/CrossIcon.vue'
 import CButton from './CButton.vue'
 
@@ -200,5 +200,5 @@ function onClickOutside () {
 </script>
 
 <style lang="scss">
-@import '@/styles/ui/c-modal.scss';
+@import '../../styles/ui/c-modal.scss';
 </style>

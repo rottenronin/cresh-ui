@@ -89,7 +89,7 @@ import {
 
 import {
   uuidv4,
-} from '@/helpers'
+} from '../../../helpers'
 
 import CStep from './CStep.vue'
 import CIcon from '../../icons/CIcon.vue'
@@ -195,5 +195,5 @@ function onStepSelect (i: number): void {
 </script>
 
 <style lang="scss">
-  @import '@/styles/ui/c-steps.scss';
+  @import '../../../styles/ui/c-steps.scss';
 </style>

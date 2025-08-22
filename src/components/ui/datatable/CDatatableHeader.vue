@@ -43,7 +43,7 @@ import { PropType } from 'vue'
 
 import type {
   DatatableHeaderItem,
-} from '@/@types/c-datatable'
+} from '../../../@types'
 import ArrowDownIcon from '../../icons/ArrowDownIcon.vue'
 import ArrowUpIcon from '../../icons/ArrowUpIcon.vue'
 

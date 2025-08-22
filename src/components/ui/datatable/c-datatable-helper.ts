@@ -4,7 +4,7 @@ import type {
   DatatableHeaderItem,
   Pagination,
   PaginationLinks,
-} from '@/@types/c-datatable'
+} from '../../../@types'
 
 const isLoading = ref(false)
 const errors = ref<unknown>(null)

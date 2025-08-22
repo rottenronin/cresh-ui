@@ -4,7 +4,7 @@ import CCard from './CCard.vue'
 
 import {
   mountCyComponent,
-} from '@/helpers/vue-test-helper'
+} from '../../helpers/vue-test-helper'
 
 describe('<CCard />', () => {
   it('renders', () => {

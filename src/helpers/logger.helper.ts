@@ -1,7 +1,4 @@
-import {
-  LogLevel,
-  Logger,
-} from '@/@types/cresh-ui'
+import type { LogLevel, Logger } from '../@types/cresh-ui'
 
 export const levels: LogLevel[] = [
   'debug',

@@ -42,27 +42,27 @@
     "./icons": {
       "import": "./dist/icons.es.js",
       "require": "./dist/icons.cjs.js",
-      "types": "./dist/src/components/icons/index.d.ts"
+      "types": "./dist/icons.d.ts"
     },
     "./form-controls": {
       "import": "./dist/form-controls.es.js",
       "require": "./dist/form-controls.cjs.js",
-      "types": "./dist/src/components/form-controls/index.d.ts"
+      "types": "./dist/form-controls.d.ts"
     },
     "./directives": {
       "import": "./dist/directives.es.js",
       "require": "./dist/directives.cjs.js",
-      "types": "./dist/src/directives/index.d.ts"
+      "types": "./dist/directives.d.ts"
     },
     "./helpers": {
       "import": "./dist/helpers.es.js",
       "require": "./dist/helpers.cjs.js",
-      "types": "./dist/src/helpers/index.d.ts"
+      "types": "./dist/helpers.d.ts"
     },
     "./plugins": {
       "import": "./dist/plugins.es.js",
       "require": "./dist/plugins.cjs.js",
-      "types": "./dist/src/plugins/index.d.ts"
+      "types": "./dist/plugins.d.ts"
     },
     "./style.css": {
       "import": "./dist/style.css",

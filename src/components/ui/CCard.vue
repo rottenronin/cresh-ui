@@ -29,5 +29,5 @@ const hasHeaderSlot = computed(() => !!slots.header)
 </script>
 
 <style lang="scss">
-  @import '@/styles/ui/c-card.scss';
+  @import '../../styles/ui/c-card.scss';
 </style>

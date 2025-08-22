@@ -42,7 +42,7 @@ import {
 
 import baseProps from './base-control-props'
 import CInput from './CInput.vue'
-import i18nPlugin from '@/plugins/i18n.plugin'
+import i18nPlugin from '../../plugins/i18n.plugin'
 
 const props = defineProps({
   ...baseProps,
@@ -135,5 +135,5 @@ watch(() => props.modelValue, val => {
 </script>
 
 <style lang="scss">
-@import '@/styles/form-controls/c-input.scss';
+@import '../../styles/form-controls/c-input.scss';
 </style>

@@ -1,8 +1,6 @@
-import { mountCyComponent } from '@/helpers/vue-test-helper'
-import {
-  CDrawer,
-  CDrawerItem,
-} from '@/components'
+import { mountCyComponent } from '../../../helpers/vue-test-helper'
+import CDrawer from './CDrawer.vue'
+import CDrawerItem from './CDrawerItem.vue'
 
 describe('<CDrawer />', () => {
   it('should render', () => {

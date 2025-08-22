@@ -1,8 +1,6 @@
-import { mountCyComponent } from '@/helpers/vue-test-helper'
-import {
-  CTabs,
-  CTab,
-} from '@/components'
+import { mountCyComponent } from '../../../helpers/vue-test-helper'
+import CTab from './CTab.vue'
+import CTabs from './CTabs.vue'
 
 describe('<CTabs />', () => {
   it('should render', () => {

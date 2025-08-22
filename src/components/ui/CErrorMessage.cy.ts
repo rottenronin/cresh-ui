@@ -4,8 +4,8 @@ import CErrorMessage from './CErrorMessage.vue'
 
 import {
   mountCyComponent,
-} from '@/helpers/vue-test-helper'
-import i18nPlugin from '@/plugins/i18n.plugin'
+} from '../../helpers/vue-test-helper'
+import i18nPlugin from '../../plugins/i18n.plugin'
 
 describe('<CErrorMessage />', () => {
   it('renders', () => {

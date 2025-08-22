@@ -35,7 +35,7 @@ import {
   onBeforeMount,
   onBeforeUnmount,
 } from 'vue'
-import { pubSubHelper } from '@/helpers'
+import { pubSubHelper } from '../../../helpers'
 
 const props = defineProps({
   title: {
@@ -89,5 +89,5 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss">
-@import '@/styles/ui/c-menu.scss';
+@import '../../../styles/ui/c-menu.scss';
 </style>

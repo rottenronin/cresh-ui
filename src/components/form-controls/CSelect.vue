@@ -107,7 +107,7 @@ import {
 import ChevronDownIcon from '../icons/ChevronDownIcon.vue'
 
 import baseProps from './base-control-props'
-import type { CSelectOption } from '@/@types/cresh-ui'
+import type { CSelectOption } from '../../@types'
 
 const props = defineProps({
   ...baseProps,
@@ -157,5 +157,5 @@ const hasValueOrPlaceholder = computed(
 </script>
 
 <style lang="scss">
-@import '@/styles/form-controls/c-select.scss';
+@import '../../styles/form-controls/c-select.scss';
 </style>

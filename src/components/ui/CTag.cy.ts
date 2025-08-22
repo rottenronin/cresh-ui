@@ -1,7 +1,7 @@
 /// <reference types="Cypress" /><
 
-import { mountCyComponent } from '@/helpers/vue-test-helper'
-import { CTag } from '@/components'
+import { mountCyComponent } from '../../helpers/vue-test-helper'
+import CTag from './CTag.vue';
 
 describe('<CTag />', () => {
   [

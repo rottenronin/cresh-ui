@@ -96,7 +96,7 @@ import {
 import type {
   DatatableHeaderItem,
   Pagination,
-} from '@/@types/c-datatable'
+} from '../../../@types'
 
 import CDatatableHeader from './CDatatableHeader.vue'
 import CDatatableLoadingBar from './CDatatableLoadingBar.vue'
@@ -482,5 +482,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '@/styles/ui/c-datatable.scss';
+@import '../../../styles/ui/c-datatable.scss';
 </style>

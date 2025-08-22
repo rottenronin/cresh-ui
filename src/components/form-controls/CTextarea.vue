@@ -139,5 +139,5 @@ const hasValueOrPlaceholder = computed(
 </script>
 
 <style lang="scss">
-@import '@/styles/form-controls/c-input.scss';
+@import '../../styles/form-controls/c-input.scss';
 </style>

@@ -2,10 +2,10 @@
 import { faker } from '@faker-js/faker/locale/fr'
 import {
   mountCyComponent,
-} from '@/helpers/vue-test-helper'
+} from '../../helpers/vue-test-helper'
 
 import CEmpty from './CEmpty.vue'
-import i18nPlugin from '@/plugins/i18n.plugin'
+import i18nPlugin from '../../plugins/i18n.plugin'
 
 describe('<CEmpty />', () => {
   it('renders', () => {

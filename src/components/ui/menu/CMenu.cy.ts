@@ -1,8 +1,6 @@
-import { mountCyComponent } from '@/helpers/vue-test-helper'
-import {
-  CMenu,
-  CMenuItem,
-} from '@/components'
+import { mountCyComponent } from '../../../helpers/vue-test-helper'
+import CMenu from './CMenu.vue'
+import CMenuItem from './CMenuItem.vue'
 
 describe('<CMenu />', () => {
   it('should render', () => {

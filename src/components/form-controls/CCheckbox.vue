@@ -104,5 +104,5 @@ async function onCheckHandle () {
 </script>
 
 <style lang="scss">
-@import '@/styles/form-controls/c-checkbox.scss';
+@import '../../styles/form-controls/c-checkbox.scss';
 </style>

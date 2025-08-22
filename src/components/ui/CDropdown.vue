@@ -297,5 +297,5 @@ const hasContentSlot = computed(() => !!slots.content)
 </script>
 
 <style lang="scss">
-  @import '@/styles/ui/c-dropdown.scss';
+  @import '../../styles/ui/c-dropdown.scss';
 </style>

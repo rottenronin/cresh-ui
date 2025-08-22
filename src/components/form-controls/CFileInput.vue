@@ -61,8 +61,8 @@ import {
   CErrorMessage,
   CProgressBar,
 } from '../ui'
-import i18nPlugin from '@/plugins/i18n.plugin'
-import { fileHelper } from '@/helpers'
+import i18nPlugin from '../../plugins/i18n.plugin'
+import { fileHelper } from '../../helpers'
 
 const inputRef = ref<HTMLInputElement | null>(null)
 

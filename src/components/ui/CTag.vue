@@ -42,5 +42,5 @@ defineProps({
 </script>
 
 <style lang="scss">
-@import '@/styles/ui/c-tag';
+@import '../../styles/ui/c-tag';
 </style>

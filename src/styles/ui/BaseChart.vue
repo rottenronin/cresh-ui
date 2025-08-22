@@ -28,7 +28,7 @@ import {
 import {
   debounce,
   chartHelper,
-} from '@/helpers'
+} from '../../helpers'
 
 type Gradients = {
   y1: number

@@ -49,9 +49,8 @@ import {
   computed,
   PropType,
 } from 'vue'
-import { Step } from '@/@types/cresh-ui'
-
-import CIcon from '@/components/icons/CIcon.vue'
+import { Step } from '../../@types/cresh-ui'
+import CIcon from '../icons/CIcon.vue'
 
 const props = defineProps({
   steps: {
@@ -64,5 +63,5 @@ const items = computed(() => props.steps)
 </script>
 
 <style lang="scss">
-  @import '@/styles/ui/c-vertical-stepper-alt.scss';
+  @import '../../styles/ui/c-vertical-stepper-alt.scss';
 </style>

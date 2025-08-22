@@ -14,7 +14,7 @@
 <script setup lang="ts">
 
 import { onMounted } from 'vue'
-import CTab from '@/components/ui/tab/CTab.vue'
+import CTab from './CTab.vue'
 import CIcon from '../../icons/CIcon.vue'
 
 defineProps<{

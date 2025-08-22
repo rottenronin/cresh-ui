@@ -115,5 +115,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '@/styles/ui/c-button.scss';
+@import '../../styles/ui/c-button.scss';
 </style>

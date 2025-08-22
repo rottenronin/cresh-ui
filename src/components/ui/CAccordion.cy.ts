@@ -1,10 +1,8 @@
 /// <reference types="Cypress" /><
 
-import { mountCyComponent } from '@/helpers/vue-test-helper'
-import {
-  CAccordion,
-  CAccordionItem,
-} from '@/components'
+import { mountCyComponent } from '../../helpers/vue-test-helper'
+import CAccordion from './CAccordion.vue'
+import CAccordionItem from './CAccordionItem.vue'
 
 describe('<CAccordion />', () => {
   beforeEach(() => {
