@@ -96,6 +96,8 @@ export default defineConfig({
           @import "./src/styles/preprocessor/utils.scss";
           @import "./src/styles/preprocessor/default-colors.scss";
         `,
+        quietDeps: true,
+        silenceDeprecations: ['legacy-js-api', 'import'],
       },
     },
   },
