@@ -1,141 +1,202 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import CTextarea from './CTextarea.vue'
 
 const meta = {
-  title: 'Form Controls/CTextarea',
+  title: 'Form Controls / Textarea',
   component: CTextarea,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {
-    modelValue: {
-      control: { type: 'text' },
-      description: 'The textarea value (v-model binding)',
-    },
-    label: {
-      control: { type: 'text' },
-      description: 'Label for the textarea',
-    },
-    placeholder: {
-      control: { type: 'text' },
-      description: 'Placeholder text',
-    },
-    name: {
-      control: { type: 'text' },
-      description: 'Input name attribute',
-    },
-    disabled: {
-      control: { type: 'boolean' },
-      description: 'Disable the textarea',
-    },
-    rows: {
-      control: { type: 'number' },
-      description: 'Number of rows',
-    },
-  },
 } satisfies Meta<typeof CTextarea>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => {
-    return {
-      components: { CTextarea },
-      setup() {
-        const comment = ref('')
-        return { comment }
-      },
-      template: `
-        <div style="max-width: 400px;">
-          <c-textarea
-            v-model="comment"
-            name="comments"
-            label="Comments"
-            placeholder="Enter your comments here..."
-            :rows="4"
-          />
-          <p style="margin-top: 16px; font-size: 12px; color: #999;">
-            Characters: {{ comment.length }}
-          </p>
-        </div>
-      `,
-    }
-  },
+  render: () => ({
+    components: { CTextarea },
+    setup() {
+      const text = ref('')
+      return { text }
+    },
+    template: `
+      <div style="width: 400px;">
+        <c-textarea
+          v-model="text"
+          name="message"
+          label="Message"
+          placeholder="Enter your message..."
+          bordered
+        />
+        <p style="margin-top: 20px; font-size: 14px; color: #666;">
+          Content: {{ text || '(empty)' }}
+        </p>
+      </div>
+    `,
+  }),
 }
 
-export const WithContent: Story = {
-  render: () => {
-    return {
-      components: { CTextarea },
-      setup() {
-        const description = ref('This is a sample text in the textarea.')
-        return { description }
-      },
-      template: `
-        <div style="max-width: 400px;">
-          <c-textarea
-            v-model="description"
-            name="description"
-            label="Description"
-            :rows="4"
-          />
-          <p style="margin-top: 16px; font-size: 12px; color: #999;">
-            Characters: {{ description.length }}
-          </p>
-        </div>
-      `,
-    }
-  },
+export const WithCharacterLimit: Story = {
+  render: () => ({
+    components: { CTextarea },
+    setup() {
+      const text = ref('')
+      const maxChars = 150
+      const remaining = computed(() => maxChars - text.value.length)
+      return { text, maxChars, remaining }
+    },
+    template: `
+      <div style="width: 400px;">
+        <c-textarea
+          v-model="text"
+          name="message"
+          label="Message (Max 150 characters)"
+          placeholder="Enter your message..."
+          :max-length="maxChars"
+          bordered
+        />
+        <p style="margin-top: 10px; font-size: 12px; color: #999;">
+          {{ text.length }} / {{ maxChars }} characters ({{ remaining }} remaining)
+        </p>
+      </div>
+    `,
+  }),
+}
+
+export const WithValue: Story = {
+  render: () => ({
+    components: { CTextarea },
+    setup() {
+      const text = ref('This is a sample message with some pre-filled content.')
+      return { text }
+    },
+    template: `
+      <div style="width: 400px;">
+        <c-textarea
+          v-model="text"
+          name="message"
+          label="Message"
+          placeholder="Enter your message..."
+          bordered
+        />
+        <p style="margin-top: 20px; font-size: 14px; color: #666;">
+          Content length: {{ text.length }} characters
+        </p>
+      </div>
+    `,
+  }),
+}
+
+export const WithError: Story = {
+  render: () => ({
+    components: { CTextarea },
+    setup() {
+      const text = ref('')
+      return { text }
+    },
+    template: `
+      <div style="width: 400px;">
+        <c-textarea
+          v-model="text"
+          name="message"
+          label="Message"
+          placeholder="Enter your message..."
+          bordered
+          error-message="Please enter at least 10 characters"
+        />
+      </div>
+    `,
+  }),
+}
+
+export const LargeFixed: Story = {
+  render: () => ({
+    components: { CTextarea },
+    setup() {
+      const text = ref('')
+      return { text }
+    },
+    template: `
+      <div style="width: 400px;">
+        <c-textarea
+          v-model="text"
+          name="message"
+          label="Large Textarea"
+          placeholder="Enter your message..."
+          :rows="10"
+          :cols="50"
+          bordered
+        />
+      </div>
+    `,
+  }),
 }
 
 export const Disabled: Story = {
-  render: () => {
-    return {
-      components: { CTextarea },
-      setup() {
-        const content = ref('This textarea is disabled')
-        return { content }
-      },
-      template: `
-        <div style="max-width: 400px;">
-          <c-textarea
-            v-model="content"
-            name="disabled"
-            label="Disabled textarea"
-            disabled
-            :rows="3"
-          />
-        </div>
-      `,
-    }
-  },
+  render: () => ({
+    components: { CTextarea },
+    setup() {
+      const text = ref('This textarea is disabled and cannot be edited.')
+      return { text }
+    },
+    template: `
+      <div style="width: 400px;">
+        <c-textarea
+          v-model="text"
+          name="message"
+          label="Message"
+          placeholder="Enter your message..."
+          bordered
+          disabled
+        />
+      </div>
+    `,
+  }),
 }
 
-export const Large: Story = {
-  render: () => {
-    return {
-      components: { CTextarea },
-      setup() {
-        const content = ref('')
-        return { content }
-      },
-      template: `
-        <div style="max-width: 500px;">
-          <c-textarea
-            v-model="content"
-            name="content"
-            label="Long form content"
-            placeholder="Write your long content here..."
-            :rows="8"
-          />
-          <p style="margin-top: 16px; font-size: 12px; color: #999;">
-            Characters: {{ content.length }}
-          </p>
-        </div>
-      `,
-    }
-  },
+export const Required: Story = {
+  render: () => ({
+    components: { CTextarea },
+    setup() {
+      const text = ref('')
+      return { text }
+    },
+    template: `
+      <div style="width: 400px;">
+        <c-textarea
+          v-model="text"
+          name="message"
+          label="Message *"
+          placeholder="Enter your message..."
+          bordered
+          required
+        />
+      </div>
+    `,
+  }),
+}
+
+export const Small: Story = {
+  render: () => ({
+    components: { CTextarea },
+    setup() {
+      const text = ref('')
+      return { text }
+    },
+    template: `
+      <div style="width: 300px;">
+        <c-textarea
+          v-model="text"
+          name="message"
+          label="Short Message"
+          placeholder="Type here..."
+          :rows="3"
+          :cols="20"
+          bordered
+        />
+      </div>
+    `,
+  }),
 }
