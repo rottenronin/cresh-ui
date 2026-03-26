@@ -1,0 +1,220 @@
+import type { Meta, StoryObj } from '@storybook/vue3'
+import { ref } from 'vue'
+import CDocumentItem from './CDocumentItem.vue'
+
+const meta = {
+  title: 'UI / Document Item',
+  component: CDocumentItem,
+  parameters: {
+    layout: 'padded',
+  },
+  tags: ['autodocs'],
+  argTypes: {
+    label: {
+      control: { type: 'text' },
+      description: 'Document label',
+    },
+    icon: {
+      control: { type: 'text' },
+      description: 'Icon name',
+    },
+    link: {
+      control: { type: 'text' },
+      description: 'Document link/URL',
+    },
+    approved: {
+      control: { type: 'select' },
+      options: [undefined, true, false],
+      description: 'Approval status (undefined, true, or false)',
+    },
+    actions: {
+      control: { type: 'object' },
+      description: 'Available actions: upload, validate, download, read',
+    },
+  },
+} satisfies Meta<typeof CDocumentItem>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Basic: Story = {
+  args: {
+    label: 'Invoice Document',
+    icon: 'document-sign',
+    link: '#',
+    approved: undefined,
+    actions: ['read', 'download'],
+  },
+  render: (args) => ({
+    components: { CDocumentItem },
+    setup() {
+      const selectedAction = ref<string | undefined>()
+      return { args, selectedAction }
+    },
+    template: `
+      <div style="max-width: 500px;">
+        <c-document-item
+          v-bind="args"
+          @read="selectedAction = 'read'"
+          @download="selectedAction = 'download'"
+          @upload="selectedAction = 'upload'"
+          @validate="selectedAction = 'validate'"
+        />
+        <div v-if="selectedAction" style="margin-top: 16px; padding: 12px; background: #f5f5f5; border-radius: 4px;">
+          <p style="margin: 0;"><strong>Action triggered:</strong> {{ selectedAction }}</p>
+        </div>
+      </div>
+    `,
+  }),
+}
+
+export const Approved: Story = {
+  args: {
+    label: 'Contract Agreement',
+    icon: 'document-check',
+    link: '#',
+    approved: true,
+    actions: ['read', 'download'],
+  },
+  render: (args) => ({
+    components: { CDocumentItem },
+    setup() {
+      const selectedAction = ref<string | undefined>()
+      return { args, selectedAction }
+    },
+    template: `
+      <div style="max-width: 500px;">
+        <c-document-item
+          v-bind="args"
+          @read="selectedAction = 'read'"
+          @download="selectedAction = 'download'"
+        />
+        <div style="margin-top: 12px; padding: 8px 12px; background: #d4edda; border: 1px solid #c3e6cb; border-radius: 4px; color: #155724; font-size: 14px;">
+          ✓ This document has been approved
+        </div>
+      </div>
+    `,
+  }),
+}
+
+export const NotApproved: Story = {
+  args: {
+    label: 'Expense Report',
+    icon: 'document-text',
+    link: '#',
+    approved: false,
+    actions: ['read', 'validate', 'download'],
+  },
+  render: (args) => ({
+    components: { CDocumentItem },
+    setup() {
+      const selectedAction = ref<string | undefined>()
+      return { args, selectedAction }
+    },
+    template: `
+      <div style="max-width: 500px;">
+        <c-document-item
+          v-bind="args"
+          @read="selectedAction = 'read'"
+          @validate="selectedAction = 'validate'"
+          @download="selectedAction = 'download'"
+        />
+        <div style="margin-top: 12px; padding: 8px 12px; background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px; color: #721c24; font-size: 14px;">
+          ✗ This document requires approval
+        </div>
+      </div>
+    `,
+  }),
+}
+
+export const Unavailable: Story = {
+  args: {
+    label: 'Missing Document',
+    icon: 'document-ban',
+    link: undefined,
+    approved: undefined,
+    actions: ['upload'],
+  },
+  render: (args) => ({
+    components: { CDocumentItem },
+    setup() {
+      const selectedAction = ref<string | undefined>()
+      return { args, selectedAction }
+    },
+    template: `
+      <div style="max-width: 500px;">
+        <c-document-item
+          v-bind="args"
+          @upload="selectedAction = 'upload'"
+        />
+        <div style="margin-top: 12px; padding: 8px 12px; background: #e2e3e5; border: 1px solid #d6d8db; border-radius: 4px; color: #383d41; font-size: 14px;">
+          This document is not yet available. Upload to add it.
+        </div>
+      </div>
+    `,
+  }),
+}
+
+export const AllActions: Story = {
+  args: {
+    label: 'Tax Return',
+    icon: 'document-sign',
+    link: '#',
+    approved: true,
+    actions: ['read', 'validate', 'download', 'upload'],
+  },
+  render: (args) => ({
+    components: { CDocumentItem },
+    setup() {
+      const selectedAction = ref<string | undefined>()
+      return { args, selectedAction }
+    },
+    template: `
+      <div style="max-width: 500px;">
+        <c-document-item
+          v-bind="args"
+          @read="selectedAction = 'read'"
+          @validate="selectedAction = 'validate'"
+          @download="selectedAction = 'download'"
+          @upload="selectedAction = 'upload'"
+        />
+        <div v-if="selectedAction" style="margin-top: 16px; padding: 12px; background: #f5f5f5; border-radius: 4px;">
+          <p style="margin: 0;"><strong>Action:</strong> {{ selectedAction }}</p>
+        </div>
+      </div>
+    `,
+  }),
+}
+
+export const DocumentList: Story = {
+  render: () => ({
+    components: { CDocumentItem },
+    setup() {
+      const documents = [
+        { label: 'Passport', icon: 'document-sign', approved: true, link: '#' },
+        { label: 'Driving License', icon: 'document-sign', approved: false, link: '#' },
+        { label: 'Bank Statement', icon: 'document-text', approved: undefined, link: undefined },
+        { label: 'Insurance Certificate', icon: 'document-check', approved: true, link: '#' },
+      ]
+      const selectedAction = ref<string | undefined>()
+      return { documents, selectedAction }
+    },
+    template: `
+      <div style="max-width: 600px;">
+        <h3 style="margin-top: 0;">Required Documents</h3>
+        <div style="border: 1px solid #ddd; border-radius: 4px; overflow: hidden;">
+          <c-document-item
+            v-for="(doc, i) in documents"
+            :key="i"
+            :label="doc.label"
+            :icon="doc.icon"
+            :approved="doc.approved"
+            :link="doc.link"
+            :actions="doc.link ? ['read', 'download'] : ['upload']"
+            style="padding: 16px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;"
+          />
+        </div>
+      </div>
+    `,
+  }),
+}
