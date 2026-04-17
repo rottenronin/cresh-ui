@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CSelect from './CSelect.vue'
 
 const meta = {
@@ -41,25 +42,26 @@ export const Default: Story = {
     return {
       components: { CSelect },
       setup() {
+        const { t } = useI18n()
         const selected = ref('')
-        return { selected }
+        return { selected, t }
       },
       template: `
         <div>
           <c-select
             v-model="selected"
             name="choose-option"
-            label="Choose an option"
-            placeholder="Select..."
+            :label="t('translate.showcase.select.choose_option')"
+            :placeholder="t('translate.showcase.select.select_placeholder')"
             style="max-width: 300px;"
           >
-            <option value="">Select an option</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="">{{ t('translate.showcase.select.select_option') }}</option>
+            <option value="option1">{{ t('translate.showcase.select.option_1') }}</option>
+            <option value="option2">{{ t('translate.showcase.select.option_2') }}</option>
+            <option value="option3">{{ t('translate.showcase.select.option_3') }}</option>
           </c-select>
           <p style="margin-top: 16px; font-size: 12px;">
-            Selected: {{ selected }}
+            {{ t('translate.showcase.select.selected') }} {{ selected }}
           </p>
         </div>
       `,
@@ -72,25 +74,26 @@ export const WithValue: Story = {
     return {
       components: { CSelect },
       setup() {
+        const { t } = useI18n()
         const selected = ref('option2')
-        return { selected }
+        return { selected, t }
       },
       template: `
         <div>
           <c-select
             v-model="selected"
             name="choose-option"
-            label="Choose an option"
-            placeholder="Choose..."
+            :label="t('translate.showcase.select.choose_option')"
+            :placeholder="t('translate.showcase.select.choose_placeholder')"
             style="max-width: 300px;"
           >
-            <option value="">Select an option</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="">{{ t('translate.showcase.select.select_option') }}</option>
+            <option value="option1">{{ t('translate.showcase.select.option_1') }}</option>
+            <option value="option2">{{ t('translate.showcase.select.option_2') }}</option>
+            <option value="option3">{{ t('translate.showcase.select.option_3') }}</option>
           </c-select>
           <p style="margin-top: 16px; font-size: 12px;">
-            Selected: {{ selected }}
+            {{ t('translate.showcase.select.selected') }} {{ selected }}
           </p>
         </div>
       `,
@@ -103,27 +106,28 @@ export const WithCountries: Story = {
     return {
       components: { CSelect },
       setup() {
+        const { t } = useI18n()
         const country = ref('')
-        return { country }
+        return { country, t }
       },
       template: `
         <div>
           <c-select
             v-model="country"
             name="country"
-            label="Select your country"
-            placeholder="Choose a country..."
+            :label="t('translate.showcase.select.country_label')"
+            :placeholder="t('translate.showcase.select.country_placeholder')"
             style="max-width: 300px;"
           >
-            <option value="">Select a country</option>
-            <option value="us">United States</option>
-            <option value="uk">United Kingdom</option>
-            <option value="ca">Canada</option>
-            <option value="fr">France</option>
-            <option value="de">Germany</option>
+            <option value="">{{ t('translate.showcase.select.select_country') }}</option>
+            <option value="us">{{ t('translate.showcase.select.country_us') }}</option>
+            <option value="uk">{{ t('translate.showcase.select.country_uk') }}</option>
+            <option value="ca">{{ t('translate.showcase.select.country_ca') }}</option>
+            <option value="fr">{{ t('translate.showcase.select.country_fr') }}</option>
+            <option value="de">{{ t('translate.showcase.select.country_de') }}</option>
           </c-select>
           <p style="margin-top: 16px; font-size: 12px;">
-            Selected: {{ country }}
+            {{ t('translate.showcase.select.selected') }} {{ country }}
           </p>
         </div>
       `,
@@ -136,20 +140,21 @@ export const Disabled: Story = {
     return {
       components: { CSelect },
       setup() {
+        const { t } = useI18n()
         const selected = ref('option1')
-        return { selected }
+        return { selected, t }
       },
       template: `
         <c-select
           v-model="selected"
           name="disabled"
-          label="Disabled select"
+          :label="t('translate.showcase.select.disabled')"
           disabled
           style="max-width: 300px;"
         >
-          <option value="">Select an option</option>
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
+          <option value="">{{ t('translate.showcase.select.select_option') }}</option>
+          <option value="option1">{{ t('translate.showcase.select.option_1') }}</option>
+          <option value="option2">{{ t('translate.showcase.select.option_2') }}</option>
         </c-select>
       `,
     }

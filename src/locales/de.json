@@ -1,0 +1,1260 @@
+{
+  "validation_messages": {
+    "password_validation_rule": "Das Passwort muss mindestens 8 Zeichen lang sein und mindestens 1 Ziffer, 1 Kleinbuchstabe und 1 Großbuchstabe enthalten",
+    "passwords_match_rule": "Die Passwörter stimmen nicht überein",
+    "date_validation_rule": "Ungültiges Datumsformat",
+    "name_string_validation_rule": "Ungültiges Feld. Nur alphabetische und die folgenden Sonderzeichen sind zulässig: -'",
+    "address_validation_rule": "Ungültiges Feld. Nur alphanumerische und die folgenden Sonderzeichen sind zulässig: -_'.,",
+    "phone_number_rule": "Ungültiges Feld. Nur deutsche Telefonnummern sind zulässig."
+  },
+  "directives": {
+    "copy_to_clipboard": {
+      "copied": "Kopiert",
+      "click_to_copy": "Zum Kopieren klicken"
+    }
+  },
+  "datatable": {
+    "no_data": "Keine Daten",
+    "footer": {
+      "rows_per_page": "Zeilen pro Seite:"
+    },
+    "retry": "Erneut versuchen",
+    "error_message": "Ein Fehler ist aufgetreten, Daten konnten nicht abgerufen werden",
+    "loading": "Daten werden geladen"
+  },
+  "slider": {
+    "month": "Monat",
+    "perMonth": "pro Monat für",
+    "taxFree": "Monate (steuerfrei)",
+    "error": "Der Wert muss eine Zahl zwischen {min} und {max} sein"
+  },
+  "common": {
+    "errors": {
+      "default_error": "Ein Fehler ist aufgetreten, bitte versuchen Sie es später erneut",
+      "file_size_error": "Datei '{name}' muss kleiner als {size}KB sein",
+      "file_size_error_alt": "Datei muss kleiner als {size}KB sein",
+      "no_data": "Keine Daten",
+      "file_type_error": "Nur Dateien vom Typ {types} werden akzeptiert",
+      "invalid_file_error": "Das bereitgestellte Dokument scheint beschädigt zu sein und kann nicht angezeigt werden. Bitten Sie den Geschäftsführer, es erneut einzureichen."
+    },
+    "all": "Alle"
+  },
+  "modal": {
+    "ok": "OK",
+    "cancel": "Abbrechen"
+  },
+  "document": {
+    "read": "Dokument anzeigen",
+    "upload": "Dokument hochladen",
+    "download": "Dokument herunterladen",
+    "validate": "Dokument validieren"
+  },
+  "filters": {
+    "all": "Alle",
+    "daily": "Letzte 24 Stunden",
+    "weekly": "Diese Woche",
+    "monthly": "Diesen Monat",
+    "yearly": "Dieses Jahr",
+    "dates": {
+      "today": "Heute",
+      "last_7_days": "Letzte 7 Tage",
+      "last_4_weeks": "Letzte 4 Wochen",
+      "last_3_months": "Letzte 3 Monate",
+      "last_12_months": "Letzte 12 Monate",
+      "month_to_date": "Monat bis heute",
+      "quarter_to_date": "Quartal bis heute",
+      "year_to_date": "Jahr bis heute",
+      "all_time": "Gesamtes Zeitfenster"
+    },
+    "dropdown": {
+      "label": "Geschäfte:",
+      "selection_unique": "{count} ausgewählt",
+      "selection_multiple": "{count} ausgewählt",
+      "all": "Alle Geschäfte"
+    },
+    "download_btn": "Bericht herunterladen"
+  },
+  "showcase": {
+    "language_selector": {
+      "label": "Sprache"
+    },
+    "home": {
+      "title": "Vue 3 Komponentenbibliothek",
+      "subtitle_line_1": "Eine umfassende Vue-3-UI-Bibliothek nach der Cresh-Design-Spezifikation.",
+      "subtitle_line_2": "Erstellen Sie ansprechende, interaktive Benutzeroberflächen mit hochwertigen Komponenten.",
+      "features": {
+        "performance": {
+          "title": "Hohe Leistung",
+          "description": "Für Geschwindigkeit und Effizienz entwickelt"
+        },
+        "ease": {
+          "title": "Einfach zu verwenden",
+          "description": "Einfache API mit guter Developer Experience"
+        },
+        "responsive": {
+          "title": "Responsiv",
+          "description": "Funktioniert auf allen modernen Geräten"
+        }
+      },
+      "categories": {
+        "title": "Komponentenbibliothek",
+        "ui": {
+          "title": "UI-Komponenten",
+          "description": "Buttons, Karten, Modale, Tabs, Stepper und mehr"
+        },
+        "form": {
+          "title": "Formularsteuerungen",
+          "description": "Input, Select, Checkbox, Radio, Textarea"
+        },
+        "icons": {
+          "title": "Icons",
+          "description": "Mehr als 60 ansprechende SVG-Icons"
+        },
+        "charts": {
+          "title": "Diagramme",
+          "description": "Komponenten zur Datenvisualisierung"
+        }
+      },
+      "cta": "Mit Cresh UI loslegen",
+      "footer": {
+        "made_with": "Mit ❤️ von long2x erstellt",
+        "license": "MIT-Lizenz © 2024"
+      }
+    },
+    "icons": {
+      "eyebrow": "Icon-Bibliothek",
+      "title": "Alle Cresh-UI-Icons an einem Ort",
+      "subtitle": "Durchsuchen Sie den vollstaendigen Icon-Satz der Bibliothek. Diese Galerie wird automatisch aus dem Icons-Ordner erzeugt, sodass neue Icons ohne manuelle Pflege erscheinen.",
+      "total": "{count} Icons verfuegbar",
+      "usage_label": "Direkt nutzbarer Code",
+      "usage_section": {
+        "title": "So verwenden Sie eine Icon-Komponente",
+        "description": "Jedes Icon wird als Vue-Komponente exportiert. Importieren Sie das benoetigte Icon aus dem Icons-Entrypoint und verwenden Sie es dann direkt in Ihrem Template wie jede andere Komponente.",
+        "step_one_label": "Schritt 1",
+        "step_one_text": "Waehlen Sie unten in der Galerie einen Icon-Komponentennamen aus.",
+        "step_two_label": "Schritt 2",
+        "step_two_text": "Importieren Sie dieses Icon aus '@long2x/cresh-ui/icons'.",
+        "step_three_label": "Schritt 3",
+        "step_three_text": "Rendern Sie die Komponente in Ihrem Template an der Stelle, an der Sie das Icon brauchen."
+      },
+      "click_icon_to_copy": "Klicken Sie auf das Icon, um den Nutzungscode zu kopieren.",
+      "copied_inline": "Icon kopiert.",
+      "copied_notice": "{name} kopiert",
+      "copy_icon_aria": "Nutzungscode fuer {name} kopieren"
+    },
+    "getting_started": {
+      "title": "Erste Schritte mit Cresh UI",
+      "subtitle": "Erfahren Sie, wie Sie Cresh-UI-Komponenten in Ihrem Vue-3-Projekt installieren und verwenden",
+      "installation": {
+        "title": "Installation",
+        "description": "Installieren Sie das Paket mit npm oder yarn:",
+        "alternative": "Oder mit yarn:"
+      },
+      "setup": {
+        "title": "Einrichtung",
+        "description": "Importieren Sie die Komponenten und Styles in Ihre Vue-App:",
+        "note": "Importieren Sie unbedingt das Standard-Theme-CSS, damit die Styles korrekt funktionieren"
+      },
+      "usage": {
+        "title": "Grundlegende Nutzungsbeispiele",
+        "form_input": "Formulareingabe",
+        "select_dropdown": "Auswahlliste",
+        "button": "Button",
+        "icons": "Icons",
+        "full_name": "Vollständiger Name",
+        "enter_name": "Geben Sie Ihren Namen ein",
+        "choose_one": "Wählen Sie eine Option",
+        "click_me": "Klick mich"
+      },
+      "explore": {
+        "title": "Komponenten entdecken",
+        "description": "Durchsuchen Sie unsere Komponentenbibliothek über die linke Seitenleiste. Jede Kategorie enthält mehrere Beispiele:",
+        "ui": {
+          "title": "UI-Komponenten",
+          "description": "Karten, Modale, Tabs, Stepper, Akkordeons und mehr"
+        },
+        "form": {
+          "title": "Formularsteuerungen",
+          "description": "Input, Select, Checkbox, Radio, Textarea, Date Picker"
+        },
+        "icons": {
+          "title": "Icons",
+          "description": "Mehr als 60 ansprechende SVG-Icons für Ihre Projekte"
+        },
+        "charts": {
+          "title": "Diagramme",
+          "description": "Komponenten zur Datenvisualisierung"
+        }
+      },
+      "tips": {
+        "title": "Tipps und Best Practices",
+        "use_v_model_title": "Verwenden Sie v-model",
+        "use_v_model_description": "für die bidirektionale Bindung bei Formular-Komponenten",
+        "check_storybook_title": "Prüfen Sie Storybook",
+        "check_storybook_description": "für alle verfügbaren Props und Beispiele",
+        "import_styles_title": "Importieren Sie Styles",
+        "import_styles_description": "in Ihrer main.ts oder direkt in Komponenten",
+        "customize_themes_title": "Passen Sie Themes an",
+        "customize_themes_description": "durch Überschreiben von CSS-Variablen",
+        "use_typescript_title": "Verwenden Sie TypeScript",
+        "use_typescript_description": "für besseren IDE-Support und Typsicherheit"
+      },
+      "resources": {
+        "title": "Ressourcen",
+        "github": "GitHub-Repository",
+        "npm": "NPM-Paket",
+        "help": "Fragen? Öffnen Sie ein Issue auf GitHub oder lesen Sie die Komponentendokumentation"
+      }
+    },
+    "language_switching": {
+      "title": "Lokalisierte Komponentenbeispiele",
+      "password_label": "Passwort",
+      "password_placeholder": "Passwort eingeben",
+      "confirm_password_label": "Passwort bestätigen",
+      "confirm_password_placeholder": "Passwort bestätigen",
+      "date_label": "Datum",
+      "current_language": "Aktuelle Sprache:",
+      "try_label": "Versuchen Sie:",
+      "try_text": "Klicken Sie auf das Globus-Symbol in der Symbolleiste, um die Sprache zu wechseln und den Text sofort zu aktualisieren!"
+    },
+    "credit_card": {
+      "label": "Kartennummer",
+      "placeholder": "Kartennummer eingeben",
+      "input_value": "Eingabe:",
+      "invalid": "Ungueltige Kartennummer"
+    },
+    "datetime": {
+      "label": "Datum waehlen",
+      "required_label": "Datum waehlen *",
+      "placeholder": "MM/TT/JJJJ",
+      "selected": "Ausgewaehlt:",
+      "not_set": "Nicht gesetzt"
+    },
+    "phone": {
+      "label": "Telefonnummer",
+      "us_label": "US-Telefonnummer",
+      "no_blur_label": "Telefonnummer (ohne Blur-Validierung)",
+      "placeholder": "Telefonnummer eingeben",
+      "value": "Telefon:",
+      "not_set": "Nicht gesetzt",
+      "blur_hint": "Die Validierung erfolgt nur waehrend der Eingabe, nicht beim Verlassen des Felds."
+    },
+    "checkbox": {
+      "accept_terms": "Allgemeine Geschaeftsbedingungen akzeptieren",
+      "checked": "Aktiviert:",
+      "i_agree": "Ich stimme zu",
+      "disabled_option": "Diese Option ist deaktiviert",
+      "disabled_checked": "Deaktiviert und aktiviert"
+    },
+    "input": {
+      "full_name": "Vollstaendiger Name",
+      "full_name_placeholder": "Geben Sie Ihren vollstaendigen Namen ein",
+      "value": "Wert:",
+      "email": "E-Mail",
+      "email_placeholder": "Geben Sie Ihre E-Mail ein",
+      "password": "Passwort",
+      "password_placeholder": "Geben Sie Ihr Passwort ein",
+      "disabled_input": "Deaktivierte Eingabe",
+      "with_error": "Eingabe mit Fehler",
+      "invalid_input": "Ungueltige Eingabe"
+    },
+    "radio": {
+      "option_1": "Option 1",
+      "option_2": "Option 2",
+      "option_3": "Option 3",
+      "selected": "Ausgewaehlt:",
+      "disabled_option": "Deaktivierte Option"
+    },
+    "select": {
+      "choose_option": "Waehlen Sie eine Option",
+      "select_placeholder": "Auswaehlen...",
+      "select_option": "Option auswaehlen",
+      "option_1": "Option 1",
+      "option_2": "Option 2",
+      "option_3": "Option 3",
+      "selected": "Ausgewaehlt:",
+      "choose_placeholder": "Waehlen...",
+      "country_label": "Waehlen Sie Ihr Land",
+      "country_placeholder": "Waehlen Sie ein Land...",
+      "select_country": "Land auswaehlen",
+      "country_us": "Vereinigte Staaten",
+      "country_uk": "Vereinigtes Koenigreich",
+      "country_ca": "Kanada",
+      "country_fr": "Frankreich",
+      "country_de": "Deutschland",
+      "disabled": "Deaktivierte Auswahl"
+    },
+    "textarea": {
+      "message": "Nachricht",
+      "placeholder": "Geben Sie Ihre Nachricht ein...",
+      "content": "Inhalt:",
+      "empty": "(leer)",
+      "max_label": "Nachricht (max. 150 Zeichen)",
+      "characters": "Zeichen",
+      "remaining": "verbleibend",
+      "content_length": "Inhaltslaenge:",
+      "error": "Bitte geben Sie mindestens 10 Zeichen ein",
+      "large": "Grosses Textfeld",
+      "required": "Nachricht *",
+      "short": "Kurze Nachricht",
+      "type_here": "Hier eingeben..."
+    },
+    "accordion": {
+      "basic": {
+        "introduction_title": "Einfuehrung",
+        "introduction_content": "Dies ist der Einfuehrungsbereich des Akkordeons. Sie koennen hier beliebigen Inhalt einfuegen.",
+        "features_title": "Funktionen",
+        "feature_1": "Fluessige Animationen",
+        "feature_2": "Einfach anzupassen",
+        "feature_3": "Barrierefrei",
+        "feature_4": "Mehrere Elemente koennen verfolgt werden",
+        "questions_title": "Fragen",
+        "questions_content": "Haben Sie Fragen? Fragen Sie gern nach! Dieser Bereich kann FAQs oder zusaetzliche Informationen enthalten.",
+        "currently_selected": "Aktuell ausgewaehlt:",
+        "none": "Keine"
+      },
+      "initially_open": {
+        "getting_started_title": "Erste Schritte",
+        "getting_started_content": "Willkommen im Leitfaden fuer die ersten Schritte. Er hilft Ihnen bei der Einrichtung der Komponente.",
+        "installation_title": "Installation",
+        "usage_title": "Verwendung",
+        "usage_content": "Importieren Sie die Komponente und verwenden Sie sie in Ihrer Anwendung."
+      },
+      "custom": {
+        "settings_title": "Einstellungen",
+        "enable_notifications": "Benachrichtigungen aktivieren",
+        "dark_mode": "Dunkler Modus",
+        "auto_save": "Automatisch speichern",
+        "advanced_title": "Erweitert",
+        "cache_size": "Cache-Groesse (MB):",
+        "timeout": "Zeitlimit (Sekunden):"
+      },
+      "multiple": {
+        "item_title": "Element {index}",
+        "item_content": "Inhalt fuer Element {index}. Hier koennen Sie umfangreichen Inhalt einfuegen."
+      }
+    },
+    "alert": {
+      "success": {
+        "title": "Erfolg!",
+        "message": "Der Vorgang wurde erfolgreich abgeschlossen!"
+      },
+      "error": {
+        "title": "Fehler",
+        "message": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+      },
+      "warning": {
+        "title": "Warnung",
+        "message": "Bitte pruefen Sie diese Aktion, bevor Sie fortfahren."
+      },
+      "info": {
+        "title": "Information",
+        "message": "Dies ist eine Informationsmeldung."
+      },
+      "closable": {
+        "title": "Schliessbare Warnung",
+        "message": "Sie koennen diese Warnung durch Klicken auf die X-Schaltflaeche schliessen."
+      }
+    },
+    "card": {
+      "default": {
+        "title": "Kartentitel",
+        "content": "Dies ist der Karteninhalt. Sie koennen hier beliebigen Inhalt einfuegen."
+      },
+      "with_border": {
+        "title": "Karte mit Rahmen",
+        "content": "Diese Karte hat einen Rahmen."
+      },
+      "with_shadow": {
+        "title": "Karte mit Schatten",
+        "content": "Diese Karte hat einen Schatteneffekt."
+      },
+      "no_title": {
+        "content": "Eine Karte ohne Titel."
+      }
+    },
+    "divider": {
+      "horizontal": {
+        "above": "Inhalt oberhalb der Trennlinie",
+        "below": "Inhalt unterhalb der Trennlinie"
+      },
+      "with_text": {
+        "or": "ODER",
+        "email": "Mit E-Mail anmelden",
+        "social": "Mit sozialem Konto anmelden"
+      },
+      "vertical": {
+        "item_1": "Element 1",
+        "item_2": "Element 2",
+        "item_3": "Element 3"
+      }
+    },
+    "document_item": {
+      "action_triggered": "Aktion ausgeloest:",
+      "action": "Aktion:",
+      "actions": {
+        "read": "Lesen",
+        "download": "Herunterladen",
+        "upload": "Hochladen",
+        "validate": "Validieren"
+      },
+      "basic": {
+        "label": "Rechnungsdokument"
+      },
+      "approved": {
+        "label": "Vertragsvereinbarung",
+        "status": "Dieses Dokument wurde genehmigt"
+      },
+      "not_approved": {
+        "label": "Spesenabrechnung",
+        "status": "Dieses Dokument muss genehmigt werden"
+      },
+      "unavailable": {
+        "label": "Fehlendes Dokument",
+        "status": "Dieses Dokument ist noch nicht verfuegbar. Laden Sie es hoch, um es hinzuzufuegen."
+      },
+      "all_actions": {
+        "label": "Steuererklaerung"
+      },
+      "list": {
+        "title": "Erforderliche Dokumente",
+        "passport": "Reisepass",
+        "driving_license": "Fuehrerschein",
+        "bank_statement": "Kontoauszug",
+        "insurance_certificate": "Versicherungsbescheinigung"
+      }
+    },
+    "document_viewer": {
+      "pdf": {
+        "label": "Beispiel-PDF-Dokument"
+      },
+      "image": {
+        "label": "Beispiel-Landschaftsbild",
+        "open_button": "Bild oeffnen"
+      },
+      "basic_pdf": {
+        "open_button": "Dokument oeffnen"
+      },
+      "navigation": {
+        "open_button": "Dokumente oeffnen",
+        "progress": "Dokument {current} von {total}"
+      },
+      "no_arrows": {
+        "open_button": "Dokument oeffnen (ohne Navigation)"
+      },
+      "custom_label": {
+        "open_button": "Dokument oeffnen",
+        "last_updated": "Zuletzt aktualisiert: Heute"
+      },
+      "footer": {
+        "open_button": "Dokument oeffnen",
+        "download": "Herunterladen",
+        "approve": "Genehmigen"
+      }
+    },
+    "dropdown": {
+      "countries": {
+        "us": "Vereinigte Staaten",
+        "ca": "Kanada",
+        "mx": "Mexiko",
+        "fr": "Frankreich",
+        "de": "Deutschland"
+      },
+      "basic": {
+        "placeholder": "Waehlen Sie ein Land",
+        "selected": "Ausgewaehlt:",
+        "value": "Wert:"
+      },
+      "without_icon": {
+        "placeholder": "Waehlen Sie eine Option"
+      },
+      "multiple": {
+        "placeholder": "Auswaehlen",
+        "option_1": "Option 1",
+        "option_2": "Option 2",
+        "option_3": "Option 3",
+        "option_4": "Option 4",
+        "option_5": "Option 5",
+        "option_6": "Option 6"
+      },
+      "custom": {
+        "trigger": "Benutzerdefinierter Inhalt",
+        "title": "Benutzerdefinierter Dropdown-Inhalt",
+        "description": "Dieses Dropdown verwendet einen benutzerdefinierten Inhaltsslot.",
+        "action_1": "Aktion 1",
+        "action_2": "Aktion 2"
+      },
+      "forms": {
+        "full_name": "Vollstaendiger Name",
+        "full_name_placeholder": "Max Mustermann",
+        "email": "E-Mail",
+        "email_placeholder": "max@example.com",
+        "role": "Rolle",
+        "role_placeholder": "Rolle auswaehlen",
+        "submit": "Senden",
+        "roles": {
+          "full_stack": "Full-Stack-Entwickler",
+          "frontend": "Frontend-Entwickler",
+          "backend": "Backend-Entwickler",
+          "devops": "DevOps-Ingenieur"
+        }
+      },
+      "sizes": {
+        "option": "Option",
+        "small": "Klein",
+        "small_dropdown": "Kleines Dropdown",
+        "medium": "Mittel",
+        "medium_dropdown": "Mittleres Dropdown",
+        "large": "Gross",
+        "large_dropdown": "Grosses Dropdown"
+      }
+    },
+    "empty": {
+      "default": {
+        "message": "Keine Daten verfuegbar"
+      },
+      "no_results": {
+        "message": "Keine Ergebnisse gefunden"
+      },
+      "no_notifications": {
+        "message": "Noch keine Benachrichtigungen"
+      },
+      "custom_content": {
+        "title": "Ihr Posteingang ist leer",
+        "description": "Sie sind auf dem neuesten Stand! Schauen Sie spaeter wieder vorbei.",
+        "button": "Zurueck"
+      },
+      "with_custom_icon": {
+        "message": "Keine Nachrichten"
+      },
+      "full_custom": {
+        "title": "Alles erledigt!",
+        "description": "Sie haben keine offenen Elemente. Gute Arbeit!",
+        "button": "Neues Element erstellen"
+      }
+    },
+    "error_message": {
+      "string_error": {
+        "message": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+      },
+      "array_error": {
+        "email_required": "E-Mail ist erforderlich",
+        "email_valid": "E-Mail muss gueltig sein",
+        "password_length": "Das Passwort muss mindestens 8 Zeichen enthalten"
+      },
+      "object_error": {
+        "message": "Authentifizierung fehlgeschlagen. Ungueltige Zugangsdaten."
+      },
+      "hide_icon": {
+        "message": "Diese Fehlermeldung zeigt kein Symbol an."
+      },
+      "custom_content": {
+        "title": "Validierungsfehler",
+        "field_required": "Feld ist erforderlich",
+        "min_length": "Muss mindestens 5 Zeichen enthalten"
+      },
+      "form_validation": {
+        "title": "Formularvalidierung",
+        "first_name": "Vorname",
+        "last_name": "Nachname",
+        "email": "E-Mail",
+        "password": "Passwort",
+        "first_name_required": "Vorname ist erforderlich",
+        "last_name_required": "Nachname ist erforderlich",
+        "email_invalid": "E-Mail-Format ist ungueltig",
+        "password_weak": "Das Passwort ist zu schwach"
+      }
+    },
+    "file_upload_zone": {
+      "default": {
+        "uploaded": "Datei hochgeladen:",
+        "size": "Groesse:"
+      },
+      "show_filename": {
+        "title": "Upload mit Dateinamenanzeige"
+      },
+      "image_only": {
+        "title": "Nur Bild-Upload",
+        "supported_formats": "Unterstuetzte Formate: JPEG, PNG, WebP (max. 1 MB)",
+        "uploaded": "Bild hochgeladen:"
+      },
+      "document_upload": {
+        "title": "Dokument-Upload",
+        "supported_formats": "Unterstuetzt: PDF, Word-Dokumente (max. 5 MB)",
+        "uploaded": "Dokument hochgeladen:",
+        "upload_another": "Weitere Datei hochladen"
+      },
+      "large_limit": {
+        "title": "Datei-Upload (10-MB-Limit)",
+        "description": "Dateien per Drag-and-drop ablegen oder zum Durchsuchen klicken"
+      },
+      "multiple": {
+        "title": "Mehrfacher Datei-Upload",
+        "uploaded_files": "Hochgeladene Dateien ({count})",
+        "remove": "Entfernen"
+      }
+    },
+    "header": {
+      "simple": {
+        "title": "Dashboard",
+        "content": "Seiteninhalt erscheint hier"
+      },
+      "default_slot": {
+        "title": "Startseite",
+        "welcome": "Willkommen zurueck!",
+        "content": "Seiteninhalt"
+      },
+      "navigation": {
+        "title": "Meine Anwendung",
+        "home": "Startseite",
+        "about": "Ueber uns",
+        "services": "Services",
+        "contact": "Kontakt",
+        "sign_in": "Anmelden",
+        "content": "Seiteninhalt hier"
+      },
+      "badges": {
+        "title": "Admin-Bereich",
+        "content": "Willkommen im Admin-Bereich"
+      },
+      "search": {
+        "title": "Produkte",
+        "placeholder": "Produkte suchen...",
+        "filter": "Filtern",
+        "content": "Inhalt der Produktliste"
+      },
+      "tabs": {
+        "title": "Projekte",
+        "all": "Alle",
+        "active": "Aktiv",
+        "archived": "Archiviert",
+        "content": "Inhalt der Projektliste"
+      },
+      "colored": {
+        "title": "Premium-Header",
+        "upgrade": "Upgrade",
+        "content": "Gestylter Header-Inhalt"
+      }
+    },
+    "image": {
+      "basic": {
+        "title": "Einfaches Bild mit Alternativtext",
+        "alt": "Beispielhaftes Landschaftsbild",
+        "image_title": "Schoene Landschaft",
+        "description": "Mit der Maus ueber das Bild fahren, um den Titel zu sehen, und die Barrierefreiheit ueber den Alternativtext pruefen."
+      },
+      "aspect_ratios": {
+        "title": "Verschiedene Seitenverhaeltnisse",
+        "alt": "Landschaftsbild"
+      },
+      "lazy": {
+        "title": "Lazy Loading mit Skelett",
+        "alt": "Lazy geladenes Landschaftsbild",
+        "description": "Das Bild verwendet natives Lazy Loading. Waehrend des Ladens wird ein Skelett-Platzhalter angezeigt."
+      },
+      "error": {
+        "title": "Fehlerbehandlung mit Fallback",
+        "description": "Die primaere Bild-URL ist ungueltig. Stattdessen wird das Fallback-Bild angezeigt.",
+        "alt": "Fallback-Landschaft",
+        "error_text": "Bild konnte nicht geladen werden"
+      },
+      "no_source": {
+        "title": "Keine Bildquelle",
+        "description": "Zeigt ein Landschaftssymbol an, wenn keine Quelle angegeben ist.",
+        "alt": "Kein Bild vorhanden",
+        "error_text": "Keine Bildquelle"
+      },
+      "gallery": {
+        "title": "Responsive Bildergalerie",
+        "description": "Galerie mit Lazy Loading und konsistenten Seitenverhaeltnissen.",
+        "image_1": "Landschaft 1",
+        "image_2": "Landschaft 2",
+        "image_3": "Landschaft 3",
+        "image_4": "Landschaft 4"
+      },
+      "profile": {
+        "alt": "Benutzeravatar",
+        "image_title": "Benutzerprofilbild",
+        "name": "Jane Doe",
+        "role": "Produktdesignerin",
+        "cta": "Profil ansehen"
+      },
+      "custom_size": {
+        "title": "Benutzerdefinierte Breite und Hoehe",
+        "description": "Bild mit festen Pixelabmessungen: {width}px x {height}px",
+        "alt": "Bild mit benutzerdefinierter Groesse"
+      },
+      "responsive": {
+        "title": "Responsive Bilder",
+        "thumbnail": "Miniatur",
+        "thumbnail_alt": "Miniaturbild",
+        "small": "Klein",
+        "small_alt": "Kleines Bild",
+        "large": "Gross",
+        "large_alt": "Grosses Bild"
+      }
+    },
+    "modal": {
+      "basic": {
+        "title": "Aktion bestaetigen",
+        "open_button": "Modal oeffnen",
+        "content": "Moechten Sie diese Aktion wirklich ausfuehren?"
+      },
+      "no_footer": {
+        "title": "Information",
+        "open_button": "Info anzeigen",
+        "success_title": "Erfolg!",
+        "content": "Ihre Aktion wurde erfolgreich abgeschlossen."
+      },
+      "persistent": {
+        "title": "Wichtig",
+        "open_button": "Persistentes Modal oeffnen",
+        "content": "Dieses Modal kann nicht durch Klicken ausserhalb geschlossen werden. Sie muessen die Schaltflaechen oder das Schliessen-Symbol verwenden."
+      },
+      "large": {
+        "title": "Grosses Modal mit Details",
+        "open_button": "Grosses Modal oeffnen",
+        "full_name": "Vollstaendiger Name",
+        "full_name_placeholder": "Max Mustermann",
+        "email": "E-Mail-Adresse",
+        "email_placeholder": "max@example.com",
+        "message": "Nachricht",
+        "message_placeholder": "Ihre Nachricht hier..."
+      },
+      "custom": {
+        "title": "Benutzerdefinierter Modalinhalt",
+        "open_button": "Benutzerdefiniertes Modal oeffnen",
+        "welcome": "Willkommen!",
+        "content": "Dies ist ein Modal mit vollstaendig benutzerdefiniertem Header und Inhalt.",
+        "reports": "Berichte",
+        "settings": "Einstellungen",
+        "decline": "Ablehnen",
+        "accept": "Akzeptieren"
+      },
+      "warning": {
+        "title": "Loeschbestaetigung",
+        "open_button": "Element loeschen",
+        "heading": "Dauerhaft loeschen?",
+        "content": "Diese Aktion kann nicht rueckgaengig gemacht werden."
+      },
+      "small": {
+        "title": "Schnelle Bestaetigung",
+        "open_button": "Kleines Modal oeffnen",
+        "content": "Moechten Sie fortfahren?"
+      }
+    },
+    "progress_bar": {
+      "multiple": {
+        "project_a": "Projekt A - 30 %",
+        "project_b": "Projekt B - 60 %",
+        "project_c": "Projekt C - 100 %",
+        "loading": "Laden - Unbestimmt"
+      }
+    },
+    "tag": {
+      "primary": "Primaeres Tag",
+      "success": "Aktiv",
+      "warning": "Ausstehend",
+      "error": "Inaktiv",
+      "closable": "Schliessbares Tag",
+      "multiple": {
+        "vue": "Vue",
+        "active": "Aktiv",
+        "beta": "Beta",
+        "deprecated": "Veraltet"
+      }
+    },
+    "switch": {
+      "state": "Status:",
+      "on_value": "AN",
+      "off_value": "AUS",
+      "off": {
+        "label": "Mich umschalten"
+      },
+      "on": {
+        "label": "Aktiviert"
+      },
+      "disabled": {
+        "label": "Deaktivierter Schalter"
+      },
+      "disabled_on": {
+        "label": "Deaktiviert und an"
+      }
+    },
+    "vertical_stepper": {
+      "basic": {
+        "steps": {
+          "personal_information": "Persoenliche Informationen",
+          "address_details": "Adressdetails",
+          "verification": "Verifizierung",
+          "complete": "Abgeschlossen"
+        },
+        "content": {
+          "personal_information": "Geben Sie Ihre persoenlichen Daten ein",
+          "address_details": "Geben Sie Ihre Adressdaten ein",
+          "verification": "Bestaetigen Sie Ihre Informationen",
+          "complete": "Registrierung abgeschlossen!"
+        },
+        "previous": "Zurueck",
+        "next": "Weiter"
+      },
+      "non_selectable": {
+        "content": "Im nicht auswaehlbaren Modus koennen Schritte nicht angeklickt werden.",
+        "simulate_progress": "Fortschritt simulieren"
+      },
+      "many_steps": {
+        "step": "Schritt {number}",
+        "progress": "Sie befinden sich bei Schritt {current} von {total}"
+      },
+      "with_description": {
+        "steps": {
+          "setup": "Einrichtung",
+          "configuration": "Konfiguration",
+          "testing": "Tests",
+          "deployment": "Bereitstellung"
+        },
+        "descriptions": {
+          "setup": "Konfigurieren Sie Ihre Grundeinstellungen und Praeferenzen",
+          "configuration": "Richten Sie erweiterte Konfigurationsoptionen ein",
+          "testing": "Fuehren Sie Tests aus, um zu ueberpruefen, dass alles funktioniert",
+          "deployment": "In die Produktionsumgebung bereitstellen"
+        },
+        "step_details": "Details zu Schritt {number}",
+        "items": {
+          "item_1": "Element 1",
+          "item_2": "Element 2",
+          "item_3": "Element 3"
+        },
+        "back": "Zurueck",
+        "continue": "Fortfahren"
+      },
+      "compact": {
+        "title": "Prozessfortschritt",
+        "stage": "Phase {number}",
+        "progress": "Phase {current} von {total}"
+      }
+    },
+    "vertical_stepper_alt": {
+      "basic": {
+        "title": "Registrierungsfortschritt",
+        "steps": {
+          "account_verification": "Kontobestaetigung",
+          "profile_setup": "Profileinrichtung",
+          "payment_method": "Zahlungsmethode",
+          "subscription_plan": "Abo-Plan",
+          "complete": "Abgeschlossen"
+        },
+        "subtitles": {
+          "account_verification": "Bestaetigen Sie Ihre E-Mail-Adresse",
+          "profile_setup": "Fuegen Sie Ihre persoenlichen Informationen hinzu",
+          "payment_method": "Fuegen Sie Ihre Zahlungsinformationen hinzu",
+          "subscription_plan": "Waehlen Sie Ihren Plan",
+          "complete": "Alles ist bereit!"
+        }
+      },
+      "all_completed": {
+        "title": "Bestellung abgeschlossen",
+        "steps": {
+          "order_placed": "Bestellung aufgegeben",
+          "payment_confirmed": "Zahlung bestaetigt",
+          "shipped": "Versandt",
+          "delivered": "Zugestellt"
+        },
+        "subtitles": {
+          "order_placed": "25. Maerz 2024",
+          "payment_confirmed": "Zahlung eingegangen",
+          "shipped": "Unterwegs",
+          "delivered": "An Ihrem Standort"
+        }
+      },
+      "in_progress": {
+        "title": "Ihre Anfrage wird bearbeitet",
+        "note": "Dies dauert in der Regel 2 bis 3 Werktage.",
+        "steps": {
+          "request_submitted": "Anfrage eingereicht",
+          "processing": "In Bearbeitung",
+          "approved": "Genehmigt",
+          "completed": "Abgeschlossen"
+        },
+        "subtitles": {
+          "request_submitted": "Ihre Anfrage ist eingegangen",
+          "processing": "Wir pruefen Ihre Anfrage",
+          "approved": "Wartet auf Genehmigung",
+          "completed": "Ihre Anfrage ist abgeschlossen"
+        }
+      },
+      "onboarding": {
+        "title": "Willkommen! Los geht's",
+        "skip": "Ueberspringen",
+        "next": "Weiter",
+        "steps": {
+          "welcome": "Willkommen",
+          "connect_social_media": "Soziale Medien verbinden",
+          "customize_profile": "Profil anpassen",
+          "invite_friends": "Freunde einladen",
+          "explore_features": "Funktionen entdecken"
+        },
+        "subtitles": {
+          "welcome": "Starten Sie mit uns",
+          "connect_social_media": "Verknuepfen Sie Ihre sozialen Konten",
+          "customize_profile": "Richten Sie Ihr Profil ein",
+          "invite_friends": "Bauen Sie Ihr Netzwerk auf",
+          "explore_features": "Entdecken Sie unser Angebot"
+        }
+      },
+      "long_description": {
+        "title": "Einrichtungsassistent fuer Konten",
+        "steps": {
+          "create_account": "Konto erstellen",
+          "verify_email": "E-Mail bestaetigen",
+          "set_up_security": "Sicherheit einrichten",
+          "complete_profile": "Profil vervollstaendigen",
+          "start_using_app": "App nutzen"
+        },
+        "subtitles": {
+          "create_account": "Registrieren Sie sich mit E-Mail oder sozialen Medien",
+          "verify_email": "Klicken Sie auf den Link in der Verifizierungs-E-Mail",
+          "set_up_security": "Richten Sie die Zwei-Faktor-Authentifizierung fuer mehr Sicherheit ein",
+          "complete_profile": "Fuegen Sie Ihrem Profil ein Foto und persoenliche Informationen hinzu",
+          "start_using_app": "Sie sind bereit, alle Funktionen zu entdecken"
+        }
+      },
+      "multi_step": {
+        "title": "Projektzeitplan",
+        "phase": "Phase {number}",
+        "phase_description": "Beschreibung fuer Schritt {number}",
+        "progress": "Fortschritt: Schritt {current} von {total}"
+      },
+      "error_state": {
+        "title": "Bewerbungsstatus",
+        "note_title": "Bitte beachten",
+        "note_content": "Ihre Bewerbung wartet auf Pruefung. Sie werden benachrichtigt, sobald eine Entscheidung getroffen wurde.",
+        "steps": {
+          "submit_application": "Bewerbung einreichen",
+          "review": "Pruefung",
+          "approved": "Genehmigt"
+        },
+        "subtitles": {
+          "submit_application": "Bewerbung eingereicht",
+          "review": "Wird derzeit geprueft",
+          "approved": "Wartet auf Genehmigung"
+        }
+      }
+    },
+    "datatable": {
+      "headers": {
+        "id": "ID",
+        "name": "Name",
+        "email": "E-Mail",
+        "role": "Rolle",
+        "status": "Status"
+      },
+      "roles": {
+        "admin": "Admin",
+        "user": "Benutzer",
+        "editor": "Editor",
+        "viewer": "Betrachter"
+      },
+      "status": {
+        "active": "Aktiv",
+        "inactive": "Inaktiv"
+      },
+      "sortable_hint": "Klicken Sie auf die Spaltenkoepfe zum Sortieren"
+    },
+    "drawer": {
+      "main_content_title": "Hauptinhalt",
+      "actions": {
+        "open": "Drawer oeffnen",
+        "close": "Schliessen"
+      },
+      "left": {
+        "title": "Linker Drawer",
+        "description": "Dies ist ein Drawer auf der linken Seite.",
+        "open_description": "Klicken Sie auf die Schaltflaeche, um den Drawer erneut zu oeffnen."
+      },
+      "right": {
+        "title": "Rechter Drawer",
+        "description": "Dies ist ein Drawer auf der rechten Seite.",
+        "open_description": "Klicken Sie auf die Schaltflaeche, um den Drawer zu oeffnen."
+      },
+      "top": {
+        "title": "Oberer Drawer",
+        "description": "Dies ist ein Drawer oben.",
+        "open_description": "Klicken Sie auf die Schaltflaeche, um den Drawer zu oeffnen."
+      },
+      "bottom": {
+        "title": "Unterer Drawer",
+        "description": "Dies ist ein Drawer am unteren Rand.",
+        "open_description": "Klicken Sie auf die Schaltflaeche, um den Drawer zu oeffnen."
+      },
+      "responsive": {
+        "title": "Responsiver Drawer",
+        "description": "Dieser Drawer schliesst sich automatisch auf Bildschirmen kleiner als 768 px.",
+        "open_description": "Aendern Sie die Fenstergroesse, um das mobile Verhalten zu sehen."
+      }
+    },
+    "filters": {
+      "actions": {
+        "apply": "Anwenden",
+        "reset": "Zuruecksetzen"
+      },
+      "default": {
+        "title": "Standard-Datumsbereich"
+      },
+      "with_actions": {
+        "title": "Datumsbereich mit Aktionen"
+      },
+      "month_to_date": {
+        "title": "Monat bis heute"
+      },
+      "year_to_date": {
+        "title": "Jahr bis heute"
+      },
+      "last_90_days": {
+        "title": "Letzte 90 Tage"
+      },
+      "state": {
+        "title": "Aktueller Status",
+        "date_filter": "Datumsfilter",
+        "date_range": "Datumsbereich",
+        "activator": "Ausloeser",
+        "not_set": "Nicht gesetzt"
+      }
+    },
+    "menu": {
+      "basic": {
+        "title": "Navigationsmenue"
+      },
+      "custom_header": {
+        "title": "Benutzerdefiniertes Menue",
+        "version": "Version 2.1.0"
+      },
+      "with_footer": {
+        "title": "Menue mit Fussbereich",
+        "add_new": "Neues Element hinzufuegen"
+      },
+      "compact": {
+        "title": "Kompaktes Menue",
+        "items": {
+          "home": "Start",
+          "about": "Ueber uns",
+          "contact": "Kontakt"
+        }
+      },
+      "items": {
+        "dashboard": "Dashboard",
+        "users": "Benutzer",
+        "settings": "Einstellungen",
+        "reports": "Berichte"
+      },
+      "selected": {
+        "title": "Ausgewaehltes Element",
+        "id": "Element-ID",
+        "index": "Element-Index",
+        "empty": "Kein Element ausgewaehlt"
+      }
+    },
+    "steps": {
+      "actions": {
+        "back": "Zurueck",
+        "next": "Weiter",
+        "complete": "Abschliessen"
+      },
+      "basic": {
+        "step1": {
+          "name": "Konto",
+          "title": "Konto erstellen",
+          "description": "Richten Sie Ihre Kontodaten ein."
+        },
+        "step2": {
+          "name": "Profil",
+          "title": "Profil vervollstaendigen",
+          "description": "Fuegen Sie Ihre Profilinformationen hinzu."
+        },
+        "step3": {
+          "name": "Bestaetigung",
+          "title": "Details bestaetigen",
+          "description": "Pruefen und bestaetigen Sie Ihre Angaben."
+        }
+      },
+      "with_navigation": {
+        "current_step": "Aktueller Schritt: {step}",
+        "overview": {
+          "name": "Ueberblick",
+          "title": "Projektueberblick",
+          "description": "Pruefen Sie zuerst Umfang und Ziele des Projekts."
+        },
+        "details": {
+          "name": "Details",
+          "title": "Projektdetails",
+          "description": "Erfassen Sie die wichtigen Projektdetails und Anforderungen."
+        },
+        "review": {
+          "name": "Pruefung",
+          "title": "Informationen pruefen",
+          "description": "Pruefen Sie alle Projektdaten vor dem Absenden."
+        },
+        "submit": {
+          "name": "Absenden",
+          "title": "Projekt absenden",
+          "description": "Senden Sie das Projekt zur finalen Genehmigung ab."
+        }
+      },
+      "with_icons": {
+        "actions": {
+          "checkout": "Zur Kasse",
+          "payment": "Weiter zur Zahlung",
+          "place_order": "Bestellung aufgeben"
+        },
+        "cart": {
+          "name": "Warenkorb",
+          "title": "Einkaufswagen",
+          "description": "Pruefen Sie die Artikel in Ihrem Warenkorb."
+        },
+        "shipping": {
+          "name": "Versand",
+          "title": "Versanddetails",
+          "description": "Waehlen Sie Lieferadresse und Versandoptionen."
+        },
+        "payment": {
+          "name": "Zahlung",
+          "title": "Zahlungsmethode",
+          "description": "Geben Sie Zahlungsinformationen ein, um die Bestellung abzuschliessen."
+        }
+      },
+      "with_progress": {
+        "started": {
+          "name": "Gestartet",
+          "title": "Aufgabe gestartet"
+        },
+        "in_progress": {
+          "name": "In Bearbeitung",
+          "title": "Aufgabe in Bearbeitung",
+          "percent_complete": "75 % abgeschlossen",
+          "mark_complete": "Als abgeschlossen markieren"
+        },
+        "completed": {
+          "name": "Abgeschlossen",
+          "title": "Aufgabe abgeschlossen",
+          "message": "Alle Schritte wurden erfolgreich abgeschlossen."
+        }
+      }
+    },
+    "tabs": {
+      "basic": {
+        "tab1": {
+          "name": "Ueberblick",
+          "title": "Ueberblick-Tab",
+          "description": "Dieser Tab enthaelt einen Ueberblick ueber den Inhalt."
+        },
+        "tab2": {
+          "name": "Details",
+          "title": "Details-Tab",
+          "description": "Dieser Tab enthaelt detaillierte Informationen."
+        },
+        "tab3": {
+          "name": "Einstellungen",
+          "title": "Einstellungen-Tab",
+          "description": "Dieser Tab enthaelt Konfigurationseinstellungen."
+        }
+      },
+      "with_icons": {
+        "home": {
+          "name": "Start",
+          "title": "Startbereich",
+          "description": "Willkommen im Startbereich."
+        },
+        "profile": {
+          "name": "Profil",
+          "title": "Profilbereich",
+          "description": "Verwalten Sie hier Ihre Profilinformationen."
+        },
+        "settings": {
+          "name": "Einstellungen",
+          "title": "Einstellungsbereich",
+          "description": "Passen Sie hier Ihre Optionen an."
+        }
+      },
+      "disabled": {
+        "enabled1": {
+          "name": "Aktiver Tab 1",
+          "title": "Erster aktiver Tab",
+          "description": "Dieser Tab ist verfuegbar und interaktiv."
+        },
+        "disabled": {
+          "name": "Deaktivierter Tab",
+          "title": "Deaktivierter Tab",
+          "description": "Dieser Tab ist deaktiviert und kann nicht gewaehlt werden."
+        },
+        "enabled2": {
+          "name": "Aktiver Tab 2",
+          "title": "Zweiter aktiver Tab",
+          "description": "Dies ist ein weiterer verfuegbarer Tab."
+        }
+      },
+      "many_tabs": {
+        "tab_name": "Tab {number}",
+        "content_title": "Inhalt fuer {name}",
+        "content_description": "Dies ist der Inhaltsbereich fuer {name}."
+      },
+      "read_only": {
+        "tab1": {
+          "name": "Nur Lesen 1",
+          "title": "Nur-Lesen-Tab 1",
+          "description": "Dieser Tab wird im Nur-Lesen-Modus angezeigt."
+        },
+        "tab2": {
+          "name": "Nur Lesen 2",
+          "title": "Nur-Lesen-Tab 2",
+          "description": "Dies ist ein weiterer Nur-Lesen-Tab."
+        }
+      }
+    },
+    "theme": {
+      "subtitle": "Standardfarbpalette und Typografie fuer Cresh-UI-Komponenten",
+      "sections": {
+        "primary_colors": "Primaerfarben",
+        "status_colors": "Statusfarben",
+        "neutral_colors": "Neutrale Farben",
+        "typography": "Typografie",
+        "heading_styles": "Ueberschriftenstile",
+        "body_text": "Fliesstext",
+        "guidelines": "Verwendungsrichtlinien"
+      },
+      "colors": {
+        "primary": "Primaer",
+        "secondary": "Sekundaer",
+        "tertiary": "Tertiaer",
+        "success": "Erfolg",
+        "error": "Fehler",
+        "warning": "Warnung",
+        "info": "Info",
+        "dark": "Dunkel",
+        "text": "Text",
+        "grey": "Grau",
+        "light_grey": "Hellgrau",
+        "white": "Weiss",
+        "app_background": "App-Hintergrund"
+      },
+      "typography": {
+        "heading_1": "H1: Ueberschrift 1",
+        "heading_2": "H2: Ueberschrift 2",
+        "heading_3": "H3: Ueberschrift 3",
+        "heading_4": "H4: Ueberschrift 4",
+        "body_regular": "Regulaerer Absatztext. Farbe: --color-text (16px) | Dies ist der Standard-Fliesstext der gesamten Anwendung.",
+        "body_small": "Kleinerer Text. Farbe: --color-text (14px) | Wird fuer sekundaere Informationen und Beschreibungen verwendet.",
+        "body_supporting": "Unterstuetzender Text. Farbe: --color-grey (12px) | Wird fuer Bildunterschriften, Beschriftungen und ergaenzende Inhalte verwendet."
+      },
+      "guidelines": {
+        "primary": "Primaerfarbe (#400EC9) - Fuer Hauptaktionsbuttons, primaere Links und wichtige UI-Elemente verwenden",
+        "secondary": "Sekundaerfarbe (#349CE7) - Fuer sekundaere Aktionen und zum Hervorheben bestimmter Informationen verwenden",
+        "tertiary": "Tertiaer/Erfolg (#00ECCB) - Zur Kennzeichnung von Erfolgszustaenden und positiven Aktionen verwenden",
+        "error": "Fehlerfarbe (#FC5A5A) - Fuer Validierungsfehler und destruktive Aktionen verwenden",
+        "warning": "Warnfarbe (#fca25a) - Fuer Warnungen und wichtige Hinweise verwenden",
+        "info": "Infofarbe (#349CE7) - Fuer Informationsmeldungen und Tooltips verwenden",
+        "text": "Textfarbe (#3D647C) - Fuer den primaeren Fliesstext der gesamten Anwendung verwenden",
+        "contrast": "Kontrast beachten - Achten Sie immer auf ausreichenden Kontrast zwischen Text und Hintergrundfarben"
+      }
+    }
+  }
+}

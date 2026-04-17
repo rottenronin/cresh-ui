@@ -1,0 +1,28 @@
+{
+  "docs": {
+    "home": {
+      "title": "Cresh UI",
+      "subtitle": "Biblioteca moderna de componentes Vue 3"
+    },
+    "getting_started": {
+      "title": "Primeros pasos",
+      "description": "Aprenda a instalar y usar Cresh UI en su proyecto"
+    },
+    "components": {
+      "title": "Componentes",
+      "description": "Explore todos los componentes disponibles"
+    },
+    "theme": {
+      "title": "Sistema de diseño",
+      "description": "Colores, tipografía y tokens de diseño"
+    },
+    "language_setup": {
+      "title": "Internacionalización (i18n)",
+      "description": "Soporte multilingüe y guía de instalación"
+    },
+    "i18n_stories": {
+      "title": "Demostración i18n",
+      "description": "Demostración interactiva del selector de idiomas"
+    }
+  }
+}

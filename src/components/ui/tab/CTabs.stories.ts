@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CTabs from './CTabs.vue'
 import CTab from './CTab.vue'
 
@@ -25,40 +26,41 @@ export const Basic: Story = {
   render: () => ({
     components: { CTabs, CTab },
     setup() {
+      const { t } = useI18n()
       const selectedTab = ref('tab1')
-      return { selectedTab }
+      return { selectedTab, t }
     },
     template: `
       <div>
         <c-tabs>
           <c-tab
-            name="Tab 1"
+            :name="t('translate.showcase.tabs.basic.tab1.name')"
             identifier="tab1"
             :visible="selectedTab === 'tab1'"
           >
             <div style="padding: 20px;">
-              <h3>Tab 1 Content</h3>
-              <p>This is the content of the first tab.</p>
+              <h3>{{ t('translate.showcase.tabs.basic.tab1.title') }}</h3>
+              <p>{{ t('translate.showcase.tabs.basic.tab1.description') }}</p>
             </div>
           </c-tab>
           <c-tab
-            name="Tab 2"
+            :name="t('translate.showcase.tabs.basic.tab2.name')"
             identifier="tab2"
             :visible="selectedTab === 'tab2'"
           >
             <div style="padding: 20px;">
-              <h3>Tab 2 Content</h3>
-              <p>This is the content of the second tab.</p>
+              <h3>{{ t('translate.showcase.tabs.basic.tab2.title') }}</h3>
+              <p>{{ t('translate.showcase.tabs.basic.tab2.description') }}</p>
             </div>
           </c-tab>
           <c-tab
-            name="Tab 3"
+            :name="t('translate.showcase.tabs.basic.tab3.name')"
             identifier="tab3"
             :visible="selectedTab === 'tab3'"
           >
             <div style="padding: 20px;">
-              <h3>Tab 3 Content</h3>
-              <p>This is the content of the third tab.</p>
+              <h3>{{ t('translate.showcase.tabs.basic.tab3.title') }}</h3>
+              <p>{{ t('translate.showcase.tabs.basic.tab3.description') }}</p>
             </div>
           </c-tab>
         </c-tabs>
@@ -71,43 +73,44 @@ export const WithIcons: Story = {
   render: () => ({
     components: { CTabs, CTab },
     setup() {
+      const { t } = useI18n()
       const selectedTab = ref('home')
-      return { selectedTab }
+      return { selectedTab, t }
     },
     template: `
       <div>
         <c-tabs>
           <c-tab
-            name="Home"
+            :name="t('translate.showcase.tabs.with_icons.home.name')"
             identifier="home"
             icon="home"
             :visible="selectedTab === 'home'"
           >
             <div style="padding: 20px;">
-              <h3>Home</h3>
-              <p>Welcome to the home tab.</p>
+              <h3>{{ t('translate.showcase.tabs.with_icons.home.title') }}</h3>
+              <p>{{ t('translate.showcase.tabs.with_icons.home.description') }}</p>
             </div>
           </c-tab>
           <c-tab
-            name="Profile"
+            :name="t('translate.showcase.tabs.with_icons.profile.name')"
             identifier="profile"
             icon="user"
             :visible="selectedTab === 'profile'"
           >
             <div style="padding: 20px;">
-              <h3>Profile</h3>
-              <p>View your profile information.</p>
+              <h3>{{ t('translate.showcase.tabs.with_icons.profile.title') }}</h3>
+              <p>{{ t('translate.showcase.tabs.with_icons.profile.description') }}</p>
             </div>
           </c-tab>
           <c-tab
-            name="Settings"
+            :name="t('translate.showcase.tabs.with_icons.settings.name')"
             identifier="settings"
             icon="settings"
             :visible="selectedTab === 'settings'"
           >
             <div style="padding: 20px;">
-              <h3>Settings</h3>
-              <p>Configure your preferences.</p>
+              <h3>{{ t('translate.showcase.tabs.with_icons.settings.title') }}</h3>
+              <p>{{ t('translate.showcase.tabs.with_icons.settings.description') }}</p>
             </div>
           </c-tab>
         </c-tabs>
@@ -120,40 +123,41 @@ export const DisabledTab: Story = {
   render: () => ({
     components: { CTabs, CTab },
     setup() {
+      const { t } = useI18n()
       const selectedTab = ref('enabled1')
-      return { selectedTab }
+      return { selectedTab, t }
     },
     template: `
       <div>
         <c-tabs>
           <c-tab
-            name="Enabled 1"
+            :name="t('translate.showcase.tabs.disabled.enabled1.name')"
             identifier="enabled1"
             :visible="selectedTab === 'enabled1'"
           >
             <div style="padding: 20px;">
-              <h3>Enabled Tab 1</h3>
-              <p>This tab is enabled.</p>
+              <h3>{{ t('translate.showcase.tabs.disabled.enabled1.title') }}</h3>
+              <p>{{ t('translate.showcase.tabs.disabled.enabled1.description') }}</p>
             </div>
           </c-tab>
           <c-tab
-            name="Disabled"
+            :name="t('translate.showcase.tabs.disabled.disabled.name')"
             identifier="disabled"
             disabled
           >
             <div style="padding: 20px;">
-              <h3>Disabled Tab</h3>
-              <p>This tab cannot be clicked.</p>
+              <h3>{{ t('translate.showcase.tabs.disabled.disabled.title') }}</h3>
+              <p>{{ t('translate.showcase.tabs.disabled.disabled.description') }}</p>
             </div>
           </c-tab>
           <c-tab
-            name="Enabled 2"
+            :name="t('translate.showcase.tabs.disabled.enabled2.name')"
             identifier="enabled2"
             :visible="selectedTab === 'enabled2'"
           >
             <div style="padding: 20px;">
-              <h3>Enabled Tab 2</h3>
-              <p>This tab is also enabled.</p>
+              <h3>{{ t('translate.showcase.tabs.disabled.enabled2.title') }}</h3>
+              <p>{{ t('translate.showcase.tabs.disabled.enabled2.description') }}</p>
             </div>
           </c-tab>
         </c-tabs>
@@ -166,12 +170,13 @@ export const ManyTabs: Story = {
   render: () => ({
     components: { CTabs, CTab },
     setup() {
+      const { t } = useI18n()
       const selectedTab = ref('tab1')
-      const tabs = Array.from({ length: 10 }, (_, i) => ({
+      const tabs = computed(() => Array.from({ length: 10 }, (_, i) => ({
         id: `tab${i + 1}`,
-        name: `Tab ${i + 1}`,
-      }))
-      return { selectedTab, tabs }
+        name: t('translate.showcase.tabs.many_tabs.tab_name', { number: i + 1 }),
+      })))
+      return { selectedTab, tabs, t }
     },
     template: `
       <div>
@@ -184,8 +189,8 @@ export const ManyTabs: Story = {
             :visible="selectedTab === tab.id"
           >
             <div style="padding: 20px;">
-              <h3>{{ tab.name }} Content</h3>
-              <p>This is the content of {{ tab.name }}.</p>
+              <h3>{{ t('translate.showcase.tabs.many_tabs.content_title', { name: tab.name }) }}</h3>
+              <p>{{ t('translate.showcase.tabs.many_tabs.content_description', { name: tab.name }) }}</p>
             </div>
           </c-tab>
         </c-tabs>
@@ -201,30 +206,31 @@ export const ReadOnly: Story = {
   render: (args) => ({
     components: { CTabs, CTab },
     setup() {
+      const { t } = useI18n()
       const selectedTab = ref('tab1')
-      return { args, selectedTab }
+      return { args, selectedTab, t }
     },
     template: `
       <div>
         <c-tabs v-bind="args">
           <c-tab
-            name="Tab 1"
+            :name="t('translate.showcase.tabs.read_only.tab1.name')"
             identifier="tab1"
             :visible="selectedTab === 'tab1'"
           >
             <div style="padding: 20px;">
-              <h3>Tab 1</h3>
-              <p>This is a read-only tab view.</p>
+              <h3>{{ t('translate.showcase.tabs.read_only.tab1.title') }}</h3>
+              <p>{{ t('translate.showcase.tabs.read_only.tab1.description') }}</p>
             </div>
           </c-tab>
           <c-tab
-            name="Tab 2"
+            :name="t('translate.showcase.tabs.read_only.tab2.name')"
             identifier="tab2"
             :visible="selectedTab === 'tab2'"
           >
             <div style="padding: 20px;">
-              <h3>Tab 2</h3>
-              <p>Tab selection is disabled.</p>
+              <h3>{{ t('translate.showcase.tabs.read_only.tab2.title') }}</h3>
+              <p>{{ t('translate.showcase.tabs.read_only.tab2.description') }}</p>
             </div>
           </c-tab>
         </c-tabs>

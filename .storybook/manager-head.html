@@ -19,3 +19,10 @@
     color: var(--color-text, #3D647C);
   }
 </style>
+
+<script>
+  // Redirect to Home story on initial load (without ?path parameter)
+  if (!window.location.search.includes('path=')) {
+    window.location.href = '?path=/story/home--welcome';
+  }
+</script>

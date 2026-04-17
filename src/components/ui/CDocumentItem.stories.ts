@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CDocumentItem from './CDocumentItem.vue'
 
 const meta = {
@@ -39,7 +40,6 @@ type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {
   args: {
-    label: 'Invoice Document',
     icon: 'document-sign',
     link: '#',
     approved: undefined,
@@ -48,20 +48,22 @@ export const Basic: Story = {
   render: (args) => ({
     components: { CDocumentItem },
     setup() {
+      const { t } = useI18n()
       const selectedAction = ref<string | undefined>()
-      return { args, selectedAction }
+      return { args, selectedAction, t }
     },
     template: `
       <div style="max-width: 500px;">
         <c-document-item
           v-bind="args"
+          :label="args.label ?? t('translate.showcase.document_item.basic.label')"
           @read="selectedAction = 'read'"
           @download="selectedAction = 'download'"
           @upload="selectedAction = 'upload'"
           @validate="selectedAction = 'validate'"
         />
         <div v-if="selectedAction" style="margin-top: 16px; padding: 12px; background: #f5f5f5; border-radius: 4px;">
-          <p style="margin: 0;"><strong>Action triggered:</strong> {{ selectedAction }}</p>
+          <p style="margin: 0;"><strong>{{ t('translate.showcase.document_item.action_triggered') }}</strong> {{ t('translate.showcase.document_item.actions.' + selectedAction) }}</p>
         </div>
       </div>
     `,
@@ -70,7 +72,6 @@ export const Basic: Story = {
 
 export const Approved: Story = {
   args: {
-    label: 'Contract Agreement',
     icon: 'document-check',
     link: '#',
     approved: true,
@@ -79,18 +80,20 @@ export const Approved: Story = {
   render: (args) => ({
     components: { CDocumentItem },
     setup() {
+      const { t } = useI18n()
       const selectedAction = ref<string | undefined>()
-      return { args, selectedAction }
+      return { args, selectedAction, t }
     },
     template: `
       <div style="max-width: 500px;">
         <c-document-item
           v-bind="args"
+          :label="args.label ?? t('translate.showcase.document_item.approved.label')"
           @read="selectedAction = 'read'"
           @download="selectedAction = 'download'"
         />
         <div style="margin-top: 12px; padding: 8px 12px; background: #d4edda; border: 1px solid #c3e6cb; border-radius: 4px; color: #155724; font-size: 14px;">
-          ✓ This document has been approved
+          ✓ {{ t('translate.showcase.document_item.approved.status') }}
         </div>
       </div>
     `,
@@ -99,7 +102,6 @@ export const Approved: Story = {
 
 export const NotApproved: Story = {
   args: {
-    label: 'Expense Report',
     icon: 'document-text',
     link: '#',
     approved: false,
@@ -108,19 +110,21 @@ export const NotApproved: Story = {
   render: (args) => ({
     components: { CDocumentItem },
     setup() {
+      const { t } = useI18n()
       const selectedAction = ref<string | undefined>()
-      return { args, selectedAction }
+      return { args, selectedAction, t }
     },
     template: `
       <div style="max-width: 500px;">
         <c-document-item
           v-bind="args"
+          :label="args.label ?? t('translate.showcase.document_item.not_approved.label')"
           @read="selectedAction = 'read'"
           @validate="selectedAction = 'validate'"
           @download="selectedAction = 'download'"
         />
         <div style="margin-top: 12px; padding: 8px 12px; background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px; color: #721c24; font-size: 14px;">
-          ✗ This document requires approval
+          ✗ {{ t('translate.showcase.document_item.not_approved.status') }}
         </div>
       </div>
     `,
@@ -129,7 +133,6 @@ export const NotApproved: Story = {
 
 export const Unavailable: Story = {
   args: {
-    label: 'Missing Document',
     icon: 'document-ban',
     link: undefined,
     approved: undefined,
@@ -138,17 +141,19 @@ export const Unavailable: Story = {
   render: (args) => ({
     components: { CDocumentItem },
     setup() {
+      const { t } = useI18n()
       const selectedAction = ref<string | undefined>()
-      return { args, selectedAction }
+      return { args, selectedAction, t }
     },
     template: `
       <div style="max-width: 500px;">
         <c-document-item
           v-bind="args"
+          :label="args.label ?? t('translate.showcase.document_item.unavailable.label')"
           @upload="selectedAction = 'upload'"
         />
         <div style="margin-top: 12px; padding: 8px 12px; background: #e2e3e5; border: 1px solid #d6d8db; border-radius: 4px; color: #383d41; font-size: 14px;">
-          This document is not yet available. Upload to add it.
+          {{ t('translate.showcase.document_item.unavailable.status') }}
         </div>
       </div>
     `,
@@ -157,7 +162,6 @@ export const Unavailable: Story = {
 
 export const AllActions: Story = {
   args: {
-    label: 'Tax Return',
     icon: 'document-sign',
     link: '#',
     approved: true,
@@ -166,20 +170,22 @@ export const AllActions: Story = {
   render: (args) => ({
     components: { CDocumentItem },
     setup() {
+      const { t } = useI18n()
       const selectedAction = ref<string | undefined>()
-      return { args, selectedAction }
+      return { args, selectedAction, t }
     },
     template: `
       <div style="max-width: 500px;">
         <c-document-item
           v-bind="args"
+          :label="args.label ?? t('translate.showcase.document_item.all_actions.label')"
           @read="selectedAction = 'read'"
           @validate="selectedAction = 'validate'"
           @download="selectedAction = 'download'"
           @upload="selectedAction = 'upload'"
         />
         <div v-if="selectedAction" style="margin-top: 16px; padding: 12px; background: #f5f5f5; border-radius: 4px;">
-          <p style="margin: 0;"><strong>Action:</strong> {{ selectedAction }}</p>
+          <p style="margin: 0;"><strong>{{ t('translate.showcase.document_item.action') }}</strong> {{ t('translate.showcase.document_item.actions.' + selectedAction) }}</p>
         </div>
       </div>
     `,
@@ -190,18 +196,19 @@ export const DocumentList: Story = {
   render: () => ({
     components: { CDocumentItem },
     setup() {
+      const { t } = useI18n()
       const documents = [
-        { label: 'Passport', icon: 'document-sign', approved: true, link: '#' },
-        { label: 'Driving License', icon: 'document-sign', approved: false, link: '#' },
-        { label: 'Bank Statement', icon: 'document-text', approved: undefined, link: undefined },
-        { label: 'Insurance Certificate', icon: 'document-check', approved: true, link: '#' },
+        { label: t('translate.showcase.document_item.list.passport'), icon: 'document-sign', approved: true, link: '#' },
+        { label: t('translate.showcase.document_item.list.driving_license'), icon: 'document-sign', approved: false, link: '#' },
+        { label: t('translate.showcase.document_item.list.bank_statement'), icon: 'document-text', approved: undefined, link: undefined },
+        { label: t('translate.showcase.document_item.list.insurance_certificate'), icon: 'document-check', approved: true, link: '#' },
       ]
       const selectedAction = ref<string | undefined>()
-      return { documents, selectedAction }
+      return { documents, selectedAction, t }
     },
     template: `
       <div style="max-width: 600px;">
-        <h3 style="margin-top: 0;">Required Documents</h3>
+        <h3 style="margin-top: 0;">{{ t('translate.showcase.document_item.list.title') }}</h3>
         <div style="border: 1px solid #ddd; border-radius: 4px; overflow: hidden;">
           <c-document-item
             v-for="(doc, i) in documents"

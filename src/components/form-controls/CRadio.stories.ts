@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CRadio from './CRadio.vue'
 
 const meta = {
@@ -37,8 +38,9 @@ export const Default: Story = {
     return {
       components: { CRadio },
       setup() {
+        const { t } = useI18n()
         const selected = ref('option1')
-        return { selected }
+        return { selected, t }
       },
       template: `
         <div>
@@ -46,10 +48,10 @@ export const Default: Story = {
             v-model="selected"
             name="option"
             value="option1"
-            label="Option 1"
+            :label="t('translate.showcase.radio.option_1')"
           />
           <p style="margin-top: 16px; font-size: 12px;">
-            Selected: {{ selected }}
+            {{ t('translate.showcase.radio.selected') }} {{ selected }}
           </p>
         </div>
       `,
@@ -62,15 +64,16 @@ export const Selected: Story = {
     return {
       components: { CRadio },
       setup() {
+        const { t } = useI18n()
         const selected = ref('option1')
-        return { selected }
+        return { selected, t }
       },
       template: `
         <c-radio
           v-model="selected"
           name="option"
           value="option1"
-          label="Option 1"
+          :label="t('translate.showcase.radio.option_1')"
         />
       `,
     }
@@ -82,15 +85,16 @@ export const Disabled: Story = {
     return {
       components: { CRadio },
       setup() {
+        const { t } = useI18n()
         const selected = ref('')
-        return { selected }
+        return { selected, t }
       },
       template: `
         <c-radio
           v-model="selected"
           name="disabled"
           value="disabled"
-          label="Disabled option"
+          :label="t('translate.showcase.radio.disabled_option')"
           disabled
         />
       `,
@@ -103,8 +107,9 @@ export const Group: Story = {
     return {
       components: { CRadio },
       setup() {
+        const { t } = useI18n()
         const selected = ref('opt1')
-        return { selected }
+        return { selected, t }
       },
       template: `
         <div>
@@ -113,7 +118,7 @@ export const Group: Story = {
               v-model="selected"
               name="group"
               value="opt1"
-              label="Option 1"
+              :label="t('translate.showcase.radio.option_1')"
             />
           </div>
           <div style="margin-bottom: 12px;">
@@ -121,7 +126,7 @@ export const Group: Story = {
               v-model="selected"
               name="group"
               value="opt2"
-              label="Option 2"
+              :label="t('translate.showcase.radio.option_2')"
             />
           </div>
           <div style="margin-bottom: 12px;">
@@ -129,11 +134,11 @@ export const Group: Story = {
               v-model="selected"
               name="group"
               value="opt3"
-              label="Option 3"
+              :label="t('translate.showcase.radio.option_3')"
             />
           </div>
           <p style="margin-top: 16px; font-size: 12px;">
-            Selected: {{ selected }}
+            {{ t('translate.showcase.radio.selected') }} {{ selected }}
           </p>
         </div>
       `,

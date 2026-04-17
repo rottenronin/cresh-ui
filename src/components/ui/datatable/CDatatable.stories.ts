@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import { ref, reactive } from 'vue'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CDatatable from './CDatatable.vue'
 import type { DatatableHeaderItem } from '../../../@types'
 
@@ -15,68 +16,73 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-// Sample data for users
-const sampleUsers = [
-  { id: 1, name: 'Alice Johnson', email: 'alice@example.com', role: 'Admin', status: 'Active' },
-  { id: 2, name: 'Bob Smith', email: 'bob@example.com', role: 'User', status: 'Active' },
-  { id: 3, name: 'Charlie Brown', email: 'charlie@example.com', role: 'Editor', status: 'Inactive' },
-  { id: 4, name: 'Diana Prince', email: 'diana@example.com', role: 'User', status: 'Active' },
-  { id: 5, name: 'Eve Wilson', email: 'eve@example.com', role: 'Admin', status: 'Active' },
-  { id: 6, name: 'Frank Castle', email: 'frank@example.com', role: 'Viewer', status: 'Active' },
-  { id: 7, name: 'Grace Lee', email: 'grace@example.com', role: 'Editor', status: 'Active' },
-  { id: 8, name: 'Henry Davis', email: 'henry@example.com', role: 'User', status: 'Inactive' },
-  { id: 9, name: 'Iris Martinez', email: 'iris@example.com', role: 'Admin', status: 'Active' },
-  { id: 10, name: 'Jack Taylor', email: 'jack@example.com', role: 'User', status: 'Active' },
-  { id: 11, name: 'Karen White', email: 'karen@example.com', role: 'Editor', status: 'Active' },
-  { id: 12, name: 'Leo Garcia', email: 'leo@example.com', role: 'User', status: 'Active' },
-  { id: 13, name: 'Mina Khatun', email: 'mina@example.com', role: 'Viewer', status: 'Active' },
-  { id: 14, name: 'Noah Johnson', email: 'noah@example.com', role: 'User', status: 'Inactive' },
-  { id: 15, name: 'Olivia Robinson', email: 'olivia@example.com', role: 'Admin', status: 'Active' },
-]
+function createUserHeaders(t: (key: string, params?: Record<string, unknown>) => string): DatatableHeaderItem[] {
+  return [
+    {
+      key: 'id',
+      text: t('translate.showcase.datatable.headers.id'),
+      align: 'start',
+      sortable: true,
+    },
+    {
+      key: 'name',
+      text: t('translate.showcase.datatable.headers.name'),
+      align: 'start',
+      sortable: true,
+    },
+    {
+      key: 'email',
+      text: t('translate.showcase.datatable.headers.email'),
+      align: 'start',
+      sortable: true,
+    },
+    {
+      key: 'role',
+      text: t('translate.showcase.datatable.headers.role'),
+      align: 'start',
+      sortable: true,
+    },
+    {
+      key: 'status',
+      text: t('translate.showcase.datatable.headers.status'),
+      align: 'start',
+      sortable: false,
+    },
+  ]
+}
 
-const userHeaders: DatatableHeaderItem[] = [
-  {
-    key: 'id',
-    text: 'ID',
-    align: 'start',
-    sortable: true,
-  },
-  {
-    key: 'name',
-    text: 'Name',
-    align: 'start',
-    sortable: true,
-  },
-  {
-    key: 'email',
-    text: 'Email',
-    align: 'start',
-    sortable: true,
-  },
-  {
-    key: 'role',
-    text: 'Role',
-    align: 'start',
-    sortable: true,
-  },
-  {
-    key: 'status',
-    text: 'Status',
-    align: 'start',
-    sortable: false,
-  },
-]
+function createSampleUsers(t: (key: string, params?: Record<string, unknown>) => string) {
+  return [
+    { id: 1, name: 'Alice Johnson', email: 'alice@example.com', role: t('translate.showcase.datatable.roles.admin'), status: t('translate.showcase.datatable.status.active') },
+    { id: 2, name: 'Bob Smith', email: 'bob@example.com', role: t('translate.showcase.datatable.roles.user'), status: t('translate.showcase.datatable.status.active') },
+    { id: 3, name: 'Charlie Brown', email: 'charlie@example.com', role: t('translate.showcase.datatable.roles.editor'), status: t('translate.showcase.datatable.status.inactive') },
+    { id: 4, name: 'Diana Prince', email: 'diana@example.com', role: t('translate.showcase.datatable.roles.user'), status: t('translate.showcase.datatable.status.active') },
+    { id: 5, name: 'Eve Wilson', email: 'eve@example.com', role: t('translate.showcase.datatable.roles.admin'), status: t('translate.showcase.datatable.status.active') },
+    { id: 6, name: 'Frank Castle', email: 'frank@example.com', role: t('translate.showcase.datatable.roles.viewer'), status: t('translate.showcase.datatable.status.active') },
+    { id: 7, name: 'Grace Lee', email: 'grace@example.com', role: t('translate.showcase.datatable.roles.editor'), status: t('translate.showcase.datatable.status.active') },
+    { id: 8, name: 'Henry Davis', email: 'henry@example.com', role: t('translate.showcase.datatable.roles.user'), status: t('translate.showcase.datatable.status.inactive') },
+    { id: 9, name: 'Iris Martinez', email: 'iris@example.com', role: t('translate.showcase.datatable.roles.admin'), status: t('translate.showcase.datatable.status.active') },
+    { id: 10, name: 'Jack Taylor', email: 'jack@example.com', role: t('translate.showcase.datatable.roles.user'), status: t('translate.showcase.datatable.status.active') },
+    { id: 11, name: 'Karen White', email: 'karen@example.com', role: t('translate.showcase.datatable.roles.editor'), status: t('translate.showcase.datatable.status.active') },
+    { id: 12, name: 'Leo Garcia', email: 'leo@example.com', role: t('translate.showcase.datatable.roles.user'), status: t('translate.showcase.datatable.status.active') },
+    { id: 13, name: 'Mina Khatun', email: 'mina@example.com', role: t('translate.showcase.datatable.roles.viewer'), status: t('translate.showcase.datatable.status.active') },
+    { id: 14, name: 'Noah Johnson', email: 'noah@example.com', role: t('translate.showcase.datatable.roles.user'), status: t('translate.showcase.datatable.status.inactive') },
+    { id: 15, name: 'Olivia Robinson', email: 'olivia@example.com', role: t('translate.showcase.datatable.roles.admin'), status: t('translate.showcase.datatable.status.active') },
+  ]
+}
 
 export const Default: Story = {
   render: () => ({
     components: { CDatatable },
     setup() {
-      const items = ref(sampleUsers)
+      const { t } = useI18n()
+      const items = computed(() => createSampleUsers(t))
+      const headers = computed(() => createUserHeaders(t))
       const currentPage = ref(1)
       const itemsPerPage = ref(5)
 
       return {
-        headers: userHeaders,
+        headers,
         items,
         currentPage,
         itemsPerPage,
@@ -105,10 +111,12 @@ export const WithoutFooter: Story = {
   render: () => ({
     components: { CDatatable },
     setup() {
-      const items = ref(sampleUsers)
+      const { t } = useI18n()
+      const items = computed(() => createSampleUsers(t))
+      const headers = computed(() => createUserHeaders(t))
 
       return {
-        headers: userHeaders,
+        headers,
         items,
       }
     },
@@ -128,12 +136,14 @@ export const WithTotal: Story = {
   render: () => ({
     components: { CDatatable },
     setup() {
-      const items = ref(sampleUsers)
+      const { t } = useI18n()
+      const items = computed(() => createSampleUsers(t))
+      const headers = computed(() => createUserHeaders(t))
       const currentPage = ref(1)
       const itemsPerPage = ref(5)
 
       return {
-        headers: userHeaders,
+        headers,
         items,
         currentPage,
         itemsPerPage,
@@ -163,11 +173,13 @@ export const Loading: Story = {
   render: () => ({
     components: { CDatatable },
     setup() {
+      const { t } = useI18n()
       const items = ref([])
+      const headers = computed(() => createUserHeaders(t))
       const isLoading = ref(true)
 
       return {
-        headers: userHeaders,
+        headers,
         items,
         isLoading,
       }
@@ -188,10 +200,12 @@ export const Limited: Story = {
   render: () => ({
     components: { CDatatable },
     setup() {
-      const items = ref(sampleUsers.slice(0, 5))
+      const { t } = useI18n()
+      const items = computed(() => createSampleUsers(t).slice(0, 5))
+      const headers = computed(() => createUserHeaders(t))
 
       return {
-        headers: userHeaders,
+        headers,
         items,
         pages: [5, 10],
       }
@@ -213,10 +227,12 @@ export const Empty: Story = {
   render: () => ({
     components: { CDatatable },
     setup() {
+      const { t } = useI18n()
       const items = ref([])
+      const headers = computed(() => createUserHeaders(t))
 
       return {
-        headers: userHeaders,
+        headers,
         items,
       }
     },
@@ -236,13 +252,15 @@ export const Sortable: Story = {
   render: () => ({
     components: { CDatatable },
     setup() {
-      const items = ref(sampleUsers)
+      const { t } = useI18n()
+      const items = computed(() => createSampleUsers(t))
+      const headers = computed(() => createUserHeaders(t))
       const currentPage = ref(1)
       const itemsPerPage = ref(10)
       const sortBy = ref<DatatableHeaderItem[]>([
         {
           key: 'name',
-          text: 'Name',
+          text: t('translate.showcase.datatable.headers.name'),
           align: 'start',
           sortable: true,
           sortOrder: 'asc',
@@ -250,12 +268,13 @@ export const Sortable: Story = {
       ])
 
       return {
-        headers: userHeaders,
+        headers,
         items,
         currentPage,
         itemsPerPage,
         pages: [10, 20, 50],
         sortBy,
+        t,
       }
     },
     template: `
@@ -272,7 +291,7 @@ export const Sortable: Story = {
           @update:sort-by="(val) => sortBy = val"
         />
         <p style="margin-top: 20px; font-size: 12px; color: #666;">
-          Click on column headers to sort
+          {{ t('translate.showcase.datatable.sortable_hint') }}
         </p>
       </div>
     `,

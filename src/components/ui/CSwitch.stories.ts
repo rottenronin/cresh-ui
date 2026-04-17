@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CSwitch from './CSwitch.vue'
 
 const meta = {
@@ -37,18 +38,19 @@ export const Off: Story = {
     return {
       components: { CSwitch },
       setup() {
+        const { t } = useI18n()
         const enabled = ref(false)
-        return { enabled }
+        return { enabled, t }
       },
       template: `
         <div>
           <c-switch
             v-model="enabled"
             name="toggle"
-            label="Toggle me"
+            :label="t('translate.showcase.switch.off.label')"
           />
           <p style="margin-top: 16px; font-size: 12px;">
-            State: {{ enabled ? 'ON' : 'OFF' }}
+            {{ t('translate.showcase.switch.state') }} {{ enabled ? t('translate.showcase.switch.on_value') : t('translate.showcase.switch.off_value') }}
           </p>
         </div>
       `,
@@ -61,18 +63,19 @@ export const On: Story = {
     return {
       components: { CSwitch },
       setup() {
+        const { t } = useI18n()
         const enabled = ref(true)
-        return { enabled }
+        return { enabled, t }
       },
       template: `
         <div>
           <c-switch
             v-model="enabled"
             name="toggle-on"
-            label="Enabled"
+            :label="t('translate.showcase.switch.on.label')"
           />
           <p style="margin-top: 16px; font-size: 12px;">
-            State: {{ enabled ? 'ON' : 'OFF' }}
+            {{ t('translate.showcase.switch.state') }} {{ enabled ? t('translate.showcase.switch.on_value') : t('translate.showcase.switch.off_value') }}
           </p>
         </div>
       `,
@@ -85,14 +88,15 @@ export const Disabled: Story = {
     return {
       components: { CSwitch },
       setup() {
+        const { t } = useI18n()
         const enabled = ref(false)
-        return { enabled }
+        return { enabled, t }
       },
       template: `
         <c-switch
           v-model="enabled"
           name="disabled"
-          label="Disabled switch"
+          :label="t('translate.showcase.switch.disabled.label')"
           disabled
         />
       `,
@@ -105,14 +109,15 @@ export const DisabledOn: Story = {
     return {
       components: { CSwitch },
       setup() {
+        const { t } = useI18n()
         const enabled = ref(true)
-        return { enabled }
+        return { enabled, t }
       },
       template: `
         <c-switch
           v-model="enabled"
           name="disabled-on"
-          label="Disabled and on"
+          :label="t('translate.showcase.switch.disabled_on.label')"
           disabled
         />
       `,

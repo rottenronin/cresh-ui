@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CFileUploadZone from './CFileUploadZone.vue'
 
 const meta = {
@@ -37,12 +38,13 @@ export const Default: Story = {
   render: (args) => ({
     components: { CFileUploadZone },
     setup() {
+      const { t } = useI18n()
       const uploadedFile = ref<File | undefined>()
       const handleUpload = (file: File) => {
         uploadedFile.value = file
         console.log('File uploaded:', file.name)
       }
-      return { args, uploadedFile, handleUpload }
+      return { args, uploadedFile, handleUpload, t }
     },
     template: `
       <div style="max-width: 500px;">
@@ -52,8 +54,8 @@ export const Default: Story = {
           style="min-height: 200px; border: 2px dashed #667eea; border-radius: 8px; display: flex; align-items: center; justify-content: center;"
         />
         <div v-if="uploadedFile" style="margin-top: 16px; padding: 12px; background: #d4edda; border: 1px solid #c3e6cb; border-radius: 4px; color: #155724;">
-          <strong>✓ File uploaded:</strong> {{ uploadedFile.name }}
-          <div style="font-size: 12px; margin-top: 4px;">Size: {{ (uploadedFile.size / 1024).toFixed(2) }} KB</div>
+          <strong>✓ {{ t('translate.showcase.file_upload_zone.default.uploaded') }}</strong> {{ uploadedFile.name }}
+          <div style="font-size: 12px; margin-top: 4px;">{{ t('translate.showcase.file_upload_zone.default.size') }} {{ (uploadedFile.size / 1024).toFixed(2) }} KB</div>
         </div>
       </div>
     `,
@@ -69,15 +71,16 @@ export const ShowFilename: Story = {
   render: (args) => ({
     components: { CFileUploadZone },
     setup() {
+      const { t } = useI18n()
       const uploadedFile = ref<File | undefined>()
       const handleUpload = (file: File) => {
         uploadedFile.value = file
       }
-      return { args, uploadedFile, handleUpload }
+      return { args, uploadedFile, handleUpload, t }
     },
     template: `
       <div style="max-width: 500px;">
-        <h3 style="margin-top: 0;">Upload with Filename Display</h3>
+        <h3 style="margin-top: 0;">{{ t('translate.showcase.file_upload_zone.show_filename.title') }}</h3>
         <c-file-upload-zone
           v-bind="args"
           @uploaded="handleUpload"
@@ -97,17 +100,18 @@ export const ImageOnly: Story = {
   render: (args) => ({
     components: { CFileUploadZone },
     setup() {
+      const { t } = useI18n()
       const uploadedFile = ref<File | undefined>()
       const handleUpload = (file: File) => {
         uploadedFile.value = file
       }
-      return { args, uploadedFile, handleUpload }
+      return { args, uploadedFile, handleUpload, t }
     },
     template: `
       <div style="max-width: 500px;">
-        <h3 style="margin-top: 0;">Image Upload Only</h3>
+        <h3 style="margin-top: 0;">{{ t('translate.showcase.file_upload_zone.image_only.title') }}</h3>
         <p style="color: #666; font-size: 14px; margin: 0 0 12px 0;">
-          Supported formats: JPEG, PNG, WebP (Max 1 MB)
+          {{ t('translate.showcase.file_upload_zone.image_only.supported_formats') }}
         </p>
         <c-file-upload-zone
           v-bind="args"
@@ -115,7 +119,7 @@ export const ImageOnly: Story = {
           style="min-height: 200px; border: 2px dashed #667eea; border-radius: 8px; display: flex; align-items: center; justify-content: center;"
         />
         <div v-if="uploadedFile" style="margin-top: 16px; padding: 12px; background: #d4edda; border: 1px solid #c3e6cb; border-radius: 4px; color: #155724;">
-          <strong>✓ Image uploaded:</strong> {{ uploadedFile.name }}
+          <strong>✓ {{ t('translate.showcase.file_upload_zone.image_only.uploaded') }}</strong> {{ uploadedFile.name }}
         </div>
       </div>
     `,
@@ -131,17 +135,18 @@ export const DocumentUpload: Story = {
   render: (args) => ({
     components: { CFileUploadZone },
     setup() {
+      const { t } = useI18n()
       const uploadedFile = ref<File | undefined>()
       const handleUpload = (file: File) => {
         uploadedFile.value = file
       }
-      return { args, uploadedFile, handleUpload }
+      return { args, uploadedFile, handleUpload, t }
     },
     template: `
       <div style="max-width: 500px;">
-        <h3 style="margin-top: 0;">Document Upload</h3>
+        <h3 style="margin-top: 0;">{{ t('translate.showcase.file_upload_zone.document_upload.title') }}</h3>
         <p style="color: #666; font-size: 14px; margin: 0 0 12px 0;">
-          Supported: PDF, Word documents (Max 5 MB)
+          {{ t('translate.showcase.file_upload_zone.document_upload.supported_formats') }}
         </p>
         <c-file-upload-zone
           v-bind="args"
@@ -150,10 +155,10 @@ export const DocumentUpload: Story = {
         />
         <div v-if="uploadedFile" style="margin-top: 16px;">
           <div style="padding: 12px; background: #d4edda; border: 1px solid #c3e6cb; border-radius: 4px; color: #155724; margin-bottom: 8px;">
-            <strong>✓ Document uploaded:</strong> {{ uploadedFile.name }}
+            <strong>✓ {{ t('translate.showcase.file_upload_zone.document_upload.uploaded') }}</strong> {{ uploadedFile.name }}
           </div>
           <button @click="uploadedFile = undefined" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">
-            Upload Another
+            {{ t('translate.showcase.file_upload_zone.document_upload.upload_another') }}
           </button>
         </div>
       </div>
@@ -170,17 +175,18 @@ export const LargeFileSizeLimit: Story = {
   render: (args) => ({
     components: { CFileUploadZone },
     setup() {
+      const { t } = useI18n()
       const uploadedFile = ref<File | undefined>()
       const handleUpload = (file: File) => {
         uploadedFile.value = file
       }
-      return { args, uploadedFile, handleUpload }
+      return { args, uploadedFile, handleUpload, t }
     },
     template: `
       <div style="max-width: 500px;">
-        <h3 style="margin-top: 0;">File Upload (10 MB Limit)</h3>
+        <h3 style="margin-top: 0;">{{ t('translate.showcase.file_upload_zone.large_limit.title') }}</h3>
         <p style="color: #666; font-size: 14px; margin: 0 0 12px 0;">
-          Drag and drop files or click to browse
+          {{ t('translate.showcase.file_upload_zone.large_limit.description') }}
         </p>
         <c-file-upload-zone
           v-bind="args"
@@ -201,6 +207,7 @@ export const MultipleUpload: Story = {
   render: (args) => ({
     components: { CFileUploadZone },
     setup() {
+      const { t } = useI18n()
       const uploadedFiles = ref<File[]>([])
       const handleUpload = (file: File) => {
         uploadedFiles.value.push(file)
@@ -208,18 +215,18 @@ export const MultipleUpload: Story = {
       const removeFile = (index: number) => {
         uploadedFiles.value.splice(index, 1)
       }
-      return { args, uploadedFiles, handleUpload, removeFile }
+      return { args, uploadedFiles, handleUpload, removeFile, t }
     },
     template: `
       <div style="max-width: 500px;">
-        <h3 style="margin-top: 0;">Multiple File Upload</h3>
+        <h3 style="margin-top: 0;">{{ t('translate.showcase.file_upload_zone.multiple.title') }}</h3>
         <c-file-upload-zone
           v-bind="args"
           @uploaded="handleUpload"
           style="min-height: 200px; border: 2px dashed #667eea; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;"
         />
         <div v-if="uploadedFiles.length > 0">
-          <h4>Uploaded Files ({{ uploadedFiles.length }})</h4>
+          <h4>{{ t('translate.showcase.file_upload_zone.multiple.uploaded_files', { count: uploadedFiles.length }) }}</h4>
           <div style="border: 1px solid #ddd; border-radius: 4px; overflow: hidden;">
             <div
               v-for="(file, index) in uploadedFiles"
@@ -234,7 +241,7 @@ export const MultipleUpload: Story = {
                 @click="removeFile(index)"
                 style="padding: 4px 8px; background: #ff6b6b; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px;"
               >
-                Remove
+                {{ t('translate.showcase.file_upload_zone.multiple.remove') }}
               </button>
             </div>
           </div>

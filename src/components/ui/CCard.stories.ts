@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
+import { useI18n } from 'vue-i18n'
 import CCard from './CCard.vue'
 
 const meta = {
@@ -28,17 +29,15 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {
-    title: 'Card Title',
-  },
   render: (args) => ({
     components: { CCard },
     setup() {
-      return { args }
+      const { t } = useI18n()
+      return { args, t }
     },
     template: `
-      <c-card v-bind="args" style="max-width: 400px;">
-        <p>This is the card content. You can add any content here.</p>
+      <c-card v-bind="args" :title="args.title ?? t('translate.showcase.card.default.title')" style="max-width: 400px;">
+        <p>{{ t('translate.showcase.card.default.content') }}</p>
       </c-card>
     `,
   }),
@@ -46,17 +45,17 @@ export const Default: Story = {
 
 export const WithBorder: Story = {
   args: {
-    title: 'Card with Border',
     bordered: true,
   },
   render: (args) => ({
     components: { CCard },
     setup() {
-      return { args }
+      const { t } = useI18n()
+      return { args, t }
     },
     template: `
-      <c-card v-bind="args" style="max-width: 400px;">
-        <p>This card has a border.</p>
+      <c-card v-bind="args" :title="args.title ?? t('translate.showcase.card.with_border.title')" style="max-width: 400px;">
+        <p>{{ t('translate.showcase.card.with_border.content') }}</p>
       </c-card>
     `,
   }),
@@ -64,17 +63,17 @@ export const WithBorder: Story = {
 
 export const WithShadow: Story = {
   args: {
-    title: 'Card with Shadow',
     shadow: true,
   },
   render: (args) => ({
     components: { CCard },
     setup() {
-      return { args }
+      const { t } = useI18n()
+      return { args, t }
     },
     template: `
-      <c-card v-bind="args" style="max-width: 400px;">
-        <p>This card has a shadow effect.</p>
+      <c-card v-bind="args" :title="args.title ?? t('translate.showcase.card.with_shadow.title')" style="max-width: 400px;">
+        <p>{{ t('translate.showcase.card.with_shadow.content') }}</p>
       </c-card>
     `,
   }),
@@ -83,9 +82,13 @@ export const WithShadow: Story = {
 export const NoTitle: Story = {
   render: () => ({
     components: { CCard },
+    setup() {
+      const { t } = useI18n()
+      return { t }
+    },
     template: `
       <c-card style="max-width: 400px;">
-        <p>A card without a title.</p>
+        <p>{{ t('translate.showcase.card.no_title.content') }}</p>
       </c-card>
     `,
   }),

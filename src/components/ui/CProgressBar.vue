@@ -67,7 +67,7 @@ const isPredefinedColor = computed(() => [
 
 const applyColor = computed(() => {
   if (isPredefinedColor.value) {
-    return `var(--color-${props.color})`
+    return `rgb(var(--color-${props.color}))`
   }
   return props.color
 })
@@ -76,8 +76,14 @@ const applyColor = computed(() => {
 <style lang="scss">
   .c-progress-bar {
     position: relative;
+    width: 100%;
+    height: 10px;
+    overflow: hidden;
+    border-radius: 9px;
+    
     .c-progress-bar-background {
-      display: flex;
+      display: block;
+      width: 100%;
       height: 10px;
       border-radius: 9px;
       opacity: 0.2;
@@ -89,6 +95,7 @@ const applyColor = computed(() => {
       position: absolute;
       top: 0;
       left: 0;
+      transition: width 0.3s ease;
     }
 
     &.indeterminate {

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CDrawer from './CDrawer.vue'
 
 const meta = {
@@ -46,8 +47,9 @@ export const LeftDrawer: Story = {
   render: (args) => ({
     components: { CDrawer },
     setup() {
+      const { t } = useI18n()
       const isOpen = ref(args.modelValue)
-      return { args: { ...args, modelValue: isOpen }, isOpen }
+      return { args: { ...args, modelValue: isOpen }, isOpen, t }
     },
     template: `
       <div style="display: flex; min-height: 400px; border: 1px solid #ccc;">
@@ -58,15 +60,15 @@ export const LeftDrawer: Story = {
           :height="args.height"
         >
           <div style="padding: 20px;">
-            <h3>Left Drawer</h3>
-            <p>This is a drawer positioned on the left side.</p>
-            <button @click="isOpen = false">Close</button>
+            <h3>{{ t('translate.showcase.drawer.left.title') }}</h3>
+            <p>{{ t('translate.showcase.drawer.left.description') }}</p>
+            <button @click="isOpen = false">{{ t('translate.showcase.drawer.actions.close') }}</button>
           </div>
         </c-drawer>
         <div style="flex: 1; padding: 20px; background: #f5f5f5;">
-          <h2>Main Content</h2>
-          <p>Click the button to open the drawer again.</p>
-          <button @click="isOpen = true">Open Drawer</button>
+          <h2>{{ t('translate.showcase.drawer.main_content_title') }}</h2>
+          <p>{{ t('translate.showcase.drawer.left.open_description') }}</p>
+          <button @click="isOpen = true">{{ t('translate.showcase.drawer.actions.open') }}</button>
         </div>
       </div>
     `,
@@ -82,15 +84,16 @@ export const RightDrawer: Story = {
   render: (args) => ({
     components: { CDrawer },
     setup() {
+      const { t } = useI18n()
       const isOpen = ref(args.modelValue)
-      return { args: { ...args, modelValue: isOpen }, isOpen }
+      return { args: { ...args, modelValue: isOpen }, isOpen, t }
     },
     template: `
       <div style="display: flex; min-height: 400px; border: 1px solid #ccc;">
         <div style="flex: 1; padding: 20px; background: #f5f5f5;">
-          <h2>Main Content</h2>
-          <p>Click the button to open the drawer.</p>
-          <button @click="isOpen = true">Open Drawer</button>
+          <h2>{{ t('translate.showcase.drawer.main_content_title') }}</h2>
+          <p>{{ t('translate.showcase.drawer.right.open_description') }}</p>
+          <button @click="isOpen = true">{{ t('translate.showcase.drawer.actions.open') }}</button>
         </div>
         <c-drawer
           v-model="isOpen"
@@ -99,9 +102,9 @@ export const RightDrawer: Story = {
           :height="args.height"
         >
           <div style="padding: 20px;">
-            <h3>Right Drawer</h3>
-            <p>This is a drawer positioned on the right side.</p>
-            <button @click="isOpen = false">Close</button>
+            <h3>{{ t('translate.showcase.drawer.right.title') }}</h3>
+            <p>{{ t('translate.showcase.drawer.right.description') }}</p>
+            <button @click="isOpen = false">{{ t('translate.showcase.drawer.actions.close') }}</button>
           </div>
         </c-drawer>
       </div>
@@ -118,8 +121,9 @@ export const TopDrawer: Story = {
   render: (args) => ({
     components: { CDrawer },
     setup() {
+      const { t } = useI18n()
       const isOpen = ref(args.modelValue)
-      return { args: { ...args, modelValue: isOpen }, isOpen }
+      return { args: { ...args, modelValue: isOpen }, isOpen, t }
     },
     template: `
       <div style="min-height: 400px; border: 1px solid #ccc;">
@@ -130,15 +134,15 @@ export const TopDrawer: Story = {
           :height="args.height"
         >
           <div style="padding: 20px;">
-            <h3>Top Drawer</h3>
-            <p>This is a drawer positioned on the top.</p>
-            <button @click="isOpen = false">Close</button>
+            <h3>{{ t('translate.showcase.drawer.top.title') }}</h3>
+            <p>{{ t('translate.showcase.drawer.top.description') }}</p>
+            <button @click="isOpen = false">{{ t('translate.showcase.drawer.actions.close') }}</button>
           </div>
         </c-drawer>
         <div style="padding: 20px; background: #f5f5f5;">
-          <h2>Main Content</h2>
-          <p>Click the button to open the drawer.</p>
-          <button @click="isOpen = true">Open Drawer</button>
+          <h2>{{ t('translate.showcase.drawer.main_content_title') }}</h2>
+          <p>{{ t('translate.showcase.drawer.top.open_description') }}</p>
+          <button @click="isOpen = true">{{ t('translate.showcase.drawer.actions.open') }}</button>
         </div>
       </div>
     `,
@@ -154,15 +158,16 @@ export const BottomDrawer: Story = {
   render: (args) => ({
     components: { CDrawer },
     setup() {
+      const { t } = useI18n()
       const isOpen = ref(args.modelValue)
-      return { args: { ...args, modelValue: isOpen }, isOpen }
+      return { args: { ...args, modelValue: isOpen }, isOpen, t }
     },
     template: `
       <div style="min-height: 400px; border: 1px solid #ccc; display: flex; flex-direction: column;">
         <div style="flex: 1; padding: 20px; background: #f5f5f5;">
-          <h2>Main Content</h2>
-          <p>Click the button to open the drawer.</p>
-          <button @click="isOpen = true">Open Drawer</button>
+          <h2>{{ t('translate.showcase.drawer.main_content_title') }}</h2>
+          <p>{{ t('translate.showcase.drawer.bottom.open_description') }}</p>
+          <button @click="isOpen = true">{{ t('translate.showcase.drawer.actions.open') }}</button>
         </div>
         <c-drawer
           v-model="isOpen"
@@ -171,9 +176,9 @@ export const BottomDrawer: Story = {
           :height="args.height"
         >
           <div style="padding: 20px;">
-            <h3>Bottom Drawer</h3>
-            <p>This is a drawer positioned at the bottom.</p>
-            <button @click="isOpen = false">Close</button>
+            <h3>{{ t('translate.showcase.drawer.bottom.title') }}</h3>
+            <p>{{ t('translate.showcase.drawer.bottom.description') }}</p>
+            <button @click="isOpen = false">{{ t('translate.showcase.drawer.actions.close') }}</button>
           </div>
         </c-drawer>
       </div>
@@ -191,8 +196,9 @@ export const MobileResponsive: Story = {
   render: (args) => ({
     components: { CDrawer },
     setup() {
+      const { t } = useI18n()
       const isOpen = ref(args.modelValue)
-      return { args, isOpen }
+      return { args, isOpen, t }
     },
     template: `
       <div style="display: flex; min-height: 400px; border: 1px solid #ccc;">
@@ -201,15 +207,15 @@ export const MobileResponsive: Story = {
           v-bind="args"
         >
           <div style="padding: 20px;">
-            <h3>Responsive Drawer</h3>
-            <p>This drawer will close automatically on screens smaller than 768px.</p>
-            <button @click="isOpen = false">Close</button>
+            <h3>{{ t('translate.showcase.drawer.responsive.title') }}</h3>
+            <p>{{ t('translate.showcase.drawer.responsive.description') }}</p>
+            <button @click="isOpen = false">{{ t('translate.showcase.drawer.actions.close') }}</button>
           </div>
         </c-drawer>
         <div style="flex: 1; padding: 20px; background: #f5f5f5;">
-          <h2>Main Content</h2>
-          <p>Resize the window to see the mobile behavior.</p>
-          <button @click="isOpen = true">Open Drawer</button>
+          <h2>{{ t('translate.showcase.drawer.main_content_title') }}</h2>
+          <p>{{ t('translate.showcase.drawer.responsive.open_description') }}</p>
+          <button @click="isOpen = true">{{ t('translate.showcase.drawer.actions.open') }}</button>
         </div>
       </div>
     `,

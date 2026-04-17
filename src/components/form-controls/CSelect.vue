@@ -15,22 +15,33 @@
     </label>
     <div
       class="c-select-wrapper"
-      :class="`select-field ${name ? name : ''}
-        ${hasValueOrPlaceholder ? 'not-empty' : ''}
-        ${hasError ? 'invalid' : 'valid'}
-      `"
+      :class="[
+        `select-field ${name ? name : ''}`,
+        hasValueOrPlaceholder ? 'not-empty' : '',
+        hasError ? 'invalid' : 'valid',
+        isOpen ? 'is-open' : '',
+      ]"
     >
       <select
         :id="id"
-        :class="`select-field ${name ? name : ''}
-          ${hasValueOrPlaceholder ? 'not-empty' : ''}
-          ${hasError ? 'invalid' : 'valid'}
-        `"
+        :class="[
+          `select-field ${name ? name : ''}`,
+          hasValueOrPlaceholder ? 'not-empty' : '',
+          hasError ? 'invalid' : 'valid',
+        ]"
         :name="name"
         :disabled="disabled"
         :required="required"
         :autocomplete="autocomplete"
         :value="modelValue"
+        @mousedown="openDropdown"
+        @touchstart="openDropdown"
+        @focus="openDropdown"
+        @keydown.down="openDropdown"
+        @keydown.up="openDropdown"
+        @keydown.enter="openDropdown"
+        @keydown.space="openDropdown"
+        @keydown.esc="closeDropdown"
         @change="onInput"
         @blur="onBlur"
       >
@@ -67,11 +78,22 @@
           </option>
         </template>
       </select>
-      <ChevronDownIcon
-        name="chevron-down"
-        color="primary"
-        class="arrow-icon"
-      />
+      <transition name="select-arrow" mode="out-in">
+        <ChevronUpIcon
+          v-if="isOpen"
+          key="chevron-up"
+          name="chevron-up"
+          color="primary"
+          class="arrow-icon"
+        />
+        <ChevronDownIcon
+          v-else
+          key="chevron-down"
+          name="chevron-down"
+          color="primary"
+          class="arrow-icon"
+        />
+      </transition>
     </div>
     <label
       v-if="hideLabel === false && !bordered"
@@ -101,10 +123,12 @@
 import {
   computed,
   PropType,
+  ref,
   useSlots,
 } from 'vue'
 
 import ChevronDownIcon from '../icons/ChevronDownIcon.vue'
+import ChevronUpIcon from '../icons/ChevronUpIcon.vue'
 
 import baseProps from './base-control-props'
 import type { CSelectOption } from '../../@types'
@@ -124,16 +148,27 @@ const props = defineProps({
 })
 
 const slots = useSlots()
+const isOpen = ref(false)
 
 const emit = defineEmits(['update:modelValue', 'blur'])
 
+function openDropdown (): void {
+  isOpen.value = true
+}
+
+function closeDropdown (): void {
+  isOpen.value = false
+}
+
 const onBlur = async () => {
+  closeDropdown()
   emit('blur')
 }
 
 function onInput (e: Event): void {
   if (e && e.target) {
     const target = e.target as HTMLSelectElement
+    closeDropdown()
     emit('update:modelValue', target.value)
   }
 }

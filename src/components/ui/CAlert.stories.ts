@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
+import { useI18n } from 'vue-i18n'
 import CAlert from './CAlert.vue'
 
 const meta = {
@@ -31,70 +32,90 @@ type Story = StoryObj<typeof meta>
 export const Success: Story = {
   args: {
     type: 'success',
-    title: 'Success!',
   },
   render: (args) => ({
     components: { CAlert },
     setup() {
-      return { args }
+      const { t } = useI18n()
+      return { args, t }
     },
-    template: '<c-alert v-bind="args">Operation completed successfully!</c-alert>',
+    template: `
+      <c-alert v-bind="args" :title="args.title ?? t('translate.showcase.alert.success.title')">
+        {{ t('translate.showcase.alert.success.message') }}
+      </c-alert>
+    `,
   }),
 }
 
 export const Error: Story = {
   args: {
     type: 'error',
-    title: 'Error',
   },
   render: (args) => ({
     components: { CAlert },
     setup() {
-      return { args }
+      const { t } = useI18n()
+      return { args, t }
     },
-    template: '<c-alert v-bind="args">Something went wrong. Please try again.</c-alert>',
+    template: `
+      <c-alert v-bind="args" :title="args.title ?? t('translate.showcase.alert.error.title')">
+        {{ t('translate.showcase.alert.error.message') }}
+      </c-alert>
+    `,
   }),
 }
 
 export const Warning: Story = {
   args: {
     type: 'warning',
-    title: 'Warning',
   },
   render: (args) => ({
     components: { CAlert },
     setup() {
-      return { args }
+      const { t } = useI18n()
+      return { args, t }
     },
-    template: '<c-alert v-bind="args">Please review this action before proceeding.</c-alert>',
+    template: `
+      <c-alert v-bind="args" :title="args.title ?? t('translate.showcase.alert.warning.title')">
+        {{ t('translate.showcase.alert.warning.message') }}
+      </c-alert>
+    `,
   }),
 }
 
 export const Info: Story = {
   args: {
     type: 'info',
-    title: 'Information',
   },
   render: (args) => ({
     components: { CAlert },
     setup() {
-      return { args }
+      const { t } = useI18n()
+      return { args, t }
     },
-    template: '<c-alert v-bind="args">This is an informational message.</c-alert>',
+    template: `
+      <c-alert v-bind="args" :title="args.title ?? t('translate.showcase.alert.info.title')">
+        {{ t('translate.showcase.alert.info.message') }}
+      </c-alert>
+    `,
   }),
 }
 
 export const Closable: Story = {
   args: {
     type: 'info',
-    title: 'Closable Alert',
     closable: true,
   },
   render: (args) => ({
     components: { CAlert },
     setup() {
-      return { args }
+      const { t } = useI18n()
+      return { args, t }
     },
-    template: '<c-alert v-bind="args">You can close this alert by clicking the X button.</c-alert>',
+    template: `
+      <c-alert v-bind="args" :title="args.title ?? t('translate.showcase.alert.closable.title')">
+        {{ t('translate.showcase.alert.closable.message') }}
+      </c-alert>
+    `,
   }),
 }

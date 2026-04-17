@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CDateRangeFilters from './CDateRangeFilters.vue'
 
 const meta = {
@@ -39,11 +40,13 @@ export const Default: Story = {
   render: (args) => ({
     components: { CDateRangeFilters },
     setup() {
+      const { t } = useI18n()
       const dateFilter = ref(args.dateFilter)
       const dateRange = ref(args.dateRange)
       const activator = ref(args.activator)
 
       return {
+        t,
         dateFilter,
         dateRange,
         activator,
@@ -51,7 +54,7 @@ export const Default: Story = {
     },
     template: `
       <div>
-        <h3>Date Range Filters</h3>
+        <h3>{{ t('translate.showcase.filters.default.title') }}</h3>
         <c-date-range-filters
           :date-filter="dateFilter"
           :date-range="dateRange"
@@ -60,10 +63,10 @@ export const Default: Story = {
           @update:date-range="dateRange = $event"
         />
         <div style="margin-top: 20px; padding: 16px; background: #f5f5f5; border-radius: 4px;">
-          <h4>Current State:</h4>
-          <p>Date Filter: {{ dateFilter }}</p>
-          <p>Date Range: {{ dateRange?.length > 0 ? dateRange : 'Not set' }}</p>
-          <p>Activator: {{ activator }}</p>
+          <h4>{{ t('translate.showcase.filters.state.title') }}</h4>
+          <p>{{ t('translate.showcase.filters.state.date_filter') }}: {{ dateFilter }}</p>
+          <p>{{ t('translate.showcase.filters.state.date_range') }}: {{ dateRange?.length > 0 ? dateRange : t('translate.showcase.filters.state.not_set') }}</p>
+          <p>{{ t('translate.showcase.filters.state.activator') }}: {{ activator }}</p>
         </div>
       </div>
     `,
@@ -79,11 +82,13 @@ export const WithRightContent: Story = {
   render: (args) => ({
     components: { CDateRangeFilters },
     setup() {
+      const { t } = useI18n()
       const dateFilter = ref(args.dateFilter)
       const dateRange = ref(args.dateRange)
       const activator = ref(args.activator)
 
       return {
+        t,
         dateFilter,
         dateRange,
         activator,
@@ -91,7 +96,7 @@ export const WithRightContent: Story = {
     },
     template: `
       <div>
-        <h3>Date Filters with Action Buttons</h3>
+        <h3>{{ t('translate.showcase.filters.with_actions.title') }}</h3>
         <c-date-range-filters
           :date-filter="dateFilter"
           :date-range="dateRange"
@@ -102,18 +107,18 @@ export const WithRightContent: Story = {
           <template #rightContent>
             <div style="display: flex; gap: 10px;">
               <button style="padding: 8px 16px; background: #999; color: white; border: none; border-radius: 4px; cursor: pointer;">
-                Reset
+                {{ t('translate.showcase.filters.actions.reset') }}
               </button>
               <button style="padding: 8px 16px; background: #10b981; color: white; border: none; border-radius: 4px; cursor: pointer;">
-                Apply
+                {{ t('translate.showcase.filters.actions.apply') }}
               </button>
             </div>
           </template>
         </c-date-range-filters>
         <div style="margin-top: 20px; padding: 16px; background: #f5f5f5; border-radius: 4px;">
-          <h4>Current State:</h4>
-          <p>Date Filter: {{ dateFilter }}</p>
-          <p>Date Range: {{ dateRange?.length > 0 ? dateRange : 'Not set' }}</p>
+          <h4>{{ t('translate.showcase.filters.state.title') }}</h4>
+          <p>{{ t('translate.showcase.filters.state.date_filter') }}: {{ dateFilter }}</p>
+          <p>{{ t('translate.showcase.filters.state.date_range') }}: {{ dateRange?.length > 0 ? dateRange : t('translate.showcase.filters.state.not_set') }}</p>
         </div>
       </div>
     `,
@@ -129,11 +134,13 @@ export const MonthToDate: Story = {
   render: (args) => ({
     components: { CDateRangeFilters },
     setup() {
+      const { t } = useI18n()
       const dateFilter = ref(args.dateFilter)
       const dateRange = ref(args.dateRange)
       const activator = ref(args.activator)
 
       return {
+        t,
         dateFilter,
         dateRange,
         activator,
@@ -141,7 +148,7 @@ export const MonthToDate: Story = {
     },
     template: `
       <div>
-        <h3>Month to Date Filter</h3>
+        <h3>{{ t('translate.showcase.filters.month_to_date.title') }}</h3>
         <c-date-range-filters
           :date-filter="dateFilter"
           :date-range="dateRange"
@@ -150,9 +157,9 @@ export const MonthToDate: Story = {
           @update:date-range="dateRange = $event"
         />
         <div style="margin-top: 20px; padding: 16px; background: #f5f5f5; border-radius: 4px;">
-          <h4>Current State:</h4>
-          <p>Date Filter: {{ dateFilter }}</p>
-          <p>Date Range: {{ dateRange?.length > 0 ? dateRange : 'Not set' }}</p>
+          <h4>{{ t('translate.showcase.filters.state.title') }}</h4>
+          <p>{{ t('translate.showcase.filters.state.date_filter') }}: {{ dateFilter }}</p>
+          <p>{{ t('translate.showcase.filters.state.date_range') }}: {{ dateRange?.length > 0 ? dateRange : t('translate.showcase.filters.state.not_set') }}</p>
         </div>
       </div>
     `,
@@ -168,11 +175,13 @@ export const YearToDate: Story = {
   render: (args) => ({
     components: { CDateRangeFilters },
     setup() {
+      const { t } = useI18n()
       const dateFilter = ref(args.dateFilter)
       const dateRange = ref(args.dateRange)
       const activator = ref(args.activator)
 
       return {
+        t,
         dateFilter,
         dateRange,
         activator,
@@ -180,7 +189,7 @@ export const YearToDate: Story = {
     },
     template: `
       <div>
-        <h3>Year to Date Filter</h3>
+        <h3>{{ t('translate.showcase.filters.year_to_date.title') }}</h3>
         <c-date-range-filters
           :date-filter="dateFilter"
           :date-range="dateRange"
@@ -189,9 +198,9 @@ export const YearToDate: Story = {
           @update:date-range="dateRange = $event"
         />
         <div style="margin-top: 20px; padding: 16px; background: #f5f5f5; border-radius: 4px;">
-          <h4>Current State:</h4>
-          <p>Date Filter: {{ dateFilter }}</p>
-          <p>Date Range: {{ dateRange?.length > 0 ? dateRange : 'Not set' }}</p>
+          <h4>{{ t('translate.showcase.filters.state.title') }}</h4>
+          <p>{{ t('translate.showcase.filters.state.date_filter') }}: {{ dateFilter }}</p>
+          <p>{{ t('translate.showcase.filters.state.date_range') }}: {{ dateRange?.length > 0 ? dateRange : t('translate.showcase.filters.state.not_set') }}</p>
         </div>
       </div>
     `,
@@ -207,11 +216,13 @@ export const Last90Days: Story = {
   render: (args) => ({
     components: { CDateRangeFilters },
     setup() {
+      const { t } = useI18n()
       const dateFilter = ref(args.dateFilter)
       const dateRange = ref(args.dateRange)
       const activator = ref(args.activator)
 
       return {
+        t,
         dateFilter,
         dateRange,
         activator,
@@ -219,7 +230,7 @@ export const Last90Days: Story = {
     },
     template: `
       <div>
-        <h3>Last 90 Days Filter</h3>
+        <h3>{{ t('translate.showcase.filters.last_90_days.title') }}</h3>
         <c-date-range-filters
           :date-filter="dateFilter"
           :date-range="dateRange"
@@ -228,9 +239,9 @@ export const Last90Days: Story = {
           @update:date-range="dateRange = $event"
         />
         <div style="margin-top: 20px; padding: 16px; background: #f5f5f5; border-radius: 4px;">
-          <h4>Current State:</h4>
-          <p>Date Filter: {{ dateFilter }}</p>
-          <p>Date Range: {{ dateRange?.length > 0 ? dateRange : 'Not set' }}</p>
+          <h4>{{ t('translate.showcase.filters.state.title') }}</h4>
+          <p>{{ t('translate.showcase.filters.state.date_filter') }}: {{ dateFilter }}</p>
+          <p>{{ t('translate.showcase.filters.state.date_range') }}: {{ dateRange?.length > 0 ? dateRange : t('translate.showcase.filters.state.not_set') }}</p>
         </div>
       </div>
     `,

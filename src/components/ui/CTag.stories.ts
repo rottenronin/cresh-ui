@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
+import { useI18n } from 'vue-i18n'
 import CTag from './CTag.vue'
 
 const meta = {
@@ -9,15 +10,10 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    type: {
+    color: {
       control: { type: 'select' },
       options: ['primary', 'secondary', 'success', 'warning', 'error', 'info'],
-      description: 'Tag type/color',
-    },
-    size: {
-      control: { type: 'select' },
-      options: ['sm', 'md', 'lg'],
-      description: 'Tag size',
+      description: 'Tag color/type',
     },
     closable: {
       control: { type: 'boolean' },
@@ -31,79 +27,88 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    type: 'primary',
+    color: 'primary',
   },
   render: (args) => ({
     components: { CTag },
     setup() {
-      return { args }
+      const { t } = useI18n()
+      return { args, t }
     },
-    template: '<c-tag v-bind="args">Primary Tag</c-tag>',
+    template: '<c-tag v-bind="args">{{ t(\'translate.showcase.tag.primary\') }}</c-tag>',
   }),
 }
 
 export const Success: Story = {
   args: {
-    type: 'success',
+    color: 'success',
   },
   render: (args) => ({
     components: { CTag },
     setup() {
-      return { args }
+      const { t } = useI18n()
+      return { args, t }
     },
-    template: '<c-tag v-bind="args">Active</c-tag>',
+    template: '<c-tag v-bind="args">{{ t(\'translate.showcase.tag.success\') }}</c-tag>',
   }),
 }
 
 export const Warning: Story = {
   args: {
-    type: 'warning',
+    color: 'warning',
   },
   render: (args) => ({
     components: { CTag },
     setup() {
-      return { args }
+      const { t } = useI18n()
+      return { args, t }
     },
-    template: '<c-tag v-bind="args">Pending</c-tag>',
+    template: '<c-tag v-bind="args">{{ t(\'translate.showcase.tag.warning\') }}</c-tag>',
   }),
 }
 
 export const Error: Story = {
   args: {
-    type: 'error',
+    color: 'error',
   },
   render: (args) => ({
     components: { CTag },
     setup() {
-      return { args }
+      const { t } = useI18n()
+      return { args, t }
     },
-    template: '<c-tag v-bind="args">Inactive</c-tag>',
+    template: '<c-tag v-bind="args">{{ t(\'translate.showcase.tag.error\') }}</c-tag>',
   }),
 }
 
 export const Closable: Story = {
   args: {
-    type: 'info',
+    color: 'info',
     closable: true,
   },
   render: (args) => ({
     components: { CTag },
     setup() {
-      return { args }
+      const { t } = useI18n()
+      return { args, t }
     },
-    template: '<c-tag v-bind="args">Closable Tag</c-tag>',
+    template: '<c-tag v-bind="args">{{ t(\'translate.showcase.tag.closable\') }}</c-tag>',
   }),
 }
 
 export const Multiple: Story = {
   render: () => ({
     components: { CTag },
+    setup() {
+      const { t } = useI18n()
+      return { t }
+    },
     template: `
       <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-        <c-tag type="primary">Vue</c-tag>
-        <c-tag type="success">Active</c-tag>
-        <c-tag type="warning">Beta</c-tag>
-        <c-tag type="error">Deprecated</c-tag>
+        <c-tag color="primary">{{ t('translate.showcase.tag.multiple.vue') }}</c-tag>
+        <c-tag color="success">{{ t('translate.showcase.tag.multiple.active') }}</c-tag>
+        <c-tag color="warning">{{ t('translate.showcase.tag.multiple.beta') }}</c-tag>
+        <c-tag color="error">{{ t('translate.showcase.tag.multiple.deprecated') }}</c-tag>
       </div>
     `,
   }),

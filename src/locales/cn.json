@@ -1,0 +1,1260 @@
+{
+  "validation_messages": {
+    "password_validation_rule": "密码至少需要8个字符，并至少包含1个数字、1个小写字母和1个大写字母",
+    "passwords_match_rule": "密码不匹配",
+    "date_validation_rule": "日期格式无效",
+    "name_string_validation_rule": "字段无效。仅允许字母和以下特殊字符：-'",
+    "address_validation_rule": "字段无效。仅允许字母数字和以下特殊字符：-_'.,",
+    "phone_number_rule": "字段无效。仅允许中国电话号码。"
+  },
+  "directives": {
+    "copy_to_clipboard": {
+      "copied": "已复制",
+      "click_to_copy": "点击复制"
+    }
+  },
+  "datatable": {
+    "no_data": "没有数据",
+    "footer": {
+      "rows_per_page": "每页行数："
+    },
+    "retry": "重试",
+    "error_message": "发生错误，无法检索数据",
+    "loading": "正在加载数据"
+  },
+  "slider": {
+    "month": "个月",
+    "perMonth": "每月持续",
+    "taxFree": "个月（免税）",
+    "error": "值必须是{min}到{max}之间的数字"
+  },
+  "common": {
+    "errors": {
+      "default_error": "发生错误，请稍后重试",
+      "file_size_error": "文件'{name}'必须小于{size}KB",
+      "file_size_error_alt": "文件必须小于{size}KB",
+      "no_data": "没有数据",
+      "file_type_error": "仅接受{types}类型的文件",
+      "invalid_file_error": "提供的文档似乎已损坏，无法显示。请要求店铺经理重新提交。"
+    },
+    "all": "全部"
+  },
+  "modal": {
+    "ok": "确定",
+    "cancel": "取消"
+  },
+  "document": {
+    "read": "查看文档",
+    "upload": "上传文档",
+    "download": "下载文档",
+    "validate": "验证文档"
+  },
+  "filters": {
+    "all": "全部",
+    "daily": "过去24小时",
+    "weekly": "本周",
+    "monthly": "本月",
+    "yearly": "今年",
+    "dates": {
+      "today": "今天",
+      "last_7_days": "过去7天",
+      "last_4_weeks": "过去4周",
+      "last_3_months": "过去3个月",
+      "last_12_months": "过去12个月",
+      "month_to_date": "本月至今",
+      "quarter_to_date": "本季度至今",
+      "year_to_date": "本年度至今",
+      "all_time": "所有时间"
+    },
+    "dropdown": {
+      "label": "门店：",
+      "selection_unique": "已选择{count}个",
+      "selection_multiple": "已选择{count}个",
+      "all": "所有门店"
+    },
+    "download_btn": "下载报告"
+  },
+  "showcase": {
+    "language_selector": {
+      "label": "语言"
+    },
+    "home": {
+      "title": "Vue 3 组件库",
+      "subtitle_line_1": "一个遵循 Cresh Design 规范的完整 Vue 3 UI 组件库。",
+      "subtitle_line_2": "使用高质量组件构建美观且交互丰富的用户界面。",
+      "features": {
+        "performance": {
+          "title": "高性能",
+          "description": "为速度与效率而构建"
+        },
+        "ease": {
+          "title": "易于使用",
+          "description": "简单的 API，优秀的开发体验"
+        },
+        "responsive": {
+          "title": "响应式",
+          "description": "适用于所有现代设备"
+        }
+      },
+      "categories": {
+        "title": "组件库",
+        "ui": {
+          "title": "UI 组件",
+          "description": "按钮、卡片、模态框、标签页、步骤器等"
+        },
+        "form": {
+          "title": "表单控件",
+          "description": "输入框、选择框、复选框、单选框、文本域"
+        },
+        "icons": {
+          "title": "图标",
+          "description": "60 多个精美 SVG 图标"
+        },
+        "charts": {
+          "title": "图表",
+          "description": "数据可视化组件"
+        }
+      },
+      "cta": "开始使用 Cresh UI",
+      "footer": {
+        "made_with": "由 long2x 倾心打造 ❤️",
+        "license": "MIT 许可 © 2024"
+      }
+    },
+    "icons": {
+      "eyebrow": "图标库",
+      "title": "在一个页面中查看全部 Cresh UI 图标",
+      "subtitle": "浏览组件库中可用的完整图标集合。这个画廊会根据图标目录自动生成，因此新增图标后无需手动维护也会出现在这里。",
+      "total": "共 {count} 个图标",
+      "usage_label": "可直接复制的用法",
+      "usage_section": {
+        "title": "如何使用图标组件",
+        "description": "每个图标都会作为 Vue 组件导出。先从图标入口导入你需要的图标，然后像使用其他组件一样直接在模板中渲染它。",
+        "step_one_label": "步骤 1",
+        "step_one_text": "先从下面的画廊中找到你要使用的图标组件名称。",
+        "step_two_label": "步骤 2",
+        "step_two_text": "从 '@long2x/cresh-ui/icons' 导入该图标。",
+        "step_three_label": "步骤 3",
+        "step_three_text": "在需要显示图标的位置直接渲染这个组件。"
+      },
+      "click_icon_to_copy": "点击图标即可复制它的用法代码片段。",
+      "copied_inline": "图标已复制。",
+      "copied_notice": "已复制 {name}",
+      "copy_icon_aria": "复制 {name} 的用法代码片段"
+    },
+    "getting_started": {
+      "title": "开始使用 Cresh UI",
+      "subtitle": "了解如何在 Vue 3 项目中安装并使用 Cresh UI 组件",
+      "installation": {
+        "title": "安装",
+        "description": "使用 npm 或 yarn 安装该包：",
+        "alternative": "或者使用 yarn："
+      },
+      "setup": {
+        "title": "配置",
+        "description": "在 Vue 应用中导入组件和样式：",
+        "note": "请确保导入默认主题 CSS，以便样式能够正常生效"
+      },
+      "usage": {
+        "title": "基础用法示例",
+        "form_input": "表单输入",
+        "select_dropdown": "下拉选择",
+        "button": "按钮",
+        "icons": "图标",
+        "full_name": "姓名",
+        "enter_name": "请输入姓名",
+        "choose_one": "请选择一项",
+        "click_me": "点击我"
+      },
+      "explore": {
+        "title": "浏览组件",
+        "description": "使用左侧边栏浏览我们的组件库。每个分类都包含多个示例：",
+        "ui": {
+          "title": "UI 组件",
+          "description": "卡片、模态框、标签页、步骤器、折叠面板等"
+        },
+        "form": {
+          "title": "表单控件",
+          "description": "输入框、选择框、复选框、单选框、文本域、日期选择器"
+        },
+        "icons": {
+          "title": "图标",
+          "description": "为您的项目提供 60 多个精美 SVG 图标"
+        },
+        "charts": {
+          "title": "图表",
+          "description": "数据可视化组件"
+        }
+      },
+      "tips": {
+        "title": "提示与最佳实践",
+        "use_v_model_title": "使用 v-model",
+        "use_v_model_description": "实现表单组件的双向绑定",
+        "check_storybook_title": "查看 Storybook",
+        "check_storybook_description": "了解所有可用的 props 和示例",
+        "import_styles_title": "导入样式",
+        "import_styles_description": "在 main.ts 中或直接在组件内导入",
+        "customize_themes_title": "自定义主题",
+        "customize_themes_description": "通过覆盖 CSS 变量实现",
+        "use_typescript_title": "使用 TypeScript",
+        "use_typescript_description": "获得更好的 IDE 支持和类型安全"
+      },
+      "resources": {
+        "title": "资源",
+        "github": "GitHub 仓库",
+        "npm": "NPM 包",
+        "help": "有问题？请在 GitHub 上提交 issue，或查看组件文档"
+      }
+    },
+    "language_switching": {
+      "title": "本地化组件示例",
+      "password_label": "密码",
+      "password_placeholder": "请输入密码",
+      "confirm_password_label": "确认密码",
+      "confirm_password_placeholder": "请再次输入密码",
+      "date_label": "日期",
+      "current_language": "当前语言：",
+      "try_label": "试试看：",
+      "try_text": "点击工具栏中的地球图标切换语言，即可立即看到所有文本更新。"
+    },
+    "credit_card": {
+      "label": "卡号",
+      "placeholder": "请输入卡号",
+      "input_value": "输入：",
+      "invalid": "卡号无效"
+    },
+    "datetime": {
+      "label": "选择日期",
+      "required_label": "选择日期 *",
+      "placeholder": "MM/DD/YYYY",
+      "selected": "已选择：",
+      "not_set": "未设置"
+    },
+    "phone": {
+      "label": "电话号码",
+      "us_label": "美国电话号码",
+      "no_blur_label": "电话号码（失焦时不校验）",
+      "placeholder": "请输入电话号码",
+      "value": "电话：",
+      "not_set": "未设置",
+      "blur_hint": "仅在输入时校验，不会在失去焦点时校验。"
+    },
+    "checkbox": {
+      "accept_terms": "接受条款和条件",
+      "checked": "已选中：",
+      "i_agree": "我同意",
+      "disabled_option": "此选项已禁用",
+      "disabled_checked": "已禁用且已选中"
+    },
+    "input": {
+      "full_name": "姓名",
+      "full_name_placeholder": "请输入您的姓名",
+      "value": "值：",
+      "email": "邮箱",
+      "email_placeholder": "请输入您的邮箱",
+      "password": "密码",
+      "password_placeholder": "请输入您的密码",
+      "disabled_input": "禁用输入框",
+      "with_error": "带错误的输入框",
+      "invalid_input": "输入无效"
+    },
+    "radio": {
+      "option_1": "选项 1",
+      "option_2": "选项 2",
+      "option_3": "选项 3",
+      "selected": "已选择：",
+      "disabled_option": "禁用选项"
+    },
+    "select": {
+      "choose_option": "请选择一项",
+      "select_placeholder": "选择...",
+      "select_option": "请选择一个选项",
+      "option_1": "选项 1",
+      "option_2": "选项 2",
+      "option_3": "选项 3",
+      "selected": "已选择：",
+      "choose_placeholder": "请选择...",
+      "country_label": "选择您的国家",
+      "country_placeholder": "选择一个国家...",
+      "select_country": "选择一个国家",
+      "country_us": "美国",
+      "country_uk": "英国",
+      "country_ca": "加拿大",
+      "country_fr": "法国",
+      "country_de": "德国",
+      "disabled": "禁用选择框"
+    },
+    "textarea": {
+      "message": "消息",
+      "placeholder": "请输入您的消息...",
+      "content": "内容：",
+      "empty": "（空）",
+      "max_label": "消息（最多 150 个字符）",
+      "characters": "字符",
+      "remaining": "剩余",
+      "content_length": "内容长度：",
+      "error": "请输入至少 10 个字符",
+      "large": "大文本框",
+      "required": "消息 *",
+      "short": "短消息",
+      "type_here": "在此输入..."
+    },
+    "accordion": {
+      "basic": {
+        "introduction_title": "介绍",
+        "introduction_content": "这是手风琴的介绍部分。您可以在这里添加任何内容。",
+        "features_title": "特性",
+        "feature_1": "平滑动画",
+        "feature_2": "易于自定义",
+        "feature_3": "无障碍",
+        "feature_4": "可跟踪多个项目",
+        "questions_title": "问题",
+        "questions_content": "有任何问题吗？欢迎随时提问！此部分可以包含常见问题或附加信息。",
+        "currently_selected": "当前选中：",
+        "none": "无"
+      },
+      "initially_open": {
+        "getting_started_title": "开始使用",
+        "getting_started_content": "欢迎阅读入门指南。它将帮助您完成组件设置。",
+        "installation_title": "安装",
+        "usage_title": "使用方式",
+        "usage_content": "导入该组件并在您的应用中使用它。"
+      },
+      "custom": {
+        "settings_title": "设置",
+        "enable_notifications": "启用通知",
+        "dark_mode": "深色模式",
+        "auto_save": "自动保存",
+        "advanced_title": "高级",
+        "cache_size": "缓存大小（MB）：",
+        "timeout": "超时时间（秒）："
+      },
+      "multiple": {
+        "item_title": "项目 {index}",
+        "item_content": "项目 {index} 的内容。您可以在这里添加丰富内容。"
+      }
+    },
+    "alert": {
+      "success": {
+        "title": "成功",
+        "message": "操作已成功完成！"
+      },
+      "error": {
+        "title": "错误",
+        "message": "出现问题。请重试。"
+      },
+      "warning": {
+        "title": "警告",
+        "message": "请在继续前检查此操作。"
+      },
+      "info": {
+        "title": "信息",
+        "message": "这是一条信息提示。"
+      },
+      "closable": {
+        "title": "可关闭提示",
+        "message": "您可以点击 X 按钮关闭此提示。"
+      }
+    },
+    "card": {
+      "default": {
+        "title": "卡片标题",
+        "content": "这是卡片内容。您可以在这里添加任何内容。"
+      },
+      "with_border": {
+        "title": "带边框的卡片",
+        "content": "这张卡片带有边框。"
+      },
+      "with_shadow": {
+        "title": "带阴影的卡片",
+        "content": "这张卡片带有阴影效果。"
+      },
+      "no_title": {
+        "content": "一张没有标题的卡片。"
+      }
+    },
+    "divider": {
+      "horizontal": {
+        "above": "分隔线上方内容",
+        "below": "分隔线下方内容"
+      },
+      "with_text": {
+        "or": "或",
+        "email": "使用电子邮件登录",
+        "social": "使用社交账号登录"
+      },
+      "vertical": {
+        "item_1": "项目 1",
+        "item_2": "项目 2",
+        "item_3": "项目 3"
+      }
+    },
+    "document_item": {
+      "action_triggered": "触发的操作：",
+      "action": "操作：",
+      "actions": {
+        "read": "查看",
+        "download": "下载",
+        "upload": "上传",
+        "validate": "验证"
+      },
+      "basic": {
+        "label": "发票文件"
+      },
+      "approved": {
+        "label": "合同协议",
+        "status": "该文件已获批准"
+      },
+      "not_approved": {
+        "label": "费用报告",
+        "status": "该文件需要批准"
+      },
+      "unavailable": {
+        "label": "缺失文件",
+        "status": "该文件尚不可用。请上传以添加它。"
+      },
+      "all_actions": {
+        "label": "纳税申报表"
+      },
+      "list": {
+        "title": "所需文件",
+        "passport": "护照",
+        "driving_license": "驾驶执照",
+        "bank_statement": "银行对账单",
+        "insurance_certificate": "保险证明"
+      }
+    },
+    "document_viewer": {
+      "pdf": {
+        "label": "示例 PDF 文档"
+      },
+      "image": {
+        "label": "示例横向图片",
+        "open_button": "打开图片"
+      },
+      "basic_pdf": {
+        "open_button": "打开文档"
+      },
+      "navigation": {
+        "open_button": "打开文档列表",
+        "progress": "第 {current} 个文档，共 {total} 个"
+      },
+      "no_arrows": {
+        "open_button": "打开文档（无导航）"
+      },
+      "custom_label": {
+        "open_button": "打开文档",
+        "last_updated": "最后更新：今天"
+      },
+      "footer": {
+        "open_button": "打开文档",
+        "download": "下载",
+        "approve": "批准"
+      }
+    },
+    "dropdown": {
+      "countries": {
+        "us": "美国",
+        "ca": "加拿大",
+        "mx": "墨西哥",
+        "fr": "法国",
+        "de": "德国"
+      },
+      "basic": {
+        "placeholder": "选择一个国家",
+        "selected": "已选择：",
+        "value": "值："
+      },
+      "without_icon": {
+        "placeholder": "选择一个选项"
+      },
+      "multiple": {
+        "placeholder": "选择",
+        "option_1": "选项 1",
+        "option_2": "选项 2",
+        "option_3": "选项 3",
+        "option_4": "选项 4",
+        "option_5": "选项 5",
+        "option_6": "选项 6"
+      },
+      "custom": {
+        "trigger": "自定义内容",
+        "title": "自定义下拉内容",
+        "description": "此下拉菜单使用自定义内容插槽。",
+        "action_1": "操作 1",
+        "action_2": "操作 2"
+      },
+      "forms": {
+        "full_name": "姓名",
+        "full_name_placeholder": "张三",
+        "email": "电子邮箱",
+        "email_placeholder": "zhangsan@example.com",
+        "role": "角色",
+        "role_placeholder": "选择角色",
+        "submit": "提交",
+        "roles": {
+          "full_stack": "全栈开发工程师",
+          "frontend": "前端开发工程师",
+          "backend": "后端开发工程师",
+          "devops": "DevOps 工程师"
+        }
+      },
+      "sizes": {
+        "option": "选项",
+        "small": "小",
+        "small_dropdown": "小型下拉菜单",
+        "medium": "中",
+        "medium_dropdown": "中型下拉菜单",
+        "large": "大",
+        "large_dropdown": "大型下拉菜单"
+      }
+    },
+    "empty": {
+      "default": {
+        "message": "暂无数据"
+      },
+      "no_results": {
+        "message": "未找到结果"
+      },
+      "no_notifications": {
+        "message": "暂无通知"
+      },
+      "custom_content": {
+        "title": "您的收件箱为空",
+        "description": "您已全部处理完成！请稍后再回来查看。",
+        "button": "返回"
+      },
+      "with_custom_icon": {
+        "message": "暂无消息"
+      },
+      "full_custom": {
+        "title": "全部处理完成！",
+        "description": "您没有待处理项目。做得很好！",
+        "button": "创建新项目"
+      }
+    },
+    "error_message": {
+      "string_error": {
+        "message": "出现问题。请重试。"
+      },
+      "array_error": {
+        "email_required": "电子邮箱为必填项",
+        "email_valid": "电子邮箱格式必须有效",
+        "password_length": "密码长度至少为 8 个字符"
+      },
+      "object_error": {
+        "message": "身份验证失败。凭据无效。"
+      },
+      "hide_icon": {
+        "message": "此错误消息不显示图标。"
+      },
+      "custom_content": {
+        "title": "校验错误",
+        "field_required": "字段为必填项",
+        "min_length": "至少需要 5 个字符"
+      },
+      "form_validation": {
+        "title": "表单校验",
+        "first_name": "名字",
+        "last_name": "姓氏",
+        "email": "电子邮箱",
+        "password": "密码",
+        "first_name_required": "名字为必填项",
+        "last_name_required": "姓氏为必填项",
+        "email_invalid": "电子邮箱格式无效",
+        "password_weak": "密码强度太弱"
+      }
+    },
+    "file_upload_zone": {
+      "default": {
+        "uploaded": "文件已上传：",
+        "size": "大小："
+      },
+      "show_filename": {
+        "title": "显示文件名的上传"
+      },
+      "image_only": {
+        "title": "仅图片上传",
+        "supported_formats": "支持格式：JPEG、PNG、WebP（最大 1 MB）",
+        "uploaded": "图片已上传："
+      },
+      "document_upload": {
+        "title": "文档上传",
+        "supported_formats": "支持：PDF、Word 文档（最大 5 MB）",
+        "uploaded": "文档已上传：",
+        "upload_another": "继续上传其他文件"
+      },
+      "large_limit": {
+        "title": "文件上传（10 MB 限制）",
+        "description": "拖放文件或点击浏览"
+      },
+      "multiple": {
+        "title": "多文件上传",
+        "uploaded_files": "已上传文件（{count}）",
+        "remove": "移除"
+      }
+    },
+    "header": {
+      "simple": {
+        "title": "仪表盘",
+        "content": "页面内容显示在这里"
+      },
+      "default_slot": {
+        "title": "首页",
+        "welcome": "欢迎回来！",
+        "content": "页面内容"
+      },
+      "navigation": {
+        "title": "我的应用",
+        "home": "首页",
+        "about": "关于",
+        "services": "服务",
+        "contact": "联系",
+        "sign_in": "登录",
+        "content": "页面内容在这里"
+      },
+      "badges": {
+        "title": "管理面板",
+        "content": "欢迎来到管理面板"
+      },
+      "search": {
+        "title": "产品",
+        "placeholder": "搜索产品...",
+        "filter": "筛选",
+        "content": "产品列表内容"
+      },
+      "tabs": {
+        "title": "项目",
+        "all": "全部",
+        "active": "进行中",
+        "archived": "已归档",
+        "content": "项目列表内容"
+      },
+      "colored": {
+        "title": "高级页头",
+        "upgrade": "升级",
+        "content": "带样式的页头内容"
+      }
+    },
+    "image": {
+      "basic": {
+        "title": "带替代文本的基础图片",
+        "alt": "示例风景图片",
+        "image_title": "美丽的风景",
+        "description": "悬停可查看标题，并通过替代文本检查无障碍效果。"
+      },
+      "aspect_ratios": {
+        "title": "不同宽高比",
+        "alt": "风景图片"
+      },
+      "lazy": {
+        "title": "带骨架屏的懒加载",
+        "alt": "懒加载风景图",
+        "description": "图片使用原生懒加载。加载过程中会显示骨架占位。"
+      },
+      "error": {
+        "title": "带回退图的错误处理",
+        "description": "主图片 URL 无效，将改为显示回退图片。",
+        "alt": "回退风景图",
+        "error_text": "图片加载失败"
+      },
+      "no_source": {
+        "title": "无图片来源",
+        "description": "未提供来源时显示风景图标。",
+        "alt": "未提供图片",
+        "error_text": "无图片来源"
+      },
+      "gallery": {
+        "title": "响应式图片画廊",
+        "description": "带懒加载和统一宽高比的图片画廊。",
+        "image_1": "风景 1",
+        "image_2": "风景 2",
+        "image_3": "风景 3",
+        "image_4": "风景 4"
+      },
+      "profile": {
+        "alt": "用户头像",
+        "image_title": "用户头像图片",
+        "name": "Jane Doe",
+        "role": "产品设计师",
+        "cta": "查看资料"
+      },
+      "custom_size": {
+        "title": "自定义宽高",
+        "description": "固定像素尺寸图片：{width}px x {height}px",
+        "alt": "自定义尺寸图片"
+      },
+      "responsive": {
+        "title": "响应式图片",
+        "thumbnail": "缩略图",
+        "thumbnail_alt": "缩略图图片",
+        "small": "小图",
+        "small_alt": "小尺寸图片",
+        "large": "大图",
+        "large_alt": "大尺寸图片"
+      }
+    },
+    "modal": {
+      "basic": {
+        "title": "确认操作",
+        "open_button": "打开弹窗",
+        "content": "您确定要执行此操作吗？"
+      },
+      "no_footer": {
+        "title": "信息",
+        "open_button": "显示信息",
+        "success_title": "成功！",
+        "content": "您的操作已成功完成。"
+      },
+      "persistent": {
+        "title": "重要",
+        "open_button": "打开常驻弹窗",
+        "content": "此弹窗无法通过点击外部关闭。您必须使用按钮或关闭图标。"
+      },
+      "large": {
+        "title": "带详细信息的大弹窗",
+        "open_button": "打开大弹窗",
+        "full_name": "姓名",
+        "full_name_placeholder": "张三",
+        "email": "电子邮箱地址",
+        "email_placeholder": "zhangsan@example.com",
+        "message": "消息",
+        "message_placeholder": "在这里输入您的消息..."
+      },
+      "custom": {
+        "title": "自定义弹窗内容",
+        "open_button": "打开自定义弹窗",
+        "welcome": "欢迎！",
+        "content": "这是一个带完全自定义页头和内容的弹窗。",
+        "reports": "报表",
+        "settings": "设置",
+        "decline": "拒绝",
+        "accept": "接受"
+      },
+      "warning": {
+        "title": "删除确认",
+        "open_button": "删除项目",
+        "heading": "永久删除？",
+        "content": "此操作无法撤销。"
+      },
+      "small": {
+        "title": "快速确认",
+        "open_button": "打开小弹窗",
+        "content": "您想继续吗？"
+      }
+    },
+    "progress_bar": {
+      "multiple": {
+        "project_a": "项目 A - 30%",
+        "project_b": "项目 B - 60%",
+        "project_c": "项目 C - 100%",
+        "loading": "加载中 - 不确定状态"
+      }
+    },
+    "tag": {
+      "primary": "主标签",
+      "success": "激活",
+      "warning": "待处理",
+      "error": "未激活",
+      "closable": "可关闭标签",
+      "multiple": {
+        "vue": "Vue",
+        "active": "激活",
+        "beta": "测试版",
+        "deprecated": "已弃用"
+      }
+    },
+    "switch": {
+      "state": "状态：",
+      "on_value": "开",
+      "off_value": "关",
+      "off": {
+        "label": "切换我"
+      },
+      "on": {
+        "label": "已启用"
+      },
+      "disabled": {
+        "label": "已禁用开关"
+      },
+      "disabled_on": {
+        "label": "已禁用且开启"
+      }
+    },
+    "vertical_stepper": {
+      "basic": {
+        "steps": {
+          "personal_information": "个人信息",
+          "address_details": "地址详情",
+          "verification": "验证",
+          "complete": "完成"
+        },
+        "content": {
+          "personal_information": "请输入您的个人资料",
+          "address_details": "请输入您的地址信息",
+          "verification": "请验证您的信息",
+          "complete": "注册完成！"
+        },
+        "previous": "上一步",
+        "next": "下一步"
+      },
+      "non_selectable": {
+        "content": "在不可选择模式下，步骤不能被点击。",
+        "simulate_progress": "模拟进度"
+      },
+      "many_steps": {
+        "step": "步骤 {number}",
+        "progress": "您当前处于第 {current} 步，共 {total} 步"
+      },
+      "with_description": {
+        "steps": {
+          "setup": "设置",
+          "configuration": "配置",
+          "testing": "测试",
+          "deployment": "部署"
+        },
+        "descriptions": {
+          "setup": "配置您的基础设置和偏好",
+          "configuration": "设置高级配置选项",
+          "testing": "运行测试以验证一切正常",
+          "deployment": "部署到生产环境"
+        },
+        "step_details": "步骤 {number} 详情",
+        "items": {
+          "item_1": "项目 1",
+          "item_2": "项目 2",
+          "item_3": "项目 3"
+        },
+        "back": "返回",
+        "continue": "继续"
+      },
+      "compact": {
+        "title": "流程进度",
+        "stage": "阶段 {number}",
+        "progress": "阶段 {current} / {total}"
+      }
+    },
+    "vertical_stepper_alt": {
+      "basic": {
+        "title": "注册进度",
+        "steps": {
+          "account_verification": "账户验证",
+          "profile_setup": "资料设置",
+          "payment_method": "支付方式",
+          "subscription_plan": "订阅计划",
+          "complete": "完成"
+        },
+        "subtitles": {
+          "account_verification": "确认您的电子邮箱地址",
+          "profile_setup": "添加您的个人信息",
+          "payment_method": "添加您的支付信息",
+          "subscription_plan": "选择您的计划",
+          "complete": "一切就绪！"
+        }
+      },
+      "all_completed": {
+        "title": "订单完成",
+        "steps": {
+          "order_placed": "订单已提交",
+          "payment_confirmed": "付款已确认",
+          "shipped": "已发货",
+          "delivered": "已送达"
+        },
+        "subtitles": {
+          "order_placed": "2024 年 3 月 25 日",
+          "payment_confirmed": "已收到付款",
+          "shipped": "运输中",
+          "delivered": "已到达您的位置"
+        }
+      },
+      "in_progress": {
+        "title": "正在处理您的请求",
+        "note": "通常需要 2 到 3 个工作日。",
+        "steps": {
+          "request_submitted": "请求已提交",
+          "processing": "处理中",
+          "approved": "已批准",
+          "completed": "已完成"
+        },
+        "subtitles": {
+          "request_submitted": "我们已收到您的请求",
+          "processing": "我们正在审核您的请求",
+          "approved": "等待批准",
+          "completed": "您的请求已完成"
+        }
+      },
+      "onboarding": {
+        "title": "欢迎！开始吧",
+        "skip": "跳过",
+        "next": "下一步",
+        "steps": {
+          "welcome": "欢迎",
+          "connect_social_media": "连接社交媒体",
+          "customize_profile": "自定义资料",
+          "invite_friends": "邀请好友",
+          "explore_features": "探索功能"
+        },
+        "subtitles": {
+          "welcome": "和我们一起开始",
+          "connect_social_media": "关联您的社交账号",
+          "customize_profile": "设置您的个人资料",
+          "invite_friends": "建立您的社交网络",
+          "explore_features": "发现我们提供的内容"
+        }
+      },
+      "long_description": {
+        "title": "账户设置向导",
+        "steps": {
+          "create_account": "创建您的账户",
+          "verify_email": "验证您的邮箱",
+          "set_up_security": "设置安全性",
+          "complete_profile": "完善您的资料",
+          "start_using_app": "开始使用应用"
+        },
+        "subtitles": {
+          "create_account": "使用邮箱或社交媒体注册",
+          "verify_email": "点击我们发送给您的验证邮件中的链接",
+          "set_up_security": "配置双重身份验证以增强安全性",
+          "complete_profile": "为您的资料添加照片和个人信息",
+          "start_using_app": "您已准备好探索所有功能"
+        }
+      },
+      "multi_step": {
+        "title": "项目时间线",
+        "phase": "阶段 {number}",
+        "phase_description": "步骤 {number} 描述",
+        "progress": "进度：第 {current} 步，共 {total} 步"
+      },
+      "error_state": {
+        "title": "申请状态",
+        "note_title": "请注意",
+        "note_content": "您的申请正在等待审核。一旦作出决定，您将收到通知。",
+        "steps": {
+          "submit_application": "提交申请",
+          "review": "审核",
+          "approved": "已批准"
+        },
+        "subtitles": {
+          "submit_application": "申请已提交",
+          "review": "当前正在审核中",
+          "approved": "等待批准"
+        }
+      }
+    },
+    "datatable": {
+      "headers": {
+        "id": "ID",
+        "name": "姓名",
+        "email": "电子邮箱",
+        "role": "角色",
+        "status": "状态"
+      },
+      "roles": {
+        "admin": "管理员",
+        "user": "用户",
+        "editor": "编辑",
+        "viewer": "查看者"
+      },
+      "status": {
+        "active": "启用",
+        "inactive": "停用"
+      },
+      "sortable_hint": "点击列表头进行排序"
+    },
+    "drawer": {
+      "main_content_title": "主要内容",
+      "actions": {
+        "open": "打开抽屉",
+        "close": "关闭"
+      },
+      "left": {
+        "title": "左侧抽屉",
+        "description": "这是一个位于左侧的抽屉。",
+        "open_description": "点击按钮再次打开抽屉。"
+      },
+      "right": {
+        "title": "右侧抽屉",
+        "description": "这是一个位于右侧的抽屉。",
+        "open_description": "点击按钮打开抽屉。"
+      },
+      "top": {
+        "title": "顶部抽屉",
+        "description": "这是一个位于顶部的抽屉。",
+        "open_description": "点击按钮打开抽屉。"
+      },
+      "bottom": {
+        "title": "底部抽屉",
+        "description": "这是一个位于底部的抽屉。",
+        "open_description": "点击按钮打开抽屉。"
+      },
+      "responsive": {
+        "title": "响应式抽屉",
+        "description": "当屏幕宽度小于 768 像素时，此抽屉会自动关闭。",
+        "open_description": "调整窗口大小以查看移动端行为。"
+      }
+    },
+    "filters": {
+      "actions": {
+        "apply": "应用",
+        "reset": "重置"
+      },
+      "default": {
+        "title": "默认日期范围筛选"
+      },
+      "with_actions": {
+        "title": "带操作的日期范围筛选"
+      },
+      "month_to_date": {
+        "title": "本月至今"
+      },
+      "year_to_date": {
+        "title": "今年至今"
+      },
+      "last_90_days": {
+        "title": "最近 90 天"
+      },
+      "state": {
+        "title": "当前状态",
+        "date_filter": "日期筛选",
+        "date_range": "日期范围",
+        "activator": "触发器",
+        "not_set": "未设置"
+      }
+    },
+    "menu": {
+      "basic": {
+        "title": "导航菜单"
+      },
+      "custom_header": {
+        "title": "自定义菜单",
+        "version": "版本 2.1.0"
+      },
+      "with_footer": {
+        "title": "带底部区域的菜单",
+        "add_new": "添加新项目"
+      },
+      "compact": {
+        "title": "紧凑菜单",
+        "items": {
+          "home": "首页",
+          "about": "关于",
+          "contact": "联系"
+        }
+      },
+      "items": {
+        "dashboard": "仪表盘",
+        "users": "用户",
+        "settings": "设置",
+        "reports": "报表"
+      },
+      "selected": {
+        "title": "已选项目",
+        "id": "项目 ID",
+        "index": "项目索引",
+        "empty": "尚未选择项目"
+      }
+    },
+    "steps": {
+      "actions": {
+        "back": "返回",
+        "next": "下一步",
+        "complete": "完成"
+      },
+      "basic": {
+        "step1": {
+          "name": "账户",
+          "title": "创建账户",
+          "description": "设置你的账户信息。"
+        },
+        "step2": {
+          "name": "资料",
+          "title": "完善资料",
+          "description": "添加你的个人资料信息。"
+        },
+        "step3": {
+          "name": "确认",
+          "title": "确认信息",
+          "description": "检查并确认你的信息。"
+        }
+      },
+      "with_navigation": {
+        "current_step": "当前步骤：{step}",
+        "overview": {
+          "name": "概览",
+          "title": "项目概览",
+          "description": "先查看项目范围和目标。"
+        },
+        "details": {
+          "name": "详情",
+          "title": "项目详情",
+          "description": "填写重要的项目细节和要求。"
+        },
+        "review": {
+          "name": "审核",
+          "title": "检查信息",
+          "description": "提交前检查所有项目数据。"
+        },
+        "submit": {
+          "name": "提交",
+          "title": "提交项目",
+          "description": "提交项目以进行最终审批。"
+        }
+      },
+      "with_icons": {
+        "actions": {
+          "checkout": "去结算",
+          "payment": "继续支付",
+          "place_order": "提交订单"
+        },
+        "cart": {
+          "name": "购物车",
+          "title": "购物车",
+          "description": "查看当前购物车中的商品。"
+        },
+        "shipping": {
+          "name": "配送",
+          "title": "配送信息",
+          "description": "选择收货地址和配送方式。"
+        },
+        "payment": {
+          "name": "支付",
+          "title": "支付方式",
+          "description": "填写支付信息以完成订单。"
+        }
+      },
+      "with_progress": {
+        "started": {
+          "name": "已开始",
+          "title": "任务已开始"
+        },
+        "in_progress": {
+          "name": "进行中",
+          "title": "任务进行中",
+          "percent_complete": "已完成 75%",
+          "mark_complete": "标记为完成"
+        },
+        "completed": {
+          "name": "已完成",
+          "title": "任务已完成",
+          "message": "所有步骤均已成功完成。"
+        }
+      }
+    },
+    "tabs": {
+      "basic": {
+        "tab1": {
+          "name": "概览",
+          "title": "概览标签",
+          "description": "此标签包含内容概览。"
+        },
+        "tab2": {
+          "name": "详情",
+          "title": "详情标签",
+          "description": "此标签包含详细信息。"
+        },
+        "tab3": {
+          "name": "设置",
+          "title": "设置标签",
+          "description": "此标签包含配置选项。"
+        }
+      },
+      "with_icons": {
+        "home": {
+          "name": "首页",
+          "title": "首页区域",
+          "description": "欢迎来到首页区域。"
+        },
+        "profile": {
+          "name": "个人资料",
+          "title": "个人资料区域",
+          "description": "在这里管理你的个人资料信息。"
+        },
+        "settings": {
+          "name": "设置",
+          "title": "设置区域",
+          "description": "在这里调整你的偏好和选项。"
+        }
+      },
+      "disabled": {
+        "enabled1": {
+          "name": "活动标签 1",
+          "title": "第一个活动标签",
+          "description": "此标签可用且可交互。"
+        },
+        "disabled": {
+          "name": "禁用标签",
+          "title": "禁用标签",
+          "description": "此标签已禁用，无法被选择。"
+        },
+        "enabled2": {
+          "name": "活动标签 2",
+          "title": "第二个活动标签",
+          "description": "这是另一个可用标签。"
+        }
+      },
+      "many_tabs": {
+        "tab_name": "标签 {number}",
+        "content_title": "{name} 的内容",
+        "content_description": "这是 {name} 的内容区域。"
+      },
+      "read_only": {
+        "tab1": {
+          "name": "只读 1",
+          "title": "只读标签 1",
+          "description": "此标签以只读模式显示。"
+        },
+        "tab2": {
+          "name": "只读 2",
+          "title": "只读标签 2",
+          "description": "这是另一个只读标签。"
+        }
+      }
+    },
+    "theme": {
+      "subtitle": "Cresh UI 组件的默认配色和排版规范",
+      "sections": {
+        "primary_colors": "主色",
+        "status_colors": "状态色",
+        "neutral_colors": "中性色",
+        "typography": "排版",
+        "heading_styles": "标题样式",
+        "body_text": "正文文本",
+        "guidelines": "使用指南"
+      },
+      "colors": {
+        "primary": "主色",
+        "secondary": "辅色",
+        "tertiary": "第三色",
+        "success": "成功",
+        "error": "错误",
+        "warning": "警告",
+        "info": "信息",
+        "dark": "深色",
+        "text": "文本",
+        "grey": "灰色",
+        "light_grey": "浅灰",
+        "white": "白色",
+        "app_background": "应用背景"
+      },
+      "typography": {
+        "heading_1": "H1：标题 1",
+        "heading_2": "H2：标题 2",
+        "heading_3": "H3：标题 3",
+        "heading_4": "H4：标题 4",
+        "body_regular": "常规段落文本。颜色：--color-text (16px) | 这是整个应用中使用的默认正文文本。",
+        "body_small": "较小文本。颜色：--color-text (14px) | 用于次要信息和说明。",
+        "body_supporting": "辅助文本。颜色：--color-grey (12px) | 用于说明、标签和补充内容。"
+      },
+      "guidelines": {
+        "primary": "主色 (#400EC9) - 用于主要操作按钮、主要链接和重要界面元素",
+        "secondary": "辅色 (#349CE7) - 用于次要操作和强调特定信息",
+        "tertiary": "第三色/成功色 (#00ECCB) - 用于表示成功状态和积极操作",
+        "error": "错误色 (#FC5A5A) - 用于校验错误和破坏性操作",
+        "warning": "警告色 (#fca25a) - 用于警告和重要提醒",
+        "info": "信息色 (#349CE7) - 用于信息提示和工具提示",
+        "text": "文本色 (#3D647C) - 用于整个应用中的主要正文文本",
+        "contrast": "注意对比度 - 始终确保文本与背景颜色之间有足够的对比度"
+      }
+    }
+  }
+}

@@ -73,17 +73,17 @@ const isLabelMinVisible = computed(() => !!slots.min)
 const isLabelMaxVisible = computed(() => !!slots.max)
 
 const props = defineProps({
+  modelValue: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
   min: {
     type: Number,
     required: true,
     default: 0,
   },
   max: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
-  value: {
     type: Number,
     required: true,
     default: 0,
@@ -100,17 +100,17 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits<{(e: 'change-event', changeEvent: number): void
+const emit = defineEmits<{(e: 'update:modelValue', modelValue: number): void
 }>()
 
-const changeEvent = ref<number>(props.value)
+const changeEvent = ref<number>(props.modelValue)
 
-watch(() => props.value, (newValue: number) => {
+watch(() => props.modelValue, (newValue: number) => {
   changeEvent.value = newValue
 })
 
 function onChangeHandle() {
-  emit('change-event', Number(changeEvent.value))
+  emit('update:modelValue', Number(changeEvent.value))
 }
 
 </script>
@@ -189,6 +189,7 @@ function onChangeHandle() {
         background: rgb(var(--color-tertiary));
         cursor: pointer;
         transform: scale(1.875);
+        margin: -11px 0;
       }
 
       &::-webkit-slider-thumb {
@@ -196,9 +197,8 @@ function onChangeHandle() {
         appearance: none;
         width: 16px;
         height: 16px;
-        margin: -15px 0;
+        margin: -11px 0;
         transform: scale(1.875);
-        top: 4px;
         border-radius: 30px;
         border: none;
         background: rgb(var(--color-tertiary));

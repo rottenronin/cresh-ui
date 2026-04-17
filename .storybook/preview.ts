@@ -1,7 +1,13 @@
-import type { Preview } from '@storybook/vue3'
+import { setup, type Preview } from '@storybook/vue3'
+import i18n from '../src/plugins/i18n.plugin'
+import { installStorybookPreviewLocalization } from './preview-localization'
 
 // Import global styles
 import '../src/styles/colors.css'
+
+setup((app) => {
+  app.use(i18n)
+})
 
 const preview: Preview = {
   parameters: {
@@ -14,20 +20,42 @@ const preview: Preview = {
     },
     layout: 'padded',
   },
+  globalTypes: {
+    locale: {
+      name: 'Locale',
+      description: 'Internationalization locale',
+      defaultValue: i18n.global.locale.value,
+      toolbar: {
+        icon: 'globe',
+        items: [
+          { value: 'en', title: 'English' },
+          { value: 'fr', title: 'Francais' },
+          { value: 'de', title: 'Deutsch' },
+          { value: 'es', title: 'Espanol' },
+          { value: 'it', title: 'Italiano' },
+          { value: 'cn', title: '中文' },
+        ],
+        showName: true,
+      },
+    },
+  },
   decorators: [
-    () => ({
-      template: `
-        <div 
-          style="
-            padding: 20px;
-            background: var(--color-app-background, #F2F5F7);
-            color: var(--color-text, #3D647C);
-          "
-        >
-          <story />
-        </div>
-      `,
-    }),
+    (story, context) => {
+      const locale = context.globals.locale || i18n.global.locale.value
+
+      i18n.global.locale.value = locale
+      installStorybookPreviewLocalization(locale as 'en' | 'fr' | 'de' | 'es' | 'it' | 'cn')
+
+      if (typeof document !== 'undefined') {
+        document.documentElement.lang = locale
+        document.documentElement.dir = 'ltr'
+      }
+
+      return {
+        components: { story },
+        template: '<story />',
+      }
+    },
   ],
 }
 

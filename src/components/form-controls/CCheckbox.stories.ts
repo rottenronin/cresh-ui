@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CCheckbox from './CCheckbox.vue'
 
 const meta = {
@@ -37,18 +38,19 @@ export const Default: Story = {
     return {
       components: { CCheckbox },
       setup() {
+        const { t } = useI18n()
         const isChecked = ref(false)
-        return { isChecked }
+        return { isChecked, t }
       },
       template: `
         <div>
           <c-checkbox
             v-model="isChecked"
             name="accept"
-            label="Accept terms and conditions"
+            :label="t('translate.showcase.checkbox.accept_terms')"
           />
           <p style="margin-top: 16px; font-size: 12px;">
-            Checked: {{ isChecked }}
+            {{ t('translate.showcase.checkbox.checked') }} {{ isChecked }}
           </p>
         </div>
       `,
@@ -61,18 +63,19 @@ export const Checked: Story = {
     return {
       components: { CCheckbox },
       setup() {
+        const { t } = useI18n()
         const isChecked = ref(true)
-        return { isChecked }
+        return { isChecked, t }
       },
       template: `
         <div>
           <c-checkbox
             v-model="isChecked"
             name="agree"
-            label="I agree"
+            :label="t('translate.showcase.checkbox.i_agree')"
           />
           <p style="margin-top: 16px; font-size: 12px;">
-            Checked: {{ isChecked }}
+            {{ t('translate.showcase.checkbox.checked') }} {{ isChecked }}
           </p>
         </div>
       `,
@@ -85,14 +88,15 @@ export const Disabled: Story = {
     return {
       components: { CCheckbox },
       setup() {
+        const { t } = useI18n()
         const isChecked = ref(false)
-        return { isChecked }
+        return { isChecked, t }
       },
       template: `
         <c-checkbox
           v-model="isChecked"
           name="disabled"
-          label="This option is disabled"
+          :label="t('translate.showcase.checkbox.disabled_option')"
           disabled
         />
       `,
@@ -105,14 +109,15 @@ export const DisabledChecked: Story = {
     return {
       components: { CCheckbox },
       setup() {
+        const { t } = useI18n()
         const isChecked = ref(true)
-        return { isChecked }
+        return { isChecked, t }
       },
       template: `
         <c-checkbox
           v-model="isChecked"
           name="disabled-checked"
-          label="Disabled and checked"
+          :label="t('translate.showcase.checkbox.disabled_checked')"
           disabled
         />
       `,

@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CDocumentViewer from './CDocumentViewer.vue'
 
 const meta = {
   title: 'UI / Document Viewer',
   component: CDocumentViewer,
   parameters: {
-    layout: 'padded',
+    layout: 'fullscreen',
   },
   tags: ['autodocs'],
   args: {
@@ -40,24 +41,9 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const sampleDocument = {
-  label: 'Sample PDF Document',
-  link: 'https://www.w3.org/WAI/WCAG21/Techniques/pdf/pdf.pdf',
-  extension: 'pdf',
-  id: 'doc-1',
-}
-
-const sampleImageDocument = {
-  label: 'Sample Image',
-  link: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800',
-  extension: 'jpg',
-  id: 'doc-2',
-}
-
 export const BasicPDF: Story = {
   args: {
     modelValue: true,
-    document: sampleDocument,
     hideArrows: false,
     hideLeftArrow: false,
     hideRightArrow: false,
@@ -65,19 +51,26 @@ export const BasicPDF: Story = {
   render: (args: any) => ({
     components: { CDocumentViewer },
     setup() {
+      const { t } = useI18n()
       const isOpen = ref(args.modelValue)
-      const currentDocument = ref(args.document)
-      return { args: { ...args, modelValue: isOpen }, isOpen, currentDocument }
+      const defaultDocument = computed(() => ({
+        label: t('translate.showcase.document_viewer.pdf.label'),
+        link: '/sample.pdf',
+        extension: 'pdf',
+        id: 'doc-1',
+      }))
+      const currentDocument = computed(() => args.document ?? defaultDocument.value)
+      return { args: { ...args, modelValue: isOpen }, isOpen, currentDocument, t }
     },
     template: `
       <div>
         <button @click="isOpen = true" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          Open Document
+          {{ t('translate.showcase.document_viewer.basic_pdf.open_button') }}
         </button>
         <c-document-viewer
+          v-bind="args"
           :model-value="isOpen"
           :document="currentDocument"
-          :v-bind="args"
           @update:model-value="isOpen = $event"
         />
       </div>
@@ -88,25 +81,31 @@ export const BasicPDF: Story = {
 export const ImageDocument: Story = {
   args: {
     modelValue: true,
-    document: sampleImageDocument,
     hideArrows: false,
   },
   render: (args: any) => ({
     components: { CDocumentViewer },
     setup() {
+      const { t } = useI18n()
       const isOpen = ref(args.modelValue)
-      const currentDocument = ref(args.document)
-      return { args, isOpen, currentDocument }
+      const defaultDocument = computed(() => ({
+        label: t('translate.showcase.document_viewer.image.label'),
+        link: '/landscape.svg',
+        extension: 'svg',
+        id: 'doc-2',
+      }))
+      const currentDocument = computed(() => args.document ?? defaultDocument.value)
+      return { args, isOpen, currentDocument, t }
     },
     template: `
       <div>
         <button @click="isOpen = true" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          Open Image
+          {{ t('translate.showcase.document_viewer.image.open_button') }}
         </button>
         <c-document-viewer
+          v-bind="args"
           :model-value="isOpen"
           :document="currentDocument"
-          v-bind="args"
           @update:model-value="isOpen = $event"
         />
       </div>
@@ -117,26 +116,37 @@ export const ImageDocument: Story = {
 export const WithNavigation: Story = {
   args: {
     modelValue: true,
-    document: sampleDocument,
     hideArrows: false,
   },
   render: (args: any) => ({
     components: { CDocumentViewer },
     setup() {
+      const { t } = useI18n()
       const isOpen = ref(args.modelValue)
-      const documents = ref([sampleDocument, sampleImageDocument])
       const currentIndex = ref(0)
-
-      const currentDocument = ref(documents.value[currentIndex.value])
+      const documents = computed(() => [
+        {
+          label: t('translate.showcase.document_viewer.pdf.label'),
+          link: '/sample.pdf',
+          extension: 'pdf',
+          id: 'doc-1',
+        },
+        {
+          label: t('translate.showcase.document_viewer.image.label'),
+          link: '/landscape.svg',
+          extension: 'svg',
+          id: 'doc-2',
+        },
+      ])
+      const currentDocument = computed(() => documents.value[currentIndex.value])
+      const totalDocs = computed(() => documents.value.length)
 
       const handlePrev = () => {
         currentIndex.value = Math.max(0, currentIndex.value - 1)
-        currentDocument.value = documents.value[currentIndex.value]
       }
 
       const handleNext = () => {
         currentIndex.value = Math.min(documents.value.length - 1, currentIndex.value + 1)
-        currentDocument.value = documents.value[currentIndex.value]
       }
 
       return {
@@ -144,23 +154,24 @@ export const WithNavigation: Story = {
         isOpen,
         currentDocument,
         currentIndex,
-        totalDocs: documents.value.length,
+        totalDocs,
         handlePrev,
         handleNext,
+        t,
       }
     },
     template: `
       <div>
         <button @click="isOpen = true" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          Open Documents
+          {{ t('translate.showcase.document_viewer.navigation.open_button') }}
         </button>
         <p style="margin-top: 12px; color: #666;">
-          Document {{ currentIndex + 1 }} of {{ totalDocs }}
+          {{ t('translate.showcase.document_viewer.navigation.progress', { current: currentIndex + 1, total: totalDocs }) }}
         </p>
         <c-document-viewer
+          v-bind="args"
           :model-value="isOpen"
           :document="currentDocument"
-          v-bind="args"
           @update:model-value="isOpen = $event"
           @prev="handlePrev"
           @next="handleNext"
@@ -175,24 +186,31 @@ export const WithNavigation: Story = {
 export const NoArrows: Story = {
   args: {
     modelValue: true,
-    document: sampleDocument,
     hideArrows: true,
   },
   render: (args: any) => ({
     components: { CDocumentViewer },
     setup() {
+      const { t } = useI18n()
       const isOpen = ref(args.modelValue)
-      return { args, isOpen }
+      const defaultDocument = computed(() => ({
+        label: t('translate.showcase.document_viewer.pdf.label'),
+        link: '/sample.pdf',
+        extension: 'pdf',
+        id: 'doc-1',
+      }))
+      const resolvedDocument = computed(() => args.document ?? defaultDocument.value)
+      return { args, isOpen, resolvedDocument, t }
     },
     template: `
       <div>
         <button @click="isOpen = true" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          Open Document (No Navigation)
+          {{ t('translate.showcase.document_viewer.no_arrows.open_button') }}
         </button>
         <c-document-viewer
-          :model-value="isOpen"
-          :document="{ ...args.document }"
           v-bind="args"
+          :model-value="isOpen"
+          :document="resolvedDocument"
           @update:model-value="isOpen = $event"
         />
       </div>
@@ -203,32 +221,39 @@ export const NoArrows: Story = {
 export const WithCustomLabel: Story = {
   args: {
     modelValue: true,
-    document: sampleDocument,
     hideArrows: false,
   },
   render: (args: any) => ({
     components: { CDocumentViewer },
     setup() {
+      const { t } = useI18n()
       const isOpen = ref(args.modelValue)
-      return { args, isOpen }
+      const defaultDocument = computed(() => ({
+        label: t('translate.showcase.document_viewer.pdf.label'),
+        link: '/sample.pdf',
+        extension: 'pdf',
+        id: 'doc-1',
+      }))
+      const resolvedDocument = computed(() => args.document ?? defaultDocument.value)
+      return { args, isOpen, resolvedDocument, t }
     },
     template: `
       <div>
         <button @click="isOpen = true" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          Open Document
+          {{ t('translate.showcase.document_viewer.custom_label.open_button') }}
         </button>
         <c-document-viewer
-          :model-value="isOpen"
-          :document="args.document"
           v-bind="args"
+          :model-value="isOpen"
+          :document="resolvedDocument"
           @update:model-value="isOpen = $event"
         >
           <template #label>
             <div style="display: flex; align-items: center; gap: 12px;">
               <span style="font-size: 20px;">📄</span>
               <div>
-                <div style="font-weight: 600;">{{ args.document.label }}</div>
-                <div style="font-size: 12px; color: #999;">Last updated: Today</div>
+                <div style="font-weight: 600;">{{ resolvedDocument.label }}</div>
+                <div style="font-size: 12px; color: #999;">{{ t('translate.showcase.document_viewer.custom_label.last_updated') }}</div>
               </div>
             </div>
           </template>
@@ -241,33 +266,40 @@ export const WithCustomLabel: Story = {
 export const WithFooter: Story = {
   args: {
     modelValue: true,
-    document: sampleDocument,
     hideArrows: false,
   },
   render: (args: any) => ({
     components: { CDocumentViewer },
     setup() {
+      const { t } = useI18n()
       const isOpen = ref(args.modelValue)
-      return { args, isOpen }
+      const defaultDocument = computed(() => ({
+        label: t('translate.showcase.document_viewer.pdf.label'),
+        link: '/sample.pdf',
+        extension: 'pdf',
+        id: 'doc-1',
+      }))
+      const resolvedDocument = computed(() => args.document ?? defaultDocument.value)
+      return { args, isOpen, resolvedDocument, t }
     },
     template: `
       <div>
         <button @click="isOpen = true" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          Open Document
+          {{ t('translate.showcase.document_viewer.footer.open_button') }}
         </button>
         <c-document-viewer
-          :model-value="isOpen"
-          :document="args.document"
           v-bind="args"
+          :model-value="isOpen"
+          :document="resolvedDocument"
           @update:model-value="isOpen = $event"
         >
           <template #footer>
             <div style="display: flex; gap: 8px; justify-content: flex-end;">
               <button style="padding: 8px 16px; background: #999; color: white; border: none; border-radius: 4px; cursor: pointer;">
-                Download
+                {{ t('translate.showcase.document_viewer.footer.download') }}
               </button>
               <button style="padding: 8px 16px; background: #10b981; color: white; border: none; border-radius: 4px; cursor: pointer;">
-                Approve
+                {{ t('translate.showcase.document_viewer.footer.approve') }}
               </button>
             </div>
           </template>

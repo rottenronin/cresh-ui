@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CMenu from './CMenu.vue'
 import CMenuItem from './CMenuItem.vue'
 
@@ -25,12 +26,14 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const menuItems = [
-  { id: 'dashboard', label: 'Dashboard', icon: 'chart-line' },
-  { id: 'users', label: 'Users', icon: 'people' },
-  { id: 'settings', label: 'Settings', icon: 'settings' },
-  { id: 'reports', label: 'Reports', icon: 'document' },
-]
+function createMenuItems(t: (key: string) => string) {
+  return [
+    { id: 'dashboard', label: t('translate.showcase.menu.items.dashboard'), icon: 'chart-line' },
+    { id: 'users', label: t('translate.showcase.menu.items.users'), icon: 'people' },
+    { id: 'settings', label: t('translate.showcase.menu.items.settings'), icon: 'settings' },
+    { id: 'reports', label: t('translate.showcase.menu.items.reports'), icon: 'document' },
+  ]
+}
 
 export const Basic: Story = {
   args: {
@@ -39,8 +42,11 @@ export const Basic: Story = {
   render: (args) => ({
     components: { CMenu, CMenuItem },
     setup() {
+      const { t } = useI18n()
       const selectedItem = ref<{ id: string; index: number } | undefined>()
-      return { args, selectedItem, menuItems }
+      const menuItems = computed(() => createMenuItems(t))
+      const storyArgs = computed(() => ({ ...args, title: t('translate.showcase.menu.basic.title') }))
+      return { args: storyArgs, selectedItem, menuItems, t }
     },
     template: `
       <div style="display: flex; gap: 20px;">
@@ -60,12 +66,12 @@ export const Basic: Story = {
           </c-menu-item>
         </c-menu>
         <div style="flex: 1; padding: 20px; background: #f5f5f5; border-radius: 4px;">
-          <h3>Selected Item</h3>
+          <h3>{{ t('translate.showcase.menu.selected.title') }}</h3>
           <p v-if="selectedItem">
-            ID: {{ selectedItem.id }}<br/>
-            Index: {{ selectedItem.index }}
+            {{ t('translate.showcase.menu.selected.id') }}: {{ selectedItem.id }}<br/>
+            {{ t('translate.showcase.menu.selected.index') }}: {{ selectedItem.index }}
           </p>
-          <p v-else>No item selected</p>
+          <p v-else>{{ t('translate.showcase.menu.selected.empty') }}</p>
         </div>
       </div>
     `,
@@ -79,8 +85,11 @@ export const WithCustomHeader: Story = {
   render: (args) => ({
     components: { CMenu, CMenuItem },
     setup() {
+      const { t } = useI18n()
       const selectedItem = ref<{ id: string; index: number } | undefined>()
-      return { args, selectedItem, menuItems }
+      const menuItems = computed(() => createMenuItems(t))
+      const storyArgs = computed(() => ({ ...args, title: t('translate.showcase.menu.custom_header.title') }))
+      return { args: storyArgs, selectedItem, menuItems, t }
     },
     template: `
       <div style="display: flex; gap: 20px;">
@@ -91,7 +100,7 @@ export const WithCustomHeader: Story = {
           <template #header>
             <div style="padding: 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 4px 4px 0 0;">
               <h2 style="margin: 0; font-size: 18px;">{{ args.title }}</h2>
-              <p style="margin: 4px 0 0 0; font-size: 12px;">v1.0.0</p>
+              <p style="margin: 4px 0 0 0; font-size: 12px;">{{ t('translate.showcase.menu.custom_header.version') }}</p>
             </div>
           </template>
           <c-menu-item
@@ -106,12 +115,12 @@ export const WithCustomHeader: Story = {
           </c-menu-item>
         </c-menu>
         <div style="flex: 1; padding: 20px; background: #f5f5f5; border-radius: 4px;">
-          <h3>Selected Item</h3>
+          <h3>{{ t('translate.showcase.menu.selected.title') }}</h3>
           <p v-if="selectedItem">
-            ID: {{ selectedItem.id }}<br/>
-            Index: {{ selectedItem.index }}
+            {{ t('translate.showcase.menu.selected.id') }}: {{ selectedItem.id }}<br/>
+            {{ t('translate.showcase.menu.selected.index') }}: {{ selectedItem.index }}
           </p>
-          <p v-else>No item selected</p>
+          <p v-else>{{ t('translate.showcase.menu.selected.empty') }}</p>
         </div>
       </div>
     `,
@@ -125,8 +134,11 @@ export const WithFooter: Story = {
   render: (args) => ({
     components: { CMenu, CMenuItem },
     setup() {
+      const { t } = useI18n()
       const selectedItem = ref<{ id: string; index: number } | undefined>()
-      return { args, selectedItem, menuItems }
+      const menuItems = computed(() => createMenuItems(t))
+      const storyArgs = computed(() => ({ ...args, title: t('translate.showcase.menu.with_footer.title') }))
+      return { args: storyArgs, selectedItem, menuItems, t }
     },
     template: `
       <div style="display: flex; gap: 20px;">
@@ -147,18 +159,18 @@ export const WithFooter: Story = {
           <template #footer>
             <div style="padding: 16px; border-top: 1px solid #eee; background: #fafafa;">
               <button style="width: 100%; padding: 8px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">
-                + Add New
+                {{ t('translate.showcase.menu.with_footer.add_new') }}
               </button>
             </div>
           </template>
         </c-menu>
         <div style="flex: 1; padding: 20px; background: #f5f5f5; border-radius: 4px;">
-          <h3>Selected Item</h3>
+          <h3>{{ t('translate.showcase.menu.selected.title') }}</h3>
           <p v-if="selectedItem">
-            ID: {{ selectedItem.id }}<br/>
-            Index: {{ selectedItem.index }}
+            {{ t('translate.showcase.menu.selected.id') }}: {{ selectedItem.id }}<br/>
+            {{ t('translate.showcase.menu.selected.index') }}: {{ selectedItem.index }}
           </p>
-          <p v-else>No item selected</p>
+          <p v-else>{{ t('translate.showcase.menu.selected.empty') }}</p>
         </div>
       </div>
     `,
@@ -172,13 +184,15 @@ export const Compact: Story = {
   render: (args) => ({
     components: { CMenu, CMenuItem },
     setup() {
+      const { t } = useI18n()
       const selectedItem = ref<{ id: string; index: number } | undefined>()
-      const items = [
-        { id: 'home', label: 'Home' },
-        { id: 'about', label: 'About' },
-        { id: 'contact', label: 'Contact' },
-      ]
-      return { args, selectedItem, items }
+      const items = computed(() => [
+        { id: 'home', label: t('translate.showcase.menu.compact.items.home') },
+        { id: 'about', label: t('translate.showcase.menu.compact.items.about') },
+        { id: 'contact', label: t('translate.showcase.menu.compact.items.contact') },
+      ])
+      const storyArgs = computed(() => ({ ...args, title: t('translate.showcase.menu.compact.title') }))
+      return { args: storyArgs, selectedItem, items }
     },
     template: `
       <c-menu
