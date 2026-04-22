@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import CDropdown from './CDropdown.vue'
 
 const meta = {
-  title: 'UI / Dropdown',
+  title: 'UI/CDropdown',
   component: CDropdown,
   parameters: {
     layout: 'padded',

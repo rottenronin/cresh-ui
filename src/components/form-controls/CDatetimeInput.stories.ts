@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import CDatetimeInput from './CDatetimeInput.vue'
 
 const meta = {
-  title: 'Form Controls / Datetime Input',
+  title: 'Form Controls/CDatetimeInput',
   component: CDatetimeInput,
   parameters: {
     layout: 'centered',

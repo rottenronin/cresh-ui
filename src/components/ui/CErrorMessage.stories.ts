@@ -3,7 +3,7 @@ import { useI18n } from 'vue-i18n'
 import CErrorMessage from './CErrorMessage.vue'
 
 const meta = {
-  title: 'UI / Error Message',
+  title: 'UI/CErrorMessage',
   component: CErrorMessage,
   parameters: {
     layout: 'padded',

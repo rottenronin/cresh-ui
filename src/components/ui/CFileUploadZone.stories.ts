@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import CFileUploadZone from './CFileUploadZone.vue'
 
 const meta = {
-  title: 'UI / File Upload Zone',
+  title: 'UI/CFileUploadZone',
   component: CFileUploadZone,
   parameters: {
     layout: 'padded',

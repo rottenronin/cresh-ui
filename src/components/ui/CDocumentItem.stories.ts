@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import CDocumentItem from './CDocumentItem.vue'
 
 const meta = {
-  title: 'UI / Document Item',
+  title: 'UI/CDocumentItem',
   component: CDocumentItem,
   parameters: {
     layout: 'padded',

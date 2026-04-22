@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import CDocumentViewer from './CDocumentViewer.vue'
 
 const meta = {
-  title: 'UI / Document Viewer',
+  title: 'UI/CDocumentViewer',
   component: CDocumentViewer,
   parameters: {
     layout: 'fullscreen',

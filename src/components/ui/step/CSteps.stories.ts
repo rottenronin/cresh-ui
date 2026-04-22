@@ -5,7 +5,7 @@ import CSteps from './CSteps.vue'
 import CStep from './CStep.vue'
 
 const meta = {
-  title: 'UI / Steps',
+  title: 'UI/CSteps',
   component: CSteps,
   parameters: {
     layout: 'padded',

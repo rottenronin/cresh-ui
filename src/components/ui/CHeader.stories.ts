@@ -3,7 +3,7 @@ import { useI18n } from 'vue-i18n'
 import CHeader from './CHeader.vue'
 
 const meta = {
-  title: 'UI / Header',
+  title: 'UI/CHeader',
   component: CHeader,
   parameters: {
     layout: 'fullscreen',

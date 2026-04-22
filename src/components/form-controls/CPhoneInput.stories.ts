@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import CPhoneInput from './CPhoneInput.vue'
 
 const meta = {
-  title: 'Form Controls / Phone Input',
+  title: 'Form Controls/CPhoneInput',
   component: CPhoneInput,
   parameters: {
     layout: 'centered',

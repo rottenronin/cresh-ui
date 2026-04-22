@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import CDateRangeFilters from './CDateRangeFilters.vue'
 
 const meta = {
-  title: 'UI / Filters',
+  title: 'UI/CDateRangeFilters',
   component: CDateRangeFilters,
   parameters: {
     layout: 'padded',

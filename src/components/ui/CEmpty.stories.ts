@@ -3,7 +3,7 @@ import { useI18n } from 'vue-i18n'
 import CEmpty from './CEmpty.vue'
 
 const meta = {
-  title: 'UI / Empty',
+  title: 'UI/CEmpty',
   component: CEmpty,
   parameters: {
     layout: 'padded',

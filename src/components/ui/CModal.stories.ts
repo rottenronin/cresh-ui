@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import CModal from './CModal.vue'
 
 const meta = {
-  title: 'UI / Modal',
+  title: 'UI/CModal',
   component: CModal,
   parameters: {
     layout: 'fullscreen',

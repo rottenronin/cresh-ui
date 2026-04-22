@@ -3,7 +3,7 @@ import { useI18n } from 'vue-i18n'
 import CVerticalStepperAlt from './CVerticalStepperAlt.vue'
 
 const meta = {
-  title: 'UI / Vertical Stepper Alt',
+  title: 'UI/CVerticalStepperAlt',
   component: CVerticalStepperAlt,
   parameters: {
     layout: 'padded',

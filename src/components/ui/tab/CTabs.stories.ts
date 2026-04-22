@@ -5,7 +5,7 @@ import CTabs from './CTabs.vue'
 import CTab from './CTab.vue'
 
 const meta = {
-  title: 'UI / Tabs',
+  title: 'UI/CTabs',
   component: CTabs,
   parameters: {
     layout: 'padded',

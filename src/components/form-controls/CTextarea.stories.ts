@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import CTextarea from './CTextarea.vue'
 
 const meta = {
-  title: 'Form Controls / Textarea',
+  title: 'Form Controls/CTextarea',
   component: CTextarea,
   parameters: {
     layout: 'centered',

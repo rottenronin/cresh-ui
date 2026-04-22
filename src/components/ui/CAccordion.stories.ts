@@ -5,7 +5,7 @@ import CAccordion from './CAccordion.vue'
 import CAccordionItem from './CAccordionItem.vue'
 
 const meta = {
-  title: 'UI / Accordion',
+  title: 'UI/CAccordion',
   component: CAccordion,
   parameters: {
     layout: 'padded',

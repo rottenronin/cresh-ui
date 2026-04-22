@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import CVerticalStepper from './CVerticalStepper.vue'
 
 const meta = {
-  title: 'UI / Vertical Stepper',
+  title: 'UI/CVerticalStepper',
   component: CVerticalStepper,
   parameters: {
     layout: 'padded',

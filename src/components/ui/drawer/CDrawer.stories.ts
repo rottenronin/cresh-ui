@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import CDrawer from './CDrawer.vue'
 
 const meta = {
-  title: 'UI / Drawer',
+  title: 'UI/CDrawer',
   component: CDrawer,
   parameters: {
     layout: 'padded',

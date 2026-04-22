@@ -5,7 +5,7 @@ import CDatatable from './CDatatable.vue'
 import type { DatatableHeaderItem } from '../../../@types'
 
 const meta = {
-  title: 'UI / Datatable',
+  title: 'UI/CDatatable',
   component: CDatatable,
   parameters: {
     layout: 'padded',

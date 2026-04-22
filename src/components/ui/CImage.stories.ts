@@ -3,7 +3,7 @@ import { useI18n } from 'vue-i18n'
 import CImage from './CImage.vue'
 
 const meta = {
-  title: 'UI / Image',
+  title: 'UI/CImage',
   component: CImage,
   parameters: {
     layout: 'padded',

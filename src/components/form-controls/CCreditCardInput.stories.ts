@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import CCreditCardInput from './CCreditCardInput.vue'
 
 const meta = {
-  title: 'Form Controls / Credit Card Input',
+  title: 'Form Controls/CCreditCardInput',
   component: CCreditCardInput,
   parameters: {
     layout: 'centered',

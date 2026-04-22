@@ -5,7 +5,7 @@ import CMenu from './CMenu.vue'
 import CMenuItem from './CMenuItem.vue'
 
 const meta = {
-  title: 'UI / Menu',
+  title: 'UI/CMenu',
   component: CMenu,
   parameters: {
     layout: 'padded',
