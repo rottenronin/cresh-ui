@@ -31,7 +31,7 @@ describe('<CSwitch />', () => {
   it('should be checked by default', () => {
     mountCyComponent(CSwitch, {
       props: {
-        checked: true,
+        modelValue: true,
       },
     })
 

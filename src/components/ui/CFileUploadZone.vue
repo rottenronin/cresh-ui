@@ -1,11 +1,13 @@
 <template>
-  <div
+  <button
     ref="cFileUploadZoneRef"
     class="c-file-upload-zone"
     :class="{
       dragging: state.draggingover,
     }"
-    :draggabl="true"
+    :draggable="true"
+    type="button"
+    aria-label="Upload file zone"
     @click.stop="onInputFileTrigger"
     @drop.prevent.stop="onFileDrop"
     @dragover.prevent.stop="onDragover"
@@ -49,7 +51,7 @@
       :accept="fileExtentions"
       @change="onInputFileChange"
     >
-  </div>
+  </button>
 </template>
 
 <script lang="ts" setup>

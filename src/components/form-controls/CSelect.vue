@@ -8,7 +8,7 @@
   >
     <label
       v-if="!hideLabel && bordered"
-      :for="props.id"
+      :for="selectId"
       class="c-form-control-label"
     >
       {{ label }}
@@ -23,7 +23,7 @@
       ]"
     >
       <select
-        :id="id"
+        :id="selectId"
         :class="[
           `select-field ${name ? name : ''}`,
           hasValueOrPlaceholder ? 'not-empty' : '',
@@ -59,7 +59,6 @@
             {{ placeholder }}
           </option>
 
-          <!-- une option vide pour éviter le bug d'affichage sur ios -->
           <option
             v-else
             disabled
@@ -97,7 +96,7 @@
     </div>
     <label
       v-if="hideLabel === false && !bordered"
-      :for="id"
+      :for="selectId"
       class="c-form-control-label"
     >
       {{ label }}
@@ -122,6 +121,7 @@
 <script lang="ts" setup>
 import {
   computed,
+  getCurrentInstance,
   PropType,
   ref,
   useSlots,
@@ -149,6 +149,7 @@ const props = defineProps({
 
 const slots = useSlots()
 const isOpen = ref(false)
+const instance = getCurrentInstance()
 
 const emit = defineEmits(['update:modelValue', 'blur'])
 
@@ -188,6 +189,10 @@ const hasValue = computed(() => !!props.modelValue)
 
 const hasValueOrPlaceholder = computed(
   () => !!(hasValue.value || hasPlaceholder.value),
+)
+
+const selectId = computed(
+  () => props.id || `${props.name}-${instance?.uid ?? 'select'}`,
 )
 </script>
 

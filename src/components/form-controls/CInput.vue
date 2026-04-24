@@ -12,12 +12,13 @@
   >
     <label
       v-if="label && bordered"
+      :for="inputId"
     >
       {{ label }}
     </label>
 
     <input
-      :id="id"
+      :id="inputId"
       :type="type"
       :class="{
         'not-empty': hasValueOrPlaceholder,
@@ -42,7 +43,7 @@
       <label
         v-if="label && !bordered"
         class="c-form-control-label"
-        :for="name"
+        :for="inputId"
       >
         {{ label }}
       </label>
@@ -91,6 +92,7 @@
 
 import {
   computed,
+  getCurrentInstance,
   useSlots,
   watch,
 } from 'vue'
@@ -104,6 +106,7 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue', 'blur'])
 
 const slots = useSlots()
+const instance = getCurrentInstance()
 
 const hasPrefixSlot = computed(() => !!slots.prefix)
 
@@ -131,6 +134,10 @@ const hasValue = computed(() => !!props.modelValue)
 
 const hasValueOrPlaceholder = computed(
   () => !!(hasValue.value || hasPlaceholder.value),
+)
+
+const inputId = computed(
+  () => props.id || `${props.name}-${instance?.uid ?? 'input'}`,
 )
 
 async function onBlur (e: Event) {

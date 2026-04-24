@@ -52,3 +52,10 @@
 .DS_Store
 
 !.storybook
+
+!API_CONVENTIONS.md
+!CONTRIBUTING.md
+!CODE_OF_CONDUCT.md
+!SUPPORT.md
+!SECURITY.md
+!FUNDING.yml

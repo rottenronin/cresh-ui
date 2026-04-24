@@ -1,5 +1,6 @@
 <template>
   <CInput
+    :id="phoneInputId"
     class="c-phone-input"
     :name="`${name}PhoneInput`"
     :model-value="state.phoneValue"

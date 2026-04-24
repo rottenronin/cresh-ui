@@ -57,23 +57,18 @@ export const Basic: Story = {
       return { args, isOpen, t }
     },
     template: `
-      <div>
-        <button @click="isOpen = true" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          {{ t('translate.showcase.modal.basic.open_button') }}
-        </button>
-        <c-modal
-          v-model="isOpen"
-          :title="args.title ?? t('translate.showcase.modal.basic.title')"
-          :persistent="args.persistent"
-          :closable="args.closable"
-          :width="args.width"
-          :no-footer="args.noFooter"
-          @cancel="isOpen = false"
-          @ok="isOpen = false"
-        >
-          <p>{{ t('translate.showcase.modal.basic.content') }}</p>
-        </c-modal>
-      </div>
+      <c-modal
+        v-model="isOpen"
+        :title="args.title ?? t('translate.showcase.modal.basic.title')"
+        :persistent="args.persistent"
+        :closable="args.closable"
+        :width="args.width"
+        :no-footer="args.noFooter"
+        @cancel="isOpen = false"
+        @ok="isOpen = false"
+      >
+        <p>{{ t('translate.showcase.modal.basic.content') }}</p>
+      </c-modal>
     `,
   }),
 }
@@ -94,22 +89,17 @@ export const NoFooter: Story = {
       return { args, isOpen, t }
     },
     template: `
-      <div>
-        <button @click="isOpen = true" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          {{ t('translate.showcase.modal.no_footer.open_button') }}
-        </button>
-        <c-modal
-          v-model="isOpen"
-          v-bind="args"
-          :title="args.title ?? t('translate.showcase.modal.no_footer.title')"
-        >
-          <div style="text-align: center; padding: 20px 0;">
-            <div style="font-size: 48px; margin-bottom: 12px;">✓</div>
-            <h3 style="margin: 0 0 8px 0;">{{ t('translate.showcase.modal.no_footer.success_title') }}</h3>
-            <p style="margin: 0; color: #666;">{{ t('translate.showcase.modal.no_footer.content') }}</p>
-          </div>
-        </c-modal>
-      </div>
+      <c-modal
+        v-model="isOpen"
+        v-bind="args"
+        :title="args.title ?? t('translate.showcase.modal.no_footer.title')"
+      >
+        <div style="text-align: center; padding: 20px 0;">
+          <div style="font-size: 48px; margin-bottom: 12px;">✓</div>
+          <h3>{{ t('translate.showcase.modal.no_footer.success_title') }}</h3>
+          <p>{{ t('translate.showcase.modal.no_footer.content') }}</p>
+        </div>
+      </c-modal>
     `,
   }),
 }
@@ -129,71 +119,79 @@ export const Persistent: Story = {
       return { args, isOpen, t }
     },
     template: `
-      <div>
-        <button @click="isOpen = true" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          {{ t('translate.showcase.modal.persistent.open_button') }}
-        </button>
-        <c-modal
-          v-model="isOpen"
-          v-bind="args"
-          :title="args.title ?? t('translate.showcase.modal.persistent.title')"
-          @ok="isOpen = false"
-          @cancel="isOpen = false"
-        >
-          <p>{{ t('translate.showcase.modal.persistent.content') }}</p>
-        </c-modal>
-      </div>
+      <c-modal
+        v-model="isOpen"
+        v-bind="args"
+        :title="args.title ?? t('translate.showcase.modal.persistent.title')"
+        @ok="isOpen = false"
+        @cancel="isOpen = false"
+      >
+        <p>{{ t('translate.showcase.modal.persistent.content') }}</p>
+        <p><em>Cannot close by clicking outside (persistent mode).</em></p>
+      </c-modal>
     `,
   }),
 }
 
-export const LargeSize: Story = {
+export const CustomWidth: Story = {
   args: {
     modelValue: true,
     persistent: false,
     closable: true,
     width: 800,
+    noFooter: false,
   },
   render: (args) => ({
     components: { CModal },
     setup() {
       const { t } = useI18n()
       const isOpen = ref(args.modelValue)
-      const formData = ref({
-        name: '',
-        email: '',
-        message: '',
-      })
-      return { args, isOpen, formData, t }
+      return { args, isOpen, t }
     },
     template: `
-      <div>
-        <button @click="isOpen = true" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          {{ t('translate.showcase.modal.large.open_button') }}
-        </button>
-        <c-modal
-          v-model="isOpen"
-          v-bind="args"
-          :title="args.title ?? t('translate.showcase.modal.large.title')"
-          @ok="isOpen = false"
-          @cancel="isOpen = false"
-        >
-          <div style="display: grid; gap: 16px;">
-            <div>
-              <label style="display: block; margin-bottom: 8px; font-weight: 500;">{{ t('translate.showcase.modal.large.full_name') }}</label>
-              <input v-model="formData.name" type="text" :placeholder="t('translate.showcase.modal.large.full_name_placeholder')" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;" />
-            </div>
-            <div>
-              <label style="display: block; margin-bottom: 8px; font-weight: 500;">{{ t('translate.showcase.modal.large.email') }}</label>
-              <input v-model="formData.email" type="email" :placeholder="t('translate.showcase.modal.large.email_placeholder')" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;" />
-            </div>
-            <div>
-              <label style="display: block; margin-bottom: 8px; font-weight: 500;">{{ t('translate.showcase.modal.large.message') }}</label>
-              <textarea v-model="formData.message" :placeholder="t('translate.showcase.modal.large.message_placeholder')" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; min-height: 120px;"></textarea>
-            </div>
+      <c-modal
+        v-model="isOpen"
+        v-bind="args"
+        :title="args.title ?? 'Wide Modal'"
+        @ok="isOpen = false"
+        @cancel="isOpen = false"
+      >
+        <p>This modal uses a custom width ({{ args.width }}px).</p>
+        <p>Use the <code>width</code> prop to control modal size.</p>
+      </c-modal>
+    `,
+  }),
+}
+
+export const WithSlots: Story = {
+  args: {
+    modelValue: true,
+    persistent: false,
+    closable: true,
+    width: 500,
+  },
+  render: (args) => ({
+    components: { CModal },
+    setup() {
+      const { t } = useI18n()
+      const isOpen = ref(args.modelValue)
+      return { args, isOpen, t }
+    },
+    template: `
+      <c-modal
+        v-model="isOpen"
+        v-bind="args"
+        :title="args.title ?? 'Modal with Slots'"
+        @ok="isOpen = false"
+        @cancel="isOpen = false"
+      >
+        <p>This demonstrates the default slot.</p>
+        <template #header>
+          <div style="padding: 16px 20px; border-bottom: 1px solid #e5e7eb;">
+            <h2 style="margin: 0;">Custom Header Slot</h2>
           </div>
-        </c-modal>
-      </div>
+        </template>
+      </c-modal>
     `,
   }),
 }
@@ -210,49 +208,29 @@ export const CustomContent: Story = {
       return { args, isOpen, t }
     },
     template: `
-      <div>
-        <button @click="isOpen = true" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          {{ t('translate.showcase.modal.custom.open_button') }}
-        </button>
-        <c-modal
-          v-model="isOpen"
-          v-bind="args"
-          :title="args.title ?? t('translate.showcase.modal.custom.title')"
-        >
-          <template #header>
-            <div style="padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; justify-content: space-between; align-items: center;">
-              <h3 style="margin: 0;">{{ args.title ?? t('translate.showcase.modal.custom.title') }}</h3>
-              <button @click="isOpen = false" style="background: none; border: none; color: white; font-size: 24px; cursor: pointer;">×</button>
-            </div>
-          </template>
-
-          <div style="padding: 20px;">
-            <h4>{{ t('translate.showcase.modal.custom.welcome') }}</h4>
-            <p>{{ t('translate.showcase.modal.custom.content') }}</p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-              <div style="padding: 12px; background: #f0f0f0; border-radius: 4px; text-align: center;">
-                <div style="font-size: 24px; margin-bottom: 8px;">📊</div>
-                <span>{{ t('translate.showcase.modal.custom.reports') }}</span>
-              </div>
-              <div style="padding: 12px; background: #f0f0f0; border-radius: 4px; text-align: center;">
-                <div style="font-size: 24px; margin-bottom: 8px;">⚙️</div>
-                <span>{{ t('translate.showcase.modal.custom.settings') }}</span>
-              </div>
-            </div>
+      <c-modal
+        v-model="isOpen"
+        v-bind="args"
+        :title="args.title ?? 'Custom Content Modal'"
+      >
+        <template #header>
+          <div style="padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h3 style="margin: 0;">{{ args.title ?? 'Custom Header' }}</h3>
           </div>
+        </template>
 
-          <template #footer>
-            <div style="padding: 16px; background: #f5f5f5; display: flex; gap: 8px;">
-              <button @click="isOpen = false" style="flex: 1; padding: 10px; background: #999; color: white; border: none; border-radius: 4px; cursor: pointer;">
-                {{ t('translate.showcase.modal.custom.decline') }}
-              </button>
-              <button @click="isOpen = false" style="flex: 1; padding: 10px; background: #10b981; color: white; border: none; border-radius: 4px; cursor: pointer;">
-                {{ t('translate.showcase.modal.custom.accept') }}
-              </button>
-            </div>
-          </template>
-        </c-modal>
-      </div>
+        <div>
+          <h4>Custom content demonstration</h4>
+          <p>This modal demonstrates using slots to customize header and footer.</p>
+        </div>
+
+        <template #footer>
+          <div style="display: flex; gap: 8px;">
+            <button @click="isOpen = false" style="flex: 1; padding: 10px; background: #999; color: white; border: none; border-radius: 4px;">Decline</button>
+            <button @click="isOpen = false" style="flex: 1; padding: 10px; background: #10b981; color: white; border: none; border-radius: 4px;">Accept</button>
+          </div>
+        </template>
+      </c-modal>
     `,
   }),
 }
@@ -272,22 +250,17 @@ export const WarningModal: Story = {
       return { args, isOpen, t }
     },
     template: `
-      <div>
-        <button @click="isOpen = true" style="padding: 8px 16px; background: #ff6b6b; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          {{ t('translate.showcase.modal.warning.open_button') }}
-        </button>
-        <c-modal
-          v-model="isOpen"
-          v-bind="args"
-          :title="args.title ?? t('translate.showcase.modal.warning.title')"
-        >
-          <div style="text-align: center; padding: 20px 0;">
-            <div style="font-size: 48px; margin-bottom: 12px; color: #ff6b6b;">⚠️</div>
-            <h3 style="margin: 0 0 8px 0; color: #ff6b6b;">{{ t('translate.showcase.modal.warning.heading') }}</h3>
-            <p style="margin: 0; color: #666;">{{ t('translate.showcase.modal.warning.content') }}</p>
-          </div>
-        </c-modal>
-      </div>
+      <c-modal
+        v-model="isOpen"
+        v-bind="args"
+        :title="args.title ?? 'Warning'"
+      >
+        <div style="text-align: center; padding: 20px 0;">
+          <div style="font-size: 48px; margin-bottom: 12px;">⚠️</div>
+          <h3 style="margin: 0 0 8px 0; color: #ff6b6b;">Warning</h3>
+          <p>This modal is persistent and cannot be closed by clicking outside.</p>
+        </div>
+      </c-modal>
     `,
   }),
 }
@@ -305,20 +278,15 @@ export const SmallModal: Story = {
       return { args, isOpen, t }
     },
     template: `
-      <div>
-        <button @click="isOpen = true" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          {{ t('translate.showcase.modal.small.open_button') }}
-        </button>
-        <c-modal
-          v-model="isOpen"
-          v-bind="args"
-          :title="args.title ?? t('translate.showcase.modal.small.title')"
-          @ok="isOpen = false"
-          @cancel="isOpen = false"
-        >
-          <p style="text-align: center;">{{ t('translate.showcase.modal.small.content') }}</p>
-        </c-modal>
-      </div>
+      <c-modal
+        v-model="isOpen"
+        v-bind="args"
+        :title="args.title ?? 'Compact Modal'"
+        @ok="isOpen = false"
+        @cancel="isOpen = false"
+      >
+        <p style="text-align: center;">This is a smaller modal ({{ args.width }}px width).</p>
+      </c-modal>
     `,
   }),
 }

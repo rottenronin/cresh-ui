@@ -8,14 +8,12 @@
   >
     <label
       v-if="label && bordered"
-      :for="id"
-      class="c-form-control-label"
+      :for="inputId"
     >
       {{ label }}
     </label>
     <input
-      :id="id"
-      v-model="dateString"
+      :id="inputId"
       :type="type"
       class="c-form-control-input"
       :class="{
@@ -34,8 +32,7 @@
     >
     <label
       v-if="label && !bordered"
-      :for="id"
-      class="c-form-control-label"
+      :for="inputId"
     >
       {{ label }}
     </label>

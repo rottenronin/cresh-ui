@@ -34,19 +34,22 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
+  args: {
+    value: 'option1',
+  },
   render: () => {
     return {
       components: { CRadio },
       setup() {
         const { t } = useI18n()
-        const selected = ref('option1')
+        const selected = ref('')
         return { selected, t }
       },
       template: `
         <div>
           <c-radio
             v-model="selected"
-            name="option"
+            name="option-default"
             value="option1"
             :label="t('translate.showcase.radio.option_1')"
           />
@@ -60,6 +63,9 @@ export const Default: Story = {
 }
 
 export const Selected: Story = {
+  args: {
+    value: 'option1',
+  },
   render: () => {
     return {
       components: { CRadio },
@@ -71,7 +77,7 @@ export const Selected: Story = {
       template: `
         <c-radio
           v-model="selected"
-          name="option"
+          name="option-selected"
           value="option1"
           :label="t('translate.showcase.radio.option_1')"
         />
@@ -81,6 +87,9 @@ export const Selected: Story = {
 }
 
 export const Disabled: Story = {
+  args: {
+    value: 'disabled',
+  },
   render: () => {
     return {
       components: { CRadio },
@@ -92,7 +101,7 @@ export const Disabled: Story = {
       template: `
         <c-radio
           v-model="selected"
-          name="disabled"
+          name="option-disabled"
           value="disabled"
           :label="t('translate.showcase.radio.disabled_option')"
           disabled
@@ -116,7 +125,7 @@ export const Group: Story = {
           <div style="margin-bottom: 12px;">
             <c-radio
               v-model="selected"
-              name="group"
+              name="option-group"
               value="opt1"
               :label="t('translate.showcase.radio.option_1')"
             />
@@ -124,7 +133,7 @@ export const Group: Story = {
           <div style="margin-bottom: 12px;">
             <c-radio
               v-model="selected"
-              name="group"
+              name="option-group"
               value="opt2"
               :label="t('translate.showcase.radio.option_2')"
             />
@@ -132,7 +141,7 @@ export const Group: Story = {
           <div style="margin-bottom: 12px;">
             <c-radio
               v-model="selected"
-              name="group"
+              name="option-group"
               value="opt3"
               :label="t('translate.showcase.radio.option_3')"
             />

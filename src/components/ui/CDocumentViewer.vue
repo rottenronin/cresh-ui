@@ -29,27 +29,31 @@
       class="navigation-btns"
       v-if="!hideArrows"
       >
-        <div
+        <button
           class="left-file-nav"
           v-show="!hideLeftArrow"
+          type="button"
+          aria-label="Previous document"
           @click.prevent.stop="onPrevDocument"
         >
           <CIcon
             name="chevron-left"
             color="white"
           />
-        </div>
+        </button>
         <div class="c-spacer" />
-        <div
+        <button
           class="right-file-nav"
           v-show="!hideRightArrow"
+          type="button"
+          aria-label="Next document"
           @click.prevent.stop="onNextDocument"
         >
           <CIcon
             name="chevron-right"
             color="white"
           />
-        </div>
+        </button>
     </div>
     <template v-if="hasPreviewSlot">
       <slot name="preview" />

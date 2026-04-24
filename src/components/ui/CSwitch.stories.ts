@@ -27,6 +27,10 @@ const meta = {
       control: { type: 'boolean' },
       description: 'Disable the switch',
     },
+    'update:modelValue': {
+      control: false,
+      description: 'Emitted when switch state changes (v-model)',
+    },
   },
 } satisfies Meta<typeof CSwitch>
 

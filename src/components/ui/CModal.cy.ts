@@ -1,5 +1,6 @@
-/// <reference types="Cypress" /><
+/// <reference types="cypress" />
 
+import { defineComponent, h, ref } from 'vue'
 import { mountCyComponent } from '../../helpers/vue-test-helper'
 import CModal from './CModal.vue'
 
@@ -79,6 +80,18 @@ describe('<CModal />', () => {
 
     cy.get('.title')
       .should('contain', title)
+
+    cy.get('.c-modal')
+      .should('have.attr', 'role', 'dialog')
+      .and('have.attr', 'aria-modal', 'true')
+      .and('have.attr', 'aria-labelledby')
+
+    cy.get('.title')
+      .invoke('attr', 'id')
+      .then((id) => {
+        cy.get('.c-modal')
+          .should('have.attr', 'aria-labelledby', id)
+      })
   })
 
   it('should be closable with cross icon button', () => {
@@ -90,11 +103,13 @@ describe('<CModal />', () => {
     })
 
     cy.get('.close-btn')
+      .should('have.prop', 'tagName', 'BUTTON')
       .click()
 
     cy.vue()
       .then((wrapper: any) => {
         expect(wrapper.emitted('cancel')).to.have.length(1)
+        expect(wrapper.emitted('update:modelValue')[0][0]).to.equal(false)
       })
 
     // closable props = false
@@ -107,6 +122,105 @@ describe('<CModal />', () => {
 
     cy.get('.close-btn')
       .should('not.exist')
+  })
+
+  it('should close from cancel button with v-model contract', () => {
+    mountCyComponent(CModal, {
+      props: {
+        modelValue: true,
+      },
+    })
+
+    cy.get('.cancel-btn')
+      .click()
+
+    cy.vue()
+      .then((wrapper: any) => {
+        expect(wrapper.emitted('cancel')).to.have.length(1)
+        expect(wrapper.emitted('update:modelValue')[0][0]).to.equal(false)
+      })
+  })
+
+  it('should close on Escape when closable and not persistent', () => {
+    mountCyComponent(CModal, {
+      props: {
+        modelValue: true,
+      },
+    })
+
+    cy.get('.c-modal')
+      .focus()
+      .type('{esc}')
+
+    cy.vue()
+      .then((wrapper: any) => {
+        expect(wrapper.emitted('cancel')).to.have.length(1)
+        expect(wrapper.emitted('update:modelValue')[0][0]).to.equal(false)
+      })
+  })
+
+  it('should trap focus and restore it after close', () => {
+    const ModalHarness = defineComponent({
+      setup() {
+        const isOpen = ref(false)
+
+        function openModal () {
+          isOpen.value = true
+        }
+
+        return () => h('div', [
+          h('button', {
+            class: 'outside-trigger',
+            onClick: openModal,
+          }, 'Open modal'),
+          h(CModal, {
+            modelValue: isOpen.value,
+            title: 'Focus modal test',
+            'onUpdate:modelValue': (value: boolean) => {
+              isOpen.value = value
+            },
+          }, {
+            default: () => h('button', { class: 'content-action' }, 'Action'),
+          }),
+        ])
+      },
+    })
+
+    mountCyComponent(ModalHarness)
+
+    cy.get('.outside-trigger')
+      .focus()
+      .click()
+
+    cy.focused()
+      .should('have.class', 'close-btn')
+
+    cy.get('.ok-btn')
+      .focus()
+
+    cy.get('.c-modal')
+      .trigger('keydown', { key: 'Tab' })
+
+    cy.focused()
+      .should('have.class', 'close-btn')
+
+    cy.get('.close-btn')
+      .focus()
+
+    cy.get('.c-modal')
+      .trigger('keydown', { key: 'Tab', shiftKey: true })
+
+    cy.focused()
+      .should('have.class', 'ok-btn')
+
+    cy.get('.close-btn')
+      .click()
+
+    cy.get('.c-modal-wrapper')
+      .should('not.exist')
+
+    cy.focused()
+      .should('have.class', 'outside-trigger')
   })
 
   it('should have defined width', () => {

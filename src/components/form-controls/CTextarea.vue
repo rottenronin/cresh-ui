@@ -14,8 +14,7 @@
       {{ label }}
     </label>
     <textarea
-      :id="id"
-      :type="type"
+      :id="textareaId"
       class="c-form-input"
       :class="{
         'not-empty': hasValueOrPlaceholder,
@@ -44,7 +43,7 @@
     </label>
     <template v-if="hasDefaultSlot">
       <slot
-        name="errors"
+        :for="textareaId"
         :error-message="error"
       />
     </template>

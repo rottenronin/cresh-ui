@@ -1,26 +1,31 @@
 <template>
   <label class="c-switch">
     <input
-        v-bind="$attrs"
         class="input"
         type="checkbox"
-        :checked="checked"
+        :checked="modelValue"
+        :disabled="disabled"
+        :name="name"
         @change="onSwitchChange"
     >
     <span class="switch" />
+    <span v-if="label" class="label">{{ label }}</span>
   </label>
 </template>
 
 <script setup lang="ts">
 defineProps({
-  checked: Boolean,
+  modelValue: Boolean,
+  label: String,
+  name: String,
+  disabled: Boolean,
 })
 
-const emit = defineEmits(['switchState'])
+const emit = defineEmits(['update:modelValue'])
 
 const onSwitchChange = (change: Event) => {
   const target = change.target as HTMLInputElement
-  emit('switchState', target.checked)
+  emit('update:modelValue', target.checked)
 }
 
 </script>
