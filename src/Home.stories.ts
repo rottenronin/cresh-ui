@@ -14,8 +14,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Welcome: Story = {
-  render: () => {
-    return {
+  render: () => ({
     template: `
       <div style="
         position: relative;
@@ -252,13 +251,12 @@ export const Welcome: Story = {
         </style>
       </div>
     `,
-      setup() {
-        const { t } = useI18n()
-        const goToGettingStarted = () => {
-          window.location.href = '?path=/story/getting-started--quick-start'
-        }
-        return { goToGettingStarted, t }
-      },
-    }
-  },
+    setup() {
+      const { t } = useI18n()
+      const goToGettingStarted = () => {
+        window.location.href = '?path=/story/getting-started--quick-start'
+      }
+      return { goToGettingStarted, t }
+    },
+  }),
 }

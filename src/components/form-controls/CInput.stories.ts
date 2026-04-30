@@ -43,15 +43,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => {
-    return {
-      components: { CInput },
-      setup() {
-        const { t } = useI18n()
-        const fullName = ref('')
-        return { fullName, t }
-      },
-      template: `
+  render: () => ({
+    components: { CInput },
+    setup() {
+      const { t } = useI18n()
+      const fullName = ref('')
+      return { fullName, t }
+    },
+    template: `
         <div style="max-width: 300px;">
           <c-input
             v-model="fullName"
@@ -64,20 +63,18 @@ export const Default: Story = {
           </p>
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const Email: Story = {
-  render: () => {
-    return {
-      components: { CInput },
-      setup() {
-        const { t } = useI18n()
-        const email = ref('')
-        return { email, t }
-      },
-      template: `
+  render: () => ({
+    components: { CInput },
+    setup() {
+      const { t } = useI18n()
+      const email = ref('')
+      return { email, t }
+    },
+    template: `
         <div style="max-width: 300px;">
           <c-input
             v-model="email"
@@ -91,20 +88,18 @@ export const Email: Story = {
           </p>
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const WithValue: Story = {
-  render: () => {
-    return {
-      components: { CInput },
-      setup() {
-        const { t } = useI18n()
-        const email = ref('user@example.com')
-        return { email, t }
-      },
-      template: `
+  render: () => ({
+    components: { CInput },
+    setup() {
+      const { t } = useI18n()
+      const email = ref('user@example.com')
+      return { email, t }
+    },
+    template: `
         <div style="max-width: 300px;">
           <c-input
             v-model="email"
@@ -118,20 +113,18 @@ export const WithValue: Story = {
           </p>
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const Password: Story = {
-  render: () => {
-    return {
-      components: { CInput },
-      setup() {
-        const { t } = useI18n()
-        const password = ref('')
-        return { password, t }
-      },
-      template: `
+  render: () => ({
+    components: { CInput },
+    setup() {
+      const { t } = useI18n()
+      const password = ref('')
+      return { password, t }
+    },
+    template: `
         <div style="max-width: 300px;">
           <c-input
             v-model="password"
@@ -142,20 +135,18 @@ export const Password: Story = {
           />
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const Disabled: Story = {
-  render: () => {
-    return {
-      components: { CInput },
-      setup() {
-        const { t } = useI18n()
-        const value = ref('Disabled value')
-        return { value, t }
-      },
-      template: `
+  render: () => ({
+    components: { CInput },
+    setup() {
+      const { t } = useI18n()
+      const value = ref('Disabled value')
+      return { value, t }
+    },
+    template: `
         <div style="max-width: 300px;">
           <c-input
             v-model="value"
@@ -165,8 +156,7 @@ export const Disabled: Story = {
           />
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const WithError: Story = {
@@ -175,13 +165,13 @@ export const WithError: Story = {
     modelValue: 'Invalid input',
     error: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CInput },
     setup() {
       const { t } = useI18n()
 
       return { args, t }
     },
-    template: `<div style="max-width: 300px;"><c-input v-bind="{ ...args, label: t('translate.showcase.input.with_error'), modelValue: t('translate.showcase.input.invalid_input') }" /></div>`,
+    template: '<div style="max-width: 300px;"><c-input v-bind="{ ...args, label: t(\'translate.showcase.input.with_error\'), modelValue: t(\'translate.showcase.input.invalid_input\') }" /></div>',
   }),
 }

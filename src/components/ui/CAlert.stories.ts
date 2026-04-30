@@ -33,7 +33,7 @@ export const Success: Story = {
   args: {
     type: 'success',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CAlert },
     setup() {
       const { t } = useI18n()
@@ -51,7 +51,7 @@ export const Error: Story = {
   args: {
     type: 'error',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CAlert },
     setup() {
       const { t } = useI18n()
@@ -69,7 +69,7 @@ export const Warning: Story = {
   args: {
     type: 'warning',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CAlert },
     setup() {
       const { t } = useI18n()
@@ -87,7 +87,7 @@ export const Info: Story = {
   args: {
     type: 'info',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CAlert },
     setup() {
       const { t } = useI18n()
@@ -106,7 +106,7 @@ export const Closable: Story = {
     type: 'info',
     closable: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CAlert },
     setup() {
       const { t } = useI18n()

@@ -12,9 +12,7 @@ const iconModules = import.meta.glob('./components/icons/*.vue', {
 }) as Record<string, IconModule>
 
 const icons = Object.entries(iconModules)
-  .filter(([path]) => {
-    return !path.endsWith('/CIcon.vue') && !path.endsWith('/CreshBaseIcon.vue')
-  })
+  .filter(([path]) => !path.endsWith('/CIcon.vue') && !path.endsWith('/CreshBaseIcon.vue'))
   .map(([path, module]) => {
     const fileName = path.split('/').pop()?.replace('.vue', '') ?? path
     const snippet = `import { ${fileName} } from '@long2x/cresh-ui/icons'

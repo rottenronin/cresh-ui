@@ -30,7 +30,7 @@ export default {
     const breakPoint = getCurrentBreakpoint()
 
     // subscribe to event resize and publish new breakpoint value if window size changes
-    // eslint-disable-next-line prefer-arrow-callback
+
     window.addEventListener('resize', breakPointChange)
 
     app.provide('breakpoint', breakPoint)

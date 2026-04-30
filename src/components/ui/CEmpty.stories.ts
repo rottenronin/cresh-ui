@@ -28,7 +28,7 @@ export const Default: Story = {
   args: {
     icon: 'table',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CEmpty },
     setup() {
       const { t } = useI18n()
@@ -46,7 +46,7 @@ export const NoResults: Story = {
   args: {
     icon: 'search',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CEmpty },
     setup() {
       const { t } = useI18n()
@@ -64,7 +64,7 @@ export const NoNotifications: Story = {
   args: {
     icon: 'bell',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CEmpty },
     setup() {
       const { t } = useI18n()
@@ -82,7 +82,7 @@ export const CustomContent: Story = {
   args: {
     icon: 'inbox',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CEmpty },
     setup() {
       const { t } = useI18n()
@@ -107,7 +107,7 @@ export const CustomContent: Story = {
 export const WithCustomIcon: Story = {
   args: {
   },
-  render: (args) => ({
+  render: args => ({
     components: { CEmpty },
     setup() {
       const { t } = useI18n()

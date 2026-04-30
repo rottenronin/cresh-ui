@@ -37,7 +37,7 @@ export const Primary: Story = {
   args: {
     variant: 'primary',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CButton },
     setup() {
       return { args }
@@ -50,7 +50,7 @@ export const Secondary: Story = {
   args: {
     variant: 'secondary',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CButton },
     setup() {
       return { args }
@@ -63,7 +63,7 @@ export const Danger: Story = {
   args: {
     variant: 'danger',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CButton },
     setup() {
       return { args }
@@ -76,7 +76,7 @@ export const Disabled: Story = {
   args: {
     disabled: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CButton },
     setup() {
       return { args }
@@ -89,7 +89,7 @@ export const Loading: Story = {
   args: {
     loading: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CButton },
     setup() {
       return { args }
@@ -102,7 +102,7 @@ export const Small: Story = {
   args: {
     size: 'sm',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CButton },
     setup() {
       return { args }
@@ -115,7 +115,7 @@ export const Large: Story = {
   args: {
     size: 'lg',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CButton },
     setup() {
       return { args }

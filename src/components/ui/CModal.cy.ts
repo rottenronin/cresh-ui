@@ -88,7 +88,7 @@ describe('<CModal />', () => {
 
     cy.get('.title')
       .invoke('attr', 'id')
-      .then((id) => {
+      .then(id => {
         cy.get('.c-modal')
           .should('have.attr', 'aria-labelledby', id)
       })

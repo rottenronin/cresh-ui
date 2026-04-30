@@ -5,7 +5,7 @@ import { installStorybookPreviewLocalization } from './preview-localization'
 // Import global styles
 import '../src/styles/colors.css'
 
-setup((app) => {
+setup(app => {
   app.use(i18n)
 })
 
@@ -54,16 +54,16 @@ const preview: Preview = {
         const storyTitle = context.title || 'Cresh UI'
         const storyName = context.name || 'Story'
         const fullTitle = `${storyTitle} - ${storyName} | Cresh UI`
-        
+
         // Update document title
         document.title = fullTitle
-        
+
         // Update Open Graph title
         const ogTitle = document.querySelector('meta[property="og:title"]')
         if (ogTitle) {
           ogTitle.setAttribute('content', fullTitle)
         }
-        
+
         // Update canonical URL if in a story view
         const canonical = document.querySelector('link[rel="canonical"]')
         if (canonical && context.id) {

@@ -1,5 +1,4 @@
 export const convertJpegToJpg = (file: File) => {
-  // eslint-disable-next-line no-unused-vars
   const [
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     _,

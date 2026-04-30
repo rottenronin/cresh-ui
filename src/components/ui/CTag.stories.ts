@@ -29,7 +29,7 @@ export const Primary: Story = {
   args: {
     color: 'primary',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CTag },
     setup() {
       const { t } = useI18n()
@@ -43,7 +43,7 @@ export const Success: Story = {
   args: {
     color: 'success',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CTag },
     setup() {
       const { t } = useI18n()
@@ -57,7 +57,7 @@ export const Warning: Story = {
   args: {
     color: 'warning',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CTag },
     setup() {
       const { t } = useI18n()
@@ -71,7 +71,7 @@ export const Error: Story = {
   args: {
     color: 'error',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CTag },
     setup() {
       const { t } = useI18n()
@@ -86,7 +86,7 @@ export const Closable: Story = {
     color: 'info',
     closable: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CTag },
     setup() {
       const { t } = useI18n()

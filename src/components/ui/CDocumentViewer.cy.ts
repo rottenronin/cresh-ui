@@ -157,5 +157,3 @@ describe('<CDocumentViewer />', () => {
       .should('not.exist')
   })
 })
-
-

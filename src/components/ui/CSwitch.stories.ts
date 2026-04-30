@@ -38,15 +38,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Off: Story = {
-  render: () => {
-    return {
-      components: { CSwitch },
-      setup() {
-        const { t } = useI18n()
-        const enabled = ref(false)
-        return { enabled, t }
-      },
-      template: `
+  render: () => ({
+    components: { CSwitch },
+    setup() {
+      const { t } = useI18n()
+      const enabled = ref(false)
+      return { enabled, t }
+    },
+    template: `
         <div>
           <c-switch
             v-model="enabled"
@@ -58,20 +57,18 @@ export const Off: Story = {
           </p>
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const On: Story = {
-  render: () => {
-    return {
-      components: { CSwitch },
-      setup() {
-        const { t } = useI18n()
-        const enabled = ref(true)
-        return { enabled, t }
-      },
-      template: `
+  render: () => ({
+    components: { CSwitch },
+    setup() {
+      const { t } = useI18n()
+      const enabled = ref(true)
+      return { enabled, t }
+    },
+    template: `
         <div>
           <c-switch
             v-model="enabled"
@@ -83,20 +80,18 @@ export const On: Story = {
           </p>
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const Disabled: Story = {
-  render: () => {
-    return {
-      components: { CSwitch },
-      setup() {
-        const { t } = useI18n()
-        const enabled = ref(false)
-        return { enabled, t }
-      },
-      template: `
+  render: () => ({
+    components: { CSwitch },
+    setup() {
+      const { t } = useI18n()
+      const enabled = ref(false)
+      return { enabled, t }
+    },
+    template: `
         <c-switch
           v-model="enabled"
           name="disabled"
@@ -104,20 +99,18 @@ export const Disabled: Story = {
           disabled
         />
       `,
-    }
-  },
+  }),
 }
 
 export const DisabledOn: Story = {
-  render: () => {
-    return {
-      components: { CSwitch },
-      setup() {
-        const { t } = useI18n()
-        const enabled = ref(true)
-        return { enabled, t }
-      },
-      template: `
+  render: () => ({
+    components: { CSwitch },
+    setup() {
+      const { t } = useI18n()
+      const enabled = ref(true)
+      return { enabled, t }
+    },
+    template: `
         <c-switch
           v-model="enabled"
           name="disabled-on"
@@ -125,6 +118,5 @@ export const DisabledOn: Story = {
           disabled
         />
       `,
-    }
-  },
+  }),
 }

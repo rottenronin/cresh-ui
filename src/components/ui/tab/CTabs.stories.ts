@@ -203,7 +203,7 @@ export const ReadOnly: Story = {
   args: {
     readonly: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CTabs, CTab },
     setup() {
       const { t } = useI18n()

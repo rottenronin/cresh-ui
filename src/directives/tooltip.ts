@@ -21,9 +21,9 @@ const showTooltip = (el: HTMLElement, message: string) => {
 
   tooltip.setAttribute('class', 'c-tooltip')
   tooltip.innerHTML = message
-  // eslint-disable-next-line max-len
+
   tooltip.style.left = `${dimension.left - (textWidth - dimension.width / 2) + (textWidth > dimension.width ? 10 : -10)}px`
-  // eslint-disable-next-line max-len
+
   tooltip.style.top = `${dimension.y + dimension.height + window.scrollY + 5}px`
   document.body.appendChild(tooltip)
 }
@@ -55,9 +55,9 @@ const tooltipDirective = {
   },
   unmounted: (el: HTMLElement): void => {
     removeTooltips()
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
+
     el.removeEventListener('mouseover', () => {})
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
+
     el.removeEventListener('mouseleave', () => {})
   },
 }

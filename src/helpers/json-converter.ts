@@ -39,7 +39,6 @@ function doConvert(
     // if object or array of objects
     if (isObject(current)) {
       target[key] = doConvert(current, schema)
-      // eslint-disable-next-line max-len
     } else if (Array.isArray(current) && isObjectArray(current)) {
       target[key] = current.map(c => doConvert(
         c,

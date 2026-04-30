@@ -1,11 +1,11 @@
 /// <reference types="vitest" />
 
-/* eslint-disable import/no-extraneous-dependencies */
-
 import copy from 'rollup-plugin-copy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { defineConfig } from 'vite'
+// @ts-expect-error vite-plugin-dts 5 ships an `export =` namespace that TS sees
+// as having no default, but Vite's ESM interop loads it correctly at runtime.
 import dts from 'vite-plugin-dts'
 import * as path from 'path'
 
@@ -26,8 +26,9 @@ export default defineConfig({
     dts({
       entryRoot: 'src',
       insertTypesEntry: true,
-      outputDir: 'dist',
+      outDir: 'dist',
       include: ['src'],
+      exclude: ['src/**/*.stories.ts', 'src/**/*.test.ts', 'src/**/*.spec.ts', 'src/**/*.cy.ts'],
       // rollupTypes: true,
       cleanVueFileName: true,
     }),
@@ -89,12 +90,13 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
+        loadPaths: [path.join(__dirname, 'src/styles/preprocessor')],
         additionalData: `
-          @import "./src/styles/preprocessor/fonts.scss";
-          @import "./src/styles/preprocessor/break-points.scss";
-          @import "./src/styles/preprocessor/computeds.scss";
-          @import "./src/styles/preprocessor/utils.scss";
-          @import "./src/styles/preprocessor/default-colors.scss";
+          @import "fonts";
+          @import "break-points";
+          @import "computeds";
+          @import "utils";
+          @import "default-colors";
         `,
         quietDeps: true,
         silenceDeprecations: ['legacy-js-api', 'import'],

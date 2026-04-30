@@ -33,7 +33,7 @@ export const Default: Story = {
   args: {
     value: 50,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CProgressBar },
     setup() {
       return { args }
@@ -47,7 +47,7 @@ export const Success: Story = {
     value: 100,
     color: 'success',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CProgressBar },
     setup() {
       return { args }
@@ -61,7 +61,7 @@ export const Warning: Story = {
     value: 75,
     color: 'warning',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CProgressBar },
     setup() {
       return { args }
@@ -75,7 +75,7 @@ export const Error: Story = {
     value: 25,
     color: 'error',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CProgressBar },
     setup() {
       return { args }
@@ -89,7 +89,7 @@ export const Indeterminate: Story = {
     indeterminate: true,
     color: 'primary',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CProgressBar },
     setup() {
       return { args }

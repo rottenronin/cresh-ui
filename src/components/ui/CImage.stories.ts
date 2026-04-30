@@ -69,7 +69,7 @@ export const BasicImage: Story = {
     src: sampleImage,
     lazy: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CImage },
     setup() {
       const { t } = useI18n()
@@ -119,7 +119,7 @@ export const WithLazyLoading: Story = {
     src: sampleImage,
     lazy: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CImage },
     setup() {
       const { t } = useI18n()
@@ -148,7 +148,7 @@ export const ErrorHandling: Story = {
     errorImageSrc: fallbackImage,
     showErrorText: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CImage },
     setup() {
       const { t } = useI18n()
@@ -177,7 +177,7 @@ export const NoImageSource: Story = {
     src: '',
     showErrorText: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CImage },
     setup() {
       const { t } = useI18n()
@@ -241,7 +241,7 @@ export const ProfileCard: Story = {
   args: {
     src: sampleImage,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CImage },
     setup() {
       const { t } = useI18n()
@@ -274,7 +274,7 @@ export const WithCustomSize: Story = {
     width: 400,
     height: 300,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CImage },
     setup() {
       const { t } = useI18n()

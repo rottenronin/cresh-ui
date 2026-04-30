@@ -142,7 +142,6 @@ const displayNotification = ({
   messageDiv.appendChild(textNode)
 }
 
-// eslint-disable-next-line no-unexpected-multiline
 // (() => {
 
 pubSubHelper.subscribe('SEND_NOTIFICATION', ({

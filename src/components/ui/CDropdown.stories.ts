@@ -38,7 +38,7 @@ export const Basic: Story = {
     modelValue: false,
     showIcon: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDropdown },
     setup() {
       const { t } = useI18n()
@@ -81,7 +81,7 @@ export const WithoutIcon: Story = {
     modelValue: false,
     showIcon: false,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDropdown },
     setup() {
       const { t } = useI18n()
@@ -120,7 +120,7 @@ export const MultipleOptions: Story = {
     modelValue: false,
     showIcon: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDropdown },
     setup() {
       const { t } = useI18n()
@@ -160,7 +160,7 @@ export const CustomContent: Story = {
     modelValue: false,
     showIcon: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDropdown },
     setup() {
       const { t } = useI18n()
@@ -201,7 +201,7 @@ export const Forms: Story = {
     modelValue: false,
     showIcon: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDropdown },
     setup() {
       const { t } = useI18n()

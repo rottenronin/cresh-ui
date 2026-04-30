@@ -44,7 +44,7 @@ export const LeftDrawer: Story = {
     placement: 'left',
     width: 300,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDrawer },
     setup() {
       const { t } = useI18n()
@@ -81,7 +81,7 @@ export const RightDrawer: Story = {
     placement: 'right',
     width: 300,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDrawer },
     setup() {
       const { t } = useI18n()
@@ -118,7 +118,7 @@ export const TopDrawer: Story = {
     placement: 'top',
     height: 200,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDrawer },
     setup() {
       const { t } = useI18n()
@@ -155,7 +155,7 @@ export const BottomDrawer: Story = {
     placement: 'bottom',
     height: 200,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDrawer },
     setup() {
       const { t } = useI18n()
@@ -193,7 +193,7 @@ export const MobileResponsive: Story = {
     width: 300,
     mobileBreakingpoint: 768,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDrawer },
     setup() {
       const { t } = useI18n()

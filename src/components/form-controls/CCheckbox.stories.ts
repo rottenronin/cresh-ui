@@ -34,15 +34,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => {
-    return {
-      components: { CCheckbox },
-      setup() {
-        const { t } = useI18n()
-        const isChecked = ref(false)
-        return { isChecked, t }
-      },
-      template: `
+  render: () => ({
+    components: { CCheckbox },
+    setup() {
+      const { t } = useI18n()
+      const isChecked = ref(false)
+      return { isChecked, t }
+    },
+    template: `
         <div>
           <c-checkbox
             v-model="isChecked"
@@ -54,20 +53,18 @@ export const Default: Story = {
           </p>
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const Checked: Story = {
-  render: () => {
-    return {
-      components: { CCheckbox },
-      setup() {
-        const { t } = useI18n()
-        const isChecked = ref(true)
-        return { isChecked, t }
-      },
-      template: `
+  render: () => ({
+    components: { CCheckbox },
+    setup() {
+      const { t } = useI18n()
+      const isChecked = ref(true)
+      return { isChecked, t }
+    },
+    template: `
         <div>
           <c-checkbox
             v-model="isChecked"
@@ -79,20 +76,18 @@ export const Checked: Story = {
           </p>
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const Disabled: Story = {
-  render: () => {
-    return {
-      components: { CCheckbox },
-      setup() {
-        const { t } = useI18n()
-        const isChecked = ref(false)
-        return { isChecked, t }
-      },
-      template: `
+  render: () => ({
+    components: { CCheckbox },
+    setup() {
+      const { t } = useI18n()
+      const isChecked = ref(false)
+      return { isChecked, t }
+    },
+    template: `
         <c-checkbox
           v-model="isChecked"
           name="disabled"
@@ -100,20 +95,18 @@ export const Disabled: Story = {
           disabled
         />
       `,
-    }
-  },
+  }),
 }
 
 export const DisabledChecked: Story = {
-  render: () => {
-    return {
-      components: { CCheckbox },
-      setup() {
-        const { t } = useI18n()
-        const isChecked = ref(true)
-        return { isChecked, t }
-      },
-      template: `
+  render: () => ({
+    components: { CCheckbox },
+    setup() {
+      const { t } = useI18n()
+      const isChecked = ref(true)
+      return { isChecked, t }
+    },
+    template: `
         <c-checkbox
           v-model="isChecked"
           name="disabled-checked"
@@ -121,6 +114,5 @@ export const DisabledChecked: Story = {
           disabled
         />
       `,
-    }
-  },
+  }),
 }

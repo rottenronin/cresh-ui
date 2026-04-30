@@ -35,7 +35,7 @@ export const Small: Story = {
   args: {
     size: 'sm',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CSpinner },
     setup() {
       return { args }
@@ -48,7 +48,7 @@ export const Medium: Story = {
   args: {
     size: 'md',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CSpinner },
     setup() {
       return { args }
@@ -61,7 +61,7 @@ export const Large: Story = {
   args: {
     size: 'lg',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CSpinner },
     setup() {
       return { args }

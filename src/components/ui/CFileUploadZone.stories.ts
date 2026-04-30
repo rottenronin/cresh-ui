@@ -35,7 +35,7 @@ export const Default: Story = {
     validFileExtensions: ['application/pdf', 'image/jpeg', 'image/png', 'image/jpg'],
     showFilename: false,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CFileUploadZone },
     setup() {
       const { t } = useI18n()
@@ -68,7 +68,7 @@ export const ShowFilename: Story = {
     validFileExtensions: ['application/pdf', 'image/jpeg', 'image/png'],
     showFilename: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CFileUploadZone },
     setup() {
       const { t } = useI18n()
@@ -97,7 +97,7 @@ export const ImageOnly: Story = {
     validFileExtensions: ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'],
     showFilename: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CFileUploadZone },
     setup() {
       const { t } = useI18n()
@@ -132,7 +132,7 @@ export const DocumentUpload: Story = {
     validFileExtensions: ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
     showFilename: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CFileUploadZone },
     setup() {
       const { t } = useI18n()
@@ -172,7 +172,7 @@ export const LargeFileSizeLimit: Story = {
     validFileExtensions: ['application/pdf', 'image/jpeg', 'image/png', 'image/jpg', 'application/zip'],
     showFilename: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CFileUploadZone },
     setup() {
       const { t } = useI18n()
@@ -204,7 +204,7 @@ export const MultipleUpload: Story = {
     validFileExtensions: ['application/pdf', 'image/jpeg', 'image/png', 'image/jpg'],
     showFilename: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CFileUploadZone },
     setup() {
       const { t } = useI18n()

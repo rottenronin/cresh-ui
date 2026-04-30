@@ -37,14 +37,13 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => {
-    return {
-      components: { CSlider },
-      setup() {
-        const value = ref(50)
-        return { value }
-      },
-      template: `
+  render: () => ({
+    components: { CSlider },
+    setup() {
+      const value = ref(50)
+      return { value }
+    },
+    template: `
         <div style="max-width: 300px;">
           <c-slider
             v-model="value"
@@ -56,19 +55,17 @@ export const Default: Story = {
           </p>
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const WithLabel: Story = {
-  render: () => {
-    return {
-      components: { CSlider },
-      setup() {
-        const volume = ref(30)
-        return { volume }
-      },
-      template: `
+  render: () => ({
+    components: { CSlider },
+    setup() {
+      const volume = ref(30)
+      return { volume }
+    },
+    template: `
         <div style="max-width: 300px;">
           <label style="display: block; margin-bottom: 8px; font-size: 14px;">
             Volume: {{ volume }}%
@@ -80,19 +77,17 @@ export const WithLabel: Story = {
           />
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const Disabled: Story = {
-  render: () => {
-    return {
-      components: { CSlider },
-      setup() {
-        const value = ref(50)
-        return { value }
-      },
-      template: `
+  render: () => ({
+    components: { CSlider },
+    setup() {
+      const value = ref(50)
+      return { value }
+    },
+    template: `
         <div style="max-width: 300px;">
           <c-slider
             v-model="value"
@@ -102,19 +97,17 @@ export const Disabled: Story = {
           />
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const CustomRange: Story = {
-  render: () => {
-    return {
-      components: { CSlider },
-      setup() {
-        const value = ref(25)
-        return { value }
-      },
-      template: `
+  render: () => ({
+    components: { CSlider },
+    setup() {
+      const value = ref(25)
+      return { value }
+    },
+    template: `
         <div style="max-width: 300px;">
           <label style="display: block; margin-bottom: 8px; font-size: 14px;">
             Value: {{ value }}
@@ -127,6 +120,5 @@ export const CustomRange: Story = {
           />
         </div>
       `,
-    }
-  },
+  }),
 }

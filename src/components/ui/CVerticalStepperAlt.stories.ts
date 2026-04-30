@@ -22,7 +22,7 @@ type Story = StoryObj<typeof meta>
 
 export const Basic: Story = {
   args: {},
-  render: (args) => ({
+  render: args => ({
     components: { CVerticalStepperAlt },
     setup() {
       const { t } = useI18n()

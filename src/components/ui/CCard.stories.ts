@@ -29,7 +29,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: (args) => ({
+  render: args => ({
     components: { CCard },
     setup() {
       const { t } = useI18n()
@@ -47,7 +47,7 @@ export const WithBorder: Story = {
   args: {
     bordered: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CCard },
     setup() {
       const { t } = useI18n()
@@ -65,7 +65,7 @@ export const WithShadow: Story = {
   args: {
     shadow: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CCard },
     setup() {
       const { t } = useI18n()

@@ -38,15 +38,14 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => {
-    return {
-      components: { CSelect },
-      setup() {
-        const { t } = useI18n()
-        const selected = ref('')
-        return { selected, t }
-      },
-      template: `
+  render: () => ({
+    components: { CSelect },
+    setup() {
+      const { t } = useI18n()
+      const selected = ref('')
+      return { selected, t }
+    },
+    template: `
         <div>
           <c-select
             v-model="selected"
@@ -65,20 +64,18 @@ export const Default: Story = {
           </p>
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const WithValue: Story = {
-  render: () => {
-    return {
-      components: { CSelect },
-      setup() {
-        const { t } = useI18n()
-        const selected = ref('option2')
-        return { selected, t }
-      },
-      template: `
+  render: () => ({
+    components: { CSelect },
+    setup() {
+      const { t } = useI18n()
+      const selected = ref('option2')
+      return { selected, t }
+    },
+    template: `
         <div>
           <c-select
             v-model="selected"
@@ -97,20 +94,18 @@ export const WithValue: Story = {
           </p>
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const WithCountries: Story = {
-  render: () => {
-    return {
-      components: { CSelect },
-      setup() {
-        const { t } = useI18n()
-        const country = ref('')
-        return { country, t }
-      },
-      template: `
+  render: () => ({
+    components: { CSelect },
+    setup() {
+      const { t } = useI18n()
+      const country = ref('')
+      return { country, t }
+    },
+    template: `
         <div>
           <c-select
             v-model="country"
@@ -131,20 +126,18 @@ export const WithCountries: Story = {
           </p>
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const Disabled: Story = {
-  render: () => {
-    return {
-      components: { CSelect },
-      setup() {
-        const { t } = useI18n()
-        const selected = ref('option1')
-        return { selected, t }
-      },
-      template: `
+  render: () => ({
+    components: { CSelect },
+    setup() {
+      const { t } = useI18n()
+      const selected = ref('option1')
+      return { selected, t }
+    },
+    template: `
         <c-select
           v-model="selected"
           name="disabled"
@@ -157,6 +150,5 @@ export const Disabled: Story = {
           <option value="option2">{{ t('translate.showcase.select.option_2') }}</option>
         </c-select>
       `,
-    }
-  },
+  }),
 }

@@ -1,13 +1,13 @@
 import type { StorybookConfig } from '@storybook/vue3-vite'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(ts|tsx|js|jsx)'],
-  addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    '@storybook/addon-docs',
-  ],
+  addons: ['@storybook/addon-links', '@storybook/addon-docs'],
+
   framework: {
     name: '@storybook/vue3-vite',
     options: {
@@ -18,29 +18,26 @@ const config: StorybookConfig = {
       },
     },
   },
-  viteFinal: async (config) => {
-    return {
-      ...config,
-      css: {
-        preprocessorOptions: {
-          scss: {
-            additionalData: `
-              @import "./src/styles/preprocessor/fonts.scss";
-              @import "./src/styles/preprocessor/break-points.scss";
-              @import "./src/styles/preprocessor/computeds.scss";
-              @import "./src/styles/preprocessor/utils.scss";
-              @import "./src/styles/preprocessor/default-colors.scss";
+
+  viteFinal: async config => ({
+    ...config,
+    css: {
+      preprocessorOptions: {
+        scss: {
+          loadPaths: [path.resolve(__dirname, '../src/styles/preprocessor')],
+          additionalData: `
+              @import "fonts";
+              @import "break-points";
+              @import "computeds";
+              @import "utils";
+              @import "default-colors";
             `,
-            quietDeps: true,
-            silenceDeprecations: ['legacy-js-api', 'import'],
-          },
+          quietDeps: true,
+          silenceDeprecations: ['legacy-js-api', 'import'],
         },
       },
-    }
-  },
-  docs: {
-    autodocs: 'tag',
-  },
+    },
+  }),
 }
 
 export default config

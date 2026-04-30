@@ -1,9 +1,9 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable no-param-reassign */
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function deepCopy<T>(source: T): T {
-  return Array.isArray(source)
+  return (Array.isArray(source)
     ? source.map(item => deepCopy(item))
     : source instanceof Date
       ? new Date(source.getTime())
@@ -17,5 +17,5 @@ export default function deepCopy<T>(source: T): T {
           o[prop] = deepCopy((source as { [key: string]: any })[prop])
           return o
         }, Object.create(Object.getPrototypeOf(source)))
-        : source as T
+        : source) as T
 }

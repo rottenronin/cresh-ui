@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 export default {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   convert (date: any): Date | undefined {

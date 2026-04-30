@@ -1,8 +1,0 @@
-doc
-mock-shop/**
-public
-nginx
-node_modules
-tests/mock-server/public
-tests/e2e/dist
-tests/e2e

@@ -431,7 +431,7 @@ function walkAndLocalize(root: ParentNode) {
     currentNode = walker.nextNode()
   }
 
-  root.querySelectorAll?.('[placeholder], [title], [aria-label]').forEach((element) => {
+  root.querySelectorAll?.('[placeholder], [title], [aria-label]').forEach(element => {
     localizeAttribute(element, 'placeholder')
     localizeAttribute(element, 'title')
     localizeAttribute(element, 'aria-label')

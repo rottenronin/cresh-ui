@@ -37,15 +37,14 @@ export const Default: Story = {
   args: {
     value: 'option1',
   },
-  render: () => {
-    return {
-      components: { CRadio },
-      setup() {
-        const { t } = useI18n()
-        const selected = ref('')
-        return { selected, t }
-      },
-      template: `
+  render: () => ({
+    components: { CRadio },
+    setup() {
+      const { t } = useI18n()
+      const selected = ref('')
+      return { selected, t }
+    },
+    template: `
         <div>
           <c-radio
             v-model="selected"
@@ -58,23 +57,21 @@ export const Default: Story = {
           </p>
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const Selected: Story = {
   args: {
     value: 'option1',
   },
-  render: () => {
-    return {
-      components: { CRadio },
-      setup() {
-        const { t } = useI18n()
-        const selected = ref('option1')
-        return { selected, t }
-      },
-      template: `
+  render: () => ({
+    components: { CRadio },
+    setup() {
+      const { t } = useI18n()
+      const selected = ref('option1')
+      return { selected, t }
+    },
+    template: `
         <c-radio
           v-model="selected"
           name="option-selected"
@@ -82,23 +79,21 @@ export const Selected: Story = {
           :label="t('translate.showcase.radio.option_1')"
         />
       `,
-    }
-  },
+  }),
 }
 
 export const Disabled: Story = {
   args: {
     value: 'disabled',
   },
-  render: () => {
-    return {
-      components: { CRadio },
-      setup() {
-        const { t } = useI18n()
-        const selected = ref('')
-        return { selected, t }
-      },
-      template: `
+  render: () => ({
+    components: { CRadio },
+    setup() {
+      const { t } = useI18n()
+      const selected = ref('')
+      return { selected, t }
+    },
+    template: `
         <c-radio
           v-model="selected"
           name="option-disabled"
@@ -107,20 +102,18 @@ export const Disabled: Story = {
           disabled
         />
       `,
-    }
-  },
+  }),
 }
 
 export const Group: Story = {
-  render: () => {
-    return {
-      components: { CRadio },
-      setup() {
-        const { t } = useI18n()
-        const selected = ref('opt1')
-        return { selected, t }
-      },
-      template: `
+  render: () => ({
+    components: { CRadio },
+    setup() {
+      const { t } = useI18n()
+      const selected = ref('opt1')
+      return { selected, t }
+    },
+    template: `
         <div>
           <div style="margin-bottom: 12px;">
             <c-radio
@@ -151,6 +144,5 @@ export const Group: Story = {
           </p>
         </div>
       `,
-    }
-  },
+  }),
 }

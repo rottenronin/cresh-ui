@@ -26,7 +26,7 @@ export const Basic: Story = {
   args: {
     selectedName: undefined,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CAccordion, CAccordionItem },
     setup() {
       const { t } = useI18n()
@@ -80,7 +80,7 @@ export const InitiallyOpen: Story = {
   args: {
     selectedName: 'item-2',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CAccordion, CAccordionItem },
     setup() {
       const { t } = useI18n()
@@ -127,7 +127,7 @@ export const WithCustomContent: Story = {
   args: {
     selectedName: undefined,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CAccordion, CAccordionItem },
     setup() {
       const { t } = useI18n()
@@ -181,7 +181,7 @@ export const Multiple: Story = {
   args: {
     selectedName: undefined,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CAccordion, CAccordionItem },
     setup() {
       const { t } = useI18n()

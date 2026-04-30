@@ -39,7 +39,7 @@ export const Basic: Story = {
   args: {
     title: 'Navigation Menu',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CMenu, CMenuItem },
     setup() {
       const { t } = useI18n()
@@ -82,7 +82,7 @@ export const WithCustomHeader: Story = {
   args: {
     title: 'Custom Menu',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CMenu, CMenuItem },
     setup() {
       const { t } = useI18n()
@@ -131,7 +131,7 @@ export const WithFooter: Story = {
   args: {
     title: 'Menu with Footer',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CMenu, CMenuItem },
     setup() {
       const { t } = useI18n()
@@ -181,7 +181,7 @@ export const Compact: Story = {
   args: {
     title: 'Compact Menu',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CMenu, CMenuItem },
     setup() {
       const { t } = useI18n()

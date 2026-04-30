@@ -34,7 +34,7 @@ export const Basic: Story = {
     selectable: true,
     selectedIndex: 0,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CVerticalStepper },
     setup() {
       const { t } = useI18n()
@@ -95,7 +95,7 @@ export const NonSelectable: Story = {
     selectable: false,
     selectedIndex: 1,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CVerticalStepper },
     setup() {
       const { t } = useI18n()
@@ -139,7 +139,7 @@ export const ManySteps: Story = {
     selectable: true,
     selectedIndex: 0,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CVerticalStepper },
     setup() {
       const { t } = useI18n()
@@ -182,7 +182,7 @@ export const WithDescription: Story = {
     selectable: true,
     selectedIndex: 0,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CVerticalStepper },
     setup() {
       const { t } = useI18n()
@@ -251,7 +251,7 @@ export const CompactLayout: Story = {
     selectable: true,
     selectedIndex: 2,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CVerticalStepper },
     setup() {
       const { t } = useI18n()

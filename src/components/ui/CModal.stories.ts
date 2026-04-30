@@ -49,7 +49,7 @@ export const Basic: Story = {
     width: 500,
     noFooter: false,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CModal },
     setup() {
       const { t } = useI18n()
@@ -81,7 +81,7 @@ export const NoFooter: Story = {
     width: 450,
     noFooter: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CModal },
     setup() {
       const { t } = useI18n()
@@ -111,7 +111,7 @@ export const Persistent: Story = {
     closable: true,
     width: 500,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CModal },
     setup() {
       const { t } = useI18n()
@@ -141,7 +141,7 @@ export const CustomWidth: Story = {
     width: 800,
     noFooter: false,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CModal },
     setup() {
       const { t } = useI18n()
@@ -170,7 +170,7 @@ export const WithSlots: Story = {
     closable: true,
     width: 500,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CModal },
     setup() {
       const { t } = useI18n()
@@ -200,7 +200,7 @@ export const CustomContent: Story = {
   args: {
     modelValue: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CModal },
     setup() {
       const { t } = useI18n()
@@ -242,7 +242,7 @@ export const WarningModal: Story = {
     closable: false,
     width: 400,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CModal },
     setup() {
       const { t } = useI18n()
@@ -270,7 +270,7 @@ export const SmallModal: Story = {
     modelValue: true,
     width: 350,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CModal },
     setup() {
       const { t } = useI18n()

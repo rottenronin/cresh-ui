@@ -45,7 +45,7 @@ export const Basic: Story = {
     approved: undefined,
     actions: ['read', 'download'],
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDocumentItem },
     setup() {
       const { t } = useI18n()
@@ -77,7 +77,7 @@ export const Approved: Story = {
     approved: true,
     actions: ['read', 'download'],
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDocumentItem },
     setup() {
       const { t } = useI18n()
@@ -107,7 +107,7 @@ export const NotApproved: Story = {
     approved: false,
     actions: ['read', 'validate', 'download'],
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDocumentItem },
     setup() {
       const { t } = useI18n()
@@ -138,7 +138,7 @@ export const Unavailable: Story = {
     approved: undefined,
     actions: ['upload'],
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDocumentItem },
     setup() {
       const { t } = useI18n()
@@ -167,7 +167,7 @@ export const AllActions: Story = {
     approved: true,
     actions: ['read', 'validate', 'download', 'upload'],
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDocumentItem },
     setup() {
       const { t } = useI18n()

@@ -28,7 +28,7 @@ export const StringError: Story = {
   args: {
     hideIcon: false,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CErrorMessage },
     setup() {
       const { t } = useI18n()
@@ -46,7 +46,7 @@ export const ArrayError: Story = {
   args: {
     hideIcon: false,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CErrorMessage },
     setup() {
       const { t } = useI18n()
@@ -69,7 +69,7 @@ export const ObjectError: Story = {
   args: {
     hideIcon: false,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CErrorMessage },
     setup() {
       const { t } = useI18n()
@@ -91,7 +91,7 @@ export const HideIcon: Story = {
   args: {
     hideIcon: true,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CErrorMessage },
     setup() {
       const { t } = useI18n()
@@ -109,7 +109,7 @@ export const CustomContent: Story = {
   args: {
     hideIcon: false,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CErrorMessage },
     setup() {
       const { t } = useI18n()
@@ -135,7 +135,7 @@ export const FormValidationErrors: Story = {
   args: {
     hideIcon: false,
   },
-  render: (args) => ({
+  render: args => ({
     components: { CErrorMessage },
     setup() {
       const { t } = useI18n()

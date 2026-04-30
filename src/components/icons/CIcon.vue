@@ -54,7 +54,7 @@ const iconsAndFilePaths = {
   'credit-card': () => import('./CreditCardIcon.vue'),
   cross: () => import('./CrossIcon.vue'),
   'cross-circle': () => import('./CrossCircleIcon.vue'),
-  'home': () => import('./ShopIcon.vue'),
+  home: () => import('./ShopIcon.vue'),
   download: () => import('./DownloadIcon.vue'),
   document: () => import('./DocumentIcon.vue'),
   'document-checked': () => import('./DocumentCheckedIcon.vue'),
@@ -108,7 +108,7 @@ const iconsAndFilePaths = {
   time: () => import('./TimeIcon.vue'),
   timeline: () => import('./TimelineIcon.vue'),
   transaction: () => import('./TransactionIcon.vue'),
-  'truck': () => import('./DownloadIcon.vue'),
+  truck: () => import('./DownloadIcon.vue'),
   triangle: () => import('./TriangleIcon.vue'),
   'triangle-down': () => import('./TriangleDownIcon.vue'),
   'triangle-left': () => import('./TriangleLeftIcon.vue'),
@@ -128,7 +128,7 @@ const iconsAndFilePaths = {
 
 onBeforeMount(() => {
   if (!props.name) {
-    console.warn(`[CIcon] Icon name is not provided`)
+    console.warn('[CIcon] Icon name is not provided')
     return
   }
   const item = Object.entries(iconsAndFilePaths).find(

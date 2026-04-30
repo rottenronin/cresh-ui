@@ -29,7 +29,6 @@ import baseIconProps from './base-icon-props'
 defineProps({
   ...baseIconProps,
 })
-/* eslint-disable max-len */
-/* eslint-disable vue/max-len */
+
 const path = 'M11.5,25.5a2,2,0,0,1-1.41-.59l-5.5-5.5a2,2,0,0,1,2.83-2.83l4.09,4.09L24.59,7.59a2,2,0,0,1,2.83,2.83l-14.5,14.5A2,2,0,0,1,11.5,25.5Z'
 </script>

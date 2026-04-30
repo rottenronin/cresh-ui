@@ -43,7 +43,7 @@ export const Horizontal: Story = {
 }
 
 export const WithText: Story = {
-  render: (args) => ({
+  render: args => ({
     components: { CDivider },
     setup() {
       const { t } = useI18n()
@@ -63,7 +63,7 @@ export const Vertical: Story = {
   args: {
     direction: 'vertical',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDivider },
     setup() {
       const { t } = useI18n()

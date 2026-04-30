@@ -37,7 +37,7 @@ export const Default: Story = {
     dateRange: [],
     activator: 'date-filter',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDateRangeFilters },
     setup() {
       const { t } = useI18n()
@@ -79,7 +79,7 @@ export const WithRightContent: Story = {
     dateRange: [],
     activator: 'date-filter',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDateRangeFilters },
     setup() {
       const { t } = useI18n()
@@ -131,7 +131,7 @@ export const MonthToDate: Story = {
     dateRange: [],
     activator: 'date-filter',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDateRangeFilters },
     setup() {
       const { t } = useI18n()
@@ -172,7 +172,7 @@ export const YearToDate: Story = {
     dateRange: [],
     activator: 'date-filter',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDateRangeFilters },
     setup() {
       const { t } = useI18n()
@@ -213,7 +213,7 @@ export const Last90Days: Story = {
     dateRange: [],
     activator: 'date-filter',
   },
-  render: (args) => ({
+  render: args => ({
     components: { CDateRangeFilters },
     setup() {
       const { t } = useI18n()

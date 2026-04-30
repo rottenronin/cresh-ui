@@ -22,45 +22,44 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const LocalizationExample: Story = {
-  render: () => {
-    return {
-      components: {
-        CCheckbox,
-        CDatetimeInput,
-        CFileInput,
-        CInput,
-        CSelect,
-        CTextarea,
-      },
-      setup() {
-        const { t, locale } = useI18n()
-        const password = ref('')
-        const confirmPassword = ref('')
-        const selectedDate = ref('')
-        const uploadedFile = ref<File | undefined>()
-        const selectedCountry = ref('')
-        const acceptTerms = ref(false)
-        const notes = ref('')
-        const passwordMismatch = computed(
-          () => password.value.length > 0
+  render: () => ({
+    components: {
+      CCheckbox,
+      CDatetimeInput,
+      CFileInput,
+      CInput,
+      CSelect,
+      CTextarea,
+    },
+    setup() {
+      const { t, locale } = useI18n()
+      const password = ref('')
+      const confirmPassword = ref('')
+      const selectedDate = ref('')
+      const uploadedFile = ref<File | undefined>()
+      const selectedCountry = ref('')
+      const acceptTerms = ref(false)
+      const notes = ref('')
+      const passwordMismatch = computed(
+        () => password.value.length > 0
             && confirmPassword.value.length > 0
             && password.value !== confirmPassword.value,
-        )
+      )
 
-        return {
-          acceptTerms,
-          confirmPassword,
-          locale,
-          notes,
-          password,
-          passwordMismatch,
-          selectedCountry,
-          selectedDate,
-          t,
-          uploadedFile,
-        }
-      },
-      template: `
+      return {
+        acceptTerms,
+        confirmPassword,
+        locale,
+        notes,
+        password,
+        passwordMismatch,
+        selectedCountry,
+        selectedDate,
+        t,
+        uploadedFile,
+      }
+    },
+    template: `
         <div>
           <h2>{{ t('translate.showcase.language_switching.title') }} ({{ locale.toUpperCase() }})</h2>
           <p>{{ t('translate.showcase.language_switching.try_text') }}</p>
@@ -136,35 +135,33 @@ export const LocalizationExample: Story = {
           <div><strong>{{ t('translate.document.upload') }}</strong>: {{ uploadedFile?.name || t('translate.common.errors.no_data') }}</div>
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const CompactExamples: Story = {
-  render: () => {
-    return {
-      components: {
-        CCheckbox,
-        CInput,
-        CSelect,
-        CTextarea,
-      },
-      setup() {
-        const { t } = useI18n()
-        const email = ref('team@cresh-ui.dev')
-        const country = ref('fr')
-        const isChecked = ref(true)
-        const message = ref('')
+  render: () => ({
+    components: {
+      CCheckbox,
+      CInput,
+      CSelect,
+      CTextarea,
+    },
+    setup() {
+      const { t } = useI18n()
+      const email = ref('team@cresh-ui.dev')
+      const country = ref('fr')
+      const isChecked = ref(true)
+      const message = ref('')
 
-        return {
-          country,
-          email,
-          isChecked,
-          message,
-          t,
-        }
-      },
-      template: `
+      return {
+        country,
+        email,
+        isChecked,
+        message,
+        t,
+      }
+    },
+    template: `
         <div style="
           width: min(960px, 100%);
           display: grid;
@@ -224,32 +221,30 @@ export const CompactExamples: Story = {
           </div>
         </div>
       `,
-    }
-  },
+  }),
 }
 
 export const ValidationExamples: Story = {
-  render: () => {
-    return {
-      components: {
-        CDatetimeInput,
-        CInput,
-        CTextarea,
-      },
-      setup() {
-        const { t } = useI18n()
-        const password = ref('short')
-        const date = ref('13/99/2026')
-        const message = ref('Hi')
+  render: () => ({
+    components: {
+      CDatetimeInput,
+      CInput,
+      CTextarea,
+    },
+    setup() {
+      const { t } = useI18n()
+      const password = ref('short')
+      const date = ref('13/99/2026')
+      const message = ref('Hi')
 
-        return {
-          date,
-          message,
-          password,
-          t,
-        }
-      },
-      template: `
+      return {
+        date,
+        message,
+        password,
+        t,
+      }
+    },
+    template: `
         <div style="
           width: min(760px, 100%);
           display: grid;
@@ -288,6 +283,5 @@ export const ValidationExamples: Story = {
           />
         </div>
       `,
-    }
-  },
+  }),
 }
