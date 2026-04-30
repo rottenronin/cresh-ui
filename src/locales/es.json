@@ -139,7 +139,7 @@
         "step_one_label": "Paso 1",
         "step_one_text": "Elija el nombre del componente de icono en la galeria de abajo.",
         "step_two_label": "Paso 2",
-        "step_two_text": "Importe ese icono desde '@long2x/cresh-ui/icons'.",
+        "step_two_text": "Importe ese icono desde '{'@'}long2x/cresh-ui/icons'.",
         "step_three_label": "Paso 3",
         "step_three_text": "Renderice el componente en su template donde necesite el icono."
       },
@@ -494,7 +494,7 @@
         "full_name": "Nombre completo",
         "full_name_placeholder": "Juan Perez",
         "email": "Correo electronico",
-        "email_placeholder": "juan@example.com",
+        "email_placeholder": "juan{'@'}example.com",
         "role": "Rol",
         "role_placeholder": "Seleccione un rol",
         "submit": "Enviar",
@@ -723,7 +723,7 @@
         "full_name": "Nombre completo",
         "full_name_placeholder": "Juan Perez",
         "email": "Direccion de correo",
-        "email_placeholder": "juan@example.com",
+        "email_placeholder": "juan{'@'}example.com",
         "message": "Mensaje",
         "message_placeholder": "Su mensaje aqui..."
       },

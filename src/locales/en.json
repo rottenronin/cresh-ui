@@ -139,7 +139,7 @@
         "step_one_label": "Step 1",
         "step_one_text": "Choose an icon component name from the gallery below.",
         "step_two_label": "Step 2",
-        "step_two_text": "Import that icon from '@long2x/cresh-ui/icons'.",
+        "step_two_text": "Import that icon from '{'@'}long2x/cresh-ui/icons'.",
         "step_three_label": "Step 3",
         "step_three_text": "Render the component in your template wherever you need the icon."
       },
@@ -494,7 +494,7 @@
         "full_name": "Full Name",
         "full_name_placeholder": "John Doe",
         "email": "Email",
-        "email_placeholder": "john@example.com",
+        "email_placeholder": "john{'@'}example.com",
         "role": "Role",
         "role_placeholder": "Select role",
         "submit": "Submit",
@@ -723,7 +723,7 @@
         "full_name": "Full Name",
         "full_name_placeholder": "John Doe",
         "email": "Email Address",
-        "email_placeholder": "john@example.com",
+        "email_placeholder": "john{'@'}example.com",
         "message": "Message",
         "message_placeholder": "Your message here..."
       },

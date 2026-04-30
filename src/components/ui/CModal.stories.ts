@@ -10,6 +10,12 @@ const meta = {
     layout: 'fullscreen',
   },
   tags: ['autodocs'],
+  args: {
+    // In Storybook docs all stories render at once; disabling teleport
+    // keeps each modal inside its own preview container instead of
+    // stacking every backdrop on document.body.
+    teleport: false,
+  },
   argTypes: {
     modelValue: {
       control: { type: 'boolean' },
@@ -58,6 +64,7 @@ export const Basic: Story = {
     },
     template: `
       <c-modal
+        :teleport="args.teleport"
         v-model="isOpen"
         :title="args.title ?? t('translate.showcase.modal.basic.title')"
         :persistent="args.persistent"
@@ -90,6 +97,7 @@ export const NoFooter: Story = {
     },
     template: `
       <c-modal
+        :teleport="args.teleport"
         v-model="isOpen"
         v-bind="args"
         :title="args.title ?? t('translate.showcase.modal.no_footer.title')"
@@ -120,6 +128,7 @@ export const Persistent: Story = {
     },
     template: `
       <c-modal
+        :teleport="args.teleport"
         v-model="isOpen"
         v-bind="args"
         :title="args.title ?? t('translate.showcase.modal.persistent.title')"
@@ -150,6 +159,7 @@ export const CustomWidth: Story = {
     },
     template: `
       <c-modal
+        :teleport="args.teleport"
         v-model="isOpen"
         v-bind="args"
         :title="args.title ?? 'Wide Modal'"
@@ -179,6 +189,7 @@ export const WithSlots: Story = {
     },
     template: `
       <c-modal
+        :teleport="args.teleport"
         v-model="isOpen"
         v-bind="args"
         :title="args.title ?? 'Modal with Slots'"
@@ -209,6 +220,7 @@ export const CustomContent: Story = {
     },
     template: `
       <c-modal
+        :teleport="args.teleport"
         v-model="isOpen"
         v-bind="args"
         :title="args.title ?? 'Custom Content Modal'"
@@ -251,6 +263,7 @@ export const WarningModal: Story = {
     },
     template: `
       <c-modal
+        :teleport="args.teleport"
         v-model="isOpen"
         v-bind="args"
         :title="args.title ?? 'Warning'"
@@ -279,6 +292,7 @@ export const SmallModal: Story = {
     },
     template: `
       <c-modal
+        :teleport="args.teleport"
         v-model="isOpen"
         v-bind="args"
         :title="args.title ?? 'Compact Modal'"

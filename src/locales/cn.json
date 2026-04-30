@@ -139,7 +139,7 @@
         "step_one_label": "步骤 1",
         "step_one_text": "先从下面的画廊中找到你要使用的图标组件名称。",
         "step_two_label": "步骤 2",
-        "step_two_text": "从 '@long2x/cresh-ui/icons' 导入该图标。",
+        "step_two_text": "从 '{'@'}long2x/cresh-ui/icons' 导入该图标。",
         "step_three_label": "步骤 3",
         "step_three_text": "在需要显示图标的位置直接渲染这个组件。"
       },
@@ -494,7 +494,7 @@
         "full_name": "姓名",
         "full_name_placeholder": "张三",
         "email": "电子邮箱",
-        "email_placeholder": "zhangsan@example.com",
+        "email_placeholder": "zhangsan{'@'}example.com",
         "role": "角色",
         "role_placeholder": "选择角色",
         "submit": "提交",
@@ -723,7 +723,7 @@
         "full_name": "姓名",
         "full_name_placeholder": "张三",
         "email": "电子邮箱地址",
-        "email_placeholder": "zhangsan@example.com",
+        "email_placeholder": "zhangsan{'@'}example.com",
         "message": "消息",
         "message_placeholder": "在这里输入您的消息..."
       },
