@@ -8,7 +8,7 @@
   >
     <label
       v-if="label && bordered"
-      :for="id"
+      :for="textareaId"
       class="c-form-control-label"
     >
       {{ label }}
@@ -31,12 +31,15 @@
       :maxlength="maxLength"
       :minlength="minLength"
       :placeholder="placeholder"
+      :aria-invalid="hasError || undefined"
+      :aria-describedby="hasError ? errorId : undefined"
+      :aria-required="required || undefined"
       @input="onInput"
       @blur="onBlur"
     />
     <label
       v-if="label && !bordered"
-      :for="id"
+      :for="textareaId"
       class="c-form-control-label"
     >
       {{ label }}
@@ -50,7 +53,9 @@
     <template v-else>
       <div
         v-if="hasError"
+        :id="errorId"
         class="error-message"
+        role="alert"
       >
         {{ error }}
       </div>
@@ -65,6 +70,7 @@ import {
 } from 'vue'
 
 import baseProps from './base-control-props'
+import { useFormControl } from '../../composables/useFormControl'
 
 const props = defineProps({
   ...baseProps,
@@ -108,6 +114,13 @@ const props = defineProps({
 const slots = useSlots()
 const emit = defineEmits(['update:modelValue', 'blur'])
 
+const {
+  inputId: textareaId,
+  errorId,
+  hasError,
+  hasValueOrPlaceholder,
+} = useFormControl(props, 'textarea')
+
 const onBlur = async () => {
   emit('blur')
 }
@@ -119,22 +132,11 @@ function onInput (e: Event): void {
   }
 }
 
-const hasError = computed(
-  () => !!props.errorMessage,
-)
-
 const error = computed(
   () => props.errorMessage,
 )
 
-const hasPlaceholder = computed(() => !!props.placeholder)
 const hasDefaultSlot = computed(() => !!slots.default)
-const hasValue = computed(() => !!props.modelValue)
-
-const hasValueOrPlaceholder = computed(
-  () => !!(hasValue.value || hasPlaceholder.value),
-)
-
 </script>
 
 <style lang="scss">

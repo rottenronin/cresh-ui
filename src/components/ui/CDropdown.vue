@@ -9,7 +9,18 @@
     <div
       ref="triggerRef"
       class="dropdown-trigger"
+      role="button"
+      tabindex="0"
+      :aria-haspopup="items && items.length > 0 ? 'listbox' : 'menu'"
+      :aria-expanded="!!modelValue"
+      :aria-controls="listId"
+      :aria-activedescendant="
+        modelValue && items && items.length > 0
+          ? `${listId}-option-${highlightedIndex}`
+          : undefined
+      "
       @click.prevent.stop="onTriggerClick"
+      @keydown="onTriggerKeydown"
     >
       <div
         v-if="hasDefaultSlot"
@@ -59,15 +70,24 @@
         ref="dropdownRef"
         class="dropdown-list"
       >
-        <ul>
+        <ul
+          :id="listId"
+          role="listbox"
+          tabindex="-1"
+        >
           <li
             v-for="(item, index) of items"
+            :id="`${listId}-option-${index}`"
             :key="`item-i${index}`"
+            role="option"
+            :aria-selected="selectedItemIndex === index"
             class="list-item"
             :class="{
-              selected: selectedItemIndex === index
+              selected: selectedItemIndex === index,
+              highlighted: highlightedIndex === index,
             }"
             @click.prevent.stop="() => onItemClick(item, index)"
+            @mousemove="highlightedIndex = index"
           >
             {{ item.key }}
           </li>
@@ -79,7 +99,9 @@
         <div
           v-show="modelValue"
           ref="dropdownRef"
+          :id="listId"
           class="dropdown-list"
+          role="menu"
         >
           <slot name="content" />
         </div>
@@ -97,6 +119,7 @@ import {
   onMounted,
   onBeforeUnmount,
   useSlots,
+  getCurrentInstance,
   PropType,
 } from 'vue'
 
@@ -136,11 +159,17 @@ const props = defineProps({
 
 const selectedItemIndex = ref(0)
 
+const highlightedIndex = ref(0)
+
 const mouseHoverTimer = ref(0)
 
 const mouseOutTimer = ref(0)
 
 const slots = useSlots()
+
+const instance = getCurrentInstance()
+
+const listId = computed(() => `c-dropdown-${instance?.uid ?? 'list'}`)
 
 const selectedItem = computed(() => {
   if (props.items) {
@@ -237,9 +266,21 @@ const resolvePlacement = (): void => {
 }
 
 onBeforeUnmount(() => {
-  if (props.hovered && triggerRef.value) {
-    const triggerElement = triggerRef.value as HTMLElement
-    triggerElement.removeEventListener('mouseenter', onMouseOver)
+  if (mouseHoverTimer.value) {
+    clearTimeout(mouseHoverTimer.value)
+    mouseHoverTimer.value = 0
+  }
+  if (mouseOutTimer.value) {
+    clearTimeout(mouseOutTimer.value)
+    mouseOutTimer.value = 0
+  }
+  document.removeEventListener('mousedown', onMouseDown)
+  if (props.hovered) {
+    document.removeEventListener('mousemove', onMouseMove)
+    if (triggerRef.value) {
+      const triggerElement = triggerRef.value as HTMLElement
+      triggerElement.removeEventListener('mouseenter', onMouseOver)
+    }
   }
 })
 
@@ -285,6 +326,65 @@ const onItemClick = (item: {
   emit('select', item)
   emit('update:modelValue', false)
   selectedItemIndex.value = index
+}
+
+function onTriggerKeydown (event: KeyboardEvent): void {
+  const hasItems = !!props.items && props.items.length > 0
+
+  if (!props.modelValue) {
+    if (
+      event.key === 'Enter'
+      || event.key === ' '
+      || event.key === 'ArrowDown'
+      || event.key === 'ArrowUp'
+    ) {
+      event.preventDefault()
+      emit('update:modelValue', true)
+      if (hasItems) {
+        highlightedIndex.value = selectedItemIndex.value
+      }
+    }
+    return
+  }
+
+  if (event.key === 'Escape' || event.key === 'Tab') {
+    if (event.key === 'Escape') event.preventDefault()
+    emit('update:modelValue', false)
+    return
+  }
+
+  if (!hasItems) return
+
+  const lastIndex = props.items.length - 1
+
+  switch (event.key) {
+    case 'ArrowDown':
+      event.preventDefault()
+      highlightedIndex.value = highlightedIndex.value >= lastIndex
+        ? 0
+        : highlightedIndex.value + 1
+      break
+    case 'ArrowUp':
+      event.preventDefault()
+      highlightedIndex.value = highlightedIndex.value <= 0
+        ? lastIndex
+        : highlightedIndex.value - 1
+      break
+    case 'Home':
+      event.preventDefault()
+      highlightedIndex.value = 0
+      break
+    case 'End':
+      event.preventDefault()
+      highlightedIndex.value = lastIndex
+      break
+    case 'Enter':
+    case ' ':
+      event.preventDefault()
+      onItemClick(props.items[highlightedIndex.value], highlightedIndex.value)
+      break
+    default:
+  }
 }
 
 const hasDefaultSlot = computed(() => !!slots.default)

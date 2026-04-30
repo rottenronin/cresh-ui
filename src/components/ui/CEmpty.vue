@@ -22,7 +22,7 @@
           <slot name="content" />
         </template>
         <template v-else>
-          <p>{{ message }}</p>
+          <p>{{ displayMessage }}</p>
         </template>
       </div>
     </template>
@@ -31,12 +31,13 @@
 
 <script lang="ts" setup>
 import { useSlots, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import i18n from '../../plugins/i18n.plugin'
 
 import CIcon from '../icons/CIcon.vue'
 
-defineProps({
+const props = defineProps({
   icon: {
     type: String,
     required: false,
@@ -45,11 +46,24 @@ defineProps({
   message: {
     type: String,
     required: false,
-    default: i18n.global.t('translate.common.errors.no_data'),
+    default: undefined,
   },
 })
 
 const slots = useSlots()
+
+// Use composable when available (reactive to locale changes), fall back to plugin instance.
+const t = (() => {
+  try {
+    return useI18n().t
+  } catch {
+    return i18n.global.t
+  }
+})()
+
+const displayMessage = computed(
+  () => props.message ?? t('translate.common.errors.no_data'),
+)
 
 const hasDefaultSlot = computed(() => !!slots.default)
 

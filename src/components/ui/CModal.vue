@@ -1,8 +1,12 @@
 <template>
-  <div
-    v-if="modelValue"
-    class="c-modal-wrapper"
+  <Teleport
+    :to="teleportTarget"
+    :disabled="!teleport"
   >
+    <div
+      v-if="modelValue"
+      class="c-modal-wrapper"
+    >
     <div
       class="mask"
       @click.prevent.stop="onClickOutside"
@@ -40,7 +44,7 @@
             ref="closeButtonRef"
             type="button"
             class="close-btn"
-            :aria-label="cancelText"
+            :aria-label="cancelLabel"
             @click.prevent.stop="onClose"
             @mouseover="closeBtnColor = '#400EC9'"
             @mouseleave="closeBtnColor = 'grey'"
@@ -67,20 +71,21 @@
               color="default"
               @click="onClose"
             >
-              {{ cancelText }}
+              {{ cancelLabel }}
             </CButton>
             <CButton
               color="primary"
               class="ok-btn"
               @click="onOk"
             >
-              {{ okText }}
+              {{ okLabel }}
             </CButton>
           </div>
         </template>
       </template>
     </div>
-  </div>
+    </div>
+  </Teleport>
 </template>
 
 <script lang="ts" setup>
@@ -92,6 +97,7 @@ import {
   useSlots,
   watch,
 } from 'vue'
+import { useI18n } from 'vue-i18n'
 import i18n from '../../plugins/i18n.plugin'
 import { uuidv4 } from '../../helpers'
 import CrossIcon from '../icons/CrossIcon.vue'
@@ -137,17 +143,36 @@ const props = defineProps({
   okText: {
     type: String,
     required: false,
-    default: i18n.global.t('translate.modal.ok'),
+    default: undefined,
   },
   cancelText: {
     type: String,
     required: false,
-    default: i18n.global.t('translate.modal.cancel'),
+    default: undefined,
   },
   noFooter: {
     type: Boolean,
     required: false,
     default: false,
+  },
+  /**
+   * Render the modal in a Teleport to escape parent overflow / z-index contexts.
+   * Defaults to true. Set to false when testing or when the modal should remain
+   * inside its parent for layout reasons.
+   */
+  teleport: {
+    type: Boolean,
+    required: false,
+    // eslint-disable-next-line vue/no-boolean-default
+    default: true,
+  },
+  /**
+   * Teleport target selector. Defaults to `body`.
+   */
+  teleportTarget: {
+    type: String,
+    required: false,
+    default: 'body',
   },
 })
 
@@ -160,6 +185,18 @@ const closeButtonRef = ref<HTMLButtonElement | null>(null)
 const previousActiveElement = ref<HTMLElement | null>(null)
 
 const slots = useSlots()
+
+// Use composable when available (reactive to locale changes), fall back to plugin instance.
+const t = (() => {
+  try {
+    return useI18n().t
+  } catch {
+    return i18n.global.t
+  }
+})()
+
+const okLabel = computed(() => props.okText ?? t('translate.modal.ok'))
+const cancelLabel = computed(() => props.cancelText ?? t('translate.modal.cancel'))
 
 const hasHeaderSlot = computed(() => !!slots.header)
 
@@ -295,9 +332,21 @@ function onKeydown (event: KeyboardEvent) {
   }
 }
 
+function onDocumentEscape (event: KeyboardEvent) {
+  if (event.key !== 'Escape') return
+  if (!props.closable || props.persistent) return
+  // If focus is already inside the modal, onKeydown handles it.
+  if (modalRef.value?.contains(document.activeElement)) return
+  event.preventDefault()
+  onClose()
+}
+
 watch(() => props.modelValue, (val: boolean) => {
   if (val) {
     previousActiveElement.value = document.activeElement as HTMLElement | null
+    document.addEventListener('keydown', onDocumentEscape)
+  } else {
+    document.removeEventListener('keydown', onDocumentEscape)
   }
 
   window.setTimeout(() => {
@@ -313,6 +362,7 @@ watch(() => props.modelValue, (val: boolean) => {
 }, { immediate: true })
 
 onBeforeUnmount(() => {
+  document.removeEventListener('keydown', onDocumentEscape)
   restoreFocus()
 })
 </script>

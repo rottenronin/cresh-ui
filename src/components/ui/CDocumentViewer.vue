@@ -33,7 +33,7 @@
           class="left-file-nav"
           v-show="!hideLeftArrow"
           type="button"
-          aria-label="Previous document"
+          :aria-label="prevAriaLabel"
           @click.prevent.stop="onPrevDocument"
         >
           <CIcon
@@ -46,7 +46,7 @@
           class="right-file-nav"
           v-show="!hideRightArrow"
           type="button"
-          aria-label="Next document"
+          :aria-label="nextAriaLabel"
           @click.prevent.stop="onNextDocument"
         >
           <CIcon
@@ -102,6 +102,7 @@ import {
   reactive,
   watch,
 } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import type { CDocumentItemType } from '../../@types/cresh-ui'
 
@@ -157,6 +158,13 @@ const hasHeaderActionsSlot = computed(() => !!slots['header-actions'])
 const hasPreviewSlot = computed(() => !!slots.preview)
 const hasFooterSlot = computed(() => !!slots.footer)
 const previewRef = ref<HTMLDivElement | null>(null)
+
+const t = (() => {
+  try { return useI18n().t } catch { return i18n.global.t }
+})()
+
+const prevAriaLabel = computed(() => t('translate.common.aria.previous'))
+const nextAriaLabel = computed(() => t('translate.common.aria.next'))
 
 function onModalClose() {
   emits('update:modelValue', !props.modelValue)

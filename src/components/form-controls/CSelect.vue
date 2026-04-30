@@ -34,6 +34,9 @@
         :required="required"
         :autocomplete="autocomplete"
         :value="modelValue"
+        :aria-invalid="hasError || undefined"
+        :aria-describedby="hasError ? errorId : undefined"
+        :aria-required="required || undefined"
         @mousedown="openDropdown"
         @touchstart="openDropdown"
         @focus="openDropdown"
@@ -110,7 +113,9 @@
     <template v-else>
       <div
         v-if="hasError"
+        :id="errorId"
         class="error-message"
+        role="alert"
       >
         {{ error }}
       </div>
@@ -121,7 +126,6 @@
 <script lang="ts" setup>
 import {
   computed,
-  getCurrentInstance,
   PropType,
   ref,
   useSlots,
@@ -131,6 +135,7 @@ import ChevronDownIcon from '../icons/ChevronDownIcon.vue'
 import ChevronUpIcon from '../icons/ChevronUpIcon.vue'
 
 import baseProps from './base-control-props'
+import { useFormControl } from '../../composables/useFormControl'
 import type { CSelectOption } from '../../@types'
 
 const props = defineProps({
@@ -149,7 +154,14 @@ const props = defineProps({
 
 const slots = useSlots()
 const isOpen = ref(false)
-const instance = getCurrentInstance()
+
+const {
+  inputId: selectId,
+  errorId,
+  hasError,
+  hasErrorSlot,
+  hasValueOrPlaceholder,
+} = useFormControl(props, 'select')
 
 const emit = defineEmits(['update:modelValue', 'blur'])
 
@@ -174,26 +186,11 @@ function onInput (e: Event): void {
   }
 }
 
-const hasError = computed(
-  () => !!props.errorMessage || false,
-)
-
 const error = computed(
   () => props.errorMessage,
 )
 
-const hasPlaceholder = computed(() => !!props.placeholder)
 const hasDefaultSlot = computed(() => !!slots.default)
-const hasErrorSlot = computed(() => !!slots.error)
-const hasValue = computed(() => !!props.modelValue)
-
-const hasValueOrPlaceholder = computed(
-  () => !!(hasValue.value || hasPlaceholder.value),
-)
-
-const selectId = computed(
-  () => props.id || `${props.name}-${instance?.uid ?? 'select'}`,
-)
 </script>
 
 <style lang="scss">

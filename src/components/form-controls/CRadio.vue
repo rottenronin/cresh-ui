@@ -13,6 +13,9 @@
       :value="radioValue"
       :checked="radioValue === props.modelValue"
       :disabled="disabled"
+      :aria-invalid="hasError || undefined"
+      :aria-describedby="hasError ? errorId : undefined"
+      :aria-required="required || undefined"
       @change="onChange"
       @blur="onBlur"
     >
@@ -33,7 +36,14 @@
         {{ label }}
       </label>
     </template>
-    <template v-if="hasErrorSlot">
+    <template v-if="$slots.error">
+      <slot
+        name="error"
+        :error-message="error"
+      />
+    </template>
+    <template v-else-if="$slots.errors">
+      <!-- @deprecated: use the `error` (singular) slot instead. -->
       <slot
         name="errors"
         :error-message="error"
@@ -42,7 +52,9 @@
     <template v-else>
       <div
         v-if="hasError"
+        :id="errorId"
         class="error-message"
+        role="alert"
       >
         {{ error }}
       </div>
@@ -53,10 +65,12 @@
 <script lang="ts" setup>
 import {
   computed,
+  onMounted,
   useSlots,
 } from 'vue'
 
 import baseProps from './base-control-props'
+import { useFormControl } from '../../composables/useFormControl'
 
 const props = defineProps({
   ...baseProps,
@@ -67,6 +81,10 @@ const props = defineProps({
       || value === null,
     required: false,
   },
+  /**
+   * @deprecated Use `value` instead. The `data` prop will be removed in the next
+   * major release.
+   */
   data: {
     validator: (value: unknown) => typeof value === 'number'
       || typeof value === 'string'
@@ -76,21 +94,29 @@ const props = defineProps({
   },
 })
 
+if (process.env.NODE_ENV !== 'production') {
+  onMounted(() => {
+    if (props.data !== undefined && props.value === undefined) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        '[cresh-ui] <CRadio> "data" prop is deprecated and will be removed in '
+        + 'a future major release. Use "value" instead.',
+      )
+    }
+  })
+}
+
 const slots = useSlots()
 
 const emit = defineEmits(['update:modelValue', 'blur'])
 
-const hasError = computed(
-  () => !!props.errorMessage,
-)
+const { hasError } = useFormControl(props, 'radio')
 
 const error = computed(
   () => props.errorMessage,
 )
 
 const hasDefaultSlot = computed(() => !!slots.default)
-
-const hasErrorSlot = computed(() => !!slots.error)
 
 const radioValue = computed(() => {
   if (props.value !== undefined) {
@@ -101,6 +127,8 @@ const radioValue = computed(() => {
 })
 
 const inputId = computed(() => props.id || `${props.name}-${String(radioValue.value)}`)
+
+const errorId = computed(() => `${inputId.value}-error`)
 
 const onChange = (): void => {
   if (props.disabled) {

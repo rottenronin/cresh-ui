@@ -11,8 +11,8 @@
       <button
         v-if="closable"
         class="tag-close"
+        :aria-label="closeAriaLabel"
         @click="$emit('close')"
-        aria-label="Close tag"
       >
         ×
       </button>
@@ -28,16 +28,32 @@
 </template>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
+import { computed, PropType } from 'vue'
+import { useI18n } from 'vue-i18n'
+import i18n from '../../plugins/i18n.plugin'
 
-defineProps({
+export type CTagType =
+  | 'primary' | 'secondary' | 'tertiary'
+  | 'success' | 'warning' | 'error' | 'info' | 'default'
+
+const props = defineProps({
   color: {
     type: String,
     default: 'primary',
   },
   type: {
-    type: String,
+    type: String as PropType<CTagType>,
     default: 'primary',
+    validator: (value: string) => [
+      'primary',
+      'secondary',
+      'tertiary',
+      'success',
+      'warning',
+      'error',
+      'info',
+      'default',
+    ].includes(value),
   },
   textContent: {
     type: String,
@@ -52,12 +68,23 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  closeAriaLabel: {
+    type: String,
+    default: undefined,
+  },
 })
 
 defineEmits<{
   close: []
 }>()
 
+const t = (() => {
+  try { return useI18n().t } catch { return i18n.global.t }
+})()
+
+const closeAriaLabel = computed(
+  () => props.closeAriaLabel ?? t('translate.common.aria.close'),
+)
 </script>
 
 <style lang="scss">

@@ -37,7 +37,13 @@
       "file_type_error": "Solo se aceptan archivos de tipo {types}",
       "invalid_file_error": "El documento proporcionado parece estar corrupto y no se puede mostrar. Solicite al gerente de la tienda que lo vuelva a enviar."
     },
-    "all": "Todo"
+    "all": "Todo",
+    "aria": {
+      "close": "Cerrar",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "upload_zone": "Zona de carga de archivos"
+    }
   },
   "modal": {
     "ok": "Aceptar",

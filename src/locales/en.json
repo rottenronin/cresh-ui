@@ -37,7 +37,13 @@
       "file_type_error": "Only files of type {types} are accepted",
       "invalid_file_error": "The provided document appears to be corrupted and cannot be displayed. Please ask the store manager to resubmit it."
     },
-    "all": "All"
+    "all": "All",
+    "aria": {
+      "close": "Close",
+      "previous": "Previous",
+      "next": "Next",
+      "upload_zone": "File upload zone"
+    }
   },
   "modal": {
     "ok": "OK",

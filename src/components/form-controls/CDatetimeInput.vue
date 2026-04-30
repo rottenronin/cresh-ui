@@ -27,6 +27,9 @@
       :placeholder="placeholder"
       :required="required"
       :autocomplete="autocomplete"
+      :aria-invalid="hasError || undefined"
+      :aria-describedby="hasError ? errorId : undefined"
+      :aria-required="required || undefined"
       @keyup="onKeyPress"
       @blur="onBlur"
     >
@@ -36,7 +39,14 @@
     >
       {{ label }}
     </label>
-    <template v-if="hasErrorSlot">
+    <template v-if="$slots.error">
+      <slot
+        name="error"
+        :error-message="errorMessage"
+      />
+    </template>
+    <template v-else-if="$slots.errors">
+      <!-- @deprecated: use the `error` (singular) slot instead. -->
       <slot
         name="errors"
         :error-message="errorMessage"
@@ -45,7 +55,9 @@
     <template v-else>
       <div
         v-if="hasError"
+        :id="errorId"
         class="error-message"
+        role="alert"
       >
         {{ errorMessageDisplayText }}
       </div>
@@ -67,6 +79,7 @@ import {
 } from 'vue'
 
 import baseProps from './base-control-props'
+import { useFormControl } from '../../composables/useFormControl'
 
 const props = defineProps({
   ...baseProps,
@@ -137,7 +150,11 @@ const errorMessageDisplayText = computed(() => {
   return props.errorMessage
 })
 
-const hasErrorSlot = computed(() => !!slots.error)
+const {
+  inputId,
+  errorId,
+  hasErrorSlot,
+} = useFormControl(props, 'datetime-input')
 
 async function onBlur (e: Event) {
   const elem = e.target as HTMLInputElement

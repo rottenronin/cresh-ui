@@ -37,7 +37,13 @@
       "file_type_error": "Nur Dateien vom Typ {types} werden akzeptiert",
       "invalid_file_error": "Das bereitgestellte Dokument scheint beschädigt zu sein und kann nicht angezeigt werden. Bitten Sie den Geschäftsführer, es erneut einzureichen."
     },
-    "all": "Alle"
+    "all": "Alle",
+    "aria": {
+      "close": "Schließen",
+      "previous": "Zurück",
+      "next": "Weiter",
+      "upload_zone": "Datei-Upload-Bereich"
+    }
   },
   "modal": {
     "ok": "OK",

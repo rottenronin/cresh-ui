@@ -37,7 +37,13 @@
       "file_type_error": "Sono accettati solo file di tipo {types}",
       "invalid_file_error": "Il documento fornito sembra essere corrotto e non può essere visualizzato. Chiedi al responsabile del negozio di inviarlo di nuovo."
     },
-    "all": "Tutto"
+    "all": "Tutto",
+    "aria": {
+      "close": "Chiudi",
+      "previous": "Precedente",
+      "next": "Successivo",
+      "upload_zone": "Area di caricamento file"
+    }
   },
   "modal": {
     "ok": "OK",

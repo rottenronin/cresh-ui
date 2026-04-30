@@ -37,7 +37,13 @@
       "file_type_error": "仅接受{types}类型的文件",
       "invalid_file_error": "提供的文档似乎已损坏，无法显示。请要求店铺经理重新提交。"
     },
-    "all": "全部"
+    "all": "全部",
+    "aria": {
+      "close": "关闭",
+      "previous": "上一个",
+      "next": "下一个",
+      "upload_zone": "文件上传区域"
+    }
   },
   "modal": {
     "ok": "确定",

@@ -31,6 +31,9 @@
       :required="required"
       :autocomplete="autocomplete"
       :placeholder="placeholder"
+      :aria-invalid="hasError || undefined"
+      :aria-describedby="hasError ? errorId : undefined"
+      :aria-required="required || undefined"
       @input="onInput"
       @blur="onBlur"
     >
@@ -77,7 +80,9 @@
     <template v-else>
       <div
         v-if="hasError"
+        :id="errorId"
         class="error-message"
+        role="alert"
       >
         {{
           errorMessageDisplayText
@@ -88,16 +93,13 @@
 </template>
 
 <script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import {
   computed,
-  getCurrentInstance,
   useSlots,
-  watch,
 } from 'vue'
 
 import baseProps from './base-control-props'
+import { useFormControl } from '../../composables/useFormControl'
 
 const props = defineProps({
   ...baseProps,
@@ -106,7 +108,14 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue', 'blur'])
 
 const slots = useSlots()
-const instance = getCurrentInstance()
+
+const {
+  inputId,
+  errorId,
+  hasError,
+  hasErrorSlot,
+  hasValueOrPlaceholder,
+} = useFormControl(props, 'input')
 
 const hasPrefixSlot = computed(() => !!slots.prefix)
 
@@ -114,31 +123,13 @@ const hasSuffixSlot = computed(() => !!slots.suffix)
 
 const hasProgressBarSlot = computed(() => !!slots.progressbar)
 
-const hasError = computed(
-  () => !!props.errorMessage,
-)
-
 const errorMessageDisplayText = computed(() => {
   if (!hasError.value) return ''
 
   return props.errorMessage
 })
 
-const hasPlaceholder = computed(() => !!props.placeholder)
-
 const hasLabelSlot = computed(() => !!slots.label)
-
-const hasErrorSlot = computed(() => !!slots.error)
-
-const hasValue = computed(() => !!props.modelValue)
-
-const hasValueOrPlaceholder = computed(
-  () => !!(hasValue.value || hasPlaceholder.value),
-)
-
-const inputId = computed(
-  () => props.id || `${props.name}-${instance?.uid ?? 'input'}`,
-)
 
 async function onBlur (e: Event) {
   if (e && e.target) {

@@ -3,12 +3,14 @@
     <input
         class="input"
         type="checkbox"
+        role="switch"
         :checked="modelValue"
         :disabled="disabled"
         :name="name"
+        :aria-label="!label ? ariaLabel : undefined"
         @change="onSwitchChange"
     >
-    <span class="switch" />
+    <span class="switch" aria-hidden="true" />
     <span v-if="label" class="label">{{ label }}</span>
   </label>
 </template>
@@ -19,6 +21,10 @@ defineProps({
   label: String,
   name: String,
   disabled: Boolean,
+  ariaLabel: {
+    type: String,
+    default: undefined,
+  },
 })
 
 const emit = defineEmits(['update:modelValue'])

@@ -37,7 +37,13 @@
       "no_data": "Pas de donnée",
       "invalid_file_error": "Le document fourni semble corrompu, impossible de l'afficher. Veuillez demander au responsable de l'enseigne de le resoumettre."
     },
-    "all": "Tout"
+    "all": "Tout",
+    "aria": {
+      "close": "Fermer",
+      "previous": "Précédent",
+      "next": "Suivant",
+      "upload_zone": "Zone de dépôt de fichier"
+    }
   },
   "modal": {
     "ok": "Valider",
