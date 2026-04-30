@@ -2,6 +2,132 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/creshpay/cresh-ui/compare/v5.18.0...v6.0.0) (2026-04-30)
+
+### ⚠ BREAKING CHANGES
+
+- **peerDependencies bumped to majors:**
+  - `vue-router` `^4.2.2` → `^5.0.6`
+  - `vue-i18n` `^9.14.5` → `^11.4.0`
+  - `vue` peer floor raised to `^3.5.33` (still 3.x)
+- **`@vuepic/vue-datepicker` 8 → 12** — the package no longer ships a default
+  export. Internal usage was migrated to
+  `import { VueDatePicker as Datepicker } from '@vuepic/vue-datepicker'`.
+  The `locale` prop now expects a `date-fns` `Locale` object instead of a string.
+- **Node.js `>=22`** is now required (`engines.node`).
+- **ESLint flat config** (`eslint.config.js`) replaces `.eslintrc.js`. Consumers
+  extending the legacy file path will need to migrate.
+
+### Features
+
+#### A11y & UX
+- Added unified `error` slot on every form-control (`CInput`, `CSelect`,
+  `CTextarea`, `CRadio`, `CDatetimeInput`, `CCheckbox`). Legacy `errors` slot
+  still works but logs a deprecation warning in development.
+- `CCheckbox` rebuilt with a visually-hidden native `<input>` inside its label
+  (proper screen-reader support + visible focus ring).
+- ARIA wiring on every form-control: `aria-invalid`, `aria-describedby`,
+  `aria-required`, error region with stable `id`.
+- `CDropdown` now exposes a full ARIA listbox/option pattern with keyboard
+  navigation (↑ ↓ Home End Enter Space Esc Tab) and `aria-activedescendant`.
+- `CSwitch` exposes `role="switch"` and an `aria-label` prop.
+- `CModal` listens for `Escape` at the document level when open and now uses
+  `<Teleport>` (configurable via the new `teleport` and `teleportTarget` props).
+- All hardcoded English `aria-label`s (`CTag`, `CDocumentViewer`,
+  `CFileUploadZone`) are translated through `vue-i18n`. Added
+  `common.aria.{close, previous, next, upload_zone}` to all 6 locales (en, fr,
+  de, es, it, cn).
+- `CFileUploadZone` file `<input>` is now `tabindex="-1" aria-hidden="true"`;
+  the visible button is the real keyboard trigger.
+
+#### API
+- New composable `useFormControl(props, fallbackName)` centralising
+  `inputId` / `errorId` / `hasError` / `hasErrorSlot` / `hasValueOrPlaceholder`.
+- `CButton` rewritten with `<script setup>` and a new API:
+  - `variant: 'solid' | 'outlined' | 'text'`
+  - `size: 'sm' | 'md' | 'lg'`
+  - The legacy `outlined`, `text` and `slim` props are still accepted but bridged
+    via internal `resolvedVariant` / `resolvedSize` computeds.
+- Added validators on `CTag.type` and `CButton.variant` / `CButton.size`.
+- New CSS variables (`--c-form-control-padding-top`,
+  `--c-form-control-error-reserve`, `--c-select-min-width`,
+  `--c-select-arrow-space`, `--c-select-width`) and a `.c-form-control--dense`
+  utility for tighter form layouts.
+
+### Bug Fixes
+
+- `CTabs` resize listener leak — the `add`/`remove` event listener pair used
+  two different anonymous arrow functions, so cleanup was a no-op. Replaced
+  with a named `onWindowResize` handler.
+- `CDropdown` cleared its scheduled timers and document listeners on
+  `onBeforeUnmount`.
+- `CModal`/`CEmpty` `okLabel`/`cancelLabel` defaults were evaluated at module
+  load time, freezing the i18n locale. Switched to `useI18n()` inside computeds
+  with a plugin fallback for non-setup contexts.
+- `CDatetimeInput` and `CTextarea` had broken `inputId` references — now
+  produced by `useFormControl`.
+- `CPhoneInput` `phoneInputId` was undefined — now provided by
+  `useFormControl(props, 'phone-input')`.
+
+### Dependency Upgrades
+
+#### Tier 1 — patches / minor
+- `vue` 3.5.30 → 3.5.33
+- `@vue/server-renderer` 3.5.30 → 3.5.33
+- `@vue/test-utils` 2.4.6 → 2.4.10
+- `sass` 1.98 → 1.99
+- `libphonenumber-js` 1.12.40 → 1.12.42
+- `@cypress/vue` 6.0.2 → 6.0.3
+
+#### Tier 2 — tooling majors
+- `typescript` 5.9 → 6.0
+- `vue-tsc` 1.8 → 3.2 (fixes Node 22+ incompat)
+- `jsdom` 23 → 29 (+ `@types/jsdom` 21 → 28)
+- `@types/node` 20 → 25
+- `@faker-js/faker` 8 → 10
+- `@vue/tsconfig` 0.4 → 0.9 (extension renamed to `tsconfig.dom.json`)
+
+#### Tier 3 — ESLint
+- `eslint` 8.57 → 10.2 (flat config via `@eslint/eslintrc` `FlatCompat`)
+- `@typescript-eslint/{parser,eslint-plugin}` 7 → 8
+- `eslint-plugin-vue` 9 → 10
+- `eslint-plugin-import` 2.27 → 2.32
+- New: `eslint-import-resolver-typescript`, `@eslint/compat`,
+  `@eslint/eslintrc`, `@eslint/js`, `globals`
+
+#### Tier 4 — Vite / Vitest
+- `vite` 5 → 8 (rolldown bundler)
+- `vitest` 1 → 4
+- `@vitejs/plugin-vue` 5 → 6
+- `@vitejs/plugin-vue-jsx` 4 → 5
+- `vite-plugin-dts` 4 → 5 (renamed `outputDir` → `outDir`)
+- `sass-loader` 14 → 16
+- `@cypress/vite-dev-server` 5 → 7
+
+#### Tier 5 — Storybook
+- `storybook` and `@storybook/*` 8.6 → 10.3 (codemod auto-migration).
+  `@storybook/manager-api` import path is now `storybook/manager-api`.
+
+#### Tier 6 — Cypress
+- `cypress` 13 → 15
+
+### Internal
+
+- **`defineModel` migration** — all 14 `v-model`-enabled components migrated
+  to the Vue 3.4+ `defineModel<T>()` macro:
+  `CCheckbox`, `CCreditCardInput`, `CDatetimeInput`, `CDocumentViewer`,
+  `CDrawer`, `CDropdown`, `CInput`, `CModal`, `CPhoneInput`, `CRadio`,
+  `CSelect`, `CSlider`, `CSwitch`, `CTextarea`. Public API unchanged
+  (props/events identical for consumers); `modelValue` removed from
+  `base-control-props.ts`. `useFormControl()` now accepts an optional 3rd
+  `modelRef` argument so `hasValueOrPlaceholder` keeps working.
+- `vite.config.ts` SCSS preprocessor migrated from `@import "./absolute/path"`
+  to `loadPaths` + bare imports (mirrored in `.storybook/main.ts`).
+- `tsconfig.app.json` extends the renamed `@vue/tsconfig/tsconfig.dom.json`.
+  Added `ignoreDeprecations: "6.0"` for `baseUrl` / `moduleResolution: "node"`.
+- `verbatimModuleSyntax` left disabled in the app tsconfig to avoid mass type-only
+  import refactors.
+
 ### [5.16.1](https://github.com/creshpay/cresh-ui/compare/v5.16.0...v5.16.1) (2023-12-14)
 
 
