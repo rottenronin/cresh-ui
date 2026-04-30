@@ -65,7 +65,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, useSlots, watch } from 'vue'
+import { computed, PropType, ref, useSlots, watch } from 'vue'
 
 const slots = useSlots()
 
@@ -73,11 +73,6 @@ const isLabelMinVisible = computed(() => !!slots.min)
 const isLabelMaxVisible = computed(() => !!slots.max)
 
 const props = defineProps({
-  modelValue: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
   min: {
     type: Number,
     required: true,
@@ -94,23 +89,22 @@ const props = defineProps({
     default: false,
   },
   markers: {
-    type: Array,
+    type: Array as PropType<Array<number | string>>,
     required: false,
     default: null,
   },
 })
 
-const emit = defineEmits<{(e: 'update:modelValue', modelValue: number): void
-}>()
+const model = defineModel<number>({ default: 0 })
 
-const changeEvent = ref<number>(props.modelValue)
+const changeEvent = ref<number>(model.value)
 
-watch(() => props.modelValue, (newValue: number) => {
+watch(() => model.value, (newValue: number) => {
   changeEvent.value = newValue
 })
 
 function onChangeHandle() {
-  emit('update:modelValue', Number(changeEvent.value))
+  model.value = Number(changeEvent.value)
 }
 
 </script>

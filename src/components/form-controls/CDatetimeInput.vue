@@ -66,8 +66,6 @@
 </template>
 
 <script lang="ts" setup>
-/* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import {
   computed,
@@ -88,28 +86,25 @@ const props = defineProps({
     required: false,
     default: undefined,
   },
-  // eslint-disable-next-line vue/require-default-prop
-  modelValue: {
-    type: String,
-    required: false,
-  },
 })
+
+const model = defineModel<string | undefined>()
 
 const slots = useSlots()
 
-const emit = defineEmits(['update:modelValue', 'blur'])
+const emit = defineEmits(['blur'])
 
 const dateString = ref<string>('')
 
 onMounted(() => {
-  if (props.modelValue) {
-    dateString.value = props.modelValue
+  if (model.value) {
+    dateString.value = model.value
   }
 })
 
 watch(() => dateString.value, (val: string) => {
   dateString.value = val
-  emit('update:modelValue', val)
+  model.value = val
 })
 
 function onKeyPress (e: KeyboardEvent): void {
@@ -137,8 +132,8 @@ function onKeyPress (e: KeyboardEvent): void {
 }
 
 onBeforeMount(() => {
-  if (props.modelValue) {
-    dateString.value = props.modelValue
+  if (model.value) {
+    dateString.value = model.value
   }
 })
 
@@ -154,7 +149,7 @@ const {
   inputId,
   errorId,
   hasErrorSlot,
-} = useFormControl(props, 'datetime-input')
+} = useFormControl(props, 'datetime-input', model)
 
 async function onBlur (e: Event) {
   const elem = e.target as HTMLInputElement
@@ -163,7 +158,7 @@ async function onBlur (e: Event) {
 }
 
 // watch props model value change, and update field's value
-watch(() => props.modelValue, (val: unknown) => {
+watch(() => model.value, (val: unknown) => {
   dateString.value = val as string
 })
 

@@ -22,11 +22,14 @@
       @error="onErrorHandle"
       @load="onImageLoad"
       class="c-image__img"
-    />
-    
+    >
+
     <!-- Loading skeleton -->
-    <div v-if="isLoading && lazy" class="c-image__skeleton" />
-    
+    <div
+v-if="isLoading && lazy"
+class="c-image__skeleton"
+/>
+
     <!-- Fallback error icon -->
     <div
       v-else-if="showDefaultErrorImage"
@@ -37,7 +40,10 @@
         color="tertiary"
         name="landscape"
       />
-      <span v-if="showErrorText" class="c-image__error-text">{{ errorText }}</span>
+      <span
+v-if="showErrorText"
+class="c-image__error-text"
+>{{ errorText }}</span>
     </div>
   </div>
 </template>

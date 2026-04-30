@@ -214,7 +214,7 @@ function onTabSelect (identifier: string): void {
 
   state.selectedIdentifier = tab?.props.identifier
 
-  emit('tab-change', selectedTabItem)
+  emit('tab-change', selectedTabItem.value)
 }
 
 function handleButtonClick() {

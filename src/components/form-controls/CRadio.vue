@@ -11,7 +11,7 @@
       type="radio"
       :name="name"
       :value="radioValue"
-      :checked="radioValue === props.modelValue"
+      :checked="radioValue === model"
       :disabled="disabled"
       :aria-invalid="hasError || undefined"
       :aria-describedby="hasError ? errorId : undefined"
@@ -108,9 +108,11 @@ if (process.env.NODE_ENV !== 'production') {
 
 const slots = useSlots()
 
-const emit = defineEmits(['update:modelValue', 'blur'])
+const model = defineModel<unknown>()
 
-const { hasError } = useFormControl(props, 'radio')
+const emit = defineEmits(['blur'])
+
+const { hasError } = useFormControl(props, 'radio', model)
 
 const error = computed(
   () => props.errorMessage,
@@ -134,7 +136,7 @@ const onChange = (): void => {
   if (props.disabled) {
     return
   }
-  emit('update:modelValue', radioValue.value)
+  model.value = radioValue.value
 }
 
 const onBlur = (event: Event): void => {

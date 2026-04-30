@@ -4,7 +4,7 @@
     :disabled="!teleport"
   >
     <div
-      v-if="modelValue"
+      v-if="model"
       class="c-modal-wrapper"
     >
     <div
@@ -109,11 +109,6 @@ const props = defineProps({
     required: false,
     default: () => uuidv4(),
   },
-  modelValue: {
-    type: Boolean,
-    required: true,
-    default: false,
-  },
   persistent: {
     type: Boolean,
     required: false,
@@ -176,7 +171,9 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['cancel', 'ok', 'update:modelValue'])
+const emit = defineEmits(['cancel', 'ok'])
+
+const model = defineModel<boolean>({ default: false })
 
 const isActive = ref(false)
 const closeBtnColor = ref('grey')
@@ -256,7 +253,7 @@ function getFocusableElements () {
 
   return Array.from(
     modalRef.value.querySelectorAll<HTMLElement>(selectors.join(',')),
-  ).filter((element) => {
+  ).filter(element => {
     if (element.getAttribute('aria-hidden') === 'true') {
       return false
     }
@@ -278,7 +275,7 @@ function restoreFocus () {
 }
 
 function onClose () {
-  emit('update:modelValue', false)
+  model.value = false
   emit('cancel')
   closeBtnColor.value = 'grey'
 }
@@ -292,7 +289,7 @@ function onClickOutside () {
     return
   }
 
-  emit('update:modelValue', false)
+  model.value = false
 }
 
 function trapFocus (event: KeyboardEvent) {
@@ -341,7 +338,7 @@ function onDocumentEscape (event: KeyboardEvent) {
   onClose()
 }
 
-watch(() => props.modelValue, (val: boolean) => {
+watch(() => model.value, (val: boolean) => {
   if (val) {
     previousActiveElement.value = document.activeElement as HTMLElement | null
     document.addEventListener('keydown', onDocumentEscape)

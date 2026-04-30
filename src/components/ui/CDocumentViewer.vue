@@ -3,7 +3,7 @@
   class="c-document-viewer"
   persistent
   no-footer
-  :model-value="modelValue"
+  :model-value="model"
   @cancel="onModalClose"
 >
   <div class="headline">
@@ -111,11 +111,6 @@ import CModal from './CModal.vue'
 import CIcon from '../icons/CIcon.vue'
 
 const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true,
-  },
-
   allowRefresh: {
     type: Boolean,
     required: false,
@@ -151,7 +146,9 @@ const state = reactive({
   initialized: false,
 })
 
-const emits = defineEmits(['update:modelValue', 'prev', 'next'])
+const model = defineModel<boolean>({ default: false })
+
+const emits = defineEmits(['prev', 'next'])
 const slots = useSlots()
 const hasLabelSlot = computed(() => !!slots.label)
 const hasHeaderActionsSlot = computed(() => !!slots['header-actions'])
@@ -167,7 +164,7 @@ const prevAriaLabel = computed(() => t('translate.common.aria.previous'))
 const nextAriaLabel = computed(() => t('translate.common.aria.next'))
 
 function onModalClose() {
-  emits('update:modelValue', !props.modelValue)
+  model.value = !model.value
 }
 
 function onPrevDocument() {

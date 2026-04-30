@@ -2,17 +2,20 @@ import {
   computed,
   getCurrentInstance,
   onMounted,
+  unref,
   useSlots,
   type ComputedRef,
+  type MaybeRef,
 } from 'vue'
 
 export interface BaseFormControlProps {
   id?: string
-  name: string
+  name?: string
   modelValue?: unknown
   placeholder?: string
   required?: boolean
   errorMessage?: string
+  [key: string]: unknown
 }
 
 export interface UseFormControlReturn {
@@ -36,8 +39,11 @@ export interface UseFormControlReturn {
  * `inputId` / `errorId` computeds.
  */
 export function useFormControl (
-  props: BaseFormControlProps,
+  props: Readonly<BaseFormControlProps>,
   fallbackName = 'control',
+  // Optional model ref (from `defineModel`) to bypass `props.modelValue`.
+  // When provided, `hasValueOrPlaceholder` reads from this ref instead.
+  modelRef?: MaybeRef<unknown>,
 ): UseFormControlReturn {
   const slots = useSlots()
   const instance = getCurrentInstance()
@@ -68,7 +74,10 @@ export function useFormControl (
   }
 
   const hasValueOrPlaceholder = computed(
-    () => !!props.modelValue || !!props.placeholder,
+    () => {
+      const value = modelRef !== undefined ? unref(modelRef) : props.modelValue
+      return !!value || !!props.placeholder
+    },
   )
 
   return {

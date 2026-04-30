@@ -16,7 +16,7 @@
         class="c-form-input c-checkbox-native"
         :name="name"
         :disabled="disabled"
-        :checked="!!modelValue"
+        :checked="!!model"
         :required="required"
         :autocomplete="autocomplete"
         :aria-invalid="hasError || undefined"
@@ -32,7 +32,7 @@
         aria-hidden="true"
       >
         <CheckIcon
-          v-if="modelValue"
+          v-if="model"
           name="check"
           :width="16"
           :height="16"
@@ -79,13 +79,8 @@ import CheckIcon from '../icons/CheckIcon.vue'
 import baseProps from './base-control-props'
 import { useFormControl } from '../../composables/useFormControl'
 
-const emit = defineEmits(['update:modelValue'])
 const props = defineProps({
   ...baseProps,
-  modelValue: {
-    type: Boolean,
-    required: false,
-  },
   noUppercase: {
     type: Boolean,
     required: false,
@@ -93,12 +88,14 @@ const props = defineProps({
   },
 })
 
+const model = defineModel<boolean>({ default: false })
+
 const {
   inputId: checkboxId,
   errorId,
   hasError,
   hasErrorSlot,
-} = useFormControl(props, 'checkbox')
+} = useFormControl(props, 'checkbox', model)
 
 const hasLabel = computed(() => !!props.label)
 
@@ -107,7 +104,7 @@ function onCheckHandle (event: Event) {
     return
   }
   const target = event.target as HTMLInputElement
-  emit('update:modelValue', target.checked)
+  model.value = target.checked
 }
 
 </script>

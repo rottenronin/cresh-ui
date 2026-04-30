@@ -80,7 +80,7 @@ const applyColor = computed(() => {
     height: 10px;
     overflow: hidden;
     border-radius: 9px;
-    
+
     .c-progress-bar-background {
       display: block;
       width: 100%;

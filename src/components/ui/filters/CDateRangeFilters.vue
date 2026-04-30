@@ -32,7 +32,7 @@
           hide-offset-dates
           :multi-static="false"
           :enable-time-picker="false"
-          locale="fr"
+          :locale="datepickerLocale"
           :format="formatDatePicker || ''"
           @open="onDatePickerOpen"
           @cleared="onDateFilterSelect({
@@ -74,7 +74,8 @@ import {
   computed,
   PropType,
 } from 'vue'
-import Datepicker from '@vuepic/vue-datepicker'
+import { VueDatePicker as Datepicker } from '@vuepic/vue-datepicker'
+import { fr as datepickerLocale } from 'date-fns/locale/fr'
 
 import type {
   CDropdownKeyValue,
@@ -104,7 +105,6 @@ const state = reactive<{
   initialized: false,
 })
 
-// eslint-disable-next-line vue/valid-define-props
 const props = defineProps({
   dateFilter: {
     type: String as PropType<DateRangeFilterType>,
@@ -250,7 +250,7 @@ function formatDatePicker([from, to]: Array<Date>) {
   if (!from || !to) {
     return ''
   }
-  // eslint-disable-next-line consistent-return
+
   return `${dateHelper.toLocaleDateString(from)} - ${dateHelper.toLocaleDateString(to)}`
 }
 

@@ -138,7 +138,7 @@ const emit = defineEmits(
   ],
 )
 
-function onSelectChange (value: number): void {
+function onSelectChange (value: string | number | boolean | undefined): void {
   emit('update:items-per-page', Number(value))
 }
 

@@ -22,10 +22,8 @@ const props = {
     type: String,
     required: false,
   },
-  modelValue: {
-    type: [String, Number, Boolean],
-    required: false,
-  },
+  // NB: `modelValue` was moved out of base-control-props in v6 in favour of
+  // per-component `defineModel<T>()` macros (Vue 3.4+).
   name: {
     type: String,
     required: true,

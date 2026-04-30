@@ -25,7 +25,7 @@
       }"
       :name="name"
       :disabled="disabled"
-      :value="props.modelValue"
+      :value="model"
       :required="required"
       :autocomplete="autocomplete"
       :placeholder="placeholder"
@@ -60,10 +60,11 @@ import { useSlots, computed } from 'vue'
 
 import baseProps from './base-control-props'
 
-const emit = defineEmits(['update:modelValue', 'blur'])
+const emit = defineEmits(['blur'])
 const props = defineProps({
   ...baseProps,
 })
+const model = defineModel<string | undefined>()
 const slots = useSlots()
 
 const hasErrorSlot = computed(() => !!slots.error)
@@ -72,7 +73,7 @@ const hasError = computed(() => !!props.errorMessage)
 
 const hasPlaceholder = computed(() => !!props.placeholder)
 
-const hasValue = computed(() => !!props.modelValue)
+const hasValue = computed(() => !!model.value)
 
 const hasValueOrPlaceholder = computed(
   () => !!(hasValue.value || hasPlaceholder.value),
@@ -85,7 +86,7 @@ function onInput (e: Event): void {
     const elementValue = target.value
       .replace(/[^0-9]/gi, '')
       .replace(/(.{4})/g, '$1 ').trim()
-    emit('update:modelValue', elementValue)
+    model.value = elementValue
   }
 }
 

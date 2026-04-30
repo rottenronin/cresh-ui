@@ -33,7 +33,7 @@
         :disabled="disabled"
         :required="required"
         :autocomplete="autocomplete"
-        :value="modelValue"
+        :value="model"
         :aria-invalid="hasError || undefined"
         :aria-describedby="hasError ? errorId : undefined"
         :aria-required="required || undefined"
@@ -73,14 +73,17 @@
             v-for="(option, index) in options"
             :key="`option-index-${index}`"
             :value="option.value"
-            :selected="(modelValue && modelValue === option.value)
-              || (!modelValue && option.isDefault)"
+            :selected="(model && model === option.value)
+              || (!model && option.isDefault)"
           >
             {{ option.name }}
           </option>
         </template>
       </select>
-      <transition name="select-arrow" mode="out-in">
+      <transition
+name="select-arrow"
+mode="out-in"
+>
         <ChevronUpIcon
           v-if="isOpen"
           key="chevron-up"
@@ -152,6 +155,8 @@ const props = defineProps({
   },
 })
 
+const model = defineModel<string | number | boolean | undefined>()
+
 const slots = useSlots()
 const isOpen = ref(false)
 
@@ -161,9 +166,9 @@ const {
   hasError,
   hasErrorSlot,
   hasValueOrPlaceholder,
-} = useFormControl(props, 'select')
+} = useFormControl(props, 'select', model)
 
-const emit = defineEmits(['update:modelValue', 'blur'])
+const emit = defineEmits(['blur'])
 
 function openDropdown (): void {
   isOpen.value = true
@@ -182,7 +187,7 @@ function onInput (e: Event): void {
   if (e && e.target) {
     const target = e.target as HTMLSelectElement
     closeDropdown()
-    emit('update:modelValue', target.value)
+    model.value = target.value
   }
 }
 

@@ -27,7 +27,7 @@
       }"
       :name="name"
       :disabled="disabled"
-      :value="props.modelValue"
+      :value="model"
       :required="required"
       :autocomplete="autocomplete"
       :placeholder="placeholder"
@@ -105,7 +105,9 @@ const props = defineProps({
   ...baseProps,
 })
 
-const emit = defineEmits(['update:modelValue', 'blur'])
+const model = defineModel<string | number | undefined>()
+
+const emit = defineEmits(['blur'])
 
 const slots = useSlots()
 
@@ -115,7 +117,7 @@ const {
   hasError,
   hasErrorSlot,
   hasValueOrPlaceholder,
-} = useFormControl(props, 'input')
+} = useFormControl(props, 'input', model)
 
 const hasPrefixSlot = computed(() => !!slots.prefix)
 
@@ -141,7 +143,7 @@ async function onBlur (e: Event) {
 function onInput (payload: Event): void {
   if (payload && payload.target) {
     const target = payload.target as HTMLTextAreaElement
-    emit('update:modelValue', target.value)
+    model.value = target.value
   }
 }
 </script>

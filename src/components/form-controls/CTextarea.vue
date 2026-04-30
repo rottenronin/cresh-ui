@@ -23,7 +23,7 @@
       }"
       :name="name"
       :disabled="disabled"
-      :value="modelValue"
+      :value="model"
       :required="required"
       :autocomplete="autocomplete"
       :cols="cols"
@@ -74,11 +74,6 @@ import { useFormControl } from '../../composables/useFormControl'
 
 const props = defineProps({
   ...baseProps,
-  // eslint-disable-next-line vue/require-default-prop
-  modelValue: {
-    type: String,
-    required: false,
-  },
   cols: {
     type: Number,
     required: false,
@@ -111,15 +106,17 @@ const props = defineProps({
   },
 })
 
+const model = defineModel<string | undefined>()
+
 const slots = useSlots()
-const emit = defineEmits(['update:modelValue', 'blur'])
+const emit = defineEmits(['blur'])
 
 const {
   inputId: textareaId,
   errorId,
   hasError,
   hasValueOrPlaceholder,
-} = useFormControl(props, 'textarea')
+} = useFormControl(props, 'textarea', model)
 
 const onBlur = async () => {
   emit('blur')
@@ -128,7 +125,7 @@ const onBlur = async () => {
 function onInput (e: Event): void {
   if (e && e.target) {
     const target = e.target as HTMLTextAreaElement
-    emit('update:modelValue', target.value)
+    model.value = target.value
   }
 }
 

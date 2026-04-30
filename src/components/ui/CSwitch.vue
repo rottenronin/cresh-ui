@@ -4,20 +4,27 @@
         class="input"
         type="checkbox"
         role="switch"
-        :checked="modelValue"
+        :checked="model"
         :disabled="disabled"
         :name="name"
         :aria-label="!label ? ariaLabel : undefined"
         @change="onSwitchChange"
     >
-    <span class="switch" aria-hidden="true" />
-    <span v-if="label" class="label">{{ label }}</span>
+    <span
+class="switch"
+aria-hidden="true"
+/>
+    <span
+v-if="label"
+class="label"
+>{{ label }}</span>
   </label>
 </template>
 
 <script setup lang="ts">
+const model = defineModel<boolean>({ default: false })
+
 defineProps({
-  modelValue: Boolean,
   label: String,
   name: String,
   disabled: Boolean,
@@ -27,11 +34,9 @@ defineProps({
   },
 })
 
-const emit = defineEmits(['update:modelValue'])
-
 const onSwitchChange = (change: Event) => {
   const target = change.target as HTMLInputElement
-  emit('update:modelValue', target.checked)
+  model.value = target.checked
 }
 
 </script>
