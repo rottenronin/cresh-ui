@@ -12,12 +12,13 @@
   >
     <label
       v-if="label && bordered"
+      :for="inputId"
     >
       {{ label }}
     </label>
 
     <input
-      :id="id"
+      :id="inputId"
       :type="type"
       :class="{
         'not-empty': hasValueOrPlaceholder,
@@ -26,10 +27,13 @@
       }"
       :name="name"
       :disabled="disabled"
-      :value="props.modelValue"
+      :value="model"
       :required="required"
       :autocomplete="autocomplete"
       :placeholder="placeholder"
+      :aria-invalid="hasError || undefined"
+      :aria-describedby="hasError ? errorId : undefined"
+      :aria-required="required || undefined"
       @input="onInput"
       @blur="onBlur"
     >
@@ -42,7 +46,7 @@
       <label
         v-if="label && !bordered"
         class="c-form-control-label"
-        :for="name"
+        :for="inputId"
       >
         {{ label }}
       </label>
@@ -76,7 +80,9 @@
     <template v-else>
       <div
         v-if="hasError"
+        :id="errorId"
         class="error-message"
+        role="alert"
       >
         {{
           errorMessageDisplayText
@@ -87,23 +93,31 @@
 </template>
 
 <script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import {
   computed,
   useSlots,
-  watch,
 } from 'vue'
 
 import baseProps from './base-control-props'
+import { useFormControl } from '../../composables/useFormControl'
 
 const props = defineProps({
   ...baseProps,
 })
 
-const emit = defineEmits(['update:modelValue', 'blur'])
+const model = defineModel<string | number | undefined>()
+
+const emit = defineEmits(['blur'])
 
 const slots = useSlots()
+
+const {
+  inputId,
+  errorId,
+  hasError,
+  hasErrorSlot,
+  hasValueOrPlaceholder,
+} = useFormControl(props, 'input', model)
 
 const hasPrefixSlot = computed(() => !!slots.prefix)
 
@@ -111,27 +125,13 @@ const hasSuffixSlot = computed(() => !!slots.suffix)
 
 const hasProgressBarSlot = computed(() => !!slots.progressbar)
 
-const hasError = computed(
-  () => !!props.errorMessage,
-)
-
 const errorMessageDisplayText = computed(() => {
   if (!hasError.value) return ''
 
   return props.errorMessage
 })
 
-const hasPlaceholder = computed(() => !!props.placeholder)
-
 const hasLabelSlot = computed(() => !!slots.label)
-
-const hasErrorSlot = computed(() => !!slots.error)
-
-const hasValue = computed(() => !!props.modelValue)
-
-const hasValueOrPlaceholder = computed(
-  () => !!(hasValue.value || hasPlaceholder.value),
-)
 
 async function onBlur (e: Event) {
   if (e && e.target) {
@@ -143,7 +143,7 @@ async function onBlur (e: Event) {
 function onInput (payload: Event): void {
   if (payload && payload.target) {
     const target = payload.target as HTMLTextAreaElement
-    emit('update:modelValue', target.value)
+    model.value = target.value
   }
 }
 </script>

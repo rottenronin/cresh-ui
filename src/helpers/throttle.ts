@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const throttle = (func: any, limit: number): any => {
   let inThrottle: boolean
 

@@ -22,7 +22,6 @@ export const $t = (key: string) => i18n.global.t(key)
 
 const uiComponentsStubs = {}
 
-// eslint-disable-next-line import/prefer-default-export
 export const mountCyComponent = (
   component: any,
   options: MountingOptions = {

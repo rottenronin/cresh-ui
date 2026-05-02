@@ -30,6 +30,7 @@
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "types": [
       "vite/client",

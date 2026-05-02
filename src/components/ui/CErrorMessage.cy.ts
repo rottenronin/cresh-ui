@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { faker } from '@faker-js/faker/locale/fr'
 import CErrorMessage from './CErrorMessage.vue'
 

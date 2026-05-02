@@ -1,0 +1,28 @@
+{
+  "docs": {
+    "home": {
+      "title": "Cresh UI",
+      "subtitle": "现代 Vue 3 组件库"
+    },
+    "getting_started": {
+      "title": "开始使用",
+      "description": "了解如何在您的项目中安装和使用 Cresh UI"
+    },
+    "components": {
+      "title": "组件",
+      "description": "探索所有可用组件"
+    },
+    "theme": {
+      "title": "设计系统",
+      "description": "颜色、排版和设计令牌"
+    },
+    "language_setup": {
+      "title": "国际化 (i18n)",
+      "description": "多语言支持和安装指南"
+    },
+    "i18n_stories": {
+      "title": "i18n 展示",
+      "description": "语言切换器的交互式演示"
+    }
+  }
+}

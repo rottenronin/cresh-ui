@@ -25,7 +25,6 @@ const removeTooltips = () => {
 }
 
 const toggle = (el: HTMLElement) => {
-  // eslint-disable-next-line no-param-reassign
   el.dataset.clicked = el.dataset.clicked === 'true'
     ? 'false' : 'true'
   removeTooltips()
@@ -35,7 +34,7 @@ const toggle = (el: HTMLElement) => {
 const copyToClipboardDirective = {
   beforeMount: (el: HTMLElement): void => {
     let timer: number | null = null
-    // eslint-disable-next-line no-param-reassign
+
     el.dataset.clicked = 'false'
 
     el.addEventListener('click', () => {
@@ -63,17 +62,16 @@ const copyToClipboardDirective = {
     })
     el.addEventListener('mouseleave', () => {
       removeTooltips()
-      // eslint-disable-next-line no-param-reassign
+
       el.dataset.clicked = 'false'
       clearTimeout(timer as number)
     })
   },
   unmounted: (el: HTMLElement): void => {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     el.removeEventListener('click', () => {})
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
+
     el.removeEventListener('mouseenter', () => {})
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
+
     el.removeEventListener('mouseleave', () => {})
   },
 }

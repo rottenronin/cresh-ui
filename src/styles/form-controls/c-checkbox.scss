@@ -3,6 +3,32 @@
 .c-form-control.c-checkbox {
   cursor: pointer;
 
+  .checkbox-content {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  // Visually hidden but kept accessible to screen readers + keyboard.
+  .c-checkbox-native {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  // Show focus ring on the visual when the native input is focused.
+  .c-checkbox-native:focus-visible + .c-checkbox-view {
+    outline: 2px solid rgb(var(--color-primary));
+    outline-offset: 2px;
+  }
+
   .c-checkbox-view {
     min-width: 16px;
     min-height: 16px;
@@ -11,6 +37,9 @@
     border: 2px solid;
     border-radius: 5px;
     border-color: rgb(var(--color-primary));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     &.invalid {
       border-color: rgb(var(--color-error));
     }
@@ -18,6 +47,9 @@
 
   &.disabled {
     cursor: initial !important;
+    .checkbox-content {
+      cursor: initial !important;
+    }
     .c-checkbox-view {
       border-color: rgb(var(--color-grey));
     }

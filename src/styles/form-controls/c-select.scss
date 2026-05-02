@@ -13,16 +13,28 @@
     &:invalid {
       color: #777777;
     }
+
+    width: 100%;
+    min-width: var(--c-select-min-width, 12rem);
+    padding-right: var(--c-select-arrow-space, 3rem);
   }
 
   .c-select-wrapper {
-    display: flex;
-    justify-content: center;
+    position: relative;
+    display: inline-flex;
     align-items: center;
+    width: var(--c-select-width, max-content);
+    min-width: var(--c-select-min-width, 12rem);
+    max-width: 100%;
+
     .arrow-icon {
       position: absolute;
-      right: 0;
+      right: 1rem;
+      top: 40%;
+      transform: translateY(-50%);
+      pointer-events: none;
     }
+
     &:focus, &.not-empty {
       & ~ .c-form-control-label{
         font-size: 0.875rem;
@@ -35,4 +47,21 @@
       }
     }
   }
+}
+
+.select-arrow-enter-active,
+.select-arrow-leave-active {
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.select-arrow-enter-from,
+.select-arrow-leave-to {
+  opacity: 0;
+  transform: translateY(-35%) scale(0.92);
+}
+
+.select-arrow-enter-to,
+.select-arrow-leave-from {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
 }

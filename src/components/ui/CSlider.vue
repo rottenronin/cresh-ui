@@ -65,7 +65,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, useSlots, watch } from 'vue'
+import { computed, PropType, ref, useSlots, watch } from 'vue'
 
 const slots = useSlots()
 
@@ -83,34 +83,28 @@ const props = defineProps({
     required: true,
     default: 0,
   },
-  value: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
   isDisabled: {
     type: Boolean,
     required: false,
     default: false,
   },
   markers: {
-    type: Array,
+    type: Array as PropType<Array<number | string>>,
     required: false,
     default: null,
   },
 })
 
-const emit = defineEmits<{(e: 'change-event', changeEvent: number): void
-}>()
+const model = defineModel<number>({ default: 0 })
 
-const changeEvent = ref<number>(props.value)
+const changeEvent = ref<number>(model.value)
 
-watch(() => props.value, (newValue: number) => {
+watch(() => model.value, (newValue: number) => {
   changeEvent.value = newValue
 })
 
 function onChangeHandle() {
-  emit('change-event', Number(changeEvent.value))
+  model.value = Number(changeEvent.value)
 }
 
 </script>
@@ -189,6 +183,7 @@ function onChangeHandle() {
         background: rgb(var(--color-tertiary));
         cursor: pointer;
         transform: scale(1.875);
+        margin: -11px 0;
       }
 
       &::-webkit-slider-thumb {
@@ -196,9 +191,8 @@ function onChangeHandle() {
         appearance: none;
         width: 16px;
         height: 16px;
-        margin: -15px 0;
+        margin: -11px 0;
         transform: scale(1.875);
-        top: 4px;
         border-radius: 30px;
         border: none;
         background: rgb(var(--color-tertiary));

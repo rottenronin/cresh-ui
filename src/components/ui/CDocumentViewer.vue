@@ -3,7 +3,7 @@
   class="c-document-viewer"
   persistent
   no-footer
-  :model-value="modelValue"
+  :model-value="model"
   @cancel="onModalClose"
 >
   <div class="headline">
@@ -29,27 +29,31 @@
       class="navigation-btns"
       v-if="!hideArrows"
       >
-        <div
+        <button
           class="left-file-nav"
           v-show="!hideLeftArrow"
+          type="button"
+          :aria-label="prevAriaLabel"
           @click.prevent.stop="onPrevDocument"
         >
           <CIcon
             name="chevron-left"
             color="white"
           />
-        </div>
+        </button>
         <div class="c-spacer" />
-        <div
+        <button
           class="right-file-nav"
           v-show="!hideRightArrow"
+          type="button"
+          :aria-label="nextAriaLabel"
           @click.prevent.stop="onNextDocument"
         >
           <CIcon
             name="chevron-right"
             color="white"
           />
-        </div>
+        </button>
     </div>
     <template v-if="hasPreviewSlot">
       <slot name="preview" />
@@ -98,6 +102,7 @@ import {
   reactive,
   watch,
 } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import type { CDocumentItemType } from '../../@types/cresh-ui'
 
@@ -106,11 +111,6 @@ import CModal from './CModal.vue'
 import CIcon from '../icons/CIcon.vue'
 
 const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true,
-  },
-
   allowRefresh: {
     type: Boolean,
     required: false,
@@ -146,7 +146,9 @@ const state = reactive({
   initialized: false,
 })
 
-const emits = defineEmits(['update:modelValue', 'prev', 'next'])
+const model = defineModel<boolean>({ default: false })
+
+const emits = defineEmits(['prev', 'next'])
 const slots = useSlots()
 const hasLabelSlot = computed(() => !!slots.label)
 const hasHeaderActionsSlot = computed(() => !!slots['header-actions'])
@@ -154,8 +156,15 @@ const hasPreviewSlot = computed(() => !!slots.preview)
 const hasFooterSlot = computed(() => !!slots.footer)
 const previewRef = ref<HTMLDivElement | null>(null)
 
+const t = (() => {
+  try { return useI18n().t } catch { return i18n.global.t }
+})()
+
+const prevAriaLabel = computed(() => t('translate.common.aria.previous'))
+const nextAriaLabel = computed(() => t('translate.common.aria.next'))
+
 function onModalClose() {
-  emits('update:modelValue', !props.modelValue)
+  model.value = !model.value
 }
 
 function onPrevDocument() {

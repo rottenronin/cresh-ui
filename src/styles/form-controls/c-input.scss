@@ -35,7 +35,10 @@
   }
   .prefix {
     position: absolute;
+    left: 0;
     top: 38px;
+    display: inline-flex;
+    align-items: center;
   }
 }
 
@@ -72,7 +75,33 @@
   }
   .suffix {
     position: absolute;
+    display: inline-flex;
+    align-items: center;
     top: 38px;
     right: 0;
+  }
+}
+
+.c-form-control.bordered.has-prefix {
+  input {
+    padding-left: 2.25rem;
+  }
+
+  .prefix {
+    left: 0.75rem;
+    top: calc(50% + 0.5rem);
+    transform: translateY(-50%);
+  }
+}
+
+.c-form-control.bordered.has-suffix {
+  input {
+    padding-right: 2.25rem;
+  }
+
+  .suffix {
+    right: 0.75rem;
+    top: calc(50% + 0.5rem);
+    transform: translateY(-50%);
   }
 }

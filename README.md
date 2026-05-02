@@ -35,3 +35,12 @@ documents is still in progress, you can launch the doc on local with
 ```bash
 $ npm run dev
 ```
+
+### API Conventions
+
+All Cresh UI components follow consistent API patterns to reduce learning curve. See [API_CONVENTIONS.md](./API_CONVENTIONS.md) for detailed guidelines on:
+- Form input components (v-model pattern)
+- Overlay & dialog components (visibility + actions)
+- File upload components (event-driven)
+- Navigation & action components (consistent event names)
+- Best practices for component design

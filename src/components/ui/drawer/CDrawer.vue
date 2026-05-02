@@ -1,8 +1,8 @@
 <template>
   <div
-    :class="`c-drawer ${placement} ${modelValue ? 'visible' : 'hide'}`"
+    :class="`c-drawer ${placement} ${model ? 'visible' : 'hide'}`"
     :style="{
-      minWidth: modelValue ? drawerWidth : '0px',
+      minWidth: model ? drawerWidth : '0px',
       minHeight: drawerHeight,
     }"
   >
@@ -22,12 +22,6 @@ import {
 import { debounce } from '../../../helpers'
 
 const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true,
-    // eslint-disable-next-line vue/no-boolean-default
-    default: true,
-  },
   width: {
     type: [Number, String],
     required: false,
@@ -55,7 +49,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['update:modelValue'])
+const model = defineModel<boolean>({ default: true })
 
 const drawerWidth = computed(() => {
   if (Number.isSafeInteger(props.width)) {
@@ -73,9 +67,9 @@ const drawerHeight = computed(() => {
 
 const onWindowResize = debounce((e: UIEvent) => {
   if ((e.target as Window).innerWidth <= props.mobileBreakingpoint) {
-    emit('update:modelValue', false)
+    model.value = false
   } else {
-    emit('update:modelValue', true)
+    model.value = true
   }
 }, 200)
 
@@ -83,9 +77,9 @@ onBeforeMount(() => {
   if (props.mobileBreakingpoint > -1) {
     window.addEventListener('resize', onWindowResize)
     if (window.innerWidth <= props.mobileBreakingpoint) {
-      emit('update:modelValue', false)
+      model.value = false
     } else {
-      emit('update:modelValue', true)
+      model.value = true
     }
   }
 })

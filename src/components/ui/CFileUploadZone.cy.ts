@@ -60,6 +60,14 @@ describe('<CFileUploadZone />', () => {
         contents: bigFile,
         fileName: 'file.pdf',
       }, { force: true })
+
+    cy.get('.c-alert.alert-error > p')
+      .should('contain', i18nPlugin.global.t(
+        'translate.common.errors.file_size_error_alt',
+        {
+          size: 2048,
+        },
+      ))
   })
 
   it('should upload file on drag and drop', () => {

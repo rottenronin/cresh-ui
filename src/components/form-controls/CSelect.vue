@@ -8,29 +8,43 @@
   >
     <label
       v-if="!hideLabel && bordered"
-      :for="props.id"
+      :for="selectId"
       class="c-form-control-label"
     >
       {{ label }}
     </label>
     <div
       class="c-select-wrapper"
-      :class="`select-field ${name ? name : ''}
-        ${hasValueOrPlaceholder ? 'not-empty' : ''}
-        ${hasError ? 'invalid' : 'valid'}
-      `"
+      :class="[
+        `select-field ${name ? name : ''}`,
+        hasValueOrPlaceholder ? 'not-empty' : '',
+        hasError ? 'invalid' : 'valid',
+        isOpen ? 'is-open' : '',
+      ]"
     >
       <select
-        :id="id"
-        :class="`select-field ${name ? name : ''}
-          ${hasValueOrPlaceholder ? 'not-empty' : ''}
-          ${hasError ? 'invalid' : 'valid'}
-        `"
+        :id="selectId"
+        :class="[
+          `select-field ${name ? name : ''}`,
+          hasValueOrPlaceholder ? 'not-empty' : '',
+          hasError ? 'invalid' : 'valid',
+        ]"
         :name="name"
         :disabled="disabled"
         :required="required"
         :autocomplete="autocomplete"
-        :value="modelValue"
+        :value="model"
+        :aria-invalid="hasError || undefined"
+        :aria-describedby="hasError ? errorId : undefined"
+        :aria-required="required || undefined"
+        @mousedown="openDropdown"
+        @touchstart="openDropdown"
+        @focus="openDropdown"
+        @keydown.down="openDropdown"
+        @keydown.up="openDropdown"
+        @keydown.enter="openDropdown"
+        @keydown.space="openDropdown"
+        @keydown.esc="closeDropdown"
         @change="onInput"
         @blur="onBlur"
       >
@@ -48,7 +62,6 @@
             {{ placeholder }}
           </option>
 
-          <!-- une option vide pour éviter le bug d'affichage sur ios -->
           <option
             v-else
             disabled
@@ -60,22 +73,36 @@
             v-for="(option, index) in options"
             :key="`option-index-${index}`"
             :value="option.value"
-            :selected="(modelValue && modelValue === option.value)
-              || (!modelValue && option.isDefault)"
+            :selected="(model && model === option.value)
+              || (!model && option.isDefault)"
           >
             {{ option.name }}
           </option>
         </template>
       </select>
-      <ChevronDownIcon
-        name="chevron-down"
-        color="primary"
-        class="arrow-icon"
-      />
+      <transition
+name="select-arrow"
+mode="out-in"
+>
+        <ChevronUpIcon
+          v-if="isOpen"
+          key="chevron-up"
+          name="chevron-up"
+          color="primary"
+          class="arrow-icon"
+        />
+        <ChevronDownIcon
+          v-else
+          key="chevron-down"
+          name="chevron-down"
+          color="primary"
+          class="arrow-icon"
+        />
+      </transition>
     </div>
     <label
       v-if="hideLabel === false && !bordered"
-      :for="id"
+      :for="selectId"
       class="c-form-control-label"
     >
       {{ label }}
@@ -89,7 +116,9 @@
     <template v-else>
       <div
         v-if="hasError"
+        :id="errorId"
         class="error-message"
+        role="alert"
       >
         {{ error }}
       </div>
@@ -101,12 +130,15 @@
 import {
   computed,
   PropType,
+  ref,
   useSlots,
 } from 'vue'
 
 import ChevronDownIcon from '../icons/ChevronDownIcon.vue'
+import ChevronUpIcon from '../icons/ChevronUpIcon.vue'
 
 import baseProps from './base-control-props'
+import { useFormControl } from '../../composables/useFormControl'
 import type { CSelectOption } from '../../@types'
 
 const props = defineProps({
@@ -123,37 +155,47 @@ const props = defineProps({
   },
 })
 
-const slots = useSlots()
+const model = defineModel<string | number | boolean | undefined>()
 
-const emit = defineEmits(['update:modelValue', 'blur'])
+const slots = useSlots()
+const isOpen = ref(false)
+
+const {
+  inputId: selectId,
+  errorId,
+  hasError,
+  hasErrorSlot,
+  hasValueOrPlaceholder,
+} = useFormControl(props, 'select', model)
+
+const emit = defineEmits(['blur'])
+
+function openDropdown (): void {
+  isOpen.value = true
+}
+
+function closeDropdown (): void {
+  isOpen.value = false
+}
 
 const onBlur = async () => {
+  closeDropdown()
   emit('blur')
 }
 
 function onInput (e: Event): void {
   if (e && e.target) {
     const target = e.target as HTMLSelectElement
-    emit('update:modelValue', target.value)
+    closeDropdown()
+    model.value = target.value
   }
 }
-
-const hasError = computed(
-  () => !!props.errorMessage || false,
-)
 
 const error = computed(
   () => props.errorMessage,
 )
 
-const hasPlaceholder = computed(() => !!props.placeholder)
 const hasDefaultSlot = computed(() => !!slots.default)
-const hasErrorSlot = computed(() => !!slots.error)
-const hasValue = computed(() => !!props.modelValue)
-
-const hasValueOrPlaceholder = computed(
-  () => !!(hasValue.value || hasPlaceholder.value),
-)
 </script>
 
 <style lang="scss">

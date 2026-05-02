@@ -38,7 +38,7 @@ const groupDatesByDays = (xLabels: Array<{
           month: 'short',
           timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         } as Intl.DateTimeFormatOptions) // MMM
-        // eslint-disable-next-line no-param-reassign
+
         xLabels[index].display = `${Number(day)} ${month}`
       }
     }
@@ -73,7 +73,7 @@ const groupDatesByYears = (xLabels: Array<{
       if (index > -1) {
         // add full year suffix
         const dateYear = firstDate.getFullYear()
-        // eslint-disable-next-line no-param-reassign
+
         xLabels[index].display = `${xLabels[index].display} ${dateYear}`
       }
     }

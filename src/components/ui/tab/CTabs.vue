@@ -214,7 +214,7 @@ function onTabSelect (identifier: string): void {
 
   state.selectedIdentifier = tab?.props.identifier
 
-  emit('tab-change', selectedTabItem)
+  emit('tab-change', selectedTabItem.value)
 }
 
 function handleButtonClick() {
@@ -273,10 +273,12 @@ provide('tab-update', (identifier: string) => {
   selectNextActiveTab()
 })
 
+function onWindowResize() {
+  isTabHeaderScrollable()
+}
+
 onMounted(() => {
-  window.addEventListener('resize', () => {
-    isTabHeaderScrollable()
-  })
+  window.addEventListener('resize', onWindowResize)
   const elems = defaultSlot.value ? defaultSlot.value() : undefined
 
   deepBuildTabs(elems)
@@ -292,9 +294,7 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  window.removeEventListener('resize', () => {
-    isTabHeaderScrollable()
-  })
+  window.removeEventListener('resize', onWindowResize)
 })
 
 provide('selected-tab-item', selectedTabItem)

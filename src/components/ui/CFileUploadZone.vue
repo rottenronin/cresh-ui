@@ -1,11 +1,13 @@
 <template>
-  <div
+  <button
     ref="cFileUploadZoneRef"
     class="c-file-upload-zone"
     :class="{
       dragging: state.draggingover,
     }"
-    :draggabl="true"
+    :draggable="true"
+    type="button"
+    :aria-label="uploadZoneLabel"
     @click.stop="onInputFileTrigger"
     @drop.prevent.stop="onFileDrop"
     @dragover.prevent.stop="onDragover"
@@ -46,10 +48,12 @@
     <input
       name="fileUploadZoneInput"
       type="file"
+      tabindex="-1"
+      aria-hidden="true"
       :accept="fileExtentions"
       @change="onInputFileChange"
     >
-  </div>
+  </button>
 </template>
 
 <script lang="ts" setup>
@@ -59,6 +63,7 @@ import {
   PropType,
   computed,
 } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import i18nPlugin from '../../plugins/i18n.plugin'
 
@@ -90,7 +95,20 @@ const props = defineProps({
     required: false,
     default: false,
   },
+  ariaLabel: {
+    type: String,
+    required: false,
+    default: undefined,
+  },
 })
+
+const t = (() => {
+  try { return useI18n().t } catch { return i18nPlugin.global.t }
+})()
+
+const uploadZoneLabel = computed(
+  () => props.ariaLabel ?? t('translate.common.aria.upload_zone'),
+)
 
 const state = reactive<{
   draggingover: boolean

@@ -35,7 +35,6 @@ const props = defineProps({
 
 const visible = ref(props.visible)
 
-// eslint-disable-next-line
 function toggleVisible (value = !visible.value): void {
   visible.value = value
 }

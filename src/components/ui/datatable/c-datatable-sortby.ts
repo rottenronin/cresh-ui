@@ -9,7 +9,6 @@ type params = {
   headers: DatatableHeaderItem[]
 }
 
-// eslint-disable-next-line class-methods-use-this
 function sortNumbers (
   a: number,
   b: number,
@@ -21,7 +20,6 @@ function sortNumbers (
   return b - a
 }
 
-// eslint-disable-next-line class-methods-use-this
 function sortDates (
   a: Date,
   b: Date,
@@ -33,7 +31,6 @@ function sortDates (
   return b.getDate() - a.getDate()
 }
 
-// eslint-disable-next-line class-methods-use-this
 function sortStrings (
   a: string,
   b: string,

@@ -14,11 +14,11 @@ $dropdown-selectedBackground: #9fa8da;
   display:flex;
   flex-direction: column;
   color:$form-label;
-  padding: 1.25rem 0 0 0;
+  padding: var(--c-form-control-padding-top, 1.25rem) 0 0 0;
   background: transparent;
 
   @include phone {
-    padding: 1rem 0 0 0 !important;
+    padding: var(--c-form-control-padding-top-mobile, 1rem) 0 0 0 !important;
   }
 
   &::after{
@@ -26,7 +26,7 @@ $dropdown-selectedBackground: #9fa8da;
     display:block;
     color: $form-field-invalid-foreground;
     font-size: 0.75rem;
-    padding-top: 0.9375rem;
+    padding-top: var(--c-form-control-error-reserve, 0.9375rem);
 
     @include phone {
       padding-top: 0rem;
@@ -141,4 +141,28 @@ $dropdown-selectedBackground: #9fa8da;
     background: transparent;
     box-sizing: border-box;
   }
+}
+
+// Dense / compact variant — useful for inline editors (datatable rows, filters bars).
+// Reduces vertical padding, removes the reserved error space and shrinks select min-width.
+.c-form-control--dense,
+.c-form-control--dense .c-form-control {
+  --c-form-control-padding-top: 0.5rem;
+  --c-form-control-padding-top-mobile: 0.5rem;
+  --c-form-control-error-reserve: 0rem;
+  --c-select-min-width: 0;
+  --c-select-arrow-space: 1.75rem;
+  --c-select-width: 100%;
+
+  &::after { display: none; }
+
+  input,
+  select,
+  textarea {
+    padding: 0.5rem 0;
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+
+  .c-form-control-label { display: none; }
 }

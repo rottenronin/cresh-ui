@@ -1,10 +1,12 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "vite.config.ts", "src/locales/fr.json", "src/locales/en.json", "index.d.ts"],
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "src/locales/fr.json", "src/locales/en.json", "index.d.ts"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "verbatimModuleSyntax": false,
     "paths": {
     }
   }

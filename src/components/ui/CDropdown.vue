@@ -2,14 +2,25 @@
   <div
     class="c-dropdown"
     :class="{
-      active: modelValue,
+      active: model,
       selected: !!selectedItem,
     }"
   >
     <div
       ref="triggerRef"
       class="dropdown-trigger"
+      role="button"
+      tabindex="0"
+      :aria-haspopup="items && items.length > 0 ? 'listbox' : 'menu'"
+      :aria-expanded="!!model"
+      :aria-controls="listId"
+      :aria-activedescendant="
+        model && items && items.length > 0
+          ? `${listId}-option-${highlightedIndex}`
+          : undefined
+      "
       @click.prevent.stop="onTriggerClick"
+      @keydown="onTriggerKeydown"
     >
       <div
         v-if="hasDefaultSlot"
@@ -21,7 +32,7 @@
       </div>
       <template v-if="showIcon">
         <template
-          v-if="hasUnactiveIconSlot && !modelValue"
+          v-if="hasUnactiveIconSlot && !model"
         >
           <slot
             name="unactive-icon"
@@ -29,7 +40,7 @@
         </template>
         <template v-else-if="!hasUnactiveIconSlot">
           <ChevronDownIcon
-            v-show="!modelValue"
+            v-show="!model"
             class="unactive-icon"
             color="primary"
             name="chevron-down"
@@ -37,7 +48,7 @@
         </template>
 
         <template
-          v-if="hasActiveIconSlot && modelValue"
+          v-if="hasActiveIconSlot && model"
         >
           <slot
             name="active-icon"
@@ -45,7 +56,7 @@
         </template>
         <template v-else-if="!hasActiveIconSlot">
           <ChevronUpIcon
-            v-show="modelValue"
+            v-show="model"
             class="active-icon"
             color="primary"
             name="chevron-up"
@@ -55,19 +66,28 @@
     </div>
     <template v-if="items && items.length > 0">
       <div
-        v-show="modelValue"
+        v-show="model"
         ref="dropdownRef"
         class="dropdown-list"
       >
-        <ul>
+        <ul
+          :id="listId"
+          role="listbox"
+          tabindex="-1"
+        >
           <li
             v-for="(item, index) of items"
+            :id="`${listId}-option-${index}`"
             :key="`item-i${index}`"
+            role="option"
+            :aria-selected="selectedItemIndex === index"
             class="list-item"
             :class="{
-              selected: selectedItemIndex === index
+              selected: selectedItemIndex === index,
+              highlighted: highlightedIndex === index,
             }"
             @click.prevent.stop="() => onItemClick(item, index)"
+            @mousemove="highlightedIndex = index"
           >
             {{ item.key }}
           </li>
@@ -77,9 +97,11 @@
     <template v-else>
       <template v-if="hasContentSlot">
         <div
-          v-show="modelValue"
+          v-show="model"
           ref="dropdownRef"
+          :id="listId"
           class="dropdown-list"
+          role="menu"
         >
           <slot name="content" />
         </div>
@@ -97,6 +119,7 @@ import {
   onMounted,
   onBeforeUnmount,
   useSlots,
+  getCurrentInstance,
   PropType,
 } from 'vue'
 
@@ -110,11 +133,6 @@ const props = defineProps({
     type: Array as PropType<Array<{ key: string; value: unknown }>>,
     required: false,
     default: () => [],
-  },
-  modelValue: {
-    type: Boolean,
-    required: true,
-    default: false,
   },
   hovered: {
     type: Boolean,
@@ -136,11 +154,17 @@ const props = defineProps({
 
 const selectedItemIndex = ref(0)
 
+const highlightedIndex = ref(0)
+
 const mouseHoverTimer = ref(0)
 
 const mouseOutTimer = ref(0)
 
 const slots = useSlots()
+
+const instance = getCurrentInstance()
+
+const listId = computed(() => `c-dropdown-${instance?.uid ?? 'list'}`)
 
 const selectedItem = computed(() => {
   if (props.items) {
@@ -165,20 +189,21 @@ onBeforeMount(() => {
   }
 })
 
-const emit = defineEmits(['update:modelValue', 'select'])
+const emit = defineEmits(['select'])
+
+const model = defineModel<boolean>({ default: false })
 
 const onMouseOver = (): void => {
   if (mouseHoverTimer.value) {
     clearTimeout(mouseHoverTimer.value)
   }
   mouseHoverTimer.value = window.setTimeout(() => {
-    if (!props.modelValue) {
-      emit('update:modelValue', true)
+    if (!model.value) {
+      model.value = true
     }
   }, 100)
 }
 
-// eslint-disable-next-line class-methods-use-this
 const onMouseDown = (event: MouseEvent): void => {
   if (!triggerRef.value || !dropdownRef.value) {
     return
@@ -189,12 +214,12 @@ const onMouseDown = (event: MouseEvent): void => {
   const triggerRect = triggerElement.getBoundingClientRect()
   const x = event.clientX
   if (x < listRect.left || x >= listRect.right) {
-    emit('update:modelValue', false)
+    model.value = false
     return
   }
   const y = event.clientY
   if (y < triggerRect.top || y >= listRect.bottom) {
-    emit('update:modelValue', false)
+    model.value = false
   }
 }
 
@@ -237,9 +262,21 @@ const resolvePlacement = (): void => {
 }
 
 onBeforeUnmount(() => {
-  if (props.hovered && triggerRef.value) {
-    const triggerElement = triggerRef.value as HTMLElement
-    triggerElement.removeEventListener('mouseenter', onMouseOver)
+  if (mouseHoverTimer.value) {
+    clearTimeout(mouseHoverTimer.value)
+    mouseHoverTimer.value = 0
+  }
+  if (mouseOutTimer.value) {
+    clearTimeout(mouseOutTimer.value)
+    mouseOutTimer.value = 0
+  }
+  document.removeEventListener('mousedown', onMouseDown)
+  if (props.hovered) {
+    document.removeEventListener('mousemove', onMouseMove)
+    if (triggerRef.value) {
+      const triggerElement = triggerRef.value as HTMLElement
+      triggerElement.removeEventListener('mouseenter', onMouseOver)
+    }
   }
 })
 
@@ -251,7 +288,7 @@ onMounted(() => {
   }
 })
 
-watch(() => props.modelValue, (val: boolean, oldVal: boolean) => {
+watch(() => model.value, (val: boolean, oldVal: boolean) => {
   if (val === oldVal) {
     return
   }
@@ -275,7 +312,7 @@ const onTriggerClick = (): void => {
   if (props.hovered) {
     return
   }
-  emit('update:modelValue', !props.modelValue)
+  model.value = !model.value
 }
 
 const onItemClick = (item: {
@@ -283,8 +320,67 @@ const onItemClick = (item: {
   value: unknown
 }, index: number): void => {
   emit('select', item)
-  emit('update:modelValue', false)
+  model.value = false
   selectedItemIndex.value = index
+}
+
+function onTriggerKeydown (event: KeyboardEvent): void {
+  const hasItems = !!props.items && props.items.length > 0
+
+  if (!model.value) {
+    if (
+      event.key === 'Enter'
+      || event.key === ' '
+      || event.key === 'ArrowDown'
+      || event.key === 'ArrowUp'
+    ) {
+      event.preventDefault()
+      model.value = true
+      if (hasItems) {
+        highlightedIndex.value = selectedItemIndex.value
+      }
+    }
+    return
+  }
+
+  if (event.key === 'Escape' || event.key === 'Tab') {
+    if (event.key === 'Escape') event.preventDefault()
+    model.value = false
+    return
+  }
+
+  if (!hasItems) return
+
+  const lastIndex = props.items.length - 1
+
+  switch (event.key) {
+    case 'ArrowDown':
+      event.preventDefault()
+      highlightedIndex.value = highlightedIndex.value >= lastIndex
+        ? 0
+        : highlightedIndex.value + 1
+      break
+    case 'ArrowUp':
+      event.preventDefault()
+      highlightedIndex.value = highlightedIndex.value <= 0
+        ? lastIndex
+        : highlightedIndex.value - 1
+      break
+    case 'Home':
+      event.preventDefault()
+      highlightedIndex.value = 0
+      break
+    case 'End':
+      event.preventDefault()
+      highlightedIndex.value = lastIndex
+      break
+    case 'Enter':
+    case ' ':
+      event.preventDefault()
+      onItemClick(props.items[highlightedIndex.value], highlightedIndex.value)
+      break
+    default:
+  }
 }
 
 const hasDefaultSlot = computed(() => !!slots.default)

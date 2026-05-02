@@ -8,14 +8,13 @@
   >
     <label
       v-if="label && bordered"
-      :for="id"
+      :for="textareaId"
       class="c-form-control-label"
     >
       {{ label }}
     </label>
     <textarea
-      :id="id"
-      :type="type"
+      :id="textareaId"
       class="c-form-input"
       :class="{
         'not-empty': hasValueOrPlaceholder,
@@ -24,7 +23,7 @@
       }"
       :name="name"
       :disabled="disabled"
-      :value="modelValue"
+      :value="model"
       :required="required"
       :autocomplete="autocomplete"
       :cols="cols"
@@ -32,26 +31,31 @@
       :maxlength="maxLength"
       :minlength="minLength"
       :placeholder="placeholder"
+      :aria-invalid="hasError || undefined"
+      :aria-describedby="hasError ? errorId : undefined"
+      :aria-required="required || undefined"
       @input="onInput"
       @blur="onBlur"
     />
     <label
       v-if="label && !bordered"
-      :for="id"
+      :for="textareaId"
       class="c-form-control-label"
     >
       {{ label }}
     </label>
     <template v-if="hasDefaultSlot">
       <slot
-        name="errors"
+        :for="textareaId"
         :error-message="error"
       />
     </template>
     <template v-else>
       <div
         v-if="hasError"
+        :id="errorId"
         class="error-message"
+        role="alert"
       >
         {{ error }}
       </div>
@@ -66,14 +70,10 @@ import {
 } from 'vue'
 
 import baseProps from './base-control-props'
+import { useFormControl } from '../../composables/useFormControl'
 
 const props = defineProps({
   ...baseProps,
-  // eslint-disable-next-line vue/require-default-prop
-  modelValue: {
-    type: String,
-    required: false,
-  },
   cols: {
     type: Number,
     required: false,
@@ -106,8 +106,17 @@ const props = defineProps({
   },
 })
 
+const model = defineModel<string | undefined>()
+
 const slots = useSlots()
-const emit = defineEmits(['update:modelValue', 'blur'])
+const emit = defineEmits(['blur'])
+
+const {
+  inputId: textareaId,
+  errorId,
+  hasError,
+  hasValueOrPlaceholder,
+} = useFormControl(props, 'textarea', model)
 
 const onBlur = async () => {
   emit('blur')
@@ -116,26 +125,15 @@ const onBlur = async () => {
 function onInput (e: Event): void {
   if (e && e.target) {
     const target = e.target as HTMLTextAreaElement
-    emit('update:modelValue', target.value)
+    model.value = target.value
   }
 }
-
-const hasError = computed(
-  () => !!props.errorMessage,
-)
 
 const error = computed(
   () => props.errorMessage,
 )
 
-const hasPlaceholder = computed(() => !!props.placeholder)
 const hasDefaultSlot = computed(() => !!slots.default)
-const hasValue = computed(() => !!props.modelValue)
-
-const hasValueOrPlaceholder = computed(
-  () => !!(hasValue.value || hasPlaceholder.value),
-)
-
 </script>
 
 <style lang="scss">

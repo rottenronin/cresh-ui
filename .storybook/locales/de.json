@@ -1,0 +1,28 @@
+{
+  "docs": {
+    "home": {
+      "title": "Cresh UI",
+      "subtitle": "Moderne Vue 3 Komponentenbibliothek"
+    },
+    "getting_started": {
+      "title": "Erste Schritte",
+      "description": "Erfahren Sie, wie Sie Cresh UI in Ihrem Projekt installieren und verwenden"
+    },
+    "components": {
+      "title": "Komponenten",
+      "description": "Erkunden Sie alle verfügbaren Komponenten"
+    },
+    "theme": {
+      "title": "Designsystem",
+      "description": "Farben, Typographie und Design-Tokens"
+    },
+    "language_setup": {
+      "title": "Internationalisierung (i18n)",
+      "description": "Mehrsprachiger Support und Installationsanleitung"
+    },
+    "i18n_stories": {
+      "title": "i18n Präsentation",
+      "description": "Interaktive Demonstration des Sprachumschalters"
+    }
+  }
+}

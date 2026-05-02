@@ -1,0 +1,1266 @@
+{
+  "validation_messages": {
+    "password_validation_rule": "La password deve contenere almeno 8 caratteri e includere almeno 1 cifra, 1 lettera minuscola e 1 lettera maiuscola",
+    "passwords_match_rule": "Le password non corrispondono",
+    "date_validation_rule": "Formato data non valido",
+    "name_string_validation_rule": "Campo non valido. Solo caratteri alfabetici e i seguenti caratteri speciali sono consentiti: -'",
+    "address_validation_rule": "Campo non valido. Solo caratteri alfanumerici e i seguenti caratteri speciali sono consentiti: -_'.,",
+    "phone_number_rule": "Campo non valido. Solo numeri di telefono italiani sono consentiti."
+  },
+  "directives": {
+    "copy_to_clipboard": {
+      "copied": "Copiato",
+      "click_to_copy": "Fai clic per copiare"
+    }
+  },
+  "datatable": {
+    "no_data": "Nessun dato",
+    "footer": {
+      "rows_per_page": "Righe per pagina:"
+    },
+    "retry": "Riprova",
+    "error_message": "Si è verificato un errore, impossibile recuperare i dati",
+    "loading": "Caricamento dei dati"
+  },
+  "slider": {
+    "month": "mese",
+    "perMonth": "al mese per",
+    "taxFree": "mesi (esentasse)",
+    "error": "Il valore deve essere un numero compreso tra {min} e {max}"
+  },
+  "common": {
+    "errors": {
+      "default_error": "Si è verificato un errore, riprova più tardi",
+      "file_size_error": "Il file '{name}' deve essere inferiore a {size}KB",
+      "file_size_error_alt": "Il file deve essere inferiore a {size}KB",
+      "no_data": "Nessun dato",
+      "file_type_error": "Sono accettati solo file di tipo {types}",
+      "invalid_file_error": "Il documento fornito sembra essere corrotto e non può essere visualizzato. Chiedi al responsabile del negozio di inviarlo di nuovo."
+    },
+    "all": "Tutto",
+    "aria": {
+      "close": "Chiudi",
+      "previous": "Precedente",
+      "next": "Successivo",
+      "upload_zone": "Area di caricamento file"
+    }
+  },
+  "modal": {
+    "ok": "OK",
+    "cancel": "Annulla"
+  },
+  "document": {
+    "read": "Visualizza documento",
+    "upload": "Carica documento",
+    "download": "Scarica documento",
+    "validate": "Convalida documento"
+  },
+  "filters": {
+    "all": "Tutto",
+    "daily": "Ultime 24 ore",
+    "weekly": "Questa settimana",
+    "monthly": "Questo mese",
+    "yearly": "Questo anno",
+    "dates": {
+      "today": "Oggi",
+      "last_7_days": "Ultimi 7 giorni",
+      "last_4_weeks": "Ultime 4 settimane",
+      "last_3_months": "Ultimi 3 mesi",
+      "last_12_months": "Ultimi 12 mesi",
+      "month_to_date": "Mese ad oggi",
+      "quarter_to_date": "Trimestre ad oggi",
+      "year_to_date": "Anno ad oggi",
+      "all_time": "Tutto il tempo"
+    },
+    "dropdown": {
+      "label": "Negozi:",
+      "selection_unique": "{count} selezionato",
+      "selection_multiple": "{count} selezionati",
+      "all": "Tutti i negozi"
+    },
+    "download_btn": "Scarica rapporto"
+  },
+  "showcase": {
+    "language_selector": {
+      "label": "Lingua"
+    },
+    "home": {
+      "title": "Libreria di componenti Vue 3",
+      "subtitle_line_1": "Una libreria UI Vue 3 completa che segue la specifica Cresh Design.",
+      "subtitle_line_2": "Crea interfacce utente belle e interattive con componenti di alta qualità.",
+      "features": {
+        "performance": {
+          "title": "Alte prestazioni",
+          "description": "Progettata per velocità ed efficienza"
+        },
+        "ease": {
+          "title": "Facile da usare",
+          "description": "API semplice con un'ottima DX"
+        },
+        "responsive": {
+          "title": "Responsive",
+          "description": "Funziona su tutti i dispositivi moderni"
+        }
+      },
+      "categories": {
+        "title": "Libreria di componenti",
+        "ui": {
+          "title": "Componenti UI",
+          "description": "Pulsanti, card, modali, tab, stepper e altro"
+        },
+        "form": {
+          "title": "Controlli modulo",
+          "description": "Input, select, checkbox, radio, textarea"
+        },
+        "icons": {
+          "title": "Icone",
+          "description": "Oltre 60 bellissime icone SVG"
+        },
+        "charts": {
+          "title": "Grafici",
+          "description": "Componenti per la visualizzazione dei dati"
+        }
+      },
+      "cta": "Inizia a costruire con Cresh UI",
+      "footer": {
+        "made_with": "Creato con ❤️ da long2x",
+        "license": "Licenza MIT © 2024"
+      }
+    },
+    "icons": {
+      "eyebrow": "Libreria icone",
+      "title": "Tutte le icone Cresh UI in un'unica pagina",
+      "subtitle": "Sfoglia l'intera raccolta di icone disponibile nella libreria. Questa galleria viene generata automaticamente dalla cartella delle icone, quindi le nuove icone compaiono qui senza aggiornamenti manuali.",
+      "total": "{count} icone disponibili",
+      "usage_label": "Uso pronto da copiare",
+      "usage_section": {
+        "title": "Come usare un componente icona",
+        "description": "Ogni icona viene esportata come componente Vue. Importa l'icona che ti serve dall'entrypoint delle icone e poi usala direttamente nel template come qualsiasi altro componente.",
+        "step_one_label": "Passo 1",
+        "step_one_text": "Scegli il nome del componente icona dalla galleria qui sotto.",
+        "step_two_label": "Passo 2",
+        "step_two_text": "Importa quell'icona da '{'@'}long2x/cresh-ui/icons'.",
+        "step_three_label": "Passo 3",
+        "step_three_text": "Renderizza il componente nel tuo template dove hai bisogno dell'icona."
+      },
+      "click_icon_to_copy": "Fai clic sull'icona per copiare il relativo snippet d'uso.",
+      "copied_inline": "Icona copiata.",
+      "copied_notice": "{name} copiata",
+      "copy_icon_aria": "Copia snippet d'uso per {name}"
+    },
+    "getting_started": {
+      "title": "Iniziare con Cresh UI",
+      "subtitle": "Scopri come installare e usare i componenti Cresh UI nel tuo progetto Vue 3",
+      "installation": {
+        "title": "Installazione",
+        "description": "Installa il pacchetto con npm o yarn:",
+        "alternative": "Oppure con yarn:"
+      },
+      "setup": {
+        "title": "Configurazione",
+        "description": "Importa componenti e stili nella tua app Vue:",
+        "note": "Assicurati di importare il CSS del tema predefinito affinché gli stili funzionino correttamente"
+      },
+      "usage": {
+        "title": "Esempi di utilizzo di base",
+        "form_input": "Input modulo",
+        "select_dropdown": "Menu a discesa",
+        "button": "Pulsante",
+        "icons": "Icone",
+        "full_name": "Nome completo",
+        "enter_name": "Inserisci il tuo nome",
+        "choose_one": "Scegli un'opzione",
+        "click_me": "Cliccami"
+      },
+      "explore": {
+        "title": "Esplora i componenti",
+        "description": "Sfoglia la nostra libreria di componenti usando la barra laterale sinistra. Ogni categoria contiene più esempi:",
+        "ui": {
+          "title": "Componenti UI",
+          "description": "Card, modali, tab, stepper, accordion e altro"
+        },
+        "form": {
+          "title": "Controlli modulo",
+          "description": "Input, select, checkbox, radio, textarea, date picker"
+        },
+        "icons": {
+          "title": "Icone",
+          "description": "Oltre 60 bellissime icone SVG per i tuoi progetti"
+        },
+        "charts": {
+          "title": "Grafici",
+          "description": "Componenti per la visualizzazione dei dati"
+        }
+      },
+      "tips": {
+        "title": "Suggerimenti e best practice",
+        "use_v_model_title": "Usa v-model",
+        "use_v_model_description": "per il binding bidirezionale sui componenti form",
+        "check_storybook_title": "Controlla Storybook",
+        "check_storybook_description": "per tutte le props e gli esempi disponibili",
+        "import_styles_title": "Importa gli stili",
+        "import_styles_description": "nel tuo main.ts o direttamente nei componenti",
+        "customize_themes_title": "Personalizza i temi",
+        "customize_themes_description": "sovrascrivendo le variabili CSS",
+        "use_typescript_title": "Usa TypeScript",
+        "use_typescript_description": "per un migliore supporto IDE e type safety"
+      },
+      "resources": {
+        "title": "Risorse",
+        "github": "Repository GitHub",
+        "npm": "Pacchetto NPM",
+        "help": "Hai domande? Apri una issue su GitHub o consulta la documentazione dei componenti"
+      }
+    },
+    "language_switching": {
+      "title": "Esempi di componenti localizzati",
+      "password_label": "Password",
+      "password_placeholder": "Inserisci la password",
+      "confirm_password_label": "Conferma password",
+      "confirm_password_placeholder": "Conferma la password",
+      "date_label": "Data",
+      "current_language": "Lingua corrente:",
+      "try_label": "Prova:",
+      "try_text": "Fai clic sull'icona del globo nella toolbar per cambiare lingua e vedere tutto il testo aggiornarsi all'istante!"
+    },
+    "credit_card": {
+      "label": "Numero di carta",
+      "placeholder": "Inserisci il numero di carta",
+      "input_value": "Input:",
+      "invalid": "Numero di carta non valido"
+    },
+    "datetime": {
+      "label": "Seleziona data",
+      "required_label": "Seleziona data *",
+      "placeholder": "MM/GG/AAAA",
+      "selected": "Selezionato:",
+      "not_set": "Non impostato"
+    },
+    "phone": {
+      "label": "Numero di telefono",
+      "us_label": "Numero di telefono USA",
+      "no_blur_label": "Numero di telefono (senza validazione al blur)",
+      "placeholder": "Inserisci il numero di telefono",
+      "value": "Telefono:",
+      "not_set": "Non impostato",
+      "blur_hint": "La validazione avviene solo durante l'input, non al blur."
+    },
+    "checkbox": {
+      "accept_terms": "Accettare termini e condizioni",
+      "checked": "Selezionato:",
+      "i_agree": "Accetto",
+      "disabled_option": "Questa opzione e disabilitata",
+      "disabled_checked": "Disabilitato e selezionato"
+    },
+    "input": {
+      "full_name": "Nome completo",
+      "full_name_placeholder": "Inserisci il tuo nome completo",
+      "value": "Valore:",
+      "email": "Email",
+      "email_placeholder": "Inserisci la tua email",
+      "password": "Password",
+      "password_placeholder": "Inserisci la tua password",
+      "disabled_input": "Input disabilitato",
+      "with_error": "Input con errore",
+      "invalid_input": "Input non valido"
+    },
+    "radio": {
+      "option_1": "Opzione 1",
+      "option_2": "Opzione 2",
+      "option_3": "Opzione 3",
+      "selected": "Selezionato:",
+      "disabled_option": "Opzione disabilitata"
+    },
+    "select": {
+      "choose_option": "Scegli un'opzione",
+      "select_placeholder": "Seleziona...",
+      "select_option": "Seleziona un'opzione",
+      "option_1": "Opzione 1",
+      "option_2": "Opzione 2",
+      "option_3": "Opzione 3",
+      "selected": "Selezionato:",
+      "choose_placeholder": "Scegli...",
+      "country_label": "Seleziona il tuo paese",
+      "country_placeholder": "Scegli un paese...",
+      "select_country": "Seleziona un paese",
+      "country_us": "Stati Uniti",
+      "country_uk": "Regno Unito",
+      "country_ca": "Canada",
+      "country_fr": "Francia",
+      "country_de": "Germania",
+      "disabled": "Select disabilitata"
+    },
+    "textarea": {
+      "message": "Messaggio",
+      "placeholder": "Inserisci il tuo messaggio...",
+      "content": "Contenuto:",
+      "empty": "(vuoto)",
+      "max_label": "Messaggio (max 150 caratteri)",
+      "characters": "caratteri",
+      "remaining": "rimanenti",
+      "content_length": "Lunghezza del contenuto:",
+      "error": "Inserisci almeno 10 caratteri",
+      "large": "Textarea grande",
+      "required": "Messaggio *",
+      "short": "Messaggio breve",
+      "type_here": "Scrivi qui..."
+    },
+    "accordion": {
+      "basic": {
+        "introduction_title": "Introduzione",
+        "introduction_content": "Questa e la sezione introduttiva dell'accordion. Puoi aggiungere qualsiasi contenuto qui.",
+        "features_title": "Funzionalita",
+        "feature_1": "Animazioni fluide",
+        "feature_2": "Facile da personalizzare",
+        "feature_3": "Accessibile",
+        "feature_4": "E possibile monitorare piu elementi",
+        "questions_title": "Domande",
+        "questions_content": "Hai domande? Chiedi pure! Questa sezione puo contenere FAQ o informazioni aggiuntive.",
+        "currently_selected": "Attualmente selezionato:",
+        "none": "Nessuno"
+      },
+      "initially_open": {
+        "getting_started_title": "Per iniziare",
+        "getting_started_content": "Benvenuto nella guida introduttiva. Ti aiutera a configurare il componente.",
+        "installation_title": "Installazione",
+        "usage_title": "Utilizzo",
+        "usage_content": "Importa il componente e usalo nella tua applicazione."
+      },
+      "custom": {
+        "settings_title": "Impostazioni",
+        "enable_notifications": "Abilita notifiche",
+        "dark_mode": "Modalita scura",
+        "auto_save": "Salvataggio automatico",
+        "advanced_title": "Avanzate",
+        "cache_size": "Dimensione cache (MB):",
+        "timeout": "Timeout (secondi):"
+      },
+      "multiple": {
+        "item_title": "Elemento {index}",
+        "item_content": "Contenuto per l'elemento {index}. Qui puoi aggiungere contenuti ricchi."
+      }
+    },
+    "alert": {
+      "success": {
+        "title": "Successo!",
+        "message": "Operazione completata con successo!"
+      },
+      "error": {
+        "title": "Errore",
+        "message": "Qualcosa e andato storto. Riprova."
+      },
+      "warning": {
+        "title": "Avviso",
+        "message": "Controlla questa azione prima di procedere."
+      },
+      "info": {
+        "title": "Informazione",
+        "message": "Questo e un messaggio informativo."
+      },
+      "closable": {
+        "title": "Avviso chiudibile",
+        "message": "Puoi chiudere questo avviso facendo clic sul pulsante X."
+      }
+    },
+    "card": {
+      "default": {
+        "title": "Titolo della card",
+        "content": "Questo e il contenuto della card. Puoi aggiungere qualsiasi contenuto qui."
+      },
+      "with_border": {
+        "title": "Card con bordo",
+        "content": "Questa card ha un bordo."
+      },
+      "with_shadow": {
+        "title": "Card con ombra",
+        "content": "Questa card ha un effetto ombra."
+      },
+      "no_title": {
+        "content": "Una card senza titolo."
+      }
+    },
+    "divider": {
+      "horizontal": {
+        "above": "Contenuto sopra il divisore",
+        "below": "Contenuto sotto il divisore"
+      },
+      "with_text": {
+        "or": "OPPURE",
+        "email": "Accedi con e-mail",
+        "social": "Accedi con account social"
+      },
+      "vertical": {
+        "item_1": "Elemento 1",
+        "item_2": "Elemento 2",
+        "item_3": "Elemento 3"
+      }
+    },
+    "document_item": {
+      "action_triggered": "Azione attivata:",
+      "action": "Azione:",
+      "actions": {
+        "read": "Leggi",
+        "download": "Scarica",
+        "upload": "Carica",
+        "validate": "Convalida"
+      },
+      "basic": {
+        "label": "Documento fattura"
+      },
+      "approved": {
+        "label": "Accordo contrattuale",
+        "status": "Questo documento e stato approvato"
+      },
+      "not_approved": {
+        "label": "Nota spese",
+        "status": "Questo documento richiede approvazione"
+      },
+      "unavailable": {
+        "label": "Documento mancante",
+        "status": "Questo documento non e ancora disponibile. Caricalo per aggiungerlo."
+      },
+      "all_actions": {
+        "label": "Dichiarazione dei redditi"
+      },
+      "list": {
+        "title": "Documenti richiesti",
+        "passport": "Passaporto",
+        "driving_license": "Patente di guida",
+        "bank_statement": "Estratto conto",
+        "insurance_certificate": "Certificato di assicurazione"
+      }
+    },
+    "document_viewer": {
+      "pdf": {
+        "label": "Documento PDF di esempio"
+      },
+      "image": {
+        "label": "Immagine panoramica di esempio",
+        "open_button": "Apri immagine"
+      },
+      "basic_pdf": {
+        "open_button": "Apri documento"
+      },
+      "navigation": {
+        "open_button": "Apri documenti",
+        "progress": "Documento {current} di {total}"
+      },
+      "no_arrows": {
+        "open_button": "Apri documento (senza navigazione)"
+      },
+      "custom_label": {
+        "open_button": "Apri documento",
+        "last_updated": "Ultimo aggiornamento: oggi"
+      },
+      "footer": {
+        "open_button": "Apri documento",
+        "download": "Scarica",
+        "approve": "Approva"
+      }
+    },
+    "dropdown": {
+      "countries": {
+        "us": "Stati Uniti",
+        "ca": "Canada",
+        "mx": "Messico",
+        "fr": "Francia",
+        "de": "Germania"
+      },
+      "basic": {
+        "placeholder": "Seleziona un paese",
+        "selected": "Selezionato:",
+        "value": "Valore:"
+      },
+      "without_icon": {
+        "placeholder": "Seleziona un'opzione"
+      },
+      "multiple": {
+        "placeholder": "Seleziona",
+        "option_1": "Opzione 1",
+        "option_2": "Opzione 2",
+        "option_3": "Opzione 3",
+        "option_4": "Opzione 4",
+        "option_5": "Opzione 5",
+        "option_6": "Opzione 6"
+      },
+      "custom": {
+        "trigger": "Contenuto personalizzato",
+        "title": "Contenuto personalizzato del menu",
+        "description": "Questo menu utilizza uno slot di contenuto personalizzato.",
+        "action_1": "Azione 1",
+        "action_2": "Azione 2"
+      },
+      "forms": {
+        "full_name": "Nome completo",
+        "full_name_placeholder": "Mario Rossi",
+        "email": "E-mail",
+        "email_placeholder": "mario{'@'}example.com",
+        "role": "Ruolo",
+        "role_placeholder": "Seleziona un ruolo",
+        "submit": "Invia",
+        "roles": {
+          "full_stack": "Sviluppatore full stack",
+          "frontend": "Sviluppatore frontend",
+          "backend": "Sviluppatore backend",
+          "devops": "Ingegnere DevOps"
+        }
+      },
+      "sizes": {
+        "option": "Opzione",
+        "small": "Piccolo",
+        "small_dropdown": "Menu piccolo",
+        "medium": "Medio",
+        "medium_dropdown": "Menu medio",
+        "large": "Grande",
+        "large_dropdown": "Menu grande"
+      }
+    },
+    "empty": {
+      "default": {
+        "message": "Nessun dato disponibile"
+      },
+      "no_results": {
+        "message": "Nessun risultato trovato"
+      },
+      "no_notifications": {
+        "message": "Nessuna notifica per ora"
+      },
+      "custom_content": {
+        "title": "La tua casella di posta e vuota",
+        "description": "Sei aggiornato! Torna piu tardi.",
+        "button": "Torna indietro"
+      },
+      "with_custom_icon": {
+        "message": "Nessun messaggio"
+      },
+      "full_custom": {
+        "title": "Tutto aggiornato!",
+        "description": "Non hai elementi in sospeso. Ottimo lavoro!",
+        "button": "Crea nuovo elemento"
+      }
+    },
+    "error_message": {
+      "string_error": {
+        "message": "Qualcosa e andato storto. Riprova."
+      },
+      "array_error": {
+        "email_required": "L'e-mail e obbligatoria",
+        "email_valid": "L'e-mail deve essere valida",
+        "password_length": "La password deve contenere almeno 8 caratteri"
+      },
+      "object_error": {
+        "message": "Autenticazione non riuscita. Credenziali non valide."
+      },
+      "hide_icon": {
+        "message": "Questo messaggio di errore non mostra un'icona."
+      },
+      "custom_content": {
+        "title": "Errore di validazione",
+        "field_required": "Il campo e obbligatorio",
+        "min_length": "Deve contenere almeno 5 caratteri"
+      },
+      "form_validation": {
+        "title": "Validazione del modulo",
+        "first_name": "Nome",
+        "last_name": "Cognome",
+        "email": "E-mail",
+        "password": "Password",
+        "first_name_required": "Il nome e obbligatorio",
+        "last_name_required": "Il cognome e obbligatorio",
+        "email_invalid": "Il formato dell'e-mail non e valido",
+        "password_weak": "La password e troppo debole"
+      }
+    },
+    "file_upload_zone": {
+      "default": {
+        "uploaded": "File caricato:",
+        "size": "Dimensione:"
+      },
+      "show_filename": {
+        "title": "Caricamento con visualizzazione del nome file"
+      },
+      "image_only": {
+        "title": "Solo caricamento immagini",
+        "supported_formats": "Formati supportati: JPEG, PNG, WebP (max 1 MB)",
+        "uploaded": "Immagine caricata:"
+      },
+      "document_upload": {
+        "title": "Caricamento documenti",
+        "supported_formats": "Supportati: PDF, documenti Word (max 5 MB)",
+        "uploaded": "Documento caricato:",
+        "upload_another": "Carica un altro file"
+      },
+      "large_limit": {
+        "title": "Caricamento file (limite 10 MB)",
+        "description": "Trascina i file o fai clic per sfogliare"
+      },
+      "multiple": {
+        "title": "Caricamento multiplo file",
+        "uploaded_files": "File caricati ({count})",
+        "remove": "Rimuovi"
+      }
+    },
+    "header": {
+      "simple": {
+        "title": "Dashboard",
+        "content": "Il contenuto della pagina va qui"
+      },
+      "default_slot": {
+        "title": "Home",
+        "welcome": "Bentornato!",
+        "content": "Contenuto della pagina"
+      },
+      "navigation": {
+        "title": "La mia applicazione",
+        "home": "Home",
+        "about": "Informazioni",
+        "services": "Servizi",
+        "contact": "Contatto",
+        "sign_in": "Accedi",
+        "content": "Contenuto della pagina qui"
+      },
+      "badges": {
+        "title": "Pannello amministratore",
+        "content": "Benvenuto nel pannello amministratore"
+      },
+      "search": {
+        "title": "Prodotti",
+        "placeholder": "Cerca prodotti...",
+        "filter": "Filtra",
+        "content": "Contenuto della lista prodotti"
+      },
+      "tabs": {
+        "title": "Progetti",
+        "all": "Tutti",
+        "active": "Attivi",
+        "archived": "Archiviati",
+        "content": "Contenuto della lista progetti"
+      },
+      "colored": {
+        "title": "Header premium",
+        "upgrade": "Aggiorna",
+        "content": "Contenuto dell'header stilizzato"
+      }
+    },
+    "image": {
+      "basic": {
+        "title": "Immagine base con testo alternativo",
+        "alt": "Immagine di paesaggio di esempio",
+        "image_title": "Bel paesaggio",
+        "description": "Passa il cursore per vedere il titolo e verificare l'accessibilita con il testo alternativo."
+      },
+      "aspect_ratios": {
+        "title": "Diversi rapporti di aspetto",
+        "alt": "Immagine di paesaggio"
+      },
+      "lazy": {
+        "title": "Caricamento lazy con skeleton",
+        "alt": "Paesaggio caricato in lazy",
+        "description": "L'immagine usa il caricamento lazy nativo. Il placeholder skeleton viene mostrato durante il caricamento."
+      },
+      "error": {
+        "title": "Gestione errori con fallback",
+        "description": "L'URL principale dell'immagine non e valida. Viene invece mostrata l'immagine di fallback.",
+        "alt": "Paesaggio di fallback",
+        "error_text": "Impossibile caricare l'immagine"
+      },
+      "no_source": {
+        "title": "Nessuna sorgente immagine",
+        "description": "Mostra l'icona del paesaggio quando non viene fornita alcuna sorgente.",
+        "alt": "Nessuna immagine fornita",
+        "error_text": "Nessuna sorgente immagine"
+      },
+      "gallery": {
+        "title": "Galleria immagini responsive",
+        "description": "Galleria con caricamento lazy e rapporti di aspetto coerenti.",
+        "image_1": "Paesaggio 1",
+        "image_2": "Paesaggio 2",
+        "image_3": "Paesaggio 3",
+        "image_4": "Paesaggio 4"
+      },
+      "profile": {
+        "alt": "Avatar utente",
+        "image_title": "Foto profilo utente",
+        "name": "Jane Doe",
+        "role": "Product Designer",
+        "cta": "Vedi profilo"
+      },
+      "custom_size": {
+        "title": "Larghezza e altezza personalizzate",
+        "description": "Immagine con dimensioni fisse in pixel: {width}px x {height}px",
+        "alt": "Immagine di dimensioni personalizzate"
+      },
+      "responsive": {
+        "title": "Immagini responsive",
+        "thumbnail": "Miniatura",
+        "thumbnail_alt": "Immagine miniatura",
+        "small": "Piccola",
+        "small_alt": "Immagine piccola",
+        "large": "Grande",
+        "large_alt": "Immagine grande"
+      }
+    },
+    "modal": {
+      "basic": {
+        "title": "Conferma azione",
+        "open_button": "Apri modale",
+        "content": "Sei sicuro di voler eseguire questa azione?"
+      },
+      "no_footer": {
+        "title": "Informazione",
+        "open_button": "Mostra info",
+        "success_title": "Successo!",
+        "content": "La tua azione e stata completata con successo."
+      },
+      "persistent": {
+        "title": "Importante",
+        "open_button": "Apri modale persistente",
+        "content": "Questa modale non puo essere chiusa cliccando all'esterno. Devi usare i pulsanti o l'icona di chiusura."
+      },
+      "large": {
+        "title": "Modale grande con dettagli",
+        "open_button": "Apri modale grande",
+        "full_name": "Nome completo",
+        "full_name_placeholder": "Mario Rossi",
+        "email": "Indirizzo e-mail",
+        "email_placeholder": "mario{'@'}example.com",
+        "message": "Messaggio",
+        "message_placeholder": "Il tuo messaggio qui..."
+      },
+      "custom": {
+        "title": "Contenuto modale personalizzato",
+        "open_button": "Apri modale personalizzata",
+        "welcome": "Benvenuto!",
+        "content": "Questa e una modale con intestazione e contenuto completamente personalizzati.",
+        "reports": "Report",
+        "settings": "Impostazioni",
+        "decline": "Rifiuta",
+        "accept": "Accetta"
+      },
+      "warning": {
+        "title": "Conferma eliminazione",
+        "open_button": "Elimina elemento",
+        "heading": "Eliminare definitivamente?",
+        "content": "Questa azione non puo essere annullata."
+      },
+      "small": {
+        "title": "Conferma rapida",
+        "open_button": "Apri modale piccola",
+        "content": "Vuoi continuare?"
+      }
+    },
+    "progress_bar": {
+      "multiple": {
+        "project_a": "Progetto A - 30 %",
+        "project_b": "Progetto B - 60 %",
+        "project_c": "Progetto C - 100 %",
+        "loading": "Caricamento - Indeterminato"
+      }
+    },
+    "tag": {
+      "primary": "Tag principale",
+      "success": "Attivo",
+      "warning": "In attesa",
+      "error": "Inattivo",
+      "closable": "Tag chiudibile",
+      "multiple": {
+        "vue": "Vue",
+        "active": "Attivo",
+        "beta": "Beta",
+        "deprecated": "Deprecato"
+      }
+    },
+    "switch": {
+      "state": "Stato:",
+      "on_value": "ON",
+      "off_value": "OFF",
+      "off": {
+        "label": "Attivami"
+      },
+      "on": {
+        "label": "Abilitato"
+      },
+      "disabled": {
+        "label": "Interruttore disabilitato"
+      },
+      "disabled_on": {
+        "label": "Disabilitato e acceso"
+      }
+    },
+    "vertical_stepper": {
+      "basic": {
+        "steps": {
+          "personal_information": "Informazioni personali",
+          "address_details": "Dettagli indirizzo",
+          "verification": "Verifica",
+          "complete": "Completato"
+        },
+        "content": {
+          "personal_information": "Inserisci i tuoi dati personali",
+          "address_details": "Inserisci le informazioni sul tuo indirizzo",
+          "verification": "Verifica le tue informazioni",
+          "complete": "Registrazione completata!"
+        },
+        "previous": "Precedente",
+        "next": "Successivo"
+      },
+      "non_selectable": {
+        "content": "I passaggi non possono essere cliccati in modalita non selezionabile.",
+        "simulate_progress": "Simula avanzamento"
+      },
+      "many_steps": {
+        "step": "Passo {number}",
+        "progress": "Sei al passo {current} di {total}"
+      },
+      "with_description": {
+        "steps": {
+          "setup": "Impostazione",
+          "configuration": "Configurazione",
+          "testing": "Test",
+          "deployment": "Distribuzione"
+        },
+        "descriptions": {
+          "setup": "Configura impostazioni e preferenze di base",
+          "configuration": "Imposta opzioni di configurazione avanzate",
+          "testing": "Esegui test per verificare che tutto funzioni",
+          "deployment": "Distribuisci nell'ambiente di produzione"
+        },
+        "step_details": "Dettagli del passo {number}",
+        "items": {
+          "item_1": "Elemento 1",
+          "item_2": "Elemento 2",
+          "item_3": "Elemento 3"
+        },
+        "back": "Indietro",
+        "continue": "Continua"
+      },
+      "compact": {
+        "title": "Avanzamento del processo",
+        "stage": "Fase {number}",
+        "progress": "Fase {current} di {total}"
+      }
+    },
+    "vertical_stepper_alt": {
+      "basic": {
+        "title": "Avanzamento registrazione",
+        "steps": {
+          "account_verification": "Verifica account",
+          "profile_setup": "Configurazione profilo",
+          "payment_method": "Metodo di pagamento",
+          "subscription_plan": "Piano di abbonamento",
+          "complete": "Completato"
+        },
+        "subtitles": {
+          "account_verification": "Conferma il tuo indirizzo e-mail",
+          "profile_setup": "Aggiungi le tue informazioni personali",
+          "payment_method": "Aggiungi le informazioni di pagamento",
+          "subscription_plan": "Scegli il tuo piano",
+          "complete": "E tutto pronto!"
+        }
+      },
+      "all_completed": {
+        "title": "Ordine completato",
+        "steps": {
+          "order_placed": "Ordine effettuato",
+          "payment_confirmed": "Pagamento confermato",
+          "shipped": "Spedito",
+          "delivered": "Consegnato"
+        },
+        "subtitles": {
+          "order_placed": "25 marzo 2024",
+          "payment_confirmed": "Pagamento ricevuto",
+          "shipped": "In transito",
+          "delivered": "Presso la tua sede"
+        }
+      },
+      "in_progress": {
+        "title": "Elaborazione della tua richiesta",
+        "note": "Di solito richiede da 2 a 3 giorni lavorativi.",
+        "steps": {
+          "request_submitted": "Richiesta inviata",
+          "processing": "Elaborazione",
+          "approved": "Approvato",
+          "completed": "Completato"
+        },
+        "subtitles": {
+          "request_submitted": "La tua richiesta e stata ricevuta",
+          "processing": "Stiamo esaminando la tua richiesta",
+          "approved": "In attesa di approvazione",
+          "completed": "La tua richiesta e completa"
+        }
+      },
+      "onboarding": {
+        "title": "Benvenuto! Iniziamo",
+        "skip": "Salta",
+        "next": "Avanti",
+        "steps": {
+          "welcome": "Benvenuto",
+          "connect_social_media": "Collega i social media",
+          "customize_profile": "Personalizza profilo",
+          "invite_friends": "Invita amici",
+          "explore_features": "Esplora funzionalita"
+        },
+        "subtitles": {
+          "welcome": "Inizia con noi",
+          "connect_social_media": "Collega i tuoi account social",
+          "customize_profile": "Configura il tuo profilo",
+          "invite_friends": "Crea la tua rete",
+          "explore_features": "Scopri cosa offriamo"
+        }
+      },
+      "long_description": {
+        "title": "Procedura guidata di configurazione account",
+        "steps": {
+          "create_account": "Crea il tuo account",
+          "verify_email": "Verifica la tua e-mail",
+          "set_up_security": "Imposta la sicurezza",
+          "complete_profile": "Completa il tuo profilo",
+          "start_using_app": "Inizia a usare l'app"
+        },
+        "subtitles": {
+          "create_account": "Registrati con e-mail o social media",
+          "verify_email": "Fai clic sul link nell'e-mail di verifica che ti abbiamo inviato",
+          "set_up_security": "Configura l'autenticazione a due fattori per maggiore sicurezza",
+          "complete_profile": "Aggiungi foto e informazioni personali al tuo profilo",
+          "start_using_app": "Sei pronto a esplorare tutte le funzionalita"
+        }
+      },
+      "multi_step": {
+        "title": "Timeline del progetto",
+        "phase": "Fase {number}",
+        "phase_description": "Descrizione del passo {number}",
+        "progress": "Avanzamento: passo {current} di {total}"
+      },
+      "error_state": {
+        "title": "Stato della domanda",
+        "note_title": "Nota bene",
+        "note_content": "La tua domanda e in attesa di revisione. Verrai avvisato una volta presa una decisione.",
+        "steps": {
+          "submit_application": "Invia domanda",
+          "review": "Revisione",
+          "approved": "Approvato"
+        },
+        "subtitles": {
+          "submit_application": "Domanda inviata",
+          "review": "Attualmente in revisione",
+          "approved": "In attesa di approvazione"
+        }
+      }
+    },
+    "datatable": {
+      "headers": {
+        "id": "ID",
+        "name": "Nome",
+        "email": "E-mail",
+        "role": "Ruolo",
+        "status": "Stato"
+      },
+      "roles": {
+        "admin": "Admin",
+        "user": "Utente",
+        "editor": "Editor",
+        "viewer": "Visualizzatore"
+      },
+      "status": {
+        "active": "Attivo",
+        "inactive": "Inattivo"
+      },
+      "sortable_hint": "Fai clic sulle intestazioni delle colonne per ordinare"
+    },
+    "drawer": {
+      "main_content_title": "Contenuto principale",
+      "actions": {
+        "open": "Apri drawer",
+        "close": "Chiudi"
+      },
+      "left": {
+        "title": "Drawer sinistro",
+        "description": "Questo e un drawer posizionato sul lato sinistro.",
+        "open_description": "Fai clic sul pulsante per riaprire il drawer."
+      },
+      "right": {
+        "title": "Drawer destro",
+        "description": "Questo e un drawer posizionato sul lato destro.",
+        "open_description": "Fai clic sul pulsante per aprire il drawer."
+      },
+      "top": {
+        "title": "Drawer superiore",
+        "description": "Questo e un drawer posizionato in alto.",
+        "open_description": "Fai clic sul pulsante per aprire il drawer."
+      },
+      "bottom": {
+        "title": "Drawer inferiore",
+        "description": "Questo e un drawer posizionato in basso.",
+        "open_description": "Fai clic sul pulsante per aprire il drawer."
+      },
+      "responsive": {
+        "title": "Drawer responsive",
+        "description": "Questo drawer si chiudera automaticamente su schermi inferiori a 768 px.",
+        "open_description": "Ridimensiona la finestra per vedere il comportamento mobile."
+      }
+    },
+    "filters": {
+      "actions": {
+        "apply": "Applica",
+        "reset": "Reimposta"
+      },
+      "default": {
+        "title": "Filtro intervallo date predefinito"
+      },
+      "with_actions": {
+        "title": "Filtro intervallo date con azioni"
+      },
+      "month_to_date": {
+        "title": "Mese corrente"
+      },
+      "year_to_date": {
+        "title": "Anno corrente"
+      },
+      "last_90_days": {
+        "title": "Ultimi 90 giorni"
+      },
+      "state": {
+        "title": "Stato corrente",
+        "date_filter": "Filtro data",
+        "date_range": "Intervallo date",
+        "activator": "Attivatore",
+        "not_set": "Non impostato"
+      }
+    },
+    "menu": {
+      "basic": {
+        "title": "Menu di navigazione"
+      },
+      "custom_header": {
+        "title": "Menu personalizzato",
+        "version": "Versione 2.1.0"
+      },
+      "with_footer": {
+        "title": "Menu con footer",
+        "add_new": "Aggiungi nuovo elemento"
+      },
+      "compact": {
+        "title": "Menu compatto",
+        "items": {
+          "home": "Home",
+          "about": "Informazioni",
+          "contact": "Contatto"
+        }
+      },
+      "items": {
+        "dashboard": "Dashboard",
+        "users": "Utenti",
+        "settings": "Impostazioni",
+        "reports": "Report"
+      },
+      "selected": {
+        "title": "Elemento selezionato",
+        "id": "ID elemento",
+        "index": "Indice elemento",
+        "empty": "Nessun elemento selezionato"
+      }
+    },
+    "steps": {
+      "actions": {
+        "back": "Indietro",
+        "next": "Avanti",
+        "complete": "Completa"
+      },
+      "basic": {
+        "step1": {
+          "name": "Account",
+          "title": "Crea account",
+          "description": "Configura i dettagli del tuo account."
+        },
+        "step2": {
+          "name": "Profilo",
+          "title": "Completa il profilo",
+          "description": "Aggiungi le informazioni del tuo profilo."
+        },
+        "step3": {
+          "name": "Conferma",
+          "title": "Conferma dettagli",
+          "description": "Controlla e conferma le tue informazioni."
+        }
+      },
+      "with_navigation": {
+        "current_step": "Passo corrente: {step}",
+        "overview": {
+          "name": "Panoramica",
+          "title": "Panoramica del progetto",
+          "description": "Inizia esaminando l'ambito e gli obiettivi del progetto."
+        },
+        "details": {
+          "name": "Dettagli",
+          "title": "Dettagli del progetto",
+          "description": "Inserisci i dettagli e i requisiti importanti del progetto."
+        },
+        "review": {
+          "name": "Revisione",
+          "title": "Rivedi informazioni",
+          "description": "Controlla tutti i dati del progetto prima dell'invio."
+        },
+        "submit": {
+          "name": "Invia",
+          "title": "Invia progetto",
+          "description": "Invia il progetto per l'approvazione finale."
+        }
+      },
+      "with_icons": {
+        "actions": {
+          "checkout": "Vai al checkout",
+          "payment": "Continua al pagamento",
+          "place_order": "Effettua ordine"
+        },
+        "cart": {
+          "name": "Carrello",
+          "title": "Carrello acquisti",
+          "description": "Rivedi gli articoli presenti nel carrello."
+        },
+        "shipping": {
+          "name": "Spedizione",
+          "title": "Dettagli spedizione",
+          "description": "Scegli indirizzo di spedizione e opzioni di consegna."
+        },
+        "payment": {
+          "name": "Pagamento",
+          "title": "Metodo di pagamento",
+          "description": "Inserisci i dati di pagamento per completare l'ordine."
+        }
+      },
+      "with_progress": {
+        "started": {
+          "name": "Avviato",
+          "title": "Attivita avviata"
+        },
+        "in_progress": {
+          "name": "In corso",
+          "title": "Attivita in corso",
+          "percent_complete": "75% completato",
+          "mark_complete": "Segna come completato"
+        },
+        "completed": {
+          "name": "Completato",
+          "title": "Attivita completata",
+          "message": "Tutti i passaggi sono stati completati con successo."
+        }
+      }
+    },
+    "tabs": {
+      "basic": {
+        "tab1": {
+          "name": "Panoramica",
+          "title": "Scheda panoramica",
+          "description": "Questa scheda contiene una panoramica del contenuto."
+        },
+        "tab2": {
+          "name": "Dettagli",
+          "title": "Scheda dettagli",
+          "description": "Questa scheda contiene informazioni dettagliate."
+        },
+        "tab3": {
+          "name": "Impostazioni",
+          "title": "Scheda impostazioni",
+          "description": "Questa scheda contiene le opzioni di configurazione."
+        }
+      },
+      "with_icons": {
+        "home": {
+          "name": "Home",
+          "title": "Sezione home",
+          "description": "Benvenuto nella sezione home."
+        },
+        "profile": {
+          "name": "Profilo",
+          "title": "Sezione profilo",
+          "description": "Gestisci qui le informazioni del tuo profilo."
+        },
+        "settings": {
+          "name": "Impostazioni",
+          "title": "Sezione impostazioni",
+          "description": "Modifica qui preferenze e opzioni."
+        }
+      },
+      "disabled": {
+        "enabled1": {
+          "name": "Scheda attiva 1",
+          "title": "Prima scheda attiva",
+          "description": "Questa scheda e disponibile e interattiva."
+        },
+        "disabled": {
+          "name": "Scheda disabilitata",
+          "title": "Scheda disabilitata",
+          "description": "Questa scheda e disabilitata e non puo essere selezionata."
+        },
+        "enabled2": {
+          "name": "Scheda attiva 2",
+          "title": "Seconda scheda attiva",
+          "description": "Questa e un'altra scheda disponibile."
+        }
+      },
+      "many_tabs": {
+        "tab_name": "Scheda {number}",
+        "content_title": "Contenuto per {name}",
+        "content_description": "Questa e l'area di contenuto per {name}."
+      },
+      "read_only": {
+        "tab1": {
+          "name": "Sola lettura 1",
+          "title": "Scheda sola lettura 1",
+          "description": "Questa scheda e mostrata in modalita sola lettura."
+        },
+        "tab2": {
+          "name": "Sola lettura 2",
+          "title": "Scheda sola lettura 2",
+          "description": "Questa e un'altra scheda in sola lettura."
+        }
+      }
+    },
+    "theme": {
+      "subtitle": "Palette colori predefinita e tipografia per i componenti Cresh UI",
+      "sections": {
+        "primary_colors": "Colori principali",
+        "status_colors": "Colori di stato",
+        "neutral_colors": "Colori neutri",
+        "typography": "Tipografia",
+        "heading_styles": "Stili dei titoli",
+        "body_text": "Testo principale",
+        "guidelines": "Linee guida d'uso"
+      },
+      "colors": {
+        "primary": "Primario",
+        "secondary": "Secondario",
+        "tertiary": "Terziario",
+        "success": "Successo",
+        "error": "Errore",
+        "warning": "Avviso",
+        "info": "Info",
+        "dark": "Scuro",
+        "text": "Testo",
+        "grey": "Grigio",
+        "light_grey": "Grigio chiaro",
+        "white": "Bianco",
+        "app_background": "Sfondo applicazione"
+      },
+      "typography": {
+        "heading_1": "H1: Titolo 1",
+        "heading_2": "H2: Titolo 2",
+        "heading_3": "H3: Titolo 3",
+        "heading_4": "H4: Titolo 4",
+        "body_regular": "Testo del paragrafo standard. Colore: --color-text (16px) | Questo e il testo principale predefinito usato in tutta l'applicazione.",
+        "body_small": "Testo piu piccolo. Colore: --color-text (14px) | Usato per informazioni secondarie e descrizioni.",
+        "body_supporting": "Testo di supporto. Colore: --color-grey (12px) | Usato per didascalie, etichette e contenuti supplementari."
+      },
+      "guidelines": {
+        "primary": "Colore primario (#400EC9) - Usalo per pulsanti di azione principali, link principali ed elementi UI importanti",
+        "secondary": "Colore secondario (#349CE7) - Usalo per azioni secondarie e per evidenziare informazioni specifiche",
+        "tertiary": "Terziario/Successo (#00ECCB) - Usalo per indicare stati di successo e azioni positive",
+        "error": "Colore errore (#FC5A5A) - Usalo per errori di validazione e azioni distruttive",
+        "warning": "Colore avviso (#fca25a) - Usalo per avvisi e alert importanti",
+        "info": "Colore informativo (#349CE7) - Usalo per messaggi informativi e tooltip",
+        "text": "Colore testo (#3D647C) - Usalo per il testo principale in tutta l'applicazione",
+        "contrast": "Rispetta il contrasto - Garantisci sempre un contrasto sufficiente tra testo e colori di sfondo"
+      }
+    }
+  }
+}

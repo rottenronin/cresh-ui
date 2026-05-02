@@ -1,5 +1,6 @@
 <template>
   <CInput
+    :id="phoneInputId"
     class="c-phone-input"
     :name="`${name}PhoneInput`"
     :model-value="state.phoneValue"
@@ -43,14 +44,10 @@ import {
 import baseProps from './base-control-props'
 import CInput from './CInput.vue'
 import i18nPlugin from '../../plugins/i18n.plugin'
+import { useFormControl } from '../../composables'
 
 const props = defineProps({
   ...baseProps,
-  // eslint-disable-next-line vue/require-default-prop
-  modelValue: {
-    type: String,
-    required: false,
-  },
   // phone number country
   countryCode: {
     type: String as PropType<CountryCode>,
@@ -75,12 +72,16 @@ const props = defineProps({
   },
 })
 
+const model = defineModel<string | undefined>()
+
+const { inputId: phoneInputId } = useFormControl(props, 'phone-input', model)
+
 const state = reactive({
   phoneValue: '',
   error: null as string | null,
 })
 
-const emit = defineEmits(['update:modelValue', 'blur'])
+const emit = defineEmits(['blur'])
 
 function handleValueChange(value: string, shouldParse = false) {
   const errorMessage = i18nPlugin.global.t('translate.validation_messages.phone_number_rule') as string
@@ -111,22 +112,23 @@ const hasError = computed(
   () => !!props.errorMessage || !!state.error,
 )
 
-function onPhoneValueChange(value: string) {
-  handleValueChange(value, !props.disableAsyncValidation)
+function onPhoneValueChange(value: string | number | undefined) {
+  const str = value == null ? '' : String(value)
+  handleValueChange(str, !props.disableAsyncValidation)
   nextTick(() => {
-    state.phoneValue = new AsYouType(props.countryCode).input(value) || ''
+    state.phoneValue = new AsYouType(props.countryCode).input(str) || ''
 
-    emit('update:modelValue', state.phoneValue)
+    model.value = state.phoneValue
   })
 }
 
 onMounted(() => {
-  if (props.modelValue) {
-    handleValueChange(props.modelValue)
+  if (model.value) {
+    handleValueChange(model.value)
   }
 })
 
-watch(() => props.modelValue, val => {
+watch(() => model.value, val => {
   if (state.phoneValue !== val) {
     handleValueChange(val || '')
   }

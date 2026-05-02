@@ -54,6 +54,7 @@ const iconsAndFilePaths = {
   'credit-card': () => import('./CreditCardIcon.vue'),
   cross: () => import('./CrossIcon.vue'),
   'cross-circle': () => import('./CrossCircleIcon.vue'),
+  home: () => import('./ShopIcon.vue'),
   download: () => import('./DownloadIcon.vue'),
   document: () => import('./DocumentIcon.vue'),
   'document-checked': () => import('./DocumentCheckedIcon.vue'),
@@ -74,6 +75,7 @@ const iconsAndFilePaths = {
   export: () => import('./ExportIcon.vue'),
   eye: () => import('./EyeIcon.vue'),
   gear: () => import('./GearIcon.vue'),
+  settings: () => import('./GearIcon.vue'),
   globe: () => import('./GlobeIcon.vue'),
   hat: () => import('./HatIcon.vue'),
   info: () => import('./InfoIcon.vue'),
@@ -97,6 +99,7 @@ const iconsAndFilePaths = {
   'shop-circle': () => import('./ShopCircleIcon.vue'),
   shop: () => import('./ShopIcon.vue'),
   'shopping-bag': () => import('./ShoppingBagIcon.vue'),
+  'shopping-cart': () => import('./ShoppingBagIcon.vue'),
   sort: () => import('./SortIcon.vue'),
   star: () => import('./StarIcon.vue'),
   'star-full': () => import('./StarFullIcon.vue'),
@@ -105,12 +108,14 @@ const iconsAndFilePaths = {
   time: () => import('./TimeIcon.vue'),
   timeline: () => import('./TimelineIcon.vue'),
   transaction: () => import('./TransactionIcon.vue'),
+  truck: () => import('./DownloadIcon.vue'),
   triangle: () => import('./TriangleIcon.vue'),
   'triangle-down': () => import('./TriangleDownIcon.vue'),
   'triangle-left': () => import('./TriangleLeftIcon.vue'),
   'triangle-right': () => import('./TriangleRightIcon.vue'),
   'triangle-up': () => import('./TriangleUpIcon.vue'),
   users: () => import('./UsersIcon.vue'),
+  user: () => import('./ProfileIcon.vue'),
   waiting: () => import('./WaitingIcon.vue'),
   'wait-up': () => import('./WaitUpIcon.vue'),
   write: () => import('./WriteIcon.vue'),
@@ -123,13 +128,15 @@ const iconsAndFilePaths = {
 
 onBeforeMount(() => {
   if (!props.name) {
-    throw new Error(`icon ${props.name} not exists`)
+    console.warn('[CIcon] Icon name is not provided')
+    return
   }
   const item = Object.entries(iconsAndFilePaths).find(
     ([key]) => key === props.name,
   )
   if (!item) {
-    throw new Error(`icon ${props.name} not exists`)
+    console.warn(`[CIcon] Icon "${props.name}" not found in icon registry`)
+    return
   }
   iconComponent.value = defineAsyncComponent(
     item[1] as () => Promise<Component>,
