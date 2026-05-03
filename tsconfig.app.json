@@ -1,13 +1,24 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "src/locales/fr.json", "src/locales/en.json", "index.d.ts"],
-  "exclude": ["src/**/__tests__/*", "src/helpers/vue-test-helper.ts", "**/*.cy.ts", "**/*.stories.ts"],
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "src/locales/fr.json",
+    "src/locales/en.json",
+    "index.d.ts"
+  ],
+  "exclude": [
+    "src/**/__tests__/*",
+    "src/helpers/vue-test-helper.ts",
+    "**/*.cy.ts",
+    "**/*.stories.ts"
+  ],
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
     "ignoreDeprecations": "6.0",
     "verbatimModuleSyntax": false,
-    "paths": {
-    }
+    "paths": {}
   }
 }
