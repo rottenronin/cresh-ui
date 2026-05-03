@@ -9,6 +9,7 @@
     "vitest.config.ts", 
     "src/@types/cy-component-testing.d.ts", 
     "**/*.cy.ts",
+    "**/*.stories.ts",
     "src/helpers/vue-test-helper.ts"
   ],
   "compilerOptions": {
