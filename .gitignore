@@ -15,6 +15,7 @@
 !.editorconfig
 !.eslintignore
 !.eslintrc.js
+!eslint.config.js
 !.gitattributes
 !.gitignore
 !.mocharc.js
