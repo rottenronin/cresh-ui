@@ -1,13 +1,13 @@
 {
   "extends": "./tsconfig.app.json",
   "exclude": [
-    "node_modules", 
-    "dist", 
-    "playground", 
-    "test", 
-    "tests", 
-    "vitest.config.ts", 
-    "src/@types/cy-component-testing.d.ts", 
+    "node_modules",
+    "dist",
+    "playground",
+    "test",
+    "tests",
+    "vitest.config.ts",
+    "src/@types/cy-component-testing.d.ts",
     "**/*.cy.ts",
     "**/*.stories.ts",
     "src/helpers/vue-test-helper.ts"
@@ -16,14 +16,13 @@
     "composite": true,
     "lib": ["DOM", "ES2021", "ES2024", "ESNext"],
     "target": "es2024",
-    "types": ["node", "jsdom"],
+    "types": ["node", "jsdom", "vite/client"],
     "skipLibCheck": true,
     "module": "esnext",
     "moduleResolution": "node",
     "ignoreDeprecations": "6.0",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "paths": {
-    }
+    "paths": {}
   }
 }

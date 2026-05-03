@@ -91,7 +91,7 @@
     "test:unit": "vitest --run",
     "test:component": "cypress run --component",
     "test": "run-s test:*",
-    "postbuild": "node scripts/postbuild.js",
+    "postbuild": "node scripts/postbuild.cjs",
     "release": "changeset version && changeset publish"
   },
   "peerDependencies": {
