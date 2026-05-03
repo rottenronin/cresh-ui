@@ -1,35 +1,35 @@
 <template>
   <div class="accordion-item">
     <div
-        class="header"
-        @click="openDrawer"
+      class="header"
+      @click="openDrawer"
     >
       <div class="wrapper-header">
         <div class="title">
           <slot name="title" />
         </div>
         <ChevronDownIcon
-            color="primary"
-            :class="{ 'icon-rotation' : visible }"
+          color="primary"
+          :class="{ 'icon-rotation' : visible }"
         />
       </div>
     </div>
 
     <transition
-        name="accordion"
-        @enter="start"
-        @after-enter="end"
-        @before-leave="start"
-        @after-leave="end"
+      name="accordion"
+      @enter="start"
+      @after-enter="end"
+      @before-leave="start"
+      @after-leave="end"
     >
       <div
-          class="content"
-          v-show="visible"
+        v-show="visible"
+        class="content"
       >
         <div class="wrapper-content">
           <div class="line" />
-            <slot name="content" />
-          </div>
+          <slot name="content" />
+        </div>
       </div>
     </transition>
   </div>
@@ -43,6 +43,7 @@ import {
   reactive,
   ref,
 } from 'vue'
+
 import ChevronDownIcon from '../icons/ChevronDownIcon.vue'
 import type { AccordionType } from '../../@types/cresh-ui'
 

@@ -88,6 +88,7 @@ import {
   ref,
   useSlots,
 } from 'vue'
+
 import CIcon from '../../icons/CIcon.vue'
 import ChevronRightIcon from '../../icons/ChevronRightIcon.vue'
 import ChevronDownIcon from '../../icons/ChevronDownIcon.vue'
@@ -125,13 +126,13 @@ const props = defineProps({
   collapsed: {
     type: Boolean,
     required: false,
-    // eslint-disable-next-line vue/no-boolean-default
+     
     default: true,
   },
   selectable: {
     type: Boolean,
     required: false,
-    // eslint-disable-next-line vue/no-boolean-default
+     
     default: true,
   },
 })

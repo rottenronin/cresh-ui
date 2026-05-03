@@ -1,9 +1,10 @@
-import CAlert from './CAlert.vue'
-
 import {
   $t,
   mountCyComponent,
 } from '../../helpers/vue-test-helper'
+
+import CAlert from './CAlert.vue'
+
 
 describe('<CAlert />', () => {
   context('renders', () => {

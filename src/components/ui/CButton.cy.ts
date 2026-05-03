@@ -2,11 +2,12 @@ import {
   CheckBookIcon,
   ExitIcon,
 } from '../icons'
-import CButton from './CButton.vue'
-
 import {
   mountCyComponent,
 } from '../../helpers/vue-test-helper'
+
+import CButton from './CButton.vue'
+
 
 describe('<CAlert />', () => {
   it('renders', () => {

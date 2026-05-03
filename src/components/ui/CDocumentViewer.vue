@@ -1,37 +1,37 @@
 <template>
-<CModal
-  class="c-document-viewer"
-  persistent
-  no-footer
-  :model-value="model"
-  @cancel="onModalClose"
->
-  <div class="headline">
-    <template v-if="hasLabelSlot">
-      <slot name="label" />
-    </template>
-    <template v-else>
-      <span class="document-label">
-        {{ document.label }}
-      </span>
-    </template>
-    <template v-if="hasHeaderActionsSlot">
-      <div class="header-actions">
-        <slot name="header-actions" />
-      </div>
-    </template>
-  </div>
-
-  <div
-    class="content"
+  <CModal
+    class="c-document-viewer"
+    persistent
+    no-footer
+    :model-value="model"
+    @cancel="onModalClose"
   >
+    <div class="headline">
+      <template v-if="hasLabelSlot">
+        <slot name="label" />
+      </template>
+      <template v-else>
+        <span class="document-label">
+          {{ document.label }}
+        </span>
+      </template>
+      <template v-if="hasHeaderActionsSlot">
+        <div class="header-actions">
+          <slot name="header-actions" />
+        </div>
+      </template>
+    </div>
+
     <div
-      class="navigation-btns"
-      v-if="!hideArrows"
+      class="content"
+    >
+      <div
+        v-if="!hideArrows"
+        class="navigation-btns"
       >
         <button
-          class="left-file-nav"
           v-show="!hideLeftArrow"
+          class="left-file-nav"
           type="button"
           :aria-label="prevAriaLabel"
           @click.prevent.stop="onPrevDocument"
@@ -43,8 +43,8 @@
         </button>
         <div class="c-spacer" />
         <button
-          class="right-file-nav"
           v-show="!hideRightArrow"
+          class="right-file-nav"
           type="button"
           :aria-label="nextAriaLabel"
           @click.prevent.stop="onNextDocument"
@@ -54,43 +54,43 @@
             color="white"
           />
         </button>
-    </div>
-    <template v-if="hasPreviewSlot">
-      <slot name="preview" />
-    </template>
+      </div>
+      <template v-if="hasPreviewSlot">
+        <slot name="preview" />
+      </template>
       <div
-        class="preview"
-        ref="previewRef"
         v-else
+        ref="previewRef"
+        class="preview"
       >
-      <div class="object-wrapper">
-        <object
-          :type="document.extension !== 'pdf'
-            ? 'image/png'
-            : 'application/pdf'"
-          :key="document.link"
-          :data="document.link"
-          :height="state.ObjectHeight"
-          :width="state.objectWidth"
-        >
-          <div
-            class="invalid-message-wrapper"
+        <div class="object-wrapper">
+          <object
+            :key="document.link"
+            :type="document.extension !== 'pdf'
+              ? 'image/png'
+              : 'application/pdf'"
+            :data="document.link"
+            :height="state.ObjectHeight"
+            :width="state.objectWidth"
           >
-            {{
-              i18n.global.t('translate.common.errors.invalid_file_error')
-            }}
-          </div>
-        </object>
+            <div
+              class="invalid-message-wrapper"
+            >
+              {{
+                i18n.global.t('translate.common.errors.invalid_file_error')
+              }}
+            </div>
+          </object>
+        </div>
+      </div>
+
+      <div class="footer">
+        <template v-if="hasFooterSlot">
+          <slot name="footer" />
+        </template>
       </div>
     </div>
-
-    <div class="footer">
-      <template v-if="hasFooterSlot">
-        <slot name="footer" />
-      </template>
-    </div>
-  </div>
-</CModal>
+  </CModal>
 </template>
 
 <script lang="ts" setup>
@@ -105,10 +105,10 @@ import {
 import { useI18n } from 'vue-i18n'
 
 import type { CDocumentItemType } from '../../@types/cresh-ui'
-
 import i18n from '../../plugins/i18n.plugin'
-import CModal from './CModal.vue'
 import CIcon from '../icons/CIcon.vue'
+
+import CModal from './CModal.vue'
 
 const props = defineProps({
   allowRefresh: {

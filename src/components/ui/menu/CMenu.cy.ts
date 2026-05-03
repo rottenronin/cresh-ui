@@ -1,4 +1,5 @@
 import { mountCyComponent } from '../../../helpers/vue-test-helper'
+
 import CMenu from './CMenu.vue'
 import CMenuItem from './CMenuItem.vue'
 

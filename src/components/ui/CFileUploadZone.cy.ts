@@ -1,6 +1,8 @@
 import cypress from 'cypress'
+
 import { mountCyComponent } from '../../helpers/vue-test-helper'
 import i18nPlugin from '../../plugins/i18n.plugin'
+
 import CFileUploadZone from './CFileUploadZone.vue'
 
 describe('<CFileUploadZone />', () => {

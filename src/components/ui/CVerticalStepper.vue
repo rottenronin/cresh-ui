@@ -31,6 +31,7 @@
 
 <script lang="ts" setup>
 import { PropType } from 'vue'
+
 import { Step } from '../../@types/cresh-ui'
 
 const props = defineProps({
@@ -41,7 +42,7 @@ const props = defineProps({
   selectable: {
     type: Boolean,
     required: false,
-    // eslint-disable-next-line vue/no-boolean-default
+     
     default: true,
   },
   selectedIndex: {

@@ -1,47 +1,47 @@
 <template>
   <CreshBaseIcon
-      :name="'money-hand-icon'"
-      :width="width"
-      :height="height"
-      :outlined="outlined"
-      view-box="0 0 20 20"
-      :color="color"
-      :rotate="rotate"
-      :alt="alt"
+    :name="'money-hand-icon'"
+    :width="width"
+    :height="height"
+    :outlined="outlined"
+    view-box="0 0 20 20"
+    :color="color"
+    :rotate="rotate"
+    :alt="alt"
   >
     <g
-        fill="none"
-        fill-rule="evenodd"
+      fill="none"
+      fill-rule="evenodd"
     >
       <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          :d="path1"
-          :fill="color"
-          :class="{
-            'color-path': true,
-            [color]: true,
-          }"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        :d="path1"
+        :fill="color"
+        :class="{
+          'color-path': true,
+          [color]: true,
+        }"
       />
       <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          :d="path2"
-          :fill="color"
-          :class="{
-            'color-path': true,
-            [color]: true,
-          }"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        :d="path2"
+        :fill="color"
+        :class="{
+          'color-path': true,
+          [color]: true,
+        }"
       />
       <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          :d="path3"
-          :fill="color"
-          :class="{
-            'color-path': true,
-            [color]: true,
-          }"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        :d="path3"
+        :fill="color"
+        :class="{
+          'color-path': true,
+          [color]: true,
+        }"
       />
     </g>
   </CreshBaseIcon>

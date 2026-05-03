@@ -1,5 +1,5 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
+ 
+ 
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default function deepCopy<T>(source: T): T {

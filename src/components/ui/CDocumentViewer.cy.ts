@@ -1,9 +1,11 @@
 import { faker } from '@faker-js/faker/locale/fr'
-import CDocumentViewer from './CDocumentViewer.vue'
 
 import {
   mountCyComponent,
 } from '../../helpers/vue-test-helper'
+
+import CDocumentViewer from './CDocumentViewer.vue'
+
 
 describe('<CDocumentViewer />', () => {
   it('renders', () => {

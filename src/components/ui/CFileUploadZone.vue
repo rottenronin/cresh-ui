@@ -14,9 +14,9 @@
     @dragleave.prevent.stop="onDragleave"
   >
     <div
-        class="progression-bar-wrapper"
-        v-if="state.isLoading"
-      >
+      v-if="state.isLoading"
+      class="progression-bar-wrapper"
+    >
       <CSpinner />
     </div>
 
@@ -33,8 +33,8 @@
         />
       </div>
       <div
-        class="filename c-mt-15"
         v-if="showFilename"
+        class="filename c-mt-15"
       >
         {{ state.currentFile?.name }}
       </div>
@@ -66,11 +66,11 @@ import {
 import { useI18n } from 'vue-i18n'
 
 import i18nPlugin from '../../plugins/i18n.plugin'
-
 import CIcon from '../icons/CIcon.vue'
+import { fileHelper } from '../../helpers'
+
 import CSpinner from './CSpinner.vue'
 import CErrorMessage from './CErrorMessage.vue'
-import { fileHelper } from '../../helpers'
 
 const cFileUploadZoneRef = ref<HTMLDivElement | null>(null)
 

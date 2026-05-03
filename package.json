@@ -82,7 +82,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/postbuild.js",
+    "build": "vite build && node scripts/postbuild.cjs",
     "preview": "vite preview --port 5050",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
@@ -109,7 +109,7 @@
   "devDependencies": {
     "@cypress/vite-dev-server": "^7.3.1",
     "@cypress/vue": "^6.0.3",
-    "@eslint/compat": "^1.4.1",
+    "@eslint/compat": "^2.0.5",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
     "@faker-js/faker": "^10.4.0",
@@ -131,9 +131,8 @@
     "@vue/tsconfig": "^0.9.1",
     "cypress": "^15.14.2",
     "eslint": "^10.2.1",
-    "eslint-config-materya": "^10.0.0",
     "eslint-import-resolver-typescript": "^3.10.1",
-    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-import-x": "^4.15.0",
     "eslint-plugin-storybook": "10.3.6",
     "eslint-plugin-vue": "^10.9.0",
     "globals": "^17.5.0",
@@ -152,6 +151,7 @@
     "vue-router": "^5.0.6",
     "vue-tsc": "^3.2.7"
   },
+  "type": "module",
   "homepage": "https://github.com/rottenronin/cresh-ui#readme",
   "directories": {
     "test": "tests"

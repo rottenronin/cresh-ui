@@ -11,7 +11,7 @@
       class="document-label-container"
     >
       <template
-      v-if="hasLabelSlot"
+        v-if="hasLabelSlot"
       >
         <slot name="label" />
       </template>
@@ -50,27 +50,27 @@
         >
           <CIcon
             v-if="action === 'read'"
+            v-tooltip="i18nPlugin.global.t('translate.document.read')"
             name="eye"
             :width="14"
             :height="14"
             color="#3D647C"
-            v-tooltip="i18nPlugin.global.t('translate.document.read')"
           />
           <CIcon
             v-else-if="action === 'validate'"
+            v-tooltip="i18nPlugin.global.t('translate.document.validate')"
             name="document-checked"
             :width="14"
             :height="14"
             color="#3D647C"
-            v-tooltip="i18nPlugin.global.t('translate.document.validate')"
           />
           <CIcon
             v-else
+            v-tooltip="actionTooltipTranslation(action)"
             :name="action"
             :width="14"
             :height="14"
             color="#3D647C"
-            v-tooltip="actionTooltipTranslation(action)"
           />
         </span>
       </template>
@@ -84,6 +84,7 @@ import {
   useSlots,
   computed,
 } from 'vue'
+
 import {
   CDocumentItemType,
 } from '../../@types/cresh-ui'
@@ -116,7 +117,7 @@ const props = defineProps({
   approved: {
     type: Boolean,
     required: false,
-    // eslint-disable-next-line vue/no-boolean-default
+     
     default: () => undefined,
     validator: value => typeof value === 'undefined'
       || typeof value === 'boolean',

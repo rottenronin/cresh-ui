@@ -15,8 +15,8 @@
       #error
     >
       <div
-        class="error error-message"
         v-if="hasError"
+        class="error error-message"
       >
         {{ props.errorMessage || state.error }}
       </div>
@@ -33,7 +33,6 @@ import {
   onMounted,
   watch,
 } from 'vue'
-
 import {
   AsYouType,
   CountryCode,
@@ -41,10 +40,11 @@ import {
   NumberType,
 } from 'libphonenumber-js'
 
-import baseProps from './base-control-props'
-import CInput from './CInput.vue'
 import i18nPlugin from '../../plugins/i18n.plugin'
 import { useFormControl } from '../../composables'
+
+import baseProps from './base-control-props'
+import CInput from './CInput.vue'
 
 const props = defineProps({
   ...baseProps,

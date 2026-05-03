@@ -19,8 +19,8 @@
       fill-rule="evenodd"
     >
       <g
-        transform="translate(2.000000, 2.000000)"
         id="Icon/Symbol/CheckCircle"
+        transform="translate(2.000000, 2.000000)"
       >
         <g id="Icon">
           <path

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
+
 import CSpinner from './CSpinner.vue'
 
 const meta = {

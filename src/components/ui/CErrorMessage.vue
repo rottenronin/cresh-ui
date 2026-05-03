@@ -49,6 +49,7 @@ import {
 } from 'vue'
 
 import i18n from '../../plugins/i18n.plugin'
+
 import CAlert from './CAlert.vue'
 
 const props = defineProps({

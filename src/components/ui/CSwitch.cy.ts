@@ -1,6 +1,7 @@
 /// <reference types="Cypress" /><
 
 import { mountCyComponent } from '../../helpers/vue-test-helper'
+
 import CSwitch from './CSwitch.vue'
 
 describe('<CSwitch />', () => {

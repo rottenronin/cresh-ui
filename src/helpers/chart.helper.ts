@@ -1,4 +1,5 @@
 import { ChartDateGroup } from '../@types/cresh-ui'
+
 import currencyConverter from './currency-converter'
 import { customTooltips } from './chart-tooltip.helper'
 
@@ -121,7 +122,7 @@ const formatChartLabels = (xLabels: string[], interval: string) => {
     groupDatesByDays(temps)
   }
   groupDatesByYears(temps)
-  // eslint-disable-next-line consistent-return
+   
   return temps.map(temp => temp.display)
 }
 

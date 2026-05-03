@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+
 import CAccordion from './CAccordion.vue'
 import CAccordionItem from './CAccordionItem.vue'
 

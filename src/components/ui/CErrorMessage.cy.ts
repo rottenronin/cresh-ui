@@ -1,10 +1,12 @@
 import { faker } from '@faker-js/faker/locale/fr'
-import CErrorMessage from './CErrorMessage.vue'
+
 
 import {
   mountCyComponent,
 } from '../../helpers/vue-test-helper'
 import i18nPlugin from '../../plugins/i18n.plugin'
+
+import CErrorMessage from './CErrorMessage.vue'
 
 describe('<CErrorMessage />', () => {
   it('renders', () => {

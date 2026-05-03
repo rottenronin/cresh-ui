@@ -1,4 +1,5 @@
 import type { App } from 'vue'
+
 import { BreakPoints } from '../@types'
 import { pubSubHelper } from '../helpers'
 

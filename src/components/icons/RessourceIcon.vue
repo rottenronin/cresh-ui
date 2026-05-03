@@ -1,42 +1,42 @@
 <template>
   <CreshBaseIcon
-      :name="'ressource-icon'"
-      :width="width"
-      :height="height"
-      :outlined="outlined"
-      view-box="0 0 34 34"
-      :color="color"
-      :rotate="rotate"
-      :alt="alt"
+    :name="'ressource-icon'"
+    :width="width"
+    :height="height"
+    :outlined="outlined"
+    view-box="0 0 34 34"
+    :color="color"
+    :rotate="rotate"
+    :alt="alt"
   >
     <g
-        transform="translate(1, 1)"
-        fill="none"
-        fill-rule="evenodd"
+      transform="translate(1, 1)"
+      fill="none"
+      fill-rule="evenodd"
     >
       <g
-          transform="translate(9, 10)"
+        transform="translate(9, 10)"
       >
         <path
-            :d="path1"
-            fill-rule="nonzero"
-            fill="none"
-            :stroke="color"
-            class="icon-path"
+          :d="path1"
+          fill-rule="nonzero"
+          fill="none"
+          :stroke="color"
+          class="icon-path"
         />
         <path
-            :d="path2"
-            :fill="color"
-            fill-rule="nonzero"
-            class="icon-path"
+          :d="path2"
+          :fill="color"
+          fill-rule="nonzero"
+          class="icon-path"
         />
       </g>
       <circle
-          cx="16"
-          cy="16"
-          r="16"
-          stroke-width="2"
-          :stroke="color"
+        cx="16"
+        cy="16"
+        r="16"
+        stroke-width="2"
+        :stroke="color"
       />
     </g>
   </CreshBaseIcon>

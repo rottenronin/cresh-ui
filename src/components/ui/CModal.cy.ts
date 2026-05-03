@@ -1,7 +1,9 @@
 /// <reference types="cypress" />
 
 import { defineComponent, h, ref } from 'vue'
+
 import { mountCyComponent } from '../../helpers/vue-test-helper'
+
 import CModal from './CModal.vue'
 
 describe('<CModal />', () => {

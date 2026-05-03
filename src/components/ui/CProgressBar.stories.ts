@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { useI18n } from 'vue-i18n'
+
 import CProgressBar from './CProgressBar.vue'
 
 const meta = {

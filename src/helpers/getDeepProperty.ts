@@ -5,7 +5,7 @@ export default function getDeepProperty(
   const prop = propstr.split('.')
   for (let i = 0; i < prop.length; i += 1) {
     if (typeof obj === 'object') {
-      // eslint-disable-next-line no-param-reassign
+       
       obj = obj[prop[i]] as { [key: string]: unknown }
     }
   }

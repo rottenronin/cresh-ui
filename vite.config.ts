@@ -1,5 +1,7 @@
 /// <reference types="vitest" />
 
+import * as path from 'path'
+
 import copy from 'rollup-plugin-copy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -7,7 +9,6 @@ import { defineConfig } from 'vite'
 // @ts-expect-error vite-plugin-dts 5 ships an `export =` namespace that TS sees
 // as having no default, but Vite's ESM interop loads it correctly at runtime.
 import dts from 'vite-plugin-dts'
-import * as path from 'path'
 
 // const resolvePath = (str: string) => path.resolve(__dirname, str)
 

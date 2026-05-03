@@ -1,10 +1,10 @@
 <template>
   <CIcon
-      v-if="tab.props.icon"
-      :name="tab.props.icon"
-      :width="16"
-      :height="16"
-      :color="tab.props.disabled ? '#ababab' : 'secondary'"
+    v-if="tab.props.icon"
+    :name="tab.props.icon"
+    :width="16"
+    :height="16"
+    :color="tab.props.disabled ? '#ababab' : 'secondary'"
   />
   <span class="text">
     {{ tab.props.name }}
@@ -14,8 +14,10 @@
 <script setup lang="ts">
 
 import { onMounted } from 'vue'
-import CTab from './CTab.vue'
+
 import CIcon from '../../icons/CIcon.vue'
+
+import CTab from './CTab.vue'
 
 defineProps<{
   tab: typeof CTab

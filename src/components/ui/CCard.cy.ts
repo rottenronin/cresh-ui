@@ -1,10 +1,11 @@
 import { faker } from '@faker-js/faker/locale/fr'
 
-import CCard from './CCard.vue'
-
 import {
   mountCyComponent,
 } from '../../helpers/vue-test-helper'
+
+import CCard from './CCard.vue'
+
 
 describe('<CCard />', () => {
   it('renders', () => {

@@ -4,12 +4,12 @@
     :class="{ 'is-disabled': isDisabled }"
   >
     <div
-      class="labels"
       v-if="isLabelMinVisible || isLabelMaxVisible"
+      class="labels"
     >
       <div
-        class="min"
         v-if="isLabelMinVisible"
+        class="min"
       >
         <slot name="min" />
       </div>
@@ -21,8 +21,8 @@
       </div>
 
       <div
-        class="max"
         v-if="isLabelMaxVisible"
+        class="max"
       >
         <slot name="max" />
       </div>
@@ -38,8 +38,8 @@
       class="slider-bar-container"
     >
       <datalist
-        id="markers"
         v-if="markers"
+        id="markers"
       >
         <template
           v-for="marker in markers"
@@ -51,14 +51,14 @@
         </template>
       </datalist>
       <input
+        v-model="changeEvent"
         class="slider-bar"
         type="range"
         :min="min"
         :max="max"
-        v-model="changeEvent"
-        @input="onChangeHandle"
         :disabled="isDisabled"
         list="markers"
+        @input="onChangeHandle"
       >
     </div>
   </div>

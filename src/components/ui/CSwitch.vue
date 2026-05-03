@@ -1,23 +1,23 @@
 <template>
   <label class="c-switch">
     <input
-        class="input"
-        type="checkbox"
-        role="switch"
-        :checked="model"
-        :disabled="disabled"
-        :name="name"
-        :aria-label="!label ? ariaLabel : undefined"
-        @change="onSwitchChange"
+      class="input"
+      type="checkbox"
+      role="switch"
+      :checked="model"
+      :disabled="disabled"
+      :name="name"
+      :aria-label="!label ? ariaLabel : undefined"
+      @change="onSwitchChange"
     >
     <span
-class="switch"
-aria-hidden="true"
-/>
+      class="switch"
+      aria-hidden="true"
+    />
     <span
-v-if="label"
-class="label"
->{{ label }}</span>
+      v-if="label"
+      class="label"
+    >{{ label }}</span>
   </label>
 </template>
 

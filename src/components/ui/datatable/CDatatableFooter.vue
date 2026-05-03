@@ -63,12 +63,11 @@
 import {
   computed,
 } from 'vue'
+
 import type {
   Pagination,
 } from '../../../@types'
-
 import i18n from '../../../plugins/i18n.plugin'
-
 import CSelect from '../../form-controls/CSelect.vue'
 import CButton from '../CButton.vue'
 import {

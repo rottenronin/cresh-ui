@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { useI18n } from 'vue-i18n'
+
 import CEmpty from './CEmpty.vue'
 
 const meta = {

@@ -7,83 +7,83 @@
       v-if="model"
       class="c-modal-wrapper"
     >
-    <div
-      class="mask"
-      @click.prevent.stop="onClickOutside"
-    />
-    <div
-      ref="modalRef"
-      class="c-modal"
-      role="dialog"
-      aria-modal="true"
-      :aria-labelledby="dialogLabelledBy"
-      :aria-label="dialogAriaLabel"
-      tabindex="-1"
-      :style="{
-        width: modalWidth,
-        height: modalHeight,
-      }"
-      :name="name"
-      @keydown="onKeydown"
-    >
-      <template v-if="hasHeaderSlot">
-        <div :id="titleId">
-          <slot name="header" />
-        </div>
-      </template>
-      <template v-else>
-        <div class="c-modal-header">
-          <h3
-            :id="titleId"
-            class="title"
-          >
-            {{ title }}
-          </h3>
-          <button
-            v-if="closable"
-            ref="closeButtonRef"
-            type="button"
-            class="close-btn"
-            :aria-label="cancelLabel"
-            @click.prevent.stop="onClose"
-            @mouseover="closeBtnColor = '#400EC9'"
-            @mouseleave="closeBtnColor = 'grey'"
-          >
-            <CrossIcon
-              :color="closeBtnColor"
-              :width="30"
-              :height="30"
-            />
-          </button>
-        </div>
-      </template>
-      <div class="content">
-        <slot />
-      </div>
-      <template v-if="!noFooter">
-        <template v-if="hasFooterSlot">
-          <slot name="footer" />
-        </template>
-        <template v-else>
-          <div class="c-modal-footer">
-            <CButton
-              class="cancel-btn"
-              color="default"
-              @click="onClose"
-            >
-              {{ cancelLabel }}
-            </CButton>
-            <CButton
-              color="primary"
-              class="ok-btn"
-              @click="onOk"
-            >
-              {{ okLabel }}
-            </CButton>
+      <div
+        class="mask"
+        @click.prevent.stop="onClickOutside"
+      />
+      <div
+        ref="modalRef"
+        class="c-modal"
+        role="dialog"
+        aria-modal="true"
+        :aria-labelledby="dialogLabelledBy"
+        :aria-label="dialogAriaLabel"
+        tabindex="-1"
+        :style="{
+          width: modalWidth,
+          height: modalHeight,
+        }"
+        :name="name"
+        @keydown="onKeydown"
+      >
+        <template v-if="hasHeaderSlot">
+          <div :id="titleId">
+            <slot name="header" />
           </div>
         </template>
-      </template>
-    </div>
+        <template v-else>
+          <div class="c-modal-header">
+            <h3
+              :id="titleId"
+              class="title"
+            >
+              {{ title }}
+            </h3>
+            <button
+              v-if="closable"
+              ref="closeButtonRef"
+              type="button"
+              class="close-btn"
+              :aria-label="cancelLabel"
+              @click.prevent.stop="onClose"
+              @mouseover="closeBtnColor = '#400EC9'"
+              @mouseleave="closeBtnColor = 'grey'"
+            >
+              <CrossIcon
+                :color="closeBtnColor"
+                :width="30"
+                :height="30"
+              />
+            </button>
+          </div>
+        </template>
+        <div class="content">
+          <slot />
+        </div>
+        <template v-if="!noFooter">
+          <template v-if="hasFooterSlot">
+            <slot name="footer" />
+          </template>
+          <template v-else>
+            <div class="c-modal-footer">
+              <CButton
+                class="cancel-btn"
+                color="default"
+                @click="onClose"
+              >
+                {{ cancelLabel }}
+              </CButton>
+              <CButton
+                color="primary"
+                class="ok-btn"
+                @click="onOk"
+              >
+                {{ okLabel }}
+              </CButton>
+            </div>
+          </template>
+        </template>
+      </div>
     </div>
   </Teleport>
 </template>
@@ -98,9 +98,11 @@ import {
   watch,
 } from 'vue'
 import { useI18n } from 'vue-i18n'
+
 import i18n from '../../plugins/i18n.plugin'
 import { uuidv4 } from '../../helpers'
 import CrossIcon from '../icons/CrossIcon.vue'
+
 import CButton from './CButton.vue'
 
 const props = defineProps({
@@ -122,7 +124,7 @@ const props = defineProps({
   closable: {
     type: Boolean,
     required: false,
-    // eslint-disable-next-line vue/no-boolean-default
+     
     default: true,
   },
   width: {
@@ -158,7 +160,7 @@ const props = defineProps({
   teleport: {
     type: Boolean,
     required: false,
-    // eslint-disable-next-line vue/no-boolean-default
+     
     default: true,
   },
   /**

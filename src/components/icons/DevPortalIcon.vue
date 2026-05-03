@@ -1,32 +1,32 @@
 <template>
   <CreshBaseIcon
-      :name="'dev-portal-icon'"
-      :width="width"
-      :height="height"
-      :outlined="outlined"
-      view-box="0 0 20 20"
-      :color="color"
-      :rotate="rotate"
-      :alt="alt"
+    :name="'dev-portal-icon'"
+    :width="width"
+    :height="height"
+    :outlined="outlined"
+    view-box="0 0 20 20"
+    :color="color"
+    :rotate="rotate"
+    :alt="alt"
   >
     <g
-        fill="none"
-        fill-rule="evenodd"
-        transform="translate(2, 0)"
+      fill="none"
+      fill-rule="evenodd"
+      transform="translate(2, 0)"
     >
       <path
-          :d="path1"
-          :fill="color"
+        :d="path1"
+        :fill="color"
       />
       <path
-          :d="path2"
-          :fill="color"
+        :d="path2"
+        :fill="color"
       />
       <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          :d="path3"
-          :fill="color"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        :d="path3"
+        :fill="color"
       />
     </g>
   </CreshBaseIcon>

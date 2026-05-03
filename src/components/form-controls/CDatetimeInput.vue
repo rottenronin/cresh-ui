@@ -76,8 +76,9 @@ import {
   onBeforeMount,
 } from 'vue'
 
-import baseProps from './base-control-props'
 import { useFormControl } from '../../composables/useFormControl'
+
+import baseProps from './base-control-props'
 
 const props = defineProps({
   ...baseProps,

@@ -2,8 +2,8 @@
   <span class="tag">
     <span :class="`tag-item tag-${color || type}`">
       <span
-        class="info-icon"
         v-if="additionalInfo"
+        class="info-icon"
       >
         i
       </span>
@@ -30,6 +30,7 @@
 <script setup lang="ts">
 import { computed, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
+
 import i18n from '../../plugins/i18n.plugin'
 
 export type CTagType =

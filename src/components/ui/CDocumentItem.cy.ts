@@ -1,8 +1,9 @@
-import CDocumentItem from './CDocumentItem.vue'
-
 import {
   mountCyComponent,
 } from '../../helpers/vue-test-helper'
+
+import CDocumentItem from './CDocumentItem.vue'
+
 
 describe('<CDocumentItem />', () => {
   it('renders', () => {

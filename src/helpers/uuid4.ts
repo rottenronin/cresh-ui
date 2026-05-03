@@ -1,4 +1,4 @@
-/* eslint-disable no-bitwise, no-mixed-operators */
+ 
 
 export default function uuidv4 () {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {

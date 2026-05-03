@@ -15,7 +15,7 @@ export const useFetch = async ({
   pagination,
 }: {
   sortBy?: DatatableHeaderItem[]
-  // eslint-disable-next-line no-unused-vars
+   
   handler: (prams: Record<string, unknown>) => Promise<{
     data: unknown[]
     pagination: Pagination
@@ -64,7 +64,7 @@ export const usePaginate = async ({
   handler,
 }: {
   url: string
-  // eslint-disable-next-line no-unused-vars
+   
   handler: (url: string) => Promise<{
     data: unknown[]
     pagination: Pagination

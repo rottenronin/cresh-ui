@@ -1,4 +1,5 @@
 import { mountCyComponent } from '../../../helpers/vue-test-helper'
+
 import CTab from './CTab.vue'
 import CTabs from './CTabs.vue'
 

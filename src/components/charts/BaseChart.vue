@@ -1,8 +1,8 @@
 <template>
   <div class="chart-container">
     <canvas
-        class="c-canvas"
-        ref="canvasRef"
+      ref="canvasRef"
+      class="c-canvas"
     />
   </div>
 </template>

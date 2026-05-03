@@ -1,21 +1,21 @@
 <template>
   <div
-    class="c-tabs"
     id="tabs-container"
+    ref="tabRef"
+    class="c-tabs"
     :class="{
       readonly,
     }"
-    ref="tabRef"
   >
     <div
-        class="c-tabs-headers"
-        id="header"
-        ref="headerRef"
+      id="header"
+      ref="headerRef"
+      class="c-tabs-headers"
     >
       <div
+        v-if="state.isScrollable"
         class="scroll-left scroll-button"
         @click="scroll('left')"
-        v-if="state.isScrollable"
       >
         <CIcon
           name="triangle-left"
@@ -23,9 +23,9 @@
         />
       </div>
       <div
+        v-if="hasButton"
         :style="{ marginLeft: 0 }"
         class="c-tabs-header-btn tab-button"
-        v-if="hasButton"
         @click="handleButtonClick"
       >
         <CIcon
@@ -41,8 +41,9 @@
       <template
         v-for="(tab, index) in state.tabs"
         :key="`c-tab-${index}`"
-        >
+      >
         <div
+          v-if="!tab.props['hide']"
           class="c-tabs-header-btn"
           :class="{
             selected: state.selectedIdentifier === tab.props.identifier,
@@ -51,7 +52,6 @@
           @click="() => onTabSelect(
             tab.props.identifier
           )"
-          v-if="!tab.props['hide']"
         >
           <TabHeaderItem
             :tab="tab"
@@ -60,9 +60,9 @@
         </div>
       </template>
       <div
+        v-if="state.isScrollable"
         class="scroll-right scroll-button"
         @click="scroll('right')"
-        v-if="state.isScrollable"
       >
         <CIcon
           name="triangle-right"
@@ -89,10 +89,10 @@ import {
 } from 'vue'
 
 import CIcon from '../../icons/CIcon.vue'
+import type { CTabItem } from '../../../@types'
 
 import CTab from './CTab.vue'
 import TabHeaderItem from './TabHeaderItem.vue'
-import type { CTabItem } from '../../../@types'
 
 const state = reactive<{
   tabs: typeof CTab[]
@@ -173,7 +173,7 @@ const deepBuildTabs = (elems: unknown) => {
   if (elems && Array.isArray(elems)) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     elems.forEach((node: any) => {
-      // eslint-disable-next-line no-underscore-dangle
+       
       if (node.type === CTab || node.type.__name === 'CTab') {
         state.tabs.push(node)
 

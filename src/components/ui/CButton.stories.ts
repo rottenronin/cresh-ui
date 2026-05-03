@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
+
 import CButton from './CButton.vue'
 
 const meta = {

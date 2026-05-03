@@ -90,9 +90,9 @@ import {
 import {
   uuidv4,
 } from '../../../helpers'
+import CIcon from '../../icons/CIcon.vue'
 
 import CStep from './CStep.vue'
-import CIcon from '../../icons/CIcon.vue'
 
 type SelectedStep = {
   id: string
@@ -130,7 +130,7 @@ onMounted(() => {
   if (elems && Array.isArray(elems)) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     elems.forEach((node: any, i: number) => {
-      // eslint-disable-next-line no-underscore-dangle
+       
       if (node.type === CStep || node.type.__name === 'CStep') {
         state.steps.push(node)
 

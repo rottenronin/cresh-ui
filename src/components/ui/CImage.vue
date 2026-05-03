@@ -19,16 +19,16 @@
       :title="title"
       :loading="lazy ? 'lazy' : 'eager'"
       :srcset="srcset"
+      class="c-image__img"
       @error="onErrorHandle"
       @load="onImageLoad"
-      class="c-image__img"
     >
 
     <!-- Loading skeleton -->
     <div
-v-if="isLoading && lazy"
-class="c-image__skeleton"
-/>
+      v-if="isLoading && lazy"
+      class="c-image__skeleton"
+    />
 
     <!-- Fallback error icon -->
     <div
@@ -41,9 +41,9 @@ class="c-image__skeleton"
         name="landscape"
       />
       <span
-v-if="showErrorText"
-class="c-image__error-text"
->{{ errorText }}</span>
+        v-if="showErrorText"
+        class="c-image__error-text"
+      >{{ errorText }}</span>
     </div>
   </div>
 </template>
@@ -54,6 +54,7 @@ import {
   onMounted,
   ref,
 } from 'vue'
+
 import CIcon from '../icons/CIcon.vue'
 
 const props = defineProps({

@@ -1,8 +1,9 @@
-import CDropdown from './CDropdown.vue'
-
 import {
   mountCyComponent,
 } from '../../helpers/vue-test-helper'
+
+import CDropdown from './CDropdown.vue'
+
 
 const dropdownItems = [{
   value: 'animal1',

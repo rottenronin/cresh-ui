@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+
 import CDocumentViewer from './CDocumentViewer.vue'
 
 const meta = {

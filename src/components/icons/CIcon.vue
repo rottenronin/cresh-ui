@@ -21,6 +21,7 @@ import {
   onBeforeMount,
   shallowRef,
 } from 'vue'
+
 import baseIconProps from './base-icon-props'
 
 const props = defineProps({

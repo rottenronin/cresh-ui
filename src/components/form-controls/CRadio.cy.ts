@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 
 import { mountCyComponent } from '../../helpers/vue-test-helper'
+
 import CRadio from './CRadio.vue'
 
 describe('<CRadio />', () => {

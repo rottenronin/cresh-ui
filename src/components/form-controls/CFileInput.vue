@@ -9,8 +9,8 @@
         :placeholder="placeholder"
         :label="label"
         :bordered="bordered"
-        @click.prevent.stop="onFileInputTrigger"
         :class="state.error ? 'invalid' : ''"
+        @click.prevent.stop="onFileInputTrigger"
       >
         <template #prefix>
           <CIcon name="attachment" />
@@ -35,12 +35,12 @@
       </CInput>
     </div>
     <input
+      ref="inputRef"
       name="fileUploadInput"
       type="file"
       :accept="fileExtentions"
-      @change="onInputFileChange"
-      ref="inputRef"
       style="display:none;"
+      @change="onInputFileChange"
     >
   </div>
 </template>
@@ -53,16 +53,17 @@ import {
   computed,
   onMounted,
 } from 'vue'
-import CInput from './CInput.vue'
-import CIcon from '../icons/CIcon.vue'
 
-import baseProps from './base-control-props'
+import CIcon from '../icons/CIcon.vue'
 import {
   CErrorMessage,
   CProgressBar,
 } from '../ui'
 import i18nPlugin from '../../plugins/i18n.plugin'
 import { fileHelper } from '../../helpers'
+
+import baseProps from './base-control-props'
+import CInput from './CInput.vue'
 
 const inputRef = ref<HTMLInputElement | null>(null)
 

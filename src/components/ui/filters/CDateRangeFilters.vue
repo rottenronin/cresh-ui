@@ -6,10 +6,9 @@
     >
       <div class="left-content">
         <CDropdown
+          v-slot="{ selectedItem }"
           v-model="state.dateFiltersDropdownVisible"
           :items="dateFilters"
-          v-slot="{ selectedItem }"
-          @select="onDateFilterSelect"
           class="date-filter"
           :class="{
             active: state.activator === 'date-filter'
@@ -18,6 +17,7 @@
             ? getDateFilterKeyValue(state.dateFilter)
             : undefined
           "
+          @select="onDateFilterSelect"
         >
           <div v-if="selectedItem">
             {{ selectedItem.key }}
@@ -25,7 +25,6 @@
         </CDropdown>
         <Datepicker
           :model-value="state.dateRange"
-          @update:model-value="onDateRangeUpdate"
           hide-input-icon
           range
           multi-calendars
@@ -34,17 +33,18 @@
           :enable-time-picker="false"
           :locale="datepickerLocale"
           :format="formatDatePicker || ''"
-          @open="onDatePickerOpen"
-          @cleared="onDateFilterSelect({
-            value: 'today',
-            key: 'today',
-          })"
           :max-date="new Date()"
           auto-apply
           :class="{
             'date-range-filter': true,
             'active': state.activator === 'date-range'
           }"
+          @update:model-value="onDateRangeUpdate"
+          @open="onDatePickerOpen"
+          @cleared="onDateFilterSelect({
+            value: 'today',
+            key: 'today',
+          })"
         >
           <template #clear-icon="{ clear }">
             <CIcon
@@ -85,7 +85,6 @@ import type {
 import CCard from '../CCard.vue'
 import CDropdown from '../CDropdown.vue'
 import CIcon from '../../icons/CIcon.vue'
-
 import { dateHelper } from '../../../helpers'
 import i18n from '../../../plugins/i18n.plugin'
 
@@ -171,7 +170,7 @@ function dateFilterSelect (dateFilter: DateRangeFilterType) {
     ]
   }
 
-  // eslint-disable-next-line default-case
+   
   switch (dateFilter) {
     case 'today':
       formatDateRange(dateNow, dateNow)

@@ -81,9 +81,9 @@
         </template>
       </select>
       <transition
-name="select-arrow"
-mode="out-in"
->
+        name="select-arrow"
+        mode="out-in"
+      >
         <ChevronUpIcon
           v-if="isOpen"
           key="chevron-up"
@@ -136,10 +136,10 @@ import {
 
 import ChevronDownIcon from '../icons/ChevronDownIcon.vue'
 import ChevronUpIcon from '../icons/ChevronUpIcon.vue'
-
-import baseProps from './base-control-props'
 import { useFormControl } from '../../composables/useFormControl'
 import type { CSelectOption } from '../../@types'
+
+import baseProps from './base-control-props'
 
 const props = defineProps({
   ...baseProps,

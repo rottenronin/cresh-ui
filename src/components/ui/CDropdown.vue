@@ -98,8 +98,8 @@
       <template v-if="hasContentSlot">
         <div
           v-show="model"
-          ref="dropdownRef"
           :id="listId"
+          ref="dropdownRef"
           class="dropdown-list"
           role="menu"
         >
@@ -142,7 +142,7 @@ const props = defineProps({
   showIcon: {
     type: Boolean,
     required: false,
-    // eslint-disable-next-line vue/no-boolean-default
+     
     default: () => true,
   },
   preSelectedItem: {

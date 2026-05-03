@@ -100,7 +100,6 @@ import type {
 
 import CDatatableHeader from './CDatatableHeader.vue'
 import CDatatableLoadingBar from './CDatatableLoadingBar.vue'
-
 import cDatatableSortBy from './c-datatable-sortby'
 import CDatatableEmptyData from './CDatatableEmptyData.vue'
 import CDatatableFooter from './CDatatableFooter.vue'

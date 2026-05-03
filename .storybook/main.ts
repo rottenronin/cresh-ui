@@ -1,6 +1,7 @@
-import type { StorybookConfig } from '@storybook/vue3-vite'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+
+import type { StorybookConfig } from '@storybook/vue3-vite'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 

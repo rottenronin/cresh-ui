@@ -2,6 +2,7 @@
 
 import { mountCyComponent } from '../../helpers/vue-test-helper'
 import CIcon from '../icons/CIcon.vue'
+
 import CImage from './CImage.vue'
 
 describe('<CImage />', () => {

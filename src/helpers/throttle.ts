@@ -1,10 +1,10 @@
-/* eslint-disable no-unused-vars */
+ 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 export const throttle = (func: any, limit: number): any => {
   let inThrottle: boolean
 
-  // eslint-disable-next-line func-names
+   
   return function (this: any): any {
     // eslint-disable-next-line prefer-rest-params
     const args = arguments
@@ -14,7 +14,7 @@ export const throttle = (func: any, limit: number): any => {
     if (!inThrottle) {
       inThrottle = true
       func.apply(context, args)
-      // eslint-disable-next-line no-return-assign
+       
       setTimeout(() => (inThrottle = false), limit)
     }
   }

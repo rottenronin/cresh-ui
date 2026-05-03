@@ -26,6 +26,7 @@
 
 <script lang="ts" setup>
 import { useSlots, PropType } from 'vue'
+
 import type {
   DatatableHeaderItem,
 } from '../../../@types'

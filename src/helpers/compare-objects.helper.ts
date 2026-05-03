@@ -1,6 +1,6 @@
-/* eslint-disable no-restricted-syntax */
+ 
 /* eslint-disable no-prototype-builtins */
-/* eslint-disable no-continue */
+ 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 function deepEquals(x: any, y: any): boolean {
