@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.1](https://github.com/rottenronin/cresh-ui/compare/v6.1.0...v6.1.1) (2026-05-03)
+
+### Bug Fixes
+
+- **cicd:** fix GitHub Actions workflow (add `NODE_AUTH_TOKEN`, `--access public`, artifact reuse)
+- **eslint:** migrate to flat config (`eslint.config.js`), remove `eslint-config-materya` incompatible with eslint v10
+- **eslint:** replace `eslint-plugin-import` with `eslint-plugin-import-x` (eslint v10 support)
+- **build:** rename `scripts/postbuild.js` → `postbuild.cjs`, add `"type": "module"` to package.json
+- remove hardcoded npm token from `.npmrc`
+
 ## [6.0.0](https://github.com/creshpay/cresh-ui/compare/v5.18.0...v6.0.0) (2026-04-30)
 
 ### ⚠ BREAKING CHANGES
