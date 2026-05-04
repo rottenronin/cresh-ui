@@ -1,17 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { useI18n } from 'vue-i18n'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import { useI18n } from "vue-i18n";
 
 const meta = {
-  title: 'Home',
+  title: "Home",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     order: 0,
+    controls: { hideNoControlsWarning: true },
+    actions: { disable: true },
   },
-  tags: ['!autodocs'],
-} satisfies Meta
+  tags: ["!autodocs"],
+} satisfies Meta;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Welcome: Story = {
   render: () => ({
@@ -37,12 +39,13 @@ export const Welcome: Story = {
           ">
           <!-- Logo -->
           <div style="
-            font-size: clamp(36px, 8vw, 48px);
-            font-weight: 700;
             margin-bottom: 20px;
-            letter-spacing: -1px;
           ">
-            🎨 Cresh UI
+            <img src="/cresh-logo.svg" alt="Cresh UI" style="
+              max-width: 200px;
+              width: 100%;
+              height: auto;
+            " />
           </div>
 
           <!-- Title -->
@@ -237,26 +240,15 @@ export const Welcome: Story = {
         </div>
         </div>
 
-        <style>
-          @keyframes slideDown {
-            from {
-              opacity: 0;
-              transform: translateY(-20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-        </style>
       </div>
     `,
     setup() {
-      const { t } = useI18n()
+      const { t } = useI18n();
       const goToGettingStarted = () => {
-        window.location.href = '?path=/story/getting-started--quick-start'
-      }
-      return { goToGettingStarted, t }
+        window.location.href =
+          "?path=/story/getting-started--QuickStart-start";
+      };
+      return { goToGettingStarted, t };
     },
   }),
-}
+};

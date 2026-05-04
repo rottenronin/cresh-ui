@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
-import { useI18n } from 'vue-i18n'
+import type { Meta, StoryObj } from "@storybook/vue3";
+import { useI18n } from "vue-i18n";
 
 const meta = {
-  title: 'Getting Started',
+  title: "Getting Started",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     order: 1,
   },
-  tags: ['!autodocs'],
-} satisfies Meta
+  tags: ["!autodocs"],
+} satisfies Meta;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const QuickStart: Story = {
   render: () => ({
@@ -191,7 +191,7 @@ export const QuickStart: Story = {
                 <div style="margin-left: 48px;">v-model="name"</div>
                 <div style="margin-left: 48px;">label="{{ t('translate.showcase.getting_started.usage.full_name') }}"</div>
                 <div style="margin-left: 48px;">placeholder="{{ t('translate.showcase.getting_started.usage.enter_name') }}"</div>
-                <div style="margin-left: 32px;"/&gt;</div>
+                <div style="margin-left: 32px;">/&gt;</div>
                 <div style="margin-left: 16px;">&lt;/div&gt;</div>
                 <div>&lt;/template&gt;</div>
               </div>
@@ -221,7 +221,7 @@ export const QuickStart: Story = {
                 <div style="margin-left: 32px;">v-model="selectedOption"</div>
                 <div style="margin-left: 32px;">:options="options"</div>
                 <div style="margin-left: 32px;">label="{{ t('translate.showcase.getting_started.usage.choose_one') }}"</div>
-                <div style="margin-left: 16px;"/&gt;</div>
+                <div style="margin-left: 16px;">/&gt;</div>
                 <div>&lt;/template&gt;</div>
               </div>
             </div>
@@ -281,7 +281,7 @@ export const QuickStart: Story = {
                 <div style="margin-left: 32px;">color="#00ECCB"</div>
                 <div style="margin-left: 32px;">:width="24"</div>
                 <div style="margin-left: 32px;">:height="24"</div>
-                <div style="margin-left: 16px;"/&gt;</div>
+                <div style="margin-left: 16px;">/&gt;</div>
                 <div>&lt;/template&gt;</div>
               </div>
             </div>
@@ -454,9 +454,9 @@ export const QuickStart: Story = {
       </div>
     `,
     setup() {
-      const { t } = useI18n()
+      const { t } = useI18n();
 
-      return { t }
+      return { t };
     },
   }),
-}
+};
