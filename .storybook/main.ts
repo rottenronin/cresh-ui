@@ -9,6 +9,11 @@ const config: StorybookConfig = {
   stories: ["../src/**/*.stories.@(ts|tsx|js|jsx)"],
   addons: ["@storybook/addon-links", "@storybook/addon-docs"],
 
+  ui: {
+    hideToolbar: true,
+    hideAddonPanel: true,
+  },
+
   framework: {
     name: "@storybook/vue3-vite",
     options: {

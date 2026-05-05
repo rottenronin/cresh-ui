@@ -4,7 +4,7 @@
   name="description"
   content="Cresh UI Storybook - Interactive documentation for Vue 3 components"
 />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
@@ -36,5 +36,10 @@
 
   .sb-heading {
     color: var(--color-text, #3d647c);
+  }
+
+  /* Hide settings button */
+  button[aria-label="Settings"] {
+    display: none !important;
   }
 </style>

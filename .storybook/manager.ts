@@ -1,6 +1,19 @@
-import { addons } from 'storybook/manager-api'
+import { addons } from "storybook/manager-api";
+import { create } from "storybook/theming";
 
-// Simple Storybook manager configuration
+const theme = create({
+  base: "light",
+  brandTitle: "Cresh UI",
+  brandImage: "/cresh-logo.svg",
+  brandTarget: "_self",
+});
+
 addons.setConfig({
-  panelPosition: 'bottom',
-})
+  theme: theme,
+  panelPosition: "bottom",
+  layoutCustomisations: {
+    showPanel: () => false,
+    showToolbar: () => false,
+  },
+  sidebar: {},
+});

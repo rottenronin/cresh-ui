@@ -5,7 +5,7 @@ const meta = {
   title: "Home",
   parameters: {
     layout: "fullscreen",
-    order: 0,
+    order: -1,
     controls: { hideNoControlsWarning: true },
     actions: { disable: true },
   },

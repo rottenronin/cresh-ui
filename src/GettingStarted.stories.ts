@@ -5,7 +5,7 @@ const meta = {
   title: "Getting Started",
   parameters: {
     layout: "fullscreen",
-    order: 1,
+    order: 0,
   },
   tags: ["!autodocs"],
 } satisfies Meta;
