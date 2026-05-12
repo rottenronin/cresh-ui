@@ -1,6 +1,6 @@
 {
   "name": "@long2x/cresh-ui",
-  "version": "6.1.4",
+  "version": "6.1.5",
   "description": "A Vue 3 UI library that contains a set of high quality components",
   "author": "long2x",
   "license": "MIT",
@@ -97,7 +97,7 @@
   "peerDependencies": {
     "vue": "^3.5.33",
     "vue-i18n": "^11.4.0",
-    "vue-router": "^5.0.6"
+    "vue-router": "^4.0.0 || ^5.0.0"
   },
   "dependencies": {
     "@vuepic/vue-datepicker": "^12.1.0",
